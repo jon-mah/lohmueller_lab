@@ -13,15 +13,19 @@ initialize()
   initializeMutationType('m1', 0.5, 'f', 0.0);
 
   // m2 mutation type: deleterious.
-  initializeMutationType('m2', 0.5, 'f', -100)
+  initializeMutationType('m2', 0.5, 'f', -0.1);
 
-  // g1 genomic element type: uses m1 for all mutations.
+  // g1 genomic element type: uses m1 for all mutations
   initializeGenomicElementType('g1', m1, 1.0);
 
-  // Uniform chromosome of length 100 kb.
-  initializeGenomicElement(g1, 0, 99999);
+  // g2 genomic element type: uses m2 for all mutations
+  initializeGenomicElementType('g2', m2, 1.0);
 
-  // Uniform recomination along the chromosome.
+  // Uniform chromosome of length 100 kb.
+  initializeGenomicElement(g1, 0, 49999);
+  initializeGenomicElement(g2, 50000, 99999);
+
+  // Uniform recombination along the chromosome.
   initializeRecombinationRate(1e-8);
   setSeed(1);
 }
@@ -35,7 +39,7 @@ initialize()
 // run to generation 10000
 10000
 {
-  p1.outputVCFSample(100, filePath = '../Data/pilot_neutral_sim/output_9.vcf');
+  p1.outputVCFSample(100, filePath = '../Data/pilot_two_type_sim/output_0.vcf');
   sim.simulationFinished();
   print('Simulation has ended.');
 }

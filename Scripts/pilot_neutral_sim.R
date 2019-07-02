@@ -29,8 +29,12 @@ vcf2sfs = function(vcf) {
   }
   
   class(vcf) = 'numeric'
-  sfs = rowSums(vcf)
-  sfs = table(sfs)
+  row_sfs = rowSums(vcf)
+  View(row_sfs)
+  sfs = table(row_sfs)
+  View(sfs)
+  print(class(sfs))
+  print(dim(sfs))
   barplot(sfs)
 }
 
