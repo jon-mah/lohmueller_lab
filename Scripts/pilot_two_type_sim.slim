@@ -11,13 +11,9 @@ initialize()
 
   // m1 mutation type: neutral.
   initializeMutationType('m1', 0.5, 'f', 0.0);
-  // First argument is id
-  // Second argument is "dominance" coeficient (0.5 is additive)
-  // Third argument is distribution that mutations fitness effects come from.
-  //   "f" stands for fixed.
-  // Since third argument is fixed, fourth argument is selection coefficient,
-  //   which is fixed for all values.
 
+  // m2 mutation type: deleterious.
+  initializeMutationType('m2', 0.5, 'f', -100)
 
   // g1 genomic element type: uses m1 for all mutations.
   initializeGenomicElementType('g1', m1, 1.0);

@@ -29,7 +29,7 @@ vcf2sfs = function(vcf) {
   }
   
   class(vcf) = 'numeric'
-  sfs = colSums(vcf)
+  sfs = rowSums(vcf)
   sfs = table(sfs)
   barplot(sfs)
 }
