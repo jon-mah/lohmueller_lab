@@ -48,7 +48,7 @@ create_sfs_from_vcf <- function(vcf_in_path, mutation_type_vector) {
     }
     class(vcf) = 'numeric'
     sfs_table <- as.data.frame(table(rowSums(vcf)))  # Count unique allele frequencies
-    derived_allele_frequency = as.numeric(sfs_table[, 'Var1'])
+    derived_allele_frequency = as.numeric(as.character(sfs_table[, 'Var1']))
     # Assert derived allele frequency does not exceed legal values.
     if (max(derived_allele_frequency, n=1) >= 2 * ncol(vcf)) {
       stop('The maximum derived allele frequency cannot exceed twice the number of individuals.')
@@ -69,7 +69,9 @@ create_sfs_from_vcf <- function(vcf_in_path, mutation_type_vector) {
   return(sfs_df)
 }
 
-sfs_df_1 = create_sfs_from_vcf('Data/pilot_neutral_sim/output_0.vcf', 1)
+setwd("C:/Users/jonat/Desktop/UCLA_BIG_SURP/lohmueller_lab")
+
+sfs_df_1 = create_sfs_from_vcf('Data/pilot_neutral_sim/output_9.vcf', 1)
 sfs_df_1
 
 sfs_df_2 = create_sfs_from_vcf('Data/pilot_two_type_sim/output_0.vcf', c(1, 2))

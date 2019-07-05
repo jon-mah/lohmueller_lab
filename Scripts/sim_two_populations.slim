@@ -1,0 +1,52 @@
+// Author: Jonathan Mah
+// Date: 20190703
+// Purpose: Run a simulation which produces two populations.
+
+// Set up simulation.
+initialize()
+{
+  // Set the overall mutation rate
+  initializeMutationRate(1e-7);
+
+  // m1 mutation type: neutral.
+  initializeMutationType('m1', 0.5, 'f', 0.0);
+
+  // g1 genomic element type: uses m1 for all mutations
+  initializeGenomicElementType('g1', m1, 1.0);
+
+  // Uniform chromosome of length 100 kb.
+  initializeGenomicElement(g1, 0, 99999);
+
+  // Uniform recombination along the chromosome.
+  initializeRecombinationRate(1e-8);
+  setSeed(1);
+}
+
+1
+{
+  sim.addSubpop('p1', 10000);
+}
+
+// "Burn in" simulation, i.e., run the simulation 12N generations so that
+// population reaches equilibrium
+10000
+{
+sim.addSubpopSplit('p2', 2000, p1);
+p1.setSubpopulationSize(asInteger(8000));
+}
+10001:11000
+{
+p1.setSubpopulationSize(asInteger(p1.individualCount + 12));
+p2.setSubpopulationSize(asInteger(p2.individualCount + 3));
+}
+
+// run to generation 11000
+11000
+{
+  p1.outputVCFSample(3, filePath = '../Data/sim_two_populations/seed_1_pop_1_divergence.vcf');
+  p2.outputVCFSample(2, filePath = '../Data/sim_two_populations/seed_1_pop_2_divergence.vcf');
+  // When running simulations, include other metadata in output file.
+  // e.g., In file name, include random seed.
+  sim.simulationFinished();
+  print('Simulation has ended.');
+}

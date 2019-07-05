@@ -36,6 +36,8 @@ initialize()
 10000
 {
   p1.outputVCFSample(100, filePath = '../Data/pilot_two_type_sim/output_0.vcf');
+  // When running simulations, include other metadata in output file.
+  // e.g., In file name, include random seed.
   sim.simulationFinished();
   print('Simulation has ended.');
 }
