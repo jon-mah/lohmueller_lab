@@ -10,3 +10,7 @@ Today we worked on `create_2d_sfs.R`, which takes in two `.vcf` files and return
         P_2 = individuals --> sample individuals from P_2
         Combine two samples into P_3 (or something)
         P_3.outputVCFsample()
+
+*  Get comfortable with installing/using things on hoffman2.
+*  Learn how to use fastsimcoal for demographic inference
+*  Get more comfortable with SLiM.
