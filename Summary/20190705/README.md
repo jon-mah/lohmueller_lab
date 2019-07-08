@@ -10,6 +10,7 @@ You can edit `.bashrc` by typing
 `nano .bashrc` --> opens up the nano text editor over `bashrc`.
 
 `module load python/anaconda3`
+
 `source activate your_env_name`.
 
 At this point, exit from `Hoffman2` and re-login.
