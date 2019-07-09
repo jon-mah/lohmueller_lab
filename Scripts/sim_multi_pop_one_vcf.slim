@@ -25,29 +25,35 @@ initialize()
 
 1
 {
+  // COMMENT FOR TESTS ---
   sim.addSubpop('p1', 10000);
+  // COMMENT FOR TESTS ---
+  // UNCOMMENT FOR TESTS ---
+  // sim.addSubpop('p1', 10000);
+  // sim.addSubpop('p2', 10000);
+  // UNCOMMENT FOR TESTS ---
 }
 
 // "Burn in" simulation, i.e., run the simulation 12N generations so that
 // population reaches equilibrium
-10000
+900
 {
-sim.addSubpopSplit('p2', 2000, p1);
-p1.setSubpopulationSize(asInteger(8000));
-}
-10001:11000
-{
-p1.setSubpopulationSize(asInteger(p1.individualCount + 12));
-p2.setSubpopulationSize(asInteger(p2.individualCount + 3));
+  sim.addSubpopSplit('p2', 5000, p1);
+  p1.setSubpopulationSize(asInteger(20000));
 }
 
 // run to generation 11000
-11000
+1000
 {
-  p1.outputVCFSample(3, filePath = '../Data/sim_two_populations/seed_1_pop_1_divergence.vcf');
-  p2.outputVCFSample(2, filePath = '../Data/sim_two_populations/seed_1_pop_2_divergence.vcf');
-  // When running simulations, include other metadata in output file.
-  // e.g., In file name, include random seed.
+  p1_individuals = sample(x=p1.individuals, size=3, replace=F, weights=NULL);
+  p2_individuals = sample(x=p2.individuals, size=2, replace=F, weights=NULL);
+  sampled_individuals = c(p1_individuals, p2_individuals);
+  // COMMENT FOR TESTS ---
+  sampled_individuals.genomes.outputVCF('../Data/sim_multi_pop_one_vcf/seed_1_two_pop.vcf');
+  // COMMENT FOR TESTS
+  // UNCOMMENT FOR TESTS ---
+  // sampled_individuals.genomes.outputVCF('../Data/sim_multi_pop_one_vcf/TEST_seed_1_two_pop.vcf');
+  // UNCOMMENT FOR TESTS ---
   sim.simulationFinished();
   print('Simulation has ended.');
 }

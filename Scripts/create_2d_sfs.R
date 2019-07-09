@@ -4,7 +4,6 @@
 # Load necessary packages
 library(vcfR)
 
-
 # This method accepts two strings, each containing the path to a given Variant Call Format
 # (vcf) file, as well as a vector containing integer(s) representing at least one mutation
 # type.
