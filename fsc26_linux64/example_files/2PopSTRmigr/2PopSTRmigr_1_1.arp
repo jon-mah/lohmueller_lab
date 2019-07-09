@@ -1,0 +1,49 @@
+#Arlequin input file written by the simulation program fastsimcoal2
+
+[Profile]
+	Title="A series of simulated samples"
+	NbSamples=2
+
+	GenotypicData=0
+	GameticPhase=0
+	RecessiveData=0
+	DataType=MICROSAT
+	LocusSeparator=WHITESPACE
+	MissingData='?'
+
+[Data]
+	[[Samples]]
+
+#Number of independent chromosomes: 1
+#Total number of polymorphic sites: 10
+# 10 polymorphic positions on chromosome 1
+#1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+		SampleName="Sample 1"
+		SampleSize=5
+		SampleData= {
+1_1	1	 500  500  501  499  500  502  501  500  500  498 
+1_2	1	 500  500  501  500  500  502  500  500  500  498 
+1_3	1	 499  501  501  499  498  502  501  500  498  499 
+1_4	1	 500  500  501  499  500  502  501  500  500  498 
+1_5	1	 500  500  501  499  500  502  501  500  500  498 
+
+}
+		SampleName="Sample 2"
+		SampleSize=5
+		SampleData= {
+2_1	1	 500  500  501  499  500  502  501  500  500  498 
+2_2	1	 501  500  501  500  500  501  499  501  502  498 
+2_3	1	 500  498  497  498  502  501  500  499  501  501 
+2_4	1	 500  500  501  500  500  502  500  500  500  498 
+2_5	1	 500  500  501  500  500  503  500  500  500  499 
+
+}
+
+[[Structure]]
+
+	StructureName="Simulated data"
+	NbGroups=1
+	Group={
+	   "Sample 1"
+	   "Sample 2"
+	}
