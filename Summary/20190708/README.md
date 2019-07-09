@@ -25,7 +25,7 @@ Logoff `Hoffman2` and log back in, and you should be able to run the contents of
 ## Goals
 *  Get comfortable with installing/using things on hoffman2. **Done.**
     *  Learn easySFS on Hoffman2. **Done.**
-*  Learn how to use fastsimcoal for demographic inference
+*  Learn how to use fastsimcoal for demographic inference. **Done.**
 *  Get more comfortable with SLiM, specifically... **Done.**
     *  Figure out how to output a single `.vcf` comprised of individuals from two populations. **Done.**
 
@@ -33,5 +33,5 @@ Logoff `Hoffman2` and log back in, and you should be able to run the contents of
             P_2 = individuals --> sample individuals from P_2
             Combine two samples into P_3 (or something)
             P_3.outputVCFsample()
-    *  Update `create_2d_SFS.R` so that it takes
+    *  Update `create_2d_SFS.R` so that it takes a single `.vcf` file comprising multiple populations. **Done.**
 *  Illustrate workflow for inferring the Distribution of Fitness Effects, or DFE. **Done.**
