@@ -35,7 +35,7 @@ def ExistingFile(fname):
         raise ValueError("%s must specify a valid file name" % fname)
 
 
-def writePopsFileParser():
+def inferDFEParser():
     """Return *argparse.ArgumentParser* for ``empiricalBayes`` script."""
     parser = ArgumentParserNoArgHelp(
         description=(
@@ -44,16 +44,19 @@ def writePopsFileParser():
             'use by the python package, `easySFS.py`.'),
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument(
-        input_sfs, type=ExistingFile,
+        'input_sfs', type=ExistingFile,
         help=('Synonynomous site-frequency spectrum from which the '
               'distribution of fitness effects should be inferred.'))
+    parser.add_argument(
+        'outprefix', type=str,
+        help='The file prefix for the output `*DFE_output.txt`.')
     return parser
 
 
 def main():
     """Execute main function."""
     # Parse command line arguments
-    parser = writePopsFileParser()
+    parser = inferDFEParser()
     args = vars(parser.parse_args())
     prog = parser.prog
 
