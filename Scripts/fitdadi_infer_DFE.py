@@ -124,8 +124,8 @@ def main():
     theta_ns = 4000
     ns = numpy.array([250])
 
-    pts_1 = [600, 800, 1000]
-    spectra = Selection.spectra(demog_params, ns, two_epoch_sel, pts_1=pts_1,
+    pts_l = [600, 800, 1000]
+    spectra = Selection.spectra(demog_params, ns, two_epoch_sel, pts_l=pts_l,
                                 int_bounds=(1e-5, 500), Npts=300, echo=True,
                                 mp=True)
 
