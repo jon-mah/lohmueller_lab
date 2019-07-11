@@ -127,7 +127,7 @@ def main():
 
     pts_l = [200, 600, 1000, 1400, 1800]
     spectra = Selection.spectra(demog_params, ns, two_epoch_sel, pts_l=pts_l,
-                                int_bounds=(1e-5, 500), Npts=300, echo=True,
+                                int_bounds=(1e-5, 500), Npts=600, echo=True,
                                 mp=True)
 
     data = dadi.Spectrum.from_file(input_sfs)
