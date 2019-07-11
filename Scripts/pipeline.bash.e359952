@@ -7,3 +7,9 @@
 	outprefix = ../Data/pilot_pipeline/seed_1_two_pop
 	num_ind_1 = 3
 
+
+    VCF file uses non-standard Chrom/pos information.
+    We assume that Chrom indicates RAD loci and pos indicates snps within each locus 
+    The VCF file passed does not have rad locus info in the Chrom field.
+
+    You can re-run the easySFS conversion with the `-a` flag to use all snps in the conversion.
