@@ -1,0 +1,87 @@
+/work/UGE/8.6.4/n2194/job_scripts/362143: line 13: [0: command not found
+2019-07-11 15:32:36,037 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2019-07-11 15:32:36,038 - INFO - Progress is being logged to ../Data/pilot_pipeline/seed_1_one_pop_log.log
+
+2019-07-11 15:32:36,038 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pilot_pipeline/seed_1_one_pop
+	num_ind_1 = 125
+
+2019-07-11 15:32:36,048 - INFO - Finished writing ../Data/pilot_pipeline/seed_1_one_pop_pops_file.txt.
+/u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/dadi/Spectrum_mod.py:1641: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  contrib = _cached_projection(p_to,p_from,hits)[slices[pop_ii]]
+/u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/dadi/Numerics.py:138: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  return arr[reverse_slice]
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:py.warnings:/u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/dadi/Numerics.py:188: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  return numpy.sum(dx[sliceX] * (yy[slice1]+yy[slice2])/2.0, axis=axis)
+
+WARNING:py.warnings:/u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/dadi/Numerics.py:138: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  return arr[reverse_slice]
+
+Traceback (most recent call last):
+  File "fitdadi_infer_DFE.py", line 158, in <module>
+    main()
+  File "fitdadi_infer_DFE.py", line 144, in main
+    maxiter=30)
+  File "/u/home/j/jonmah/lohmueller_lab/Scripts/Selection.py", line 328, in optimize_log
+    maxiter=maxiter)
+  File "/u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/scipy/optimize/optimize.py", line 916, in fmin_bfgs
+    res = _minimize_bfgs(f, x0, args, fprime, callback=callback, **opts)
+  File "/u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/scipy/optimize/optimize.py", line 970, in _minimize_bfgs
+    gfk = myfprime(x0)
+  File "/u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/scipy/optimize/optimize.py", line 300, in function_wrapper
+    return function(*(wrapper_args + args))
+  File "/u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/scipy/optimize/optimize.py", line 730, in approx_fprime
+    return _approx_fprime_helper(xk, f, epsilon, args=args)
+  File "/u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/scipy/optimize/optimize.py", line 664, in _approx_fprime_helper
+    f0 = f(*((xk,) + args))
+  File "/u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/scipy/optimize/optimize.py", line 300, in function_wrapper
+    return function(*(wrapper_args + args))
+  File "/u/home/j/jonmah/lohmueller_lab/Scripts/Selection.py", line 390, in _object_func_log
+    return _object_func(numpy.exp(log_params), *args, **kwargs)
+  File "/u/home/j/jonmah/lohmueller_lab/Scripts/Selection.py", line 288, in _object_func
+    result = Inference.ll(sfs, data)
+  File "/u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/dadi/Inference.py", line 314, in ll
+    ll_arr = ll_per_bin(model, data)
+  File "/u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/dadi/Inference.py", line 335, in ll_per_bin
+    result = -model.data + data.data*numpy.ma.log(model) - gammaln(data + 1.)
+  File "<string>", line 8, in __rmul__
+ValueError: operands could not be broadcast together with shapes (126,) (251,) 

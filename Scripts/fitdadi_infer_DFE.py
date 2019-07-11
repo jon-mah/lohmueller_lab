@@ -66,9 +66,10 @@ def two_epoch_sel(params, ns, pts):
     """Define a selection model for a two-epoch demography."""
     nu, T, gamma = params
     xx = dadi.Numerics.default_grid(pts)
-    phi = dadi.PhiManipu.phi_1D(xx, gamma=gamma)
+    phi = dadi.PhiManip.phi_1D(xx, gamma=gamma)
     phi = dadi.Integration.one_pop(phi, xx, T, nu, gamma=gamma)
     fs = dadi.Spectrum.from_phi(phi, ns, (xx,))
+    return fs
 
 
 def main():
@@ -124,7 +125,7 @@ def main():
     theta_ns = 4000
     ns = numpy.array([250])
 
-    pts_l = [600, 800, 1000]
+    pts_l = [200, 600, 1000, 1400, 1800]
     spectra = Selection.spectra(demog_params, ns, two_epoch_sel, pts_l=pts_l,
                                 int_bounds=(1e-5, 500), Npts=300, echo=True,
                                 mp=True)
@@ -139,7 +140,7 @@ def main():
                                   Selection.gamma_dist, theta_ns,
                                   lower_bound=lower_bound,
                                   upper_bound=upper_bound,
-                                  verbos=len(sel_params),
+                                  verbose=len(sel_params),
                                   maxiter=30)
 
     # Expected SFS at the maximum likelihood estimate.
