@@ -53,6 +53,24 @@ def inferDFEParser():
     return parser
 
 
+def two_epoch(params, ns, pts):
+    """Define a two-epoch demography."""
+    nu, T = params
+    xx = dadi.Numerics.default_grid(pts)
+    phi = dadi.PhiManip.phi_1D(xx)
+    phi = dadi.Integration.one_pop(phi, xx, T, nu)
+    return fs
+
+
+def two_epoch_sel(params, ns, pts):
+    """Define a selection model for a two-epoch demography."""
+    nu, T, gamma = params
+    xx = dadi.Numerics.default_grid(pts)
+    phi = dadi.PhiManipu.phi_1D(xx, gamma=gamma)
+    phi = dadi.Integration.one_pop(phi, xx, T, nu, gamma=gamma)
+    fs = dadi.Spectrum.from_phi(phi, ns, (xx,))
+
+
 def main():
     """Execute main function."""
     # Parse command line arguments
@@ -102,6 +120,15 @@ def main():
     logger.info('Parsed the following arguments:\n{0}\n'.format(
         '\n'.join(['\t{0} = {1}'.format(*tup) for tup in args.items()])))
 
+    demog_params = [2, 0.05]
+    theta_ns = 4000
+    ns = numpy.array([250])
+
+    pts_1 = [600, 800, 1000]
+    spectra = Selection.spectra(demog_params, ns, two_epoch_sel, pts_1=pts_1,
+                                int_bounds=(1e-5, 500), Npts=300, echo=True,
+                                mp=True)
+
     data = dadi.Spectrum.from_file(input_sfs)
     sel_params = [0.2, 1000.]  # From example sfs.
     lower_bound = [1e-3, 1e-2]  # From example sfs.
@@ -116,14 +143,14 @@ def main():
                                   maxiter=30)
 
     # Expected SFS at the maximum likelihood estimate.
-    # model_sfs = spectra.integrate(popt[1], Selection.gamma_dist, theta_ns)
+    model_sfs = spectra.integrate(popt[1], Selection.gamma_dist, theta_ns)
 
     logger.info('Finished inferring the DFE of the given site frequency '
                 'spectrum.')
 
     with open(DFE_output, 'w') as f:
         f.write(str(popt) + '\n')
-        # f.write(str(model_sfs))
+        f.write(str(model_sfs))
 
 
 if __name__ == '__main__':

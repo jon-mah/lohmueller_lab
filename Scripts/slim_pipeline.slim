@@ -32,17 +32,15 @@ initialize()
 // population reaches equilibrium
 10000
 {
-  sim.addSubpopSplit('p2', 5000, p1);
   p1.setSubpopulationSize(asInteger(20000));
 }
 
 // run to generation 11000
 11000
 {
-  p1_individuals = sample(x=p1.individuals, size=3, replace=F, weights=NULL);
-  p2_individuals = sample(x=p2.individuals, size=2, replace=F, weights=NULL);
+  p1_individuals = sample(x=p1.individuals, size=125, replace=F, weights=NULL);
   sampled_individuals = c(p1_individuals, p2_individuals);
-  sampled_individuals.genomes.outputVCF('../Data/pilot_pipeline/seed_1_two_pop.vcf');
+  sampled_individuals.genomes.outputVCF('../Data/pilot_pipeline/seed_1_one_pop.vcf');
   sim.simulationFinished();
   print('Simulation has ended.');
 }
