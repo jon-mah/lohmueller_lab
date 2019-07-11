@@ -99,13 +99,13 @@ def main():
     logger.info('Parsed the following arguments:\n{0}\n'.format(
         '\n'.join(['\t{0} = {1}'.format(*tup) for tup in args.items()])))
 
-    total_ind = 1
+    total_ind = 0
     with open(pops_file, 'w') as f:
         for i in range(num_ind_1):
-            f.write('sample' + str(total_ind) + ' pop1\n')
+            f.write('i' + str(total_ind) + ' pop1\n')
             total_ind += 1
         for i in range(num_ind_2):
-            f.write('sample' + str(total_ind) + ' pop2\n')
+            f.write('i' + str(total_ind) + ' pop2\n')
             total_ind += 1
 
 
