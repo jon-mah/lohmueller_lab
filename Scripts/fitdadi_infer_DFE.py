@@ -1,5 +1,5 @@
 """
-Writes a `*pops_file.txt` in the format specified by `easySFS.py`.
+Uses fitdadi to infer the DFE of a given synonynmous sfs.
 
 JCM 201907011
 """
@@ -12,6 +12,10 @@ import time
 import argparse
 import warnings
 
+import numpy
+import dadi
+import Selection
+
 
 class ArgumentParserNoArgHelp(argparse.ArgumentParser):
     """Like *argparse.ArgumentParser*, but prints help when no arguments."""
@@ -23,6 +27,14 @@ class ArgumentParserNoArgHelp(argparse.ArgumentParser):
         sys.exit(2)
 
 
+def ExistingFile(fname):
+    """If *fname* is an existing file return it, otherwise raise ValueError."""
+    if os.path.isfile(fname):
+        return fname
+    else:
+        raise ValueError("%s must specify a valid file name" % fname)
+
+
 def writePopsFileParser():
     """Return *argparse.ArgumentParser* for ``empiricalBayes`` script."""
     parser = ArgumentParserNoArgHelp(
@@ -32,14 +44,9 @@ def writePopsFileParser():
             'use by the python package, `easySFS.py`.'),
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument(
-        'num_ind_1', type=int,
-        help='The number of individuals in population one.')
-    parser.add_argument(
-        'num_ind_2', type=int,
-        help='The number of individuals in population two.')
-    parser.add_argument(
-        'outprefix', type=str,
-        help='The file prefix for the output `*.pops_file.txt`.')
+        input_sfs, type=ExistingFile,
+        help=('Synonynomous site-frequency spectrum from which the '
+              'distribution of fitness effects should be inferred.'))
     return parser
 
 
@@ -51,8 +58,7 @@ def main():
     prog = parser.prog
 
     # Assign arguments
-    num_ind_1 = args['num_ind_1']
-    num_ind_2 = args['num_ind_2']
+    input_sfs = args['input_sfs']
     outprefix = args['outprefix']
 
     # create output directory if needed
@@ -63,14 +69,12 @@ def main():
                 os.remove(outdir)
             os.mkdir(outdir)
 
-    # Output files:
-        # simulated_seqs.fasta, site_rates.txt, site_rates_info.txt, log.log
+    # Output files: logfile
     # Remove output files if they already exist
     underscore = '' if args['outprefix'][-1] == '/' else '_'
+    DFE_output = '{0}{1}DFE_output.txt'.format(args['outprefix'], underscore)
     logfile = '{0}{1}log.log'.format(args['outprefix'], underscore)
-    pops_file = '{0}{1}pops_file.txt'.format(
-        args['outprefix'], underscore)
-    to_remove = [logfile, pops_file]
+    to_remove = [logfile, DFE_output]
     for f in to_remove:
         if os.path.isfile(f):
             os.remove(f)
@@ -95,16 +99,28 @@ def main():
     logger.info('Parsed the following arguments:\n{0}\n'.format(
         '\n'.join(['\t{0} = {1}'.format(*tup) for tup in args.items()])))
 
-    total_ind = 0
-    with open(pops_file, 'w') as f:
-        for i in range(num_ind_1):
-            f.write('i' + str(total_ind) + ' pop1\n')
-            total_ind += 1
-        for i in range(num_ind_2):
-            f.write('i' + str(total_ind) + ' pop2\n')
-            total_ind += 1
+    data = dadi.Spectrum.from_file(input_sfs)
+    sel_params = [0.2, 1000.]  # From example sfs.
+    lower_bound = [1e-3, 1e-2]  # From example sfs.
+    upper_bound = [1, 50000.]  # From example sfs.
+    p0 = dadi.Misc.perturb_params(sel_params, lower_bound=lower_bound,
+                                  upper_bound=upper_bound)
+    popt = Selection.optimize_log(p0, data, spectra.integrate,
+                                  Selection.gamma_dist, theta_ns,
+                                  lower_bound=lower_bound,
+                                  upper_bound=upper_bound,
+                                  verbos=len(sel_params),
+                                  maxiter=30)
 
-    logger.info('Finished writing ' + str(pops_file) + '.')
+    # Expected SFS at the maximum likelihood estimate.
+    model_sfs = spectra.integrate(popt[1], Selection.gamma_dist, theta_ns)
+
+    logger.info('Finished inferring the DFE of the given site frequency '
+                'spectrum.')
+
+    with open(DFE_output, 'w') as f:
+        f.write(str(popt) + '\n')
+        f.write(str(model_sfs))
 
 
 if __name__ == '__main__':
