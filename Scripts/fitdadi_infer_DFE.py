@@ -116,14 +116,14 @@ def main():
                                   maxiter=30)
 
     # Expected SFS at the maximum likelihood estimate.
-    model_sfs = spectra.integrate(popt[1], Selection.gamma_dist, theta_ns)
+    # model_sfs = spectra.integrate(popt[1], Selection.gamma_dist, theta_ns)
 
     logger.info('Finished inferring the DFE of the given site frequency '
                 'spectrum.')
 
     with open(DFE_output, 'w') as f:
         f.write(str(popt) + '\n')
-        f.write(str(model_sfs))
+        # f.write(str(model_sfs))
 
 
 if __name__ == '__main__':
