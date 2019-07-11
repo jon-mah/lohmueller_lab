@@ -25,13 +25,7 @@ initialize()
 
 1
 {
-  // COMMENT FOR TESTS ---
   sim.addSubpop('p1', 10000);
-  // COMMENT FOR TESTS ---
-  // UNCOMMENT FOR TESTS ---
-  // sim.addSubpop('p1', 10000);
-  // sim.addSubpop('p2', 10000);
-  // UNCOMMENT FOR TESTS ---
 }
 
 // "Burn in" simulation, i.e., run the simulation 12N generations so that
@@ -48,12 +42,7 @@ initialize()
   p1_individuals = sample(x=p1.individuals, size=3, replace=F, weights=NULL);
   p2_individuals = sample(x=p2.individuals, size=2, replace=F, weights=NULL);
   sampled_individuals = c(p1_individuals, p2_individuals);
-  // COMMENT FOR TESTS ---
-  sampled_individuals.genomes.outputVCF('../Data/sim_multi_pop_one_vcf/seed_1_two_pop.vcf');
-  // COMMENT FOR TESTS
-  // UNCOMMENT FOR TESTS ---
-  // sampled_individuals.genomes.outputVCF('../Data/sim_multi_pop_one_vcf/TEST_seed_1_two_pop.vcf');
-  // UNCOMMENT FOR TESTS ---
+  sampled_individuals.genomes.outputVCF('../Data/pilot_pipeline/seed_1_two_pop.vcf');
   sim.simulationFinished();
   print('Simulation has ended.');
 }
