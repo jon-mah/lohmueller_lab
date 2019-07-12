@@ -153,6 +153,8 @@ def main():
         f.write(str(popt) + '\n')
         f.write(str(model_sfs))
 
+    logger.info('Pipeline executed succesfully.')
+
 
 if __name__ == '__main__':
     main()
