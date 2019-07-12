@@ -85,7 +85,7 @@ def main():
     # Assign arguments
     input_sfs = args['input_sfs']
     outprefix = args['outprefix']
-    num_samples = agrs['num_samples']
+    num_samples = args['num_samples']
 
     # create output directory if needed
     outdir = os.path.dirname(args['outprefix'])
@@ -99,7 +99,7 @@ def main():
     # Remove output files if they already exist
     underscore = '' if args['outprefix'][-1] == '/' else '_'
     DFE_output = '{0}{1}DFE_output.txt'.format(args['outprefix'], underscore)
-    logfile = '{0}{1}log.log'.format(args['outprefix'], underscore)
+    logfile = '{0}{1}DFE_output_log.log'.format(args['outprefix'], underscore)
     to_remove = [logfile, DFE_output]
     for f in to_remove:
         if os.path.isfile(f):
