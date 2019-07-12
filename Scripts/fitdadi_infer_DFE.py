@@ -50,6 +50,9 @@ def inferDFEParser():
     parser.add_argument(
         'outprefix', type=str,
         help='The file prefix for the output `*DFE_output.txt`.')
+    parser.add_argument(
+        'num_samples', type=int,
+        help='The number of chromosomes from which we infer the DFE.')
     return parser
 
 
@@ -82,6 +85,7 @@ def main():
     # Assign arguments
     input_sfs = args['input_sfs']
     outprefix = args['outprefix']
+    num_samples = agrs['num_samples']
 
     # create output directory if needed
     outdir = os.path.dirname(args['outprefix'])
@@ -123,7 +127,7 @@ def main():
 
     demog_params = [2, 0.05]
     theta_ns = 4000
-    ns = numpy.array([250])
+    ns = numpy.array([num_samples])
 
     pts_l = [2000, 2200, 2400]
     spectra = Selection.spectra(demog_params, ns, two_epoch_sel, pts_l=pts_l,
