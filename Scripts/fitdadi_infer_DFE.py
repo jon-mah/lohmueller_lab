@@ -129,6 +129,7 @@ def main():
     theta_ns = 4000
     ns = numpy.array([num_samples])
 
+    # If SFS has 40 individuals, largest bin should be 81
     pts_l = [2000, 2200, 2400]
     spectra = Selection.spectra(demog_params, ns, two_epoch_sel, pts_l=pts_l,
                                 int_bounds=(1e-5, 500), Npts=600, echo=True,
@@ -153,9 +154,14 @@ def main():
     logger.info('Finished inferring the DFE of the given site frequency '
                 'spectrum.')
 
+    gamma_parameters = popt[1]
+    alpha = gamma_parameters[0]
+    beta = gamma_parameters[1]
     with open(DFE_output, 'w') as f:
-        f.write(str(popt) + '\n')
-        f.write(str(model_sfs))
+        f.write('The inferred alpha parameter is ' + str(alpha) + '.\n')
+        f.write('The inferred beta parameters is ' + str(beta) + '.\n')
+        f.write('The expected distribution is as follows: ' +
+                 str(model_sfs) + '.')
 
     logger.info('Pipeline executed succesfully.')
 

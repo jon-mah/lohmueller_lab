@@ -67,7 +67,7 @@ def main():
         # simulated_seqs.fasta, site_rates.txt, site_rates_info.txt, log.log
     # Remove output files if they already exist
     underscore = '' if args['outprefix'][-1] == '/' else '_'
-    logfile = '{0}{1}log.log'.format(args['outprefix'], underscore)
+    logfile = '{0}{1}write_pops_log.log'.format(args['outprefix'], underscore)
     pops_file = '{0}{1}pops_file.txt'.format(
         args['outprefix'], underscore)
     to_remove = [logfile, pops_file]
