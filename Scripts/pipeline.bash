@@ -24,6 +24,6 @@ fi
 # slim slim_pipeline.slim
 python write_pops_file.py $num_ind_1 $num_ind_2 $outprefix
 easySFS.py -i $inputvcf -p $output_pops_file -o $easySFS_outdir -f -a --proj $easySFS_proj
-python fitdadi_infer_DFE.py ${easySFS_outdir}dadi/pop1.sfs ${outdir}fitdadi_output/ $num_samples
+python fitdadi_infer_DFE.py ${easySFS_outdir}dadi/pop1.sfs ${outdir}fitdadi_output/
 
 # python fitdadi_infer_DFE.py ../Data/fitdadi_manual_examples/example.sfs ../Data/fitdadi_example_output/ $num_samples

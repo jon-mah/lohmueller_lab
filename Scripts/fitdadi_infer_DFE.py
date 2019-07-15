@@ -15,6 +15,7 @@ import warnings
 import numpy
 import dadi
 import Selection
+import Spectrum
 
 
 class ArgumentParserNoArgHelp(argparse.ArgumentParser):
@@ -56,22 +57,135 @@ def inferDFEParser():
     return parser
 
 
-def two_epoch(params, ns, pts):
-    """Define a two-epoch demography."""
-    nu, T = params
-    xx = dadi.Numerics.default_grid(pts)
-    phi = dadi.PhiManip.phi_1D(xx)
-    phi = dadi.Integration.one_pop(phi, xx, T, nu)
+def snm(notused, ns, pts):
+    """Return a standard neutral model.
+
+    ns = (n1, )
+        n1: Number of samples in resulting Spectrum object.
+    pts: Number of grid points to use in integration.
+    """
+    xx = dadi.Numerics.default_grid(pts)  # Define likelihood surface.
+    phi = dadi.PhiManip.phi_1D(xx)  # Define initial phi.
+
+    fs = dadi.Spectrum.from_phi(phi, ns, (xx, ))  # Construct Spectrum object.
     return fs
 
 
-def two_epoch_sel(params, ns, pts):
-    """Define a selection model for a two-epoch demography."""
-    nu, T, gamma = params
-    xx = dadi.Numerics.default_grid(pts)
-    phi = dadi.PhiManip.phi_1D(xx, gamma=gamma)
-    phi = dadi.Integration.one_pop(phi, xx, T, nu, gamma=gamma)
-    fs = dadi.Spectrum.from_phi(phi, ns, (xx,))
+def two_epoch(params, ns, pts):
+    """Define a two-epoch demography, i.e., an instantaneous size change.
+
+    params = (nu, T)
+        nu: Ratio of contemporary to ancient population size.
+        T: Time in the past at which size change occured, in units of 2*N_a.
+    ns = (n1, )
+        n1: Number of samples in resulting Spectrum object.
+    pts: Number of grid points to use in integration.
+    """
+    nu, T = params  # Define given parameters.
+    xx = dadi.Numerics.default_grid(pts)  # Define likelihood surface.
+    phi = dadi.PhiManip.phi_1D(xx)  # Define initial phi.
+
+    phi = dadi.Integration.one_pop(phi, xx, T, nu, gamma=gamma)  # Integrate.
+
+    fs = dadi.Spectrum.from_phi(phi, ns, (xx,))  # Construct Spectrum object.
+    return fs
+
+
+def growth(params, ns, pts):
+    """Exponential growth beginning some time ago.
+
+    params = (nu, T)
+        nu: Ratio of contemporary to ancient population size.
+        T: Time in the past at which size change occured, in units of 2*N_a.
+    ns = (n1, )
+        n1: Number of samples in resulting Spectrum object.
+    pts: Number of grid points to use in integration.
+    """
+    nu, T = params  # Define given parameters.
+    xx = dadi.Numerics.default_grid(pts)  # Define likelihood surface.
+    phi = dadi.PhiManip.phi_1D(xx)  # Define initial phi.
+
+    def nu_func(t): return numpy.exp(numpy.log(nu) * t / T)  # Exp growth.
+    phi = dadi.Integration.one_pop(phi, xx, T, nu_func)  # Integrate.
+
+    fs = dadi.Spectrum.from_phi(phi, ns, (xx, ))  # Construct Spectrum object.
+    return fs
+
+
+def bottlegrowth(params, ns, pts):
+    """Instantaneous size change followed by exponential growth.
+
+    params = (nuB, nuF, T)
+        nuB: Ratio of population size after instantaneous change to ancient
+            population size.
+        nuF: Ratio of contemporary to ancient population size.
+        T: Time in the past at which size change occured, in units of 2*N_a.
+    ns = (n1, )
+        n1: Number of samples in resulting Spectrum object.
+    pts: Number of grid points to use in integration.
+    """
+    nuB, nuF, T = params  # Define given parameters.
+
+    xx = dadi.Numerics.default_grid(pts)  # Define likelihood surface.
+    phi = dadi.PhiManip.phi_1D(xx)  # Define initial phi
+
+    # Exponential growth function
+    def nu_func(t): return nuB * numpy.exp(numpy.log(nuF / nuB) * t / T)
+
+    phi = dadi.Integration.one_pop(phi, xx, T, nu_func)  # Integrate.
+
+    fs = dadi.Spectrum.from_phi(phi, ns, (xx, ))  # Construct Spectrum object.
+    return fs
+
+
+def three_epoch(params, ns, pts):
+    """Define a three-epoch demography, i.e., two instantaneous size changes.
+
+    params = (nuB, nuF, TB, TF)
+        nuB: Ratio of bottleneck population size to ancient population size.
+        nuF: Ratio of contemporary to ancient population size.
+        TB: Length of bottleneck, in units of 2 * N_a.
+        TF: Time since bottleneck recovery, in units of 2 * N_a.
+    ns = (n1, )
+        n1: Number of samples in resulting Spectrum object.
+    pts: Number of grid points to use in integration.
+    """
+    nuB, nuF, TB, TF = params  # Define given parameters.
+
+    xx = dadi.Numerics.default_grid(pts)  # Define likelihood surface.
+    phi = dadi.PhiManip.phi_1D(xx)  # Define initial phi.
+
+    phi = dadi.Integration.one_pop(phi, xx, TB, nuB)  # Integrate epoch 1 to 2.
+    phi = dadi.Integration.one_pop(phi, xx, TF, nuF)  # Integrate epoch 2 to 3.
+
+    fs = dadi.Spectrum.from_phi(phi, ns, (xx, ))
+    return fs
+
+
+def four_epoch(params, ns, pts):
+    """Define a four-epoch demography, i.e., three instantaneous size changes.
+
+    params = (Na, Nb, Nc, Ta, Tb, Tc)
+        Na: ratio of population size between epoch 1 and 2.
+        Nb: ratio of population size between epoch 2 and 3.
+        Nc: ratio of population size between epoch 3 and 4.
+        Ta: Length of bottleneck between epoch 1 and 2, in units of 2 * N_a.
+        Tb: Length of bottleneck between epoch 2 and 3, in units of 2 * N_a.
+        Tc: Length of bottleneck between epoch 3 and 4, in units of 2 * N_a.
+    ns = (n1, )
+        n1: Number of samples in resulting Spectrum object.
+    pts: Number of grid points to use in integration.
+    """
+    Na, Nb, Nc, Ta, Tb, Tc = params  # Define given parameters.
+
+    xx = dadi.Numerics.default_grid(pts)  # Define likelihood surface.
+    phi = dadi.PhiManip.phi_1D(xx)  # Define initial phi.
+
+    phi = dadi.Integration.one_pop(phi, xx, Ta, Na)  # Integrate epoch 1 to 2.
+    phi = dadi.Integration.one_pop(phi, xx, Tb, Nb)  # Integrate epoch 2 to 3.
+    phi = dadi.Integration.one_pop(phi, xx, Tc, Nc)  # Integrate epoch 3 to 4.
+
+    fs = dadi.Spectrum.from_phi(phi, ns, (xx, ))  # Construct spectrum object.
     return fs
 
 
@@ -85,7 +199,6 @@ def main():
     # Assign arguments
     input_sfs = args['input_sfs']
     outprefix = args['outprefix']
-    num_samples = args['num_samples']
 
     # create output directory if needed
     outdir = os.path.dirname(args['outprefix'])
@@ -125,13 +238,67 @@ def main():
     logger.info('Parsed the following arguments:\n{0}\n'.format(
         '\n'.join(['\t{0} = {1}'.format(*tup) for tup in args.items()])))
 
+    # Construct initial Spectrum object from input synonymous sfs.
+    syn_data = dadi.Spectrum.from_file(input_sfs)
+    syn_ns = syn_data.sample_sizes  # Number of samples.
+    pts_l = [100, 200, 300]
+
+    # Optomize parameters for this model.
+    # First set parameter bounds for optimization
+    upper_bound = [8, 3]
+    lower_bound = [1e-4, 0]
+
+    initial_guesses = [1., 0.1, , 0.05, 0.01, 0.005, 0.001, 0.0005, 0.0001,
+                       0.00005, 0.00001]
+    with open(DFE_output, 'w') as f:
+        f.write('Beginning with demographic inference.')
+        max_likelihood = -1e25
+        for i in range(10):
+            # Pick from initial guesses
+            p0 = [initial_guesses[i], initial_guesses[i]]
+            # Perturb parameters before optimization.
+            p0 = dadi.Misc.perturb_params(
+                p0, fold=1, upper_bound=upper_bound, lower_bound=lower_bound)
+            # Make the extrapolating version of demographic model function.
+            func_ex = dadi.Numerics.make_extrap_log_func(two_epoch())
+            f.write(
+                'Attempting optimization with initial guess, {0}.'.format(p0))
+            logger.info(
+                'Beginning optimization with initial guess, {0}.'.format(p0))
+            popt = dadi.Inference.optomize_log_lbgfsb(
+                p0, syn_data, func_ex, pts_l,
+                lower_bound=lower_bound, upper_bound=upper_bound,
+                verbose=len(p0), maxiter=100)
+            logger.info(
+                'Finished optimization with initial guess, ' + str(p0) + '.')
+            logger.info('Best fit parameters: {0}.'.format(popt))
+            # Calculate the best-fit model allele-frequency spectrum.
+            model = func_ex(popt, ns, pts_l)
+            # Likelihood of the data given the model AFS.
+            ll_model = dadi.Inference.ll_multinom(model, syn_data)
+            logger.info(
+                'Maximum log composite likelihood: {0}.'.format(ll_model))
+            theta = dadi.Inference.optimal_sfs_scaling(model, syn_data)
+            logger.info(
+                'Optimal value of theta: {0}.'.format(theta))
+            if ll_model > max_likelihood:
+                best_param = popt
+                best_model = model
+                max_likelihood = ll_model
+                best_theta = theta
+        f.write('Best fit parameters: {0}.\n'.format(best_popt))
+        f.write(
+            'Maximum log composite likelihood: {0}.\n'.format(max_likelihood))
+        f.write('Optimal value of theta: {0}.\n'.format(theta))
+
+    """
     demog_params = [2, 0.05]
     theta_ns = 4000
-    ns = numpy.array([num_samples])
+    ns = data.sample_sizes
 
     # If SFS has 40 individuals, largest bin should be 81
     pts_l = [2000, 2200, 2400]
-    spectra = Selection.spectra(demog_params, ns, two_epoch_sel, pts_l=pts_l,
+    spectra = Selection.spectra(demog_params, ns, two_epoch, pts_l=pts_l,
                                 int_bounds=(1e-5, 500), Npts=600, echo=True,
                                 mp=True)
 
@@ -161,8 +328,8 @@ def main():
         f.write('The inferred alpha parameter is ' + str(alpha) + '.\n')
         f.write('The inferred beta parameters is ' + str(beta) + '.\n')
         f.write('The expected distribution is as follows: ' +
-                 str(model_sfs) + '.')
-
+                str(model_sfs) + '.')
+    """
     logger.info('Pipeline executed succesfully.')
 
 
