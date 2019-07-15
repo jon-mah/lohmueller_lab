@@ -53,7 +53,7 @@ def inferDFEParser():
               'distribution of fitness effects should be inferred.'))
     parser.add_argument(
         'outprefix', type=str,
-        help='The file prefix for the output `*DFE_output.txt`.')
+        help='The file prefix for the output `*inferred_demography.txt`.')
     return parser
 
 
@@ -90,6 +90,28 @@ def two_epoch(params, ns, pts):
     fs = dadi.Spectrum.from_phi(phi, ns, (xx,))  # Construct Spectrum object.
     return fs
 
+
+def two_epoch_sel(params, ns, pts):
+    """Define a two-epoch demography, i.e., an instantaneous size change.
+
+    This method incorporates a gamma parameter.
+
+    params = (nu, T, gamma)
+        nu: Ratio of contemporary to ancient population size.
+        T: Time in the past at which size change occured, in units of 2*N_a.
+        gamma: Parameter tuple describing a gamma distribution.
+    ns = (n1, )
+        n1: Number of samples in resulting Spectrum object.
+    pts: Number of grid points to use in integration.
+    """
+    nu, T, gamma = params  # Define given parameters.
+    xx = dadi.Numerics.default_grid(pts)  # Define likelihood surface.
+    phi = dadi.PhiManip.phi_1D(xx, gamma=gamma)  # Define initial phi
+
+    phi = dadi.Integration.one_pop(phi, xx, T, nu, gamma=gamma)  # Integrate
+
+    fs = dadi.Spectrum.from_phi(phi, ns, (xx, ))  # Construct Spectrum object.
+    return fs
 
 def growth(params, ns, pts):
     """Exponential growth beginning some time ago.
@@ -212,9 +234,12 @@ def main():
     # Output files: logfile
     # Remove output files if they already exist
     underscore = '' if args['outprefix'][-1] == '/' else '_'
-    DFE_output = '{0}{1}DFE_output.txt'.format(args['outprefix'], underscore)
-    logfile = '{0}{1}DFE_output_log.log'.format(args['outprefix'], underscore)
-    to_remove = [logfile, DFE_output]
+    inferred_demography = \
+        '{0}{1}inferred_demography.txt'.format(args['outprefix'], underscore)
+    inferred_DFE = \
+        '{0}{1}inferred_DFE.txt'.format(args['outprefix'], underscore)
+    logfile = '{0}{1}log.log'.format(args['outprefix'], underscore)
+    to_remove = [logfile, inferred_demography, inferred_DFE]
     for f in to_remove:
         if os.path.isfile(f):
             os.remove(f)
@@ -251,8 +276,8 @@ def main():
 
     initial_guesses = [1., 0.1, 0.05, 0.01, 0.005, 0.001, 0.0005, 0.0001,
                        0.00005, 0.00001]
-    with open(DFE_output, 'w') as f:
-        f.write('Beginning with demographic inference.')
+    with open(inferred_demography, 'w') as f:
+        f.write('Beginning with demographic inference.\n')
         max_likelihood = -1e25
         for i in range(10):
             # Pick from initial guesses
@@ -292,45 +317,54 @@ def main():
             'Maximum log composite likelihood: {0}.\n'.format(max_likelihood))
         f.write('Optimal value of theta: {0}.\n'.format(best_theta))
 
-    """
-    demog_params = [2, 0.05]
-    theta_ns = 4000
-    ns = data.sample_sizes
+    logger.info('Finished demographic inference.')
+    logger.info('Beginning DFE inference.')
+    nonsyn_data = dadi.Spectrum.from_file(nonsyn_input_sfs)
+    nonsyn_ns = nonsyn_data.sample_sizes
 
-    # If SFS has 40 individuals, largest bin should be 81
-    pts_l = [2000, 2200, 2400]
-    spectra = Selection.spectra(demog_params, ns, two_epoch, pts_l=pts_l,
-                                int_bounds=(1e-5, 500), Npts=600, echo=True,
-                                mp=True)
+    demog_params = best_params
+    theta_syn = best_theta
+    theta_nonsyn = theta_syn * 2.31
 
-    data = dadi.Spectrum.from_file(input_sfs)
-    sel_params = [0.2, 1000.]  # From example sfs.
-    lower_bound = [1e-3, 1e-2]  # From example sfs.
-    upper_bound = [1, 50000.]  # From example sfs.
+    Lsyn = 4348419
+    u = 5.38E-09
+    u_exon = u * 1.25
+    Na = theta_syn / (4 * u_exon * Lsyn)
+
+    max_s = 0.5
+    max_gam = max_s * 2 * Na
+
+    pts_l = [500, 1000, 2000]
+    spectra = Selection.spectra(demog_params, nonsyn_ns, two_epoch_sel,
+                                pts_l=pts_l, int_bounds=(1e-5, max_gam),
+                                Npts=300, echo=True, mp=True)
+
+    BETAinit = max_gam / 3
+    sel_params = [0.15, BETAinit]
+    upper_beta = 10 * max_gam
+    lower_bound = [1e-3, 0]
+    upper_bound = [1, upper_beta]
+
     p0 = dadi.Misc.perturb_params(sel_params, lower_bound=lower_bound,
                                   upper_bound=upper_bound)
     popt = Selection.optimize_log(p0, data, spectra.integrate,
-                                  Selection.gamma_dist, theta_ns,
+                                  Selection.gamma_dist, theta_nonsyn,
                                   lower_bound=lower_bound,
                                   upper_bound=upper_bound,
-                                  verbose=len(sel_params),
-                                  maxiter=30)
+                                  verbose=len(sel_params), maxiter=30)
 
-    # Expected SFS at the maximum likelihood estimate.
-    model_sfs = spectra.integrate(popt[1], Selection.gamma_dist, theta_ns)
+    logger.info('Finished DFE inference.')
+    logger.info('Integrating expected site-frequency spectrum.')
 
-    logger.info('Finished inferring the DFE of the given site frequency '
-                'spectrum.')
+    expected_sfs = spectra.integrate(
+        popt[1], Selection.gamma_dist, theta_nonsyn)
 
-    gamma_parameters = popt[1]
-    alpha = gamma_parameters[0]
-    beta = gamma_parameters[1]
-    with open(DFE_output, 'w') as f:
-        f.write('The inferred alpha parameter is ' + str(alpha) + '.\n')
-        f.write('The inferred beta parameters is ' + str(beta) + '.\n')
-        f.write('The expected distribution is as follows: ' +
-                str(model_sfs) + '.')
-    """
+    logger.info('Outputing results.')
+
+    with open(inferred_DFE, 'w') as f:
+        f.write('Best-fit parameters: {0}.'.format(popt))
+        f.write('The expected SFS is: {0}.'.format(expected_sfs))
+
     logger.info('Pipeline executed succesfully.')
 
 
