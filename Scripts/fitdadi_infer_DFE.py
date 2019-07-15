@@ -85,7 +85,7 @@ def two_epoch(params, ns, pts):
     xx = dadi.Numerics.default_grid(pts)  # Define likelihood surface.
     phi = dadi.PhiManip.phi_1D(xx)  # Define initial phi.
 
-    phi = dadi.Integration.one_pop(phi, xx, T, nu, gamma=gamma)  # Integrate.
+    phi = dadi.Integration.one_pop(phi, xx, T, nu)  # Integrate.
 
     fs = dadi.Spectrum.from_phi(phi, ns, (xx,))  # Construct Spectrum object.
     return fs
@@ -240,7 +240,7 @@ def main():
         '\n'.join(['\t{0} = {1}'.format(*tup) for tup in args.items()])))
 
     # Construct initial Spectrum object from input synonymous sfs.
-    syn_data = dadi.Spectrum.from_file(input_sfs)
+    syn_data = dadi.Spectrum.from_file(syn_input_sfs)
     syn_ns = syn_data.sample_sizes  # Number of samples.
     pts_l = [100, 200, 300]
 
@@ -261,12 +261,12 @@ def main():
             p0 = dadi.Misc.perturb_params(
                 p0, fold=1, upper_bound=upper_bound, lower_bound=lower_bound)
             # Make the extrapolating version of demographic model function.
-            func_ex = dadi.Numerics.make_extrap_log_func(two_epoch())
+            func_ex = dadi.Numerics.make_extrap_log_func(two_epoch)
             f.write(
                 'Attempting optimization with initial guess, {0}.'.format(p0))
             logger.info(
                 'Beginning optimization with initial guess, {0}.'.format(p0))
-            popt = dadi.Inference.optomize_log_lbgfsb(
+            popt = dadi.Inference.optimize_log_lbfgsb(
                 p0, syn_data, func_ex, pts_l,
                 lower_bound=lower_bound, upper_bound=upper_bound,
                 verbose=len(p0), maxiter=100)
@@ -274,7 +274,7 @@ def main():
                 'Finished optimization with initial guess, ' + str(p0) + '.')
             logger.info('Best fit parameters: {0}.'.format(popt))
             # Calculate the best-fit model allele-frequency spectrum.
-            model = func_ex(popt, ns, pts_l)
+            model = func_ex(popt, syn_ns, pts_l)
             # Likelihood of the data given the model AFS.
             ll_model = dadi.Inference.ll_multinom(model, syn_data)
             logger.info(
@@ -283,14 +283,14 @@ def main():
             logger.info(
                 'Optimal value of theta: {0}.'.format(theta))
             if ll_model > max_likelihood:
-                best_param = popt
+                best_params = popt
                 best_model = model
                 max_likelihood = ll_model
                 best_theta = theta
-        f.write('Best fit parameters: {0}.\n'.format(best_popt))
+        f.write('Best fit parameters: {0}.\n'.format(best_params))
         f.write(
             'Maximum log composite likelihood: {0}.\n'.format(max_likelihood))
-        f.write('Optimal value of theta: {0}.\n'.format(theta))
+        f.write('Optimal value of theta: {0}.\n'.format(best_theta))
 
     """
     demog_params = [2, 0.05]
