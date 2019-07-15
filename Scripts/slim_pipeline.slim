@@ -12,8 +12,11 @@ initialize()
   // m1 mutation type: neutral.
   initializeMutationType('m1', 0.5, 'f', 0.0);
 
+  // m2 mutation type: deleterious.
+  initializeMutationType('m2', -0.1, 'g', 0.0001, 0.00017732)
+
   // g1 genomic element type: uses m1 for all mutations
-  initializeGenomicElementType('g1', m1, 1.0);
+  initializeGenomicElementType('g1', c(m1, m2), c(0.8, 0.2));
 
   // Uniform chromosome of length 100 kb.
   initializeGenomicElement(g1, 0, 99999);

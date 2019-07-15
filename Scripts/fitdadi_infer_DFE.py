@@ -15,7 +15,6 @@ import warnings
 import numpy
 import dadi
 import Selection
-import Spectrum
 
 
 class ArgumentParserNoArgHelp(argparse.ArgumentParser):
@@ -45,15 +44,16 @@ def inferDFEParser():
             'use by the python package, `easySFS.py`.'),
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument(
-        'input_sfs', type=ExistingFile,
+        'syn_input_sfs', type=ExistingFile,
         help=('Synonynomous site-frequency spectrum from which the '
+              'demographic parameters should be inferred.'))
+    parser.add_argument(
+        'nonsyn_input_sfs', type=ExistingFile,
+        help=('Nonsynonynomous site-frequency spectrum from which the '
               'distribution of fitness effects should be inferred.'))
     parser.add_argument(
         'outprefix', type=str,
         help='The file prefix for the output `*DFE_output.txt`.')
-    parser.add_argument(
-        'num_samples', type=int,
-        help='The number of chromosomes from which we infer the DFE.')
     return parser
 
 
@@ -197,7 +197,8 @@ def main():
     prog = parser.prog
 
     # Assign arguments
-    input_sfs = args['input_sfs']
+    syn_input_sfs = args['syn_input_sfs']
+    nonsyn_input_sfs = args['nonsyn_input_sfs']
     outprefix = args['outprefix']
 
     # create output directory if needed
@@ -248,7 +249,7 @@ def main():
     upper_bound = [8, 3]
     lower_bound = [1e-4, 0]
 
-    initial_guesses = [1., 0.1, , 0.05, 0.01, 0.005, 0.001, 0.0005, 0.0001,
+    initial_guesses = [1., 0.1, 0.05, 0.01, 0.005, 0.001, 0.0005, 0.0001,
                        0.00005, 0.00001]
     with open(DFE_output, 'w') as f:
         f.write('Beginning with demographic inference.')
