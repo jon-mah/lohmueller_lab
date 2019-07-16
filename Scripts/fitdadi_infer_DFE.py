@@ -35,8 +35,25 @@ def ExistingFile(fname):
         raise ValueError("%s must specify a valid file name" % fname)
 
 
+def ExistingBreed(breed):
+    """If *breed* is "AW", "LB", or "PG", return it, else raise ValueError.
+
+    "AW" indicates arctic wolf data.
+    "LB" indicates labrador data.
+    "PG" indicates pug data.
+    """
+    if breed is "AW":
+        return breed
+    elif breed is "LB":
+        return breed
+    elif breed is "PG":
+        return breed
+    else:
+        raise ValueError('%s must specify a valid breed.' % breed)
+
+
 def inferDFEParser():
-    """Return *argparse.ArgumentParser* for ``empiricalBayes`` script."""
+    """Return *argparse.ArgumentParser* for ``fitdadi_infer_DFE`` script."""
     parser = ArgumentParserNoArgHelp(
         description=(
             'Given the number of individuals in population one and two, this '
@@ -54,6 +71,11 @@ def inferDFEParser():
     parser.add_argument(
         'outprefix', type=str,
         help='The file prefix for the output `*inferred_demography.txt`.')
+    parser.add_argument(
+        '--breed', type=ExistingBreed,
+        help=('The breed of organism from which the input `.vcf` is drawn '
+              'from. Must be "AW", for arctic wolves, "LB" for labrador '
+              'or "PG" for pug. The default is arctic wolves.'), default='AW')
     return parser
 
 
@@ -223,6 +245,7 @@ def main():
     syn_input_sfs = args['syn_input_sfs']
     nonsyn_input_sfs = args['nonsyn_input_sfs']
     outprefix = args['outprefix']
+    breed = args['breed']
 
     # create output directory if needed
     outdir = os.path.dirname(args['outprefix'])
@@ -326,7 +349,9 @@ def main():
     theta_syn = best_theta
     theta_nonsyn = theta_syn * 2.14
 
-    Lsyn = 5144295  # Length of synonymous sites.
+    Lsyn_dict = {'AW': 5144295, 'LB': 4874191, 'PG': 5095613}
+
+    Lsyn = Lsyn_dict[breed]  # Length of synonymous sites.
     u = 5.38E-09
     u_exon = u * 1.25  # Mutation rate of dog exons.
     Na = theta_syn / (4 * u_exon * Lsyn)
@@ -334,7 +359,7 @@ def main():
     max_s = 0.5
     max_gam = max_s * 2 * Na
 
-    pts_l = [500, 1000, 2000]
+    pts_l = [1000, 2000, 3000]
     spectra = Selection.spectra(demog_params, nonsyn_ns, two_epoch_sel,
                                 pts_l=pts_l, int_bounds=(1e-5, max_gam),
                                 Npts=300, echo=True, mp=True)
