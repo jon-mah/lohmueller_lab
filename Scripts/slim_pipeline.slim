@@ -16,7 +16,7 @@ initialize()
   initializeMutationType('m2', -0.1, 'g', 0.0001, 0.00017732);
 
   // g1 genomic element type: uses m1 for all mutations
-  initializeGenomicElementType('g1', c(m1, m2), c(0.8, 0.2));
+  initializeGenomicElementType('g1', c(m1, m2), c(0.5, 0.5));
 
   // Uniform chromosome of length 100 kb.
   initializeGenomicElement(g1, 0, 99999);
@@ -42,7 +42,7 @@ initialize()
 11000
 {
   p1_sample = sample(x=p1.individuals, size=15, replace=F, weights=NULL);
-  p1_sample.genomes.outputVCF('../Data/pilot_pipeline/seed_1_one_pop.vcf');
+  p1_sample.genomes.outputVCF('../Data/pipeline_output/seed_1_one_pop.vcf');
   sim.simulationFinished();
   print('Simulation has ended.');
 }

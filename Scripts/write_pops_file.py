@@ -87,6 +87,7 @@ def main():
     warning_logger.addHandler(logfile_handler)
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
     logfile_handler.setFormatter(formatter)
+    logger.setLevel(logging.INFO)
 
     # print some basic information
     logger.info('Beginning execution of {0} in directory {1}\n'.format(
