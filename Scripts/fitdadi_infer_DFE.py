@@ -16,6 +16,8 @@ import numpy
 import dadi
 import Selection
 
+warnings.filterwarnings("ignore")
+
 
 class ArgumentParserNoArgHelp(argparse.ArgumentParser):
     """Like *argparse.ArgumentParser*, but prints help when no arguments."""
@@ -112,6 +114,7 @@ def two_epoch_sel(params, ns, pts):
 
     fs = dadi.Spectrum.from_phi(phi, ns, (xx, ))  # Construct Spectrum object.
     return fs
+
 
 def growth(params, ns, pts):
     """Exponential growth beginning some time ago.
@@ -324,11 +327,11 @@ def main():
 
     demog_params = best_params
     theta_syn = best_theta
-    theta_nonsyn = theta_syn * 2.31
+    theta_nonsyn = theta_syn * 2.14
 
-    Lsyn = 4348419
+    Lsyn = 4348419  # Length of synonymous sites.
     u = 5.38E-09
-    u_exon = u * 1.25
+    u_exon = u * 1.25  # Mutation rate of dog exons.
     Na = theta_syn / (4 * u_exon * Lsyn)
 
     max_s = 0.5
