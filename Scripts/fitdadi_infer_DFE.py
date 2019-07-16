@@ -267,7 +267,7 @@ def main():
     # Construct initial Spectrum object from input synonymous sfs.
     syn_data = dadi.Spectrum.from_file(syn_input_sfs)
     syn_ns = syn_data.sample_sizes  # Number of samples.
-    pts_l = [100, 200, 300]
+    pts_l = [2000, 2200, 2400]
 
     # Optomize parameters for this model.
     # First set parameter bounds for optimization
@@ -287,8 +287,6 @@ def main():
                 p0, fold=1, upper_bound=upper_bound, lower_bound=lower_bound)
             # Make the extrapolating version of demographic model function.
             func_ex = dadi.Numerics.make_extrap_log_func(two_epoch)
-            f.write(
-                'Attempting optimization with initial guess, {0}.'.format(p0))
             logger.info(
                 'Beginning optimization with initial guess, {0}.'.format(p0))
             popt = dadi.Inference.optimize_log_lbfgsb(
@@ -334,7 +332,7 @@ def main():
     max_s = 0.5
     max_gam = max_s * 2 * Na
 
-    pts_l = [500, 1000, 2000]
+    pts_l = [2000, 2200, 2400]
     spectra = Selection.spectra(demog_params, nonsyn_ns, two_epoch_sel,
                                 pts_l=pts_l, int_bounds=(1e-5, max_gam),
                                 Npts=300, echo=True, mp=True)
@@ -347,7 +345,7 @@ def main():
 
     p0 = dadi.Misc.perturb_params(sel_params, lower_bound=lower_bound,
                                   upper_bound=upper_bound)
-    popt = Selection.optimize_log(p0, data, spectra.integrate,
+    popt = Selection.optimize_log(p0, nonsyn_data, spectra.integrate,
                                   Selection.gamma_dist, theta_nonsyn,
                                   lower_bound=lower_bound,
                                   upper_bound=upper_bound,

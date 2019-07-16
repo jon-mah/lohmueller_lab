@@ -105,6 +105,7 @@ def main():
             total_ind += 1
 
     logger.info('Finished writing ' + str(pops_file) + '.')
+    logging.shutdown()
 
 
 if __name__ == '__main__':
