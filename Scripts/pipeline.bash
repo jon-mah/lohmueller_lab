@@ -1,7 +1,7 @@
 # qsub -cwd -V -N job_name pipeline.bash
 
 # INPUT ARGUMENTS
-num_ind=125 # Number of chromosomes from single population
+num_ind=15 # Number of chromosomes from single population
 outdir="../Data/pilot_pipeline/"
 outprefix="${outdir}seed_1_one_pop"
 

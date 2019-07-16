@@ -16,8 +16,6 @@ import numpy
 import dadi
 import Selection
 
-warnings.filterwarnings("ignore")
-
 
 class ArgumentParserNoArgHelp(argparse.ArgumentParser):
     """Like *argparse.ArgumentParser*, but prints help when no arguments."""
@@ -259,6 +257,7 @@ def main():
     warning_logger.addHandler(logfile_handler)
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
     logfile_handler.setFormatter(formatter)
+    logger.setLevel(logging.INFO)
 
     # print some basic information
     logger.info('Beginning execution of {0} in directory {1}\n'.format(
@@ -270,7 +269,7 @@ def main():
     # Construct initial Spectrum object from input synonymous sfs.
     syn_data = dadi.Spectrum.from_file(syn_input_sfs)
     syn_ns = syn_data.sample_sizes  # Number of samples.
-    pts_l = [2000, 2200, 2400]
+    pts_l = [80, 100, 120]
 
     # Optomize parameters for this model.
     # First set parameter bounds for optimization
@@ -327,7 +326,7 @@ def main():
     theta_syn = best_theta
     theta_nonsyn = theta_syn * 2.14
 
-    Lsyn = 4348419  # Length of synonymous sites.
+    Lsyn = 5144295  # Length of synonymous sites.
     u = 5.38E-09
     u_exon = u * 1.25  # Mutation rate of dog exons.
     Na = theta_syn / (4 * u_exon * Lsyn)
@@ -335,7 +334,7 @@ def main():
     max_s = 0.5
     max_gam = max_s * 2 * Na
 
-    pts_l = [2000, 2200, 2400]
+    pts_l = [500, 1000, 2000]
     spectra = Selection.spectra(demog_params, nonsyn_ns, two_epoch_sel,
                                 pts_l=pts_l, int_bounds=(1e-5, max_gam),
                                 Npts=300, echo=True, mp=True)

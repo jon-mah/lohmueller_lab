@@ -15,12 +15,12 @@ def two_epoch(params, ns, pts):
     fs = dadi.Spectrum.from_phi(phi, ns, (xx,))
     return fs
 
-data = dadi.Spectrum.from_file('AW.sfs')												###
+data = dadi.Spectrum.from_file('PG.sfs')												###
 #data = data.fold()
 ns = data.sample_sizes
 
-demog_params = [0.15587314,0.0111469]														###
-theta_syn = 11084.6193041																	###
+demog_params = [0.03033438,0.07128196]														###
+theta_syn = 37673.2117228																###
 theta_ns = theta_syn * 2.14																																		
 																									
 def two_epoch_sel(params, ns, pts):
@@ -31,14 +31,14 @@ def two_epoch_sel(params, ns, pts):
     fs = dadi.Spectrum.from_phi(phi, ns, (xx,))
     return fs
 
-Lsyn = 5144295																				###																
+Lsyn = 5095613																				###																
 u = 5.38E-09																			
 u_exon = u * 1.25																		
 Na = theta_syn / (4 * u_exon * Lsyn)
 max_s = 0.5																				
 max_gam = max_s * 2 * Na
 
-pts_l = [500,1000,2000]
+pts_l = [1000,2000,3000]
 spectra = Selection.spectra(demog_params, ns, two_epoch_sel, pts_l=pts_l, 
                             int_bounds=(1e-5,max_gam), Npts=300, echo=True, 
                             mp=True)

@@ -41,7 +41,7 @@ initialize()
 // run to generation 11000
 11000
 {
-  p1_sample = sample(x=p1.individuals, size=125, replace=F, weights=NULL);
+  p1_sample = sample(x=p1.individuals, size=15, replace=F, weights=NULL);
   p1_sample.genomes.outputVCF('../Data/pilot_pipeline/seed_1_one_pop.vcf');
   sim.simulationFinished();
   print('Simulation has ended.');

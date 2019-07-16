@@ -4,8 +4,8 @@ import Demographics1D
 import random
 
 # Load the data
-data = dadi.Spectrum.from_file('curr_ssp.sfs')
-
+#data = dadi.Spectrum.from_file('curr_ssp.sfs')
+data = dadi.Spectrum.from_file('AW_temp.sfs')
 #data = data.fold()
 ns = data.sample_sizes
 
