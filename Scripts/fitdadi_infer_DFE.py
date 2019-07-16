@@ -1,5 +1,5 @@
 """
-Uses fitdadi to infer the DFE of a given synonynmous sfs.
+Uses dadi and fitdadi to infer the DFE of a given synonynmous sfs.
 
 JCM 201907011
 """
