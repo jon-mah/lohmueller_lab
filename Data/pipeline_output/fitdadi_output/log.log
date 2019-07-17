@@ -1,66 +1,80 @@
-2019-07-17 09:16:59,737 - INFO - Beginning execution of fitdadi_infer_DFE.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+2019-07-17 10:16:51,213 - INFO - Beginning execution of fitdadi_infer_DFE.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
 
-2019-07-17 09:16:59,737 - INFO - Progress is being logged to ../Data/pipeline_output/fitdadi_output/log.log
+2019-07-17 10:16:51,214 - INFO - Progress is being logged to ../Data/pipeline_output/fitdadi_output/log.log
 
-2019-07-17 09:16:59,738 - INFO - Parsed the following arguments:
+2019-07-17 10:16:51,214 - INFO - Parsed the following arguments:
 	breed = AW
 	outprefix = ../Data/pipeline_output/fitdadi_output/
 	nonsyn_input_sfs = ../Data/pipeline_output/easySFS_output_nonsyn/dadi/pop1.sfs
 	syn_input_sfs = ../Data/pipeline_output/easySFS_output_syn/dadi/pop1.sfs
 
-2019-07-17 09:16:59,740 - INFO - Beginning optimization with initial guess, [1.80572443 0.73548546].
-2019-07-17 09:17:01,951 - INFO - Finished optimization with initial guess, [1.80572443 0.73548546].
-2019-07-17 09:17:01,952 - INFO - Best fit parameters: [8.         2.49078481].
-2019-07-17 09:17:01,981 - INFO - Maximum log composite likelihood: -57.3396468396.
-2019-07-17 09:17:01,982 - INFO - Optimal value of theta: 29.6316633865.
-2019-07-17 09:17:01,982 - INFO - Beginning optimization with initial guess, [0.12532393 0.07350441].
-2019-07-17 09:17:04,394 - INFO - Finished optimization with initial guess, [0.12532393 0.07350441].
-2019-07-17 09:17:04,395 - INFO - Best fit parameters: [8.         2.49825351].
-2019-07-17 09:17:04,425 - INFO - Maximum log composite likelihood: -57.3396734506.
-2019-07-17 09:17:04,425 - INFO - Optimal value of theta: 29.5984295541.
-2019-07-17 09:17:04,426 - INFO - Beginning optimization with initial guess, [0.03375376 0.03938405].
-2019-07-17 09:17:31,714 - INFO - Finished optimization with initial guess, [0.03375376 0.03938405].
-2019-07-17 09:17:31,715 - INFO - Best fit parameters: [0.00457521 3.        ].
-2019-07-17 09:17:40,598 - INFO - Maximum log composite likelihood: -123.677765195.
-2019-07-17 09:17:40,599 - INFO - Optimal value of theta: 26824.2599855.
-2019-07-17 09:17:40,599 - INFO - Beginning optimization with initial guess, [0.01233172 0.00615969].
-2019-07-17 09:17:42,296 - INFO - Finished optimization with initial guess, [0.01233172 0.00615969].
-2019-07-17 09:17:42,296 - INFO - Best fit parameters: [2.80831136e-02 1.60771943e-10].
-2019-07-17 09:17:42,322 - INFO - Maximum log composite likelihood: -123.677770869.
-2019-07-17 09:17:42,322 - INFO - Optimal value of theta: 122.726664086.
-2019-07-17 09:17:42,323 - INFO - Beginning optimization with initial guess, [0.00462591 0.00267219].
-2019-07-17 09:17:44,025 - INFO - Finished optimization with initial guess, [0.00462591 0.00267219].
-2019-07-17 09:17:44,025 - INFO - Best fit parameters: [2.38954776e-02 1.38314050e-10].
-2019-07-17 09:17:44,051 - INFO - Maximum log composite likelihood: -123.677770957.
-2019-07-17 09:17:44,051 - INFO - Optimal value of theta: 122.726664126.
-2019-07-17 09:17:44,052 - INFO - Beginning optimization with initial guess, [0.00159131 0.00181518].
-2019-07-17 09:38:33,198 - INFO - Finished optimization with initial guess, [0.00159131 0.00181518].
-2019-07-17 09:38:33,199 - INFO - Best fit parameters: [8.         2.49796553].
-2019-07-17 09:38:33,228 - INFO - Maximum log composite likelihood: -57.3396761357.
-2019-07-17 09:38:33,229 - INFO - Optimal value of theta: 29.599715644.
-2019-07-17 09:38:33,229 - INFO - Beginning optimization with initial guess, [0.00043774 0.00028668].
-2019-07-17 09:38:34,856 - INFO - Finished optimization with initial guess, [0.00043774 0.00028668].
-2019-07-17 09:38:34,856 - INFO - Best fit parameters: [7.74565682e-03 7.59261837e-11].
-2019-07-17 09:38:34,882 - INFO - Maximum log composite likelihood: -123.677775104.
-2019-07-17 09:38:34,882 - INFO - Optimal value of theta: 122.726666021.
-2019-07-17 09:38:34,883 - INFO - Beginning optimization with initial guess, [0.00013759 0.00015298].
-2019-07-17 09:38:38,525 - INFO - Finished optimization with initial guess, [0.00013759 0.00015298].
-2019-07-17 09:38:38,526 - INFO - Best fit parameters: [8.         2.49164727].
-2019-07-17 09:38:38,555 - INFO - Maximum log composite likelihood: -57.3396421186.
-2019-07-17 09:38:38,556 - INFO - Optimal value of theta: 29.6278255402.
-2019-07-17 09:38:38,556 - INFO - Beginning optimization with initial guess, [1.01000000e-04 3.46999493e-05].
-2019-07-17 09:38:39,940 - INFO - Finished optimization with initial guess, [1.01000000e-04 3.46999493e-05].
-2019-07-17 09:38:39,942 - INFO - Best fit parameters: [4.66606047e-04 4.26423645e-12].
-2019-07-17 09:38:39,967 - INFO - Maximum log composite likelihood: -123.677774502.
-2019-07-17 09:38:39,968 - INFO - Optimal value of theta: 122.726665746.
-2019-07-17 09:38:39,968 - INFO - Beginning optimization with initial guess, [1.01000000e-04 1.51545798e-05].
-2019-07-17 09:38:41,795 - INFO - Finished optimization with initial guess, [1.01000000e-04 1.51545798e-05].
-2019-07-17 09:38:41,796 - INFO - Best fit parameters: [4.93288439e-04 4.57798377e-12].
-2019-07-17 09:38:41,821 - INFO - Maximum log composite likelihood: -123.677774646.
-2019-07-17 09:38:41,821 - INFO - Optimal value of theta: 122.726665812.
-2019-07-17 09:38:41,823 - INFO - Finished demographic inference.
-2019-07-17 09:38:41,823 - INFO - Beginning DFE inference.
-2019-07-17 09:40:19,942 - INFO - Finished DFE inference.
-2019-07-17 09:40:19,943 - INFO - Integrating expected site-frequency spectrum.
-2019-07-17 09:40:20,011 - INFO - Outputing results.
-2019-07-17 09:40:20,014 - INFO - Pipeline executed succesfully.
+2019-07-17 10:16:51,216 - INFO - Beginning optimization with initial guess, [1.0254655  1.45789093].
+2019-07-17 10:16:51,313 - WARNING - /u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/dadi/Inference.py:69: UserWarning: Warning: converting a masked element to nan.
+  os.linesep))
+
+2019-07-17 10:16:51,317 - WARNING - /u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/scipy/optimize/optimize.py:670: UserWarning: Warning: converting a masked element to nan.
+  grad[k] = (f(*((xk + d,) + args)) - f0) / d[k]
+
+2019-07-17 10:16:51,365 - WARNING - /u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/scipy/optimize/lbfgsb.py:328: UserWarning: Warning: converting a masked element to nan.
+  isave, dsave, maxls)
+
+2019-07-17 10:16:52,967 - INFO - Finished optimization with initial guess, [1.0254655  1.45789093].
+2019-07-17 10:16:52,967 - INFO - Best fit parameters: [1.0254655  1.45789093].
+2019-07-17 10:16:53,014 - INFO - Maximum log composite likelihood: nan.
+2019-07-17 10:16:53,014 - INFO - Optimal value of theta: 0.0.
+2019-07-17 10:16:53,015 - INFO - Beginning optimization with initial guess, [0.05460138 0.06445888].
+2019-07-17 10:16:53,145 - INFO - Finished optimization with initial guess, [0.05460138 0.06445888].
+2019-07-17 10:16:53,145 - INFO - Best fit parameters: [0.05460138 0.06445888].
+2019-07-17 10:16:53,188 - INFO - Maximum log composite likelihood: nan.
+2019-07-17 10:16:53,189 - INFO - Optimal value of theta: 0.0.
+2019-07-17 10:16:53,189 - INFO - Beginning optimization with initial guess, [0.04812462 0.05130587].
+2019-07-17 10:16:53,314 - INFO - Finished optimization with initial guess, [0.04812462 0.05130587].
+2019-07-17 10:16:53,315 - INFO - Best fit parameters: [0.04812462 0.05130587].
+2019-07-17 10:16:53,356 - INFO - Maximum log composite likelihood: nan.
+2019-07-17 10:16:53,357 - INFO - Optimal value of theta: 0.0.
+2019-07-17 10:16:53,357 - INFO - Beginning optimization with initial guess, [0.01942382 0.00537426].
+2019-07-17 10:16:53,450 - INFO - Finished optimization with initial guess, [0.01942382 0.00537426].
+2019-07-17 10:16:53,450 - INFO - Best fit parameters: [0.01942382 0.00537426].
+2019-07-17 10:16:53,481 - INFO - Maximum log composite likelihood: nan.
+2019-07-17 10:16:53,482 - INFO - Optimal value of theta: 0.0.
+2019-07-17 10:16:53,482 - INFO - Beginning optimization with initial guess, [0.00330022 0.00716247].
+2019-07-17 10:16:53,653 - INFO - Finished optimization with initial guess, [0.00330022 0.00716247].
+2019-07-17 10:16:53,653 - INFO - Best fit parameters: [0.00330022 0.00716247].
+2019-07-17 10:16:53,710 - INFO - Maximum log composite likelihood: nan.
+2019-07-17 10:16:53,711 - INFO - Optimal value of theta: 0.0.
+2019-07-17 10:16:53,711 - INFO - Beginning optimization with initial guess, [0.00051833 0.00067965].
+2019-07-17 10:16:53,847 - INFO - Finished optimization with initial guess, [0.00051833 0.00067965].
+2019-07-17 10:16:53,847 - INFO - Best fit parameters: [0.00051833 0.00067965].
+2019-07-17 10:16:53,892 - INFO - Maximum log composite likelihood: nan.
+2019-07-17 10:16:53,892 - INFO - Optimal value of theta: 0.0.
+2019-07-17 10:16:53,893 - INFO - Beginning optimization with initial guess, [0.00093575 0.00054642].
+2019-07-17 10:16:53,998 - INFO - Finished optimization with initial guess, [0.00093575 0.00054642].
+2019-07-17 10:16:53,998 - INFO - Best fit parameters: [0.00093575 0.00054642].
+2019-07-17 10:16:54,033 - INFO - Maximum log composite likelihood: nan.
+2019-07-17 10:16:54,034 - INFO - Optimal value of theta: 0.0.
+2019-07-17 10:16:54,034 - INFO - Beginning optimization with initial guess, [1.84376745e-04 6.89212618e-05].
+2019-07-17 10:16:54,131 - INFO - Finished optimization with initial guess, [1.84376745e-04 6.89212618e-05].
+2019-07-17 10:16:54,131 - INFO - Best fit parameters: [1.84376745e-04 6.89212618e-05].
+2019-07-17 10:16:54,163 - INFO - Maximum log composite likelihood: nan.
+2019-07-17 10:16:54,164 - INFO - Optimal value of theta: 0.0.
+2019-07-17 10:16:54,164 - INFO - Beginning optimization with initial guess, [1.010000e-04 5.610141e-05].
+2019-07-17 10:16:54,268 - INFO - Finished optimization with initial guess, [1.010000e-04 5.610141e-05].
+2019-07-17 10:16:54,269 - INFO - Best fit parameters: [1.010000e-04 5.610141e-05].
+2019-07-17 10:16:54,303 - INFO - Maximum log composite likelihood: nan.
+2019-07-17 10:16:54,304 - INFO - Optimal value of theta: 0.0.
+2019-07-17 10:16:54,305 - INFO - Beginning optimization with initial guess, [1.01000000e-04 8.42798929e-06].
+2019-07-17 10:16:54,389 - INFO - Finished optimization with initial guess, [1.01000000e-04 8.42798929e-06].
+2019-07-17 10:16:54,390 - INFO - Best fit parameters: [1.01000000e-04 8.42798929e-06].
+2019-07-17 10:16:54,418 - INFO - Maximum log composite likelihood: nan.
+2019-07-17 10:16:54,418 - INFO - Optimal value of theta: 0.0.
+2019-07-17 10:16:54,420 - INFO - Finished demographic inference.
+2019-07-17 10:16:54,420 - INFO - Beginning DFE inference.
+2019-07-17 10:17:03,243 - WARNING - /u/home/j/jonmah/lohmueller_lab/Scripts/Selection.py:144: IntegrationWarning: The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+  0, args=tuple(params))
+
+2019-07-17 10:17:03,410 - INFO - Finished DFE inference.
+2019-07-17 10:17:03,410 - INFO - Integrating expected site-frequency spectrum.
+2019-07-17 10:17:03,450 - INFO - Outputing results.
+2019-07-17 10:17:03,454 - INFO - Pipeline executed succesfully.
