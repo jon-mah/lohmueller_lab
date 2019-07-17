@@ -1,3 +1,8 @@
+#!/bin/bash
+#$ -cwd
+#$ -V
+#$ -m bea
+
 # AW_inference.bash
 # This script infers the demography and DFE of arctic wolves, given
 # their synonymous and nonsynonymous sfs.
