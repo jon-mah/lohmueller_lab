@@ -16,7 +16,7 @@ syn_easySFS_outdir="${outdir}easySFS_output_syn/"
 nonsyn_easySFS_outdir="${outdir}easySFS_output_nonsyn/"
 num_samples=$(($num_ind * 2))
 
-# slim slim_pipeline.slim # Run slim file to generate `.vcf`.
+slim slim_pipeline.slim # Run slim file to generate `.vcf`.
 
 # Separate input `.vcf` file into synonymous and nonsynonymous.
 grep "#\|;MT=1" ${prefix}.vcf > $syn_inputvcf
