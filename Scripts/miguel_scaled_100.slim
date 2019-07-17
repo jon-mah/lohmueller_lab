@@ -1,0 +1,61 @@
+// This script is made to help simualte Ancestral Wolf Population to test for effective change in DFE.
+initialize() {
+  //Set a Seed to keep track of the type of simulation we are using.
+  setSeed(1);
+
+  //Mutations Rate is set up so be that of Arctic Wolf Popualtion
+  initializeMutationRate(6.7250e-7);
+
+  // m1 mutation type: Neutral for synonomous sites.
+  // m2 mutation type: Deleterious for Non-Synonomous sites.
+  initializeMutationType("m1", 0.0, "f", 0.0);
+  initializeMutationType("m2",0.5,"g",0.0980,0.482748);//additive mutation
+
+  // g1 genomic element type: Synonomous sites
+  // g2 genomic element type: NonSysnonomous sites
+  initializeGenomicElementType("g1", m1, 1);
+  initializeGenomicElementType("g2",c(m1,m2),c(1.0,2.14));
+
+  //Initialize the recombination rate
+  initializeRecombinationRate(1e-6);
+
+  //This helps creates a loop of the exon size to create a wolf genome.
+  base = 0; //Keep track of the length of the whole genome region
+  exonbase=0; //Keeps track of the length of the exome region
+  while (exonbase < 16123086) {
+   // makes exon to be put inside the region
+   ex_length = asInteger(rdunif(1, 100,200)) + 1;
+   initializeGenomicElement(g2, base, base + ex_length - 1);
+   base = base + ex_length;
+   exonbase = exonbase +ex_length;
+
+   // makes intron to be put into the intron
+   in_length = asInteger(rdunif(1, 3000, 4000));
+   initializeGenomicElement(g1, base, base + in_length - 1);
+   base= base + in_length;
+   }
+
+}
+// This creates a the ancestral populations of wolves that wass full of 80,000 diploid individuals
+1
+{
+  sim.addSubpop("p1", 800);
+}
+// After this populations is defined we let this population burn in for 12N=>12(80,000)=960,000 generations. After this population is burned in we create a bottle neck inside the population reducing the populations  from 80000 to 12500
+9600
+{
+  p1.setSubpopulationSize(125);
+}
+1:9618
+{
+print(sim.generation);
+}
+//100 generations before the siumulations is finished we decide to change the  DFE to account for the change in selection pressure being introduced by selection. But in the case of arctic wolves we leave this distribution and selection coefficient the same as we did.
+9618{
+  //m2.setDistribution(-0.01,);
+}
+//After 1786 generations of now the new arctic wolf populaitons we will be at the current time of species divergence and will effecltively end the simulation.
+9618
+{
+  p1.outputVcfSample(15,filePath="../Data/pipeline_output/miguel_ArcticWolfSimulationSd1.vcf");
+}

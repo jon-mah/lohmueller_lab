@@ -1,3 +1,7 @@
+#!/bin/bash
+#$ -cwd
+#$ -V
+
 # qsub -cwd -V -N job_name pipeline.bash
 
 # INPUT ARGUMENTS

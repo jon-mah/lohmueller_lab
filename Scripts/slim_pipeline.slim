@@ -31,7 +31,7 @@ initialize()
 
 1
 {
-  sim.addSubpop('p1', 8000);
+  sim.addSubpop('p1', 80000);
 }
 
 // "Burn in" simulation, i.e., run the simulation 12N generations so that
@@ -41,7 +41,7 @@ initialize()
   p1.setSubpopulationSize(asInteger(12500));
 }
 
-// run for 1000 generations after bottleneck
+// run for 1786 generations after bottleneck
 971786
 {
   p1_sample = sample(x=p1.individuals, size=15, replace=F, weights=NULL);
