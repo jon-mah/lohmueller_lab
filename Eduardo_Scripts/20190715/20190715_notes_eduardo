@@ -1,0 +1,61 @@
+--- Notes Eduardo July 15 2019 ----
+
+#########################
+##### DADI FITDADI ######
+#########################
+
+In this directory you can find the most recent scripts and SFS files I used to run Dadi (2ep.py) and FitDadi (NS*py) for PG (pug), LB (Labrador), and AW (Arctic Wolf).
+
+For now, let's focus on AW, and then on LB. I might need to re-do the estimates for PG using 3-epochs model. ### Check how much worse is 2ep vs 3ep for PG.
+
+Sample sizes are all projected down to N=8 with easySFS.
+
+The number file "8pops_results.numbers" has two tabs. The first one is the output of the DADI runs for syn sites.
+There are more than just AW, PG, LB, but you can ignore the others for now.
+For each population, I have 10 runs. I do that to make sure the estimates are converging to a similar value. 
+
+The second tab "Scenarios" has the demographic scenarios, and selective and genetic parameters. See below.
+
+###############################################
+### Demography, Genetic parameters, and DFE ###
+###############################################
+
+See table "Scenarios." Ignore "OLD RUN" lines for now. See lines 2 (AW), 3 (LB), and 4 (PG).
+
+## DEMOGRAPHY ##
+The demographic parameters are given in columns C, D, E, H, I, J. 
+C-E are the outputs of DADI and are given in units relative to Ne.
+I need the sequence length (Lsyn column G) and mutation rate (u column F) to scale these parameters to real values. 
+Real values are given in columns H-J. Eg. AW has an ancestral population of ~80K individuals then it goes through a bottleneck 1786 generations ago reducing its population size to ~12.5K.
+These are the values Miguel will use.
+
+## GENETIC ##
+Miguel will also need:
+- Mutation rate (u) for exons = 6.7250E-09
+- Ratio of non-synonymous to synonymous substitutions = 2.14 (ask me if you didn't understand what is this) 
+- Sequence length. For AW we can get the sequence length by multiplying the number of covered syn sites (Lsyn = 5,144,295) to 2.14 = 11,008,791 <- I want to re-estimate that independently for NS sites, but won't have time to do it now. Let's use this value meanwhile.
+- Average exon length: 157 bp.
+- Use intron length as 1bp and multiply the recombination rate *in introns* by the average intron length.
+
+## SELECTION ##
+The parameters for the gamma distribution of s (selection coefficient) are in columns M and N. For AW these are shape=0.0980 and scale=4.9260. 
+Note that SLIM may use rate instead of scale parameter for the gamma distribution. If that's the case, then instead of scale = 4.9260 you should use rate = 1/4.9260. Please talk to me if this doens't make sense. I might be mistaken about it.
+
+###############################################
+###############################################
+
+Miguel, we talked about using 100, 5K and 10K generations for the change in the DFE. Correct? 
+I realized the size change occurs at ~1.786 generations ago. So, let's do: 100 (recent, as Kirk suggested), 1000 (intermediate), and 1786 (together with the bottleneck) generations ago? 
+
+
+
+
+
+
+
+
+
+
+
+
+
