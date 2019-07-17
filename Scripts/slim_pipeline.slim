@@ -13,16 +13,16 @@ initialize()
   initializeMutationType('m1', 0.5, 'f', 0.0);
 
   // m2 mutation type: deleterious.
-  initializeMutationType('m2', 0.5, 'g', 0.0980, 4.9260);
+  initializeMutationType('m2', 0.5, 'g', 0.0980, 0.482748);
 
   // g1 genomic element type: uses m1 for all mutations
   initializeGenomicElementType('g1', c(m1, m2), c(1, 2.14));
 
   // Uniform chromosome of length 100 kb.
-  initializeGenomicElement(g1, 0, 99999);
+  // initializeGenomicElement(g1, 0, 99999);
 
   // Full length exome.
-  // initializeGenomicElement(g1, 0, 16153085);
+  initializeGenomicElement(g1, 0, 16153085);
 
   // Uniform recombination along the chromosome.
   initializeRecombinationRate(1e-8);
@@ -31,7 +31,7 @@ initialize()
 
 1
 {
-  sim.addSubpop('p1', 80000);
+  sim.addSubpop('p1', 8000);
 }
 
 // "Burn in" simulation, i.e., run the simulation 12N generations so that
@@ -41,11 +41,12 @@ initialize()
   p1.setSubpopulationSize(asInteger(12500));
 }
 
-// run for 1786 generations after bottleneck
-961786
+// run for 1000 generations after bottleneck
+971786
 {
   p1_sample = sample(x=p1.individuals, size=15, replace=F, weights=NULL);
   p1_sample.genomes.outputVCF('../Data/pipeline_output/seed_1_one_pop.vcf');
   sim.simulationFinished();
   print('Simulation has ended.');
 }
+
