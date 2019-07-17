@@ -42,11 +42,11 @@ def ExistingBreed(breed):
     "LB" indicates labrador data.
     "PG" indicates pug data.
     """
-    if breed is "AW":
+    if breed == "AW":
         return breed
-    elif breed is "LB":
+    elif breed == "LB":
         return breed
-    elif breed is "PG":
+    elif breed == "PG":
         return breed
     else:
         raise ValueError('%s must specify a valid breed.' % breed)
@@ -359,7 +359,7 @@ def main():
     max_s = 0.5
     max_gam = max_s * 2 * Na
 
-    pts_l = [1000, 2000, 3000]
+    pts_l = [1200, 1400, 1600]
     spectra = Selection.spectra(demog_params, nonsyn_ns, two_epoch_sel,
                                 pts_l=pts_l, int_bounds=(1e-5, max_gam),
                                 Npts=300, echo=True, mp=True)

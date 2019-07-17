@@ -5,4 +5,4 @@
 # It can be run by submitting the following to the command line:
 # qsub -cwd -V LB_inference.bash
 
-python fitdadi_infer_DFE.py ../Data/syn_LB.sfs ../Data/nonsyn_LB.sfs ../Eduardo_Output/LB/
+python fitdadi_infer_DFE.py ../Data/syn_LB.sfs ../Data/nonsyn_LB.sfs ../Eduardo_Output/LB/ --breed "LB"

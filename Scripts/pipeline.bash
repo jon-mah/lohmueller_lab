@@ -33,5 +33,5 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 # Use fitdadi_infer_DFE.py to infer DFE for given synonymous and
 # nonsynonymous sfs.
-python fitdadi_infer_DFE.py ${syn_easySFS_outdir}dadi/pop1.sfs ${nonsyn_easySFS_outdir}dadi/pop1.sfs ${outdir}fitdadi_output/
+python fitdadi_infer_DFE.py ${syn_easySFS_outdir}dadi/pop1.sfs ${nonsyn_easySFS_outdir}dadi/pop1.sfs ${outdir}fitdadi_output/ --breed "AW"
 
