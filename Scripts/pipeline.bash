@@ -2,12 +2,13 @@
 #$ -cwd
 #$ -V
 #$ -m bea
-# qsub -cwd -V -N job_name pipeline.bash
+#$ -l h_data=5G
+#$ -l h_rt=24:00:00
 
 # INPUT ARGUMENTS
 num_ind=15 # Number of samples from single population.
-outdir="../Data/pipeline_output/" # Output directory, which contains given vcf
-prefix="../Data/pipeline_output/seed_1_one_pop" # Output prefix, and input prefix of given vcf
+outdir="../Data/AW_pipeline_output/" # Output directory, which contains given vcf
+prefix="../Data/AW_pipeline_output/seed_1_one_pop" # Output prefix, and input prefix of given vcf
 easySFS_proj=30 # Number of chromosomes that sample is projected down into.
 
 # DERIVED ARGUMENTS

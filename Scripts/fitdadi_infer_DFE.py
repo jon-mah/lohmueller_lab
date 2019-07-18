@@ -387,7 +387,9 @@ def main():
     logger.info('Outputing results.')
 
     with open(inferred_DFE, 'w') as f:
-        f.write('The scaled best-fit parameters: {0}.\n'.format(popt))
+        f.write(
+            'The population-scaled best-fit parameters: {0}.\n'.format(popt))
+        # Divide output scale parameter by 2 * N_a
         f.write('The non-scaled best-fit parameters: {0}, {1}.\n'.format(
             popt[0], popt[1] / 160000))
         f.write('The expected SFS is: {0}.'.format(expected_sfs))
