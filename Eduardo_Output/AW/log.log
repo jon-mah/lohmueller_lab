@@ -1,66 +1,66 @@
-2019-07-17 16:14:50,527 - INFO - Beginning execution of fitdadi_infer_DFE.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+2019-07-18 12:04:17,268 - INFO - Beginning execution of fitdadi_infer_DFE.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
 
-2019-07-17 16:14:50,527 - INFO - Progress is being logged to ../Eduardo_Output/AW/log.log
+2019-07-18 12:04:17,274 - INFO - Progress is being logged to ../Eduardo_Output/AW/log.log
 
-2019-07-17 16:14:50,527 - INFO - Parsed the following arguments:
+2019-07-18 12:04:17,275 - INFO - Parsed the following arguments:
 	breed = AW
 	outprefix = ../Eduardo_Output/AW/
 	nonsyn_input_sfs = ../Data/nonsyn_AW.sfs
 	syn_input_sfs = ../Data/syn_AW.sfs
 
-2019-07-17 16:14:50,533 - INFO - Beginning optimization with initial guess, [1.624673   1.04988861].
-2019-07-17 16:14:52,895 - INFO - Finished optimization with initial guess, [1.624673   1.04988861].
-2019-07-17 16:14:52,896 - INFO - Best fit parameters: [0.30561734 0.02898924].
-2019-07-17 16:14:52,911 - INFO - Maximum log composite likelihood: -41.941310137.
-2019-07-17 16:14:52,912 - INFO - Optimal value of theta: 11129.6305039.
-2019-07-17 16:14:52,912 - INFO - Beginning optimization with initial guess, [0.18689289 0.18215342].
-2019-07-17 16:14:55,053 - INFO - Finished optimization with initial guess, [0.18689289 0.18215342].
-2019-07-17 16:14:55,055 - INFO - Best fit parameters: [0.15854342 0.01137777].
-2019-07-17 16:14:55,069 - INFO - Maximum log composite likelihood: -40.5600791608.
-2019-07-17 16:14:55,070 - INFO - Optimal value of theta: 11084.1608034.
-2019-07-17 16:14:55,070 - INFO - Beginning optimization with initial guess, [0.0747701 0.0357959].
-2019-07-17 16:14:56,482 - INFO - Finished optimization with initial guess, [0.0747701 0.0357959].
-2019-07-17 16:14:56,482 - INFO - Best fit parameters: [0.12042278 0.00807916].
-2019-07-17 16:14:56,497 - INFO - Maximum log composite likelihood: -40.6124113143.
-2019-07-17 16:14:56,498 - INFO - Optimal value of theta: 11068.3416403.
-2019-07-17 16:14:56,498 - INFO - Beginning optimization with initial guess, [0.01416856 0.01431174].
-2019-07-17 16:14:58,303 - INFO - Finished optimization with initial guess, [0.01416856 0.01431174].
-2019-07-17 16:14:58,304 - INFO - Best fit parameters: [0.16180456 0.01167452].
-2019-07-17 16:14:58,318 - INFO - Maximum log composite likelihood: -40.5607316748.
-2019-07-17 16:14:58,319 - INFO - Optimal value of theta: 11084.9020859.
-2019-07-17 16:14:58,319 - INFO - Beginning optimization with initial guess, [0.00761344 0.00805437].
-2019-07-17 16:15:00,587 - INFO - Finished optimization with initial guess, [0.00761344 0.00805437].
-2019-07-17 16:15:00,587 - INFO - Best fit parameters: [0.14884501 0.01049983].
-2019-07-17 16:15:00,602 - INFO - Maximum log composite likelihood: -40.5636098782.
-2019-07-17 16:15:00,603 - INFO - Optimal value of theta: 11080.5050327.
-2019-07-17 16:15:00,603 - INFO - Beginning optimization with initial guess, [0.00130017 0.00073429].
-2019-07-17 16:15:01,940 - INFO - Finished optimization with initial guess, [0.00130017 0.00073429].
-2019-07-17 16:15:01,942 - INFO - Best fit parameters: [1.35816191e-03 7.55771573e-05].
-2019-07-17 16:15:01,957 - INFO - Maximum log composite likelihood: -41.2116838373.
-2019-07-17 16:15:01,958 - INFO - Optimal value of theta: 11026.6464849.
-2019-07-17 16:15:01,958 - INFO - Beginning optimization with initial guess, [0.00062502 0.00093046].
-2019-07-17 16:15:03,619 - INFO - Finished optimization with initial guess, [0.00062502 0.00093046].
-2019-07-17 16:15:03,619 - INFO - Best fit parameters: [0.14837129 0.01038105].
-2019-07-17 16:15:03,634 - INFO - Maximum log composite likelihood: -40.5754762752.
-2019-07-17 16:15:03,635 - INFO - Optimal value of theta: 11071.6584637.
-2019-07-17 16:15:03,635 - INFO - Beginning optimization with initial guess, [1.01000000e-04 5.13137211e-05].
-2019-07-17 16:15:04,698 - INFO - Finished optimization with initial guess, [1.01000000e-04 5.13137211e-05].
-2019-07-17 16:15:04,699 - INFO - Best fit parameters: [1.15369342e-04 6.40815113e-06].
-2019-07-17 16:15:04,713 - INFO - Maximum log composite likelihood: -41.2204461833.
-2019-07-17 16:15:04,714 - INFO - Optimal value of theta: 11026.2328113.
-2019-07-17 16:15:04,714 - INFO - Beginning optimization with initial guess, [1.01000000e-04 4.00439737e-05].
-2019-07-17 16:15:06,825 - INFO - Finished optimization with initial guess, [1.01000000e-04 4.00439737e-05].
-2019-07-17 16:15:06,826 - INFO - Best fit parameters: [1.00000000e-04 5.55152747e-06].
-2019-07-17 16:15:06,841 - INFO - Maximum log composite likelihood: -41.2206061808.
-2019-07-17 16:15:06,841 - INFO - Optimal value of theta: 11025.6409662.
-2019-07-17 16:15:06,842 - INFO - Beginning optimization with initial guess, [1.01000000e-04 1.11483747e-05].
-2019-07-17 16:15:07,979 - INFO - Finished optimization with initial guess, [1.01000000e-04 1.11483747e-05].
-2019-07-17 16:15:07,979 - INFO - Best fit parameters: [1.00000000e-04 5.55153036e-06].
-2019-07-17 16:15:07,994 - INFO - Maximum log composite likelihood: -41.2206060737.
-2019-07-17 16:15:07,994 - INFO - Optimal value of theta: 11025.6415679.
-2019-07-17 16:15:08,014 - INFO - Finished demographic inference.
-2019-07-17 16:15:08,014 - INFO - Beginning DFE inference.
-2019-07-17 16:16:51,875 - INFO - Finished DFE inference.
-2019-07-17 16:16:51,876 - INFO - Integrating expected site-frequency spectrum.
-2019-07-17 16:16:51,921 - INFO - Outputing results.
-2019-07-17 16:16:51,927 - INFO - Pipeline executed succesfully.
+2019-07-18 12:04:17,294 - INFO - Beginning optimization with initial guess, [1.47471334 0.63312109].
+2019-07-18 12:04:19,665 - INFO - Finished optimization with initial guess, [1.47471334 0.63312109].
+2019-07-18 12:04:19,665 - INFO - Best fit parameters: [0.15868265 0.0113742 ].
+2019-07-18 12:04:19,683 - INFO - Maximum log composite likelihood: -40.5610573776.
+2019-07-18 12:04:19,684 - INFO - Optimal value of theta: 11082.5219573.
+2019-07-18 12:04:19,684 - INFO - Beginning optimization with initial guess, [0.05018361 0.07668534].
+2019-07-18 12:04:27,452 - INFO - Finished optimization with initial guess, [0.05018361 0.07668534].
+2019-07-18 12:04:27,471 - INFO - Best fit parameters: [0.02661772 0.11709596].
+2019-07-18 12:04:27,557 - INFO - Maximum log composite likelihood: -94.3682844498.
+2019-07-18 12:04:27,558 - INFO - Optimal value of theta: 270469.085619.
+2019-07-18 12:04:27,558 - INFO - Beginning optimization with initial guess, [0.06354954 0.03861062].
+2019-07-18 12:04:29,455 - INFO - Finished optimization with initial guess, [0.06354954 0.03861062].
+2019-07-18 12:04:29,455 - INFO - Best fit parameters: [0.09841127 0.00636254].
+2019-07-18 12:04:29,473 - INFO - Maximum log composite likelihood: -40.6819031957.
+2019-07-18 12:04:29,474 - INFO - Optimal value of theta: 11059.8617135.
+2019-07-18 12:04:29,474 - INFO - Beginning optimization with initial guess, [0.00689509 0.0053161 ].
+2019-07-18 12:04:32,485 - INFO - Finished optimization with initial guess, [0.00689509 0.0053161 ].
+2019-07-18 12:04:32,486 - INFO - Best fit parameters: [0.00900008 0.00050605].
+2019-07-18 12:04:32,503 - INFO - Maximum log composite likelihood: -41.1601269889.
+2019-07-18 12:04:32,504 - INFO - Optimal value of theta: 11028.1661614.
+2019-07-18 12:04:32,504 - INFO - Beginning optimization with initial guess, [0.00812501 0.00512644].
+2019-07-18 12:04:34,527 - INFO - Finished optimization with initial guess, [0.00812501 0.00512644].
+2019-07-18 12:04:34,544 - INFO - Best fit parameters: [0.00975199 0.00054878].
+2019-07-18 12:04:34,568 - INFO - Maximum log composite likelihood: -41.155369685.
+2019-07-18 12:04:34,568 - INFO - Optimal value of theta: 11028.0941267.
+2019-07-18 12:04:34,569 - INFO - Beginning optimization with initial guess, [0.00071918 0.00099655].
+2019-07-18 12:14:49,658 - INFO - Finished optimization with initial guess, [0.00071918 0.00099655].
+2019-07-18 12:14:49,674 - INFO - Best fit parameters: [0.00400787 0.00022385].
+2019-07-18 12:14:49,697 - INFO - Maximum log composite likelihood: -41.1930821718.
+2019-07-18 12:14:49,698 - INFO - Optimal value of theta: 11027.2562298.
+2019-07-18 12:14:49,698 - INFO - Beginning optimization with initial guess, [0.0005804  0.00081616].
+2019-07-18 12:29:37,935 - INFO - Finished optimization with initial guess, [0.0005804  0.00081616].
+2019-07-18 12:29:37,949 - INFO - Best fit parameters: [0.00281447 0.00015693].
+2019-07-18 12:29:37,968 - INFO - Maximum log composite likelihood: -41.2014446687.
+2019-07-18 12:29:37,969 - INFO - Optimal value of theta: 11026.9897824.
+2019-07-18 12:29:37,969 - INFO - Beginning optimization with initial guess, [0.00014129 0.00011104].
+2019-07-18 12:29:40,313 - INFO - Finished optimization with initial guess, [0.00014129 0.00011104].
+2019-07-18 12:29:40,314 - INFO - Best fit parameters: [1.50254647e-04 8.34632730e-06].
+2019-07-18 12:29:40,331 - INFO - Maximum log composite likelihood: -41.2202000084.
+2019-07-18 12:29:40,332 - INFO - Optimal value of theta: 11026.2519608.
+2019-07-18 12:29:40,332 - INFO - Beginning optimization with initial guess, [1.01000000e-04 7.45447517e-05].
+2019-07-18 12:29:41,730 - INFO - Finished optimization with initial guess, [1.01000000e-04 7.45447517e-05].
+2019-07-18 12:29:41,730 - INFO - Best fit parameters: [1.00000000e-04 5.55157653e-06].
+2019-07-18 12:29:41,748 - INFO - Maximum log composite likelihood: -41.220604375.
+2019-07-18 12:29:41,748 - INFO - Optimal value of theta: 11025.6512005.
+2019-07-18 12:29:41,749 - INFO - Beginning optimization with initial guess, [1.01000000e-04 5.48389974e-06].
+2019-07-18 12:29:44,318 - INFO - Finished optimization with initial guess, [1.01000000e-04 5.48389974e-06].
+2019-07-18 12:29:44,331 - INFO - Best fit parameters: [1.00634867e-04 5.58952242e-06].
+2019-07-18 12:29:44,354 - INFO - Maximum log composite likelihood: -41.2205501809.
+2019-07-18 12:29:44,354 - INFO - Optimal value of theta: 11026.2101187.
+2019-07-18 12:29:44,355 - INFO - Finished demographic inference.
+2019-07-18 12:29:44,356 - INFO - Beginning DFE inference.
+2019-07-18 12:31:59,385 - INFO - Finished DFE inference.
+2019-07-18 12:31:59,396 - INFO - Integrating expected site-frequency spectrum.
+2019-07-18 12:31:59,443 - INFO - Outputing results.
+2019-07-18 12:31:59,448 - INFO - Pipeline executed succesfully.
