@@ -390,8 +390,9 @@ def main():
         f.write(
             'The population-scaled best-fit parameters: {0}.\n'.format(popt))
         # Divide output scale parameter by 2 * N_a
-        f.write('The non-scaled best-fit parameters: [{0}, array({1})].\n'.format(
-            popt[0], numpy.divide(popt[1], numpy.array([1, 160000]))))
+        f.write(
+            'The non-scaled best-fit parameters: [{0}, array({1})].\n'.format(
+                popt[0], numpy.divide(popt[1], numpy.array([1, 160000]))))
         f.write('The expected SFS is: {0}.'.format(expected_sfs))
 
     logger.info('Pipeline executed succesfully.')

@@ -1,0 +1,70 @@
+// Author: Jonathan Mah
+// This script is made to help simulate Ancestral Wolf Population to test for effective change in DFE.
+initialize() {
+  // Set a Seed to keep track of the type of simulation we are using.
+  setSeed(1);
+
+  // Initialize Tree Sequences
+  initializeTreeSeq(simplificationRatio=INF);
+
+  // Mutations Rate is set up so be that of Arctic Wolf Population
+  initializeMutationRate(6.7250e-9);
+
+  // m1 mutation type: Neutral for synonymous sites.
+  // m2 mutation type: Deleterious for non-synonymous sites.
+  initializeMutationType("m1", 0.0, "f", 0.0);
+  initializeMutationType("m2", 0.5, "g", -0.482748, 0.0980);
+
+  // g1 genomic element type: Intron
+  // g2 genomic element type: Exon
+  initializeGenomicElementType("g1", m1, 1);
+  initializeGenomicElementType("g2", c(m1, m2), c(1.0, 2.14));
+
+  // This helps creates a loop of the exon size to create a wolf genome.
+  base = 0; // Keep track of the length of the whole genome region
+  exonbase = 0; // Keeps track of the length of the exome region
+  rates_vector = c();
+  ends_vector = c();
+  while (exonbase < 16123086) {
+    // makes exon to be put inside the region
+    rates_vector = c(rates_vector, 1e-8);
+    ex_length = asInteger(rdunif(1, 100,200)) + 1;
+    initializeGenomicElement(g2, base, base + ex_length - 1);
+    base = base + ex_length;
+    exonbase = exonbase + ex_length;
+    ends_vector = c(ends_vector, base - 1);
+
+    rates_vector = c(rates_vector, 3.5e-5);
+    // makes intron to be put into the intron
+    in_length = 1;
+    initializeGenomicElement(g1, base, base + in_length - 1);
+    base = base + in_length;
+    ends_vector = c(ends_vector, base - 1);
+  }
+
+  // Initialize the recombination rate.
+  initializeRecombinationRate(rates_vector, ends_vector);
+
+}
+// This creates a the ancestral populations of wolves that was full of
+// 80,000 diploid individuals
+1
+{
+  sim.addSubpop("p1", 80000);
+}
+1000 // 1000 year non-neutral burn-in
+{
+  p1.setSubpopulationSize(12500);
+}
+// 100 generations before the simulations is finished we decide to change
+// the  DFE to account for the change in selection pressure being introduced
+// by selection. But in the case of arctic wolves we leave this distribution
+// and selection coefficient the same as we did.
+// 1687{
+  // m2.setDistribution(-0.01,);
+// }
+// After 1786 generations to current time, we end the simulation
+2786
+{
+  sim.treeSeqOutput(filePath="../Data/AW_pipeline_output/seed_1.vcf");
+}
