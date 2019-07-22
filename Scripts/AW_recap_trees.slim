@@ -52,7 +52,7 @@ initialize() {
 {
   sim.addSubpop("p1", 80000);
 }
-1000 // 1000 year non-neutral burn-in
+10000 // 10000 year non-neutral burn-in
 {
   p1.setSubpopulationSize(12500);
 }
@@ -60,11 +60,11 @@ initialize() {
 // the  DFE to account for the change in selection pressure being introduced
 // by selection. But in the case of arctic wolves we leave this distribution
 // and selection coefficient the same as we did.
-// 1687{
+// 11687{
   // m2.setDistribution(-0.01,);
 // }
 // After 1786 generations to current time, we end the simulation
-2786
+11786
 {
-  sim.treeSeqOutput(filePath="../Data/AW_pipeline_output/seed_1.vcf");
+  sim.treeSeqOutput(filePath="../Data/AW_recap/seed_1.trees");
 }

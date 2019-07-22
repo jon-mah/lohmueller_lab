@@ -1,0 +1,9 @@
+initialize() {
+}
+
+1{
+setSeed(1);
+sim.readFromPopulationFile('../Data/AW_recap/seed_1.trees');
+sim.simulationFinished();
+p1.outputVCFSample(15, filePath="../Data/AW_recap/seed_1.vcf");
+}
