@@ -3,11 +3,11 @@
 #$ -V
 #$ -m bea
 #$ -l h_data=5G
-#$ -l h_rt=24:00:00
+#$ -l h_rt=72:00:00
 
 # INPUT ARGUMENTS
 num_ind=15 # Number of samples from single population.
-prefix="../Data/AW_recap/seed_1" # Output prefix, and input prefix of given vcf
+prefix="../Data/AW_10_gamma_pipeline_output/seed_1" # Output prefix, and input prefix of given vcf
 easySFS_proj=30 # Number of chromosomes that sample is projected down into.
 
 # DERIVED ARGUMENTS
@@ -20,19 +20,11 @@ syn_easySFS_outdir="${prefix}_easySFS_output_syn/"
 nonsyn_easySFS_outdir="${prefix}_easySFS_output_nonsyn/"
 num_samples=$(($num_ind * 2))
 
-conda deactivate
-conda activate jonmah_env_3
-
-slim AW_recap_trees.slim # Run slim file to generate `.trees`.
-python AW_recap_python.py # Run python file to recapitate.
-slim AW_recap_vcf.slim # Run slim file to generate `.vcf`.
+slim AW_10_slim_simulation.slim # Run slim file to generate `.vcf`.
 
 # Separate input `.vcf` file into synonymous and nonsynonymous.
 grep "#\|;MT=1" ${prefix}.vcf > $syn_inputvcf
 grep "#\|;MT=2" ${prefix}.vcf > $nonsyn_inputvcf
-
-conda deactivate
-conda activate jonmah_env
 
 # Write pops_file.txt for easySFS.py.
 python write_pops_file.py $num_ind 0 ${prefix}_syn
