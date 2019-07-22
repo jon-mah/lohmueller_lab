@@ -11,7 +11,7 @@ def main():
     ts = pyslim.load('../Data/AW_recap/seed_1.trees')
 
     # Recapitate
-    recap = ts.recapitate(recombination_rate=1e-8, Ne=80000, random_seed=1)
+    recap = ts.recapitate(recombination_rate=1e-8, Ne=12500, random_seed=1)
     recap.dump('../Data/AW_recap/seed_1.trees')
 
 
