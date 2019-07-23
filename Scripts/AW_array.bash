@@ -21,7 +21,6 @@ syn_easySFS_outdir="${prefix}_easySFS_output_syn/"
 nonsyn_easySFS_outdir="${prefix}_easySFS_output_nonsyn/"
 num_samples=$(($num_ind * 2))
 
-
 slim -d chrom=$SGE_TASK_ID AW_array_simulation.slim
 
 sed -i -r "s/^1/${SGE_TASK_ID}/g" ${prefix}_chrom_${SGE_TASK_ID}.vcf
@@ -35,7 +34,7 @@ if [ "$SGE_TASK_ID" -eq 38 ]
 then
   for i in {2..38}
   do
-    grep "#;MT=1|;MT=2" ${prefix}_chrom_${i}.vcf >> ${prefix}.vcf
+    grep ";MT=1\|;MT=2" ${prefix}_chrom_${i}.vcf >> ${prefix}.vcf
   done
   # Separate input `.vcf` file into synonymous and nonsynonymous.
   grep "#\|;MT=1" ${prefix}.vcf > $syn_inputvcf
