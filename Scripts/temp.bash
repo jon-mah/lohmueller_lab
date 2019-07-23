@@ -2,5 +2,7 @@
 #$ -cwd
 #$ -V
 #$ -m bea
+#$ -l h_data=512M
+#$ -l h_rt=00:05:00
 
-conda activate jonmah_env
+source activate jonmah_env
