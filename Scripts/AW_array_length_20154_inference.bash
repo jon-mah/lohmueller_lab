@@ -7,7 +7,7 @@
 
 # INPUT ARGUMENTS
 num_ind=15 # Number of samples from single population.
-prefix="../Data/AW_array_length_2000/seed_1" # Output prefix, and input prefix of given vcf
+prefix="../Data/AW_array_length_20154/seed_1" # Output prefix, and input prefix of given vcf
 easySFS_proj=30 # Number of chromosomes that sample is projected down into.
 
 # DERIVED ARGUMENTS

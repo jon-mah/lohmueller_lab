@@ -10,7 +10,7 @@ initialize() {
   // m1 mutation type: Neutral for synonymous sites.
   // m2 mutation type: Deleterious for non-synonymous sites.
   initializeMutationType("m1", 0.0, "f", 0.0);
-  initializeMutationType("m2", 0.5, "g", -0.482748, 0.0980);
+  initializeMutationType("m2", 0.5, "g", -0.965496, 0.0980);
 
   // g1 genomic element type: Intron
   // g2 genomic element type: Exon
@@ -69,5 +69,5 @@ initialize() {
 // simulation.
 801786
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_array/seed_1_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/AW_array_length_20154/seed_1_chrom_" + chrom +".vcf");
 }
