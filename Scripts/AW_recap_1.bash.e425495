@@ -1,0 +1,28 @@
+add_mutation: Table column too large; cannot be more than 2**31 bytes.
+Traceback (most recent call last):
+  File "AW_recap_python.py", line 3, in <module>
+    import msprime
+ImportError: No module named msprime
+ERROR (SLiMSim::RunInitializeCallbacks): At least one mutation rate interval must be defined in an initialize() callback with initializeMutationRate().
+grep: ../Data/AW_recap/seed_1.vcf: No such file or directory
+grep: ../Data/AW_recap/seed_1.vcf: No such file or directory
+2019-07-22 17:49:53,216 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2019-07-22 17:49:53,216 - INFO - Progress is being logged to ../Data/AW_recap/seed_1_syn_write_pops_log.log
+
+2019-07-22 17:49:53,217 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/AW_recap/seed_1_syn
+	num_ind_1 = 15
+
+2019-07-22 17:49:53,219 - INFO - Finished writing ../Data/AW_recap/seed_1_syn_pops_file.txt.
+2019-07-22 17:49:53,429 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2019-07-22 17:49:53,429 - INFO - Progress is being logged to ../Data/AW_recap/seed_1_nonsyn_write_pops_log.log
+
+2019-07-22 17:49:53,430 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/AW_recap/seed_1_nonsyn
+	num_ind_1 = 15
+
+2019-07-22 17:49:53,432 - INFO - Finished writing ../Data/AW_recap/seed_1_nonsyn_pops_file.txt.

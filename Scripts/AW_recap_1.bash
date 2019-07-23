@@ -3,7 +3,7 @@
 #$ -V
 #$ -m bea
 #$ -l h_data=5G
-#$ -l h_rt=12:00:00
+#$ -l h_rt=04:00:00
 
 # INPUT ARGUMENTS
 num_ind=15 # Number of samples from single population.

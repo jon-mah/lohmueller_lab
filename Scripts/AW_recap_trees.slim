@@ -46,7 +46,7 @@ initialize() {
 {
   sim.addSubpop("p1", 80000);
 }
-10000 // 10000 year non-neutral burn-in
+1000 // 10000 year non-neutral burn-in
 {
   p1.setSubpopulationSize(12500);
 }
@@ -58,7 +58,7 @@ initialize() {
   // m2.setDistribution(-0.01,);
 // }
 // After 1786 generations to current time, we end the simulation
-11786
+2786
 {
   sim.treeSeqOutput(filePath="../Data/AW_recap/seed_1.trees");
 }
