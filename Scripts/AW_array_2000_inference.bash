@@ -2,7 +2,7 @@
 #$ -cwd
 #$ -V
 #$ -m bea
-#$ -l h_data=1G
+#$ -l h_data=10G
 #$ -l h_rt=02:00:00
 
 # INPUT ARGUMENTS
@@ -19,6 +19,11 @@ nonsyn_output_pops_file="${prefix}_nonsyn_pops_file.txt"
 syn_easySFS_outdir="${prefix}_easySFS_output_syn/"
 nonsyn_easySFS_outdir="${prefix}_easySFS_output_nonsyn/"
 num_samples=$(($num_ind * 2))
+
+for i in {2..38}
+do
+  grep ";MT=1\|;MT=2" ${prefix}_chrom_${i}.vcf >> ${prefix}.vcf
+done
 
 # Separate input `.vcf` file into synonymous and nonsynonymous.
 grep "#\|;MT=1" ${prefix}.vcf > $syn_inputvcf

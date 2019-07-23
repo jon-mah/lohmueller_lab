@@ -47,15 +47,15 @@ initialize() {
 // 80,000 diploid individuals
 1
 {
-  sim.addSubpop("p1", 80000);
+  sim.addSubpop("p1", 2000);
 }
 // After this populations is defined we let this population burn in for
 // 12N=>12(80,000)=960,000 generations. After this population is burned in
 // we create a bottle neck inside the population reducing the populations
 // from 80000 to 12500
-800000
+24000
 {
-  p1.setSubpopulationSize(12500);
+  p1.setSubpopulationSize(313);
 }
 // 100 generations before the simulations is finished we decide to change
 // the  DFE to account for the change in selection pressure being introduced
@@ -67,7 +67,7 @@ initialize() {
 // After 1786 generations of now the new arctic wolf populations we will be
 // at the current time of species divergence and will effectively end the
 // simulation.
-801786
+25786
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_array/seed_1_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/AW_array_2000/seed_1_chrom_" + chrom +".vcf");
 }
