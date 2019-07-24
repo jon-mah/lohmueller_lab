@@ -299,27 +299,26 @@ def main():
     upper_bound = [8, 3]
     lower_bound = [1e-4, 0]
 
-    initial_guesses = [1., 0.1, 0.05, 0.01, 0.005, 0.001, 0.0005, 0.0001,
-                       0.00005, 0.00001]
+    guesses = [1, 1]
     with open(inferred_demography, 'w') as f:
         f.write('Beginning with demographic inference.\n')
         max_likelihood = -1e25
         for i in range(10):
-            # Pick from initial guesses
-            p0 = [initial_guesses[i], initial_guesses[i]]
+            # Pick from maximum likelihood guess
+            p0 = guesses
             # Perturb parameters before optimization.
             p0 = dadi.Misc.perturb_params(
                 p0, fold=1, upper_bound=upper_bound, lower_bound=lower_bound)
             # Make the extrapolating version of demographic model function.
             func_ex = dadi.Numerics.make_extrap_log_func(two_epoch)
             logger.info(
-                'Beginning optimization with initial guess, {0}.'.format(p0))
+                'Beginning optimization with guess, {0}.'.format(p0))
             popt = dadi.Inference.optimize_log_lbfgsb(
                 p0, syn_data, func_ex, pts_l,
                 lower_bound=lower_bound, upper_bound=upper_bound,
                 verbose=len(p0), maxiter=100)
             logger.info(
-                'Finished optimization with initial guess, ' + str(p0) + '.')
+                'Finished optimization with guess, ' + str(p0) + '.')
             logger.info('Best fit parameters: {0}.'.format(popt))
             # Calculate the best-fit model allele-frequency spectrum.
             model = func_ex(popt, syn_ns, pts_l)
@@ -331,6 +330,7 @@ def main():
             logger.info(
                 'Optimal value of theta: {0}.'.format(theta))
             if ll_model > max_likelihood:
+                guesses = popt
                 best_params = popt
                 best_model = model
                 max_likelihood = ll_model
@@ -392,7 +392,7 @@ def main():
         # Divide output scale parameter by 2 * N_a
         f.write(
             'The non-scaled best-fit parameters: [{0}, array({1})].\n'.format(
-                popt[0], numpy.divide(popt[1], numpy.array([1, 160000]))))
+                popt[0], numpy.divide(popt[1], numpy.array([1, 2 * Na]))))
         f.write('The expected SFS is: {0}.'.format(expected_sfs))
 
     logger.info('Pipeline executed succesfully.')
