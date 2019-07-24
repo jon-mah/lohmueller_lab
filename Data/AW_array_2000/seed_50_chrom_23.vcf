@@ -1,0 +1,23 @@
+##fileformat=VCFv4.2
+##fileDate=20190724
+##source=SLiM
+##INFO=<ID=MID,Number=.,Type=Integer,Description="Mutation ID in SLiM">
+##INFO=<ID=S,Number=.,Type=Float,Description="Selection Coefficient">
+##INFO=<ID=DOM,Number=.,Type=Float,Description="Dominance">
+##INFO=<ID=PO,Number=.,Type=Integer,Description="Population of Origin">
+##INFO=<ID=GO,Number=.,Type=Integer,Description="Generation of Origin">
+##INFO=<ID=MT,Number=.,Type=Integer,Description="Mutation Type">
+##INFO=<ID=AC,Number=.,Type=Integer,Description="Allele Count">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Total Depth">
+##INFO=<ID=MULTIALLELIC,Number=0,Type=Flag,Description="Multiallelic">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	i0	i1	i2	i3	i4	i5	i6	i7	i8	i9	i10	i11	i12	i13	i14
+23	1513	.	A	T	1000	PASS	MID=278300;S=0;DOM=0;PO=1;GO=25472;MT=1;AC=5;DP=1000	GT	1|0	0|0	0|1	0|0	1|0	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|1	0|0
+23	9433	.	A	T	1000	PASS	MID=266330;S=0;DOM=0;PO=1;GO=23187;MT=1;AC=28;DP=1000	GT	1|1	1|1	1|1	1|1	1|1	1|1	1|1	1|0	1|1	1|1	1|1	1|1	1|1	0|1	1|1
+23	290720	.	A	T	1000	PASS	MID=266652;S=0;DOM=0;PO=1;GO=23214;MT=1;AC=21;DP=1000	GT	1|1	1|1	1|1	1|0	1|0	1|1	0|1	1|1	1|1	1|0	0|0	0|0	1|0	1|1	1|1
+23	330967	.	A	T	1000	PASS	MID=278476;S=0;DOM=0;PO=1;GO=25563;MT=1;AC=1;DP=1000	GT	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	1|0
+23	337432	.	A	T	1000	PASS	MID=278840;S=-1.4357e-14;DOM=0.5;PO=1;GO=25772;MT=2;AC=1;DP=1000	GT	0|0	0|0	0|0	0|0	0|1	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+23	341842	.	A	T	1000	PASS	MID=278779;S=0;DOM=0;PO=1;GO=25738;MT=1;AC=2;DP=1000	GT	0|0	0|0	0|0	0|1	0|1	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+23	347099	.	A	T	1000	PASS	MID=277849;S=-1.29721e-07;DOM=0.5;PO=1;GO=25226;MT=2;AC=8;DP=1000	GT	0|0	0|0	1|1	0|0	0|0	0|0	0|0	0|0	0|0	0|1	0|1	0|0	1|1	1|0	1|0
+23	348785	.	A	T	1000	PASS	MID=278786;S=0;DOM=0;PO=1;GO=25742;MT=1;AC=1;DP=1000	GT	0|1	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+23	365126	.	A	T	1000	PASS	MID=278518;S=0;DOM=0;PO=1;GO=25586;MT=1;AC=11;DP=1000	GT	0|0	0|1	0|1	0|1	1|1	0|0	1|0	1|0	0|1	0|0	0|0	0|0	1|1	1|0	0|0

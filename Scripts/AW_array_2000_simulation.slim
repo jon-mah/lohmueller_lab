@@ -2,7 +2,7 @@
 // This script is made to help simulate Ancestral Wolf Population to test for effective change in DFE.
 initialize() {
   // Set a Seed to keep track of the type of simulation we are using.
-  setSeed(chrom);
+  setSeed(chrom + (init_seed - 1) * 1000);
 
   // Mutations Rate is set up so be that of Arctic Wolf Population
   initializeMutationRate(6.7250e-9);
@@ -69,5 +69,5 @@ initialize() {
 // simulation.
 25786
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_array_2000/seed_1_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/AW_array_2000/seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }

@@ -1,0 +1,22 @@
+##fileformat=VCFv4.2
+##fileDate=20190724
+##source=SLiM
+##INFO=<ID=MID,Number=.,Type=Integer,Description="Mutation ID in SLiM">
+##INFO=<ID=S,Number=.,Type=Float,Description="Selection Coefficient">
+##INFO=<ID=DOM,Number=.,Type=Float,Description="Dominance">
+##INFO=<ID=PO,Number=.,Type=Integer,Description="Population of Origin">
+##INFO=<ID=GO,Number=.,Type=Integer,Description="Generation of Origin">
+##INFO=<ID=MT,Number=.,Type=Integer,Description="Mutation Type">
+##INFO=<ID=AC,Number=.,Type=Integer,Description="Allele Count">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Total Depth">
+##INFO=<ID=MULTIALLELIC,Number=0,Type=Flag,Description="Multiallelic">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	i0	i1	i2	i3	i4	i5	i6	i7	i8	i9	i10	i11	i12	i13	i14
+15	51191	.	A	T	1000	PASS	MID=279421;S=0;DOM=0;PO=1;GO=25755;MT=1;AC=2;DP=1000	GT	0|0	0|0	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|1	0|0	0|0	0|0	0|0
+15	100240	.	A	T	1000	PASS	MID=279400;S=-9.90089e-16;DOM=0.5;PO=1;GO=25741;MT=2;AC=3;DP=1000	GT	1|0	0|0	1|1	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+15	144915	.	A	T	1000	PASS	MID=278848;S=0;DOM=0;PO=1;GO=25439;MT=1;AC=6;DP=1000	GT	0|0	0|0	0|0	0|1	0|0	0|1	1|0	1|0	0|0	0|1	0|0	0|1	0|0	0|0	0|0
+15	176723	.	A	T	1000	PASS	MID=279419;S=-0.000211914;DOM=0.5;PO=1;GO=25755;MT=2;AC=3;DP=1000	GT	0|1	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|1	0|0	0|0	0|0	1|0
+15	186780	.	A	T	1000	PASS	MID=225835;S=0;DOM=0;PO=1;GO=19635;MT=1;AC=4;DP=1000	GT	0|0	0|0	0|0	0|0	0|0	1|0	0|0	0|0	0|1	0|0	1|0	0|0	0|0	1|0	0|0
+15	220989	.	A	T	1000	PASS	MID=279026;S=-8.0577e-08;DOM=0.5;PO=1;GO=25545;MT=2;AC=1;DP=1000	GT	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+15	324680	.	A	T	1000	PASS	MID=277441;S=-0.00132119;DOM=0.5;PO=1;GO=24676;MT=2;AC=11;DP=1000	GT	0|0	1|1	0|0	0|1	0|0	1|1	0|1	0|1	0|1	0|0	0|0	0|0	1|0	1|0	0|1
+15	391797	.	A	T	1000	PASS	MID=278299;S=-1.50189e-06;DOM=0.5;PO=1;GO=25154;MT=2;AC=6;DP=1000	GT	1|0	0|0	0|0	0|0	0|1	0|0	0|0	0|0	0|0	0|0	1|0	1|0	1|0	0|0	0|1

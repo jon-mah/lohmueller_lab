@@ -299,11 +299,11 @@ def main():
     upper_bound = [8, 3]
     lower_bound = [1e-4, 0]
 
-    guesses = [1, 1]
+    guesses = [0.5, 0.1]
     with open(inferred_demography, 'w') as f:
         f.write('Beginning with demographic inference.\n')
         max_likelihood = -1e25
-        for i in range(10):
+        for i in range(50):
             # Pick from maximum likelihood guess
             p0 = guesses
             # Perturb parameters before optimization.

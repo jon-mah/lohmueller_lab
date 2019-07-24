@@ -20,6 +20,16 @@ syn_easySFS_outdir="${prefix}_easySFS_output_syn/"
 nonsyn_easySFS_outdir="${prefix}_easySFS_output_nonsyn/"
 num_samples=$(($num_ind * 2))
 
+# Merge all `.vcf` files.
+
+cp ${prefix}_chrom_1.vcf ${prefix}.vcf
+
+for i in {2..800}
+do
+  grep ";MT=1\|;MT=2" ${prefix}_chrom_${i}.vcf >> ${prefix}.vcf
+done
+
+
 # Separate input `.vcf` file into synonymous and nonsynonymous.
 grep "#\|;MT=1" ${prefix}.vcf > $syn_inputvcf
 grep "#\|;MT=2" ${prefix}.vcf > $nonsyn_inputvcf
