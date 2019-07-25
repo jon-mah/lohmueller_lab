@@ -290,3 +290,4 @@ initializeRecombinationRate(c(1e-08, 3.5e-05, 1e-08, 3.5e-05, 1e-08, 3.5e-05, 1e
 // Starting run at generation <start>:
 1 
 
+#WARNING (Subpopulation::ExecuteMethod_outputXSample): outputVCFSample() should probably not be called from an early() event in a WF model; the output will reflect state at the beginning of the generation, not the end.
