@@ -20,6 +20,8 @@ syn_easySFS_outdir="${prefix}_easySFS_output_syn/"
 nonsyn_easySFS_outdir="${prefix}_easySFS_output_nonsyn/"
 num_samples=$(($num_ind * 2))
 
+cp ${prefix}_chrom_1.vcf ${prefix}.vcf
+
 for i in {2..38}
 do
   grep ";MT=1\|;MT=2" ${prefix}_chrom_${i}.vcf >> ${prefix}.vcf

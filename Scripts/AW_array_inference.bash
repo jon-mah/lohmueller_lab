@@ -6,9 +6,10 @@
 #$ -l h_rt=02:00:00
 
 # INPUT ARGUMENTS
-num_ind=15 # Number of samples from single population.
-prefix="../Data/AW_array/seed_1" # Output prefix, and input prefix of given vcf
-easySFS_proj=30 # Number of chromosomes that sample is projected down into.
+seed=1
+num_ind=8 # Number of samples from single population.
+prefix="../Data/AW_array_2000/seed_${seed}" # Output prefix, and input prefix of given vcf
+easySFS_proj=16 # Number of chromosomes that sample is projected down into.
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"

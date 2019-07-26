@@ -7,9 +7,10 @@
 #$ -l h_rt=23:50:00
 
 # INPUT ARGUMENTS
-num_ind=15 # Number of samples from single population.
-prefix="../Data/AW_array_length_20154/seed_1" # Output prefix, and input prefix of given vcf
-easySFS_proj=30 # Number of chromosomes that sample is projected down into.
+seed=2
+num_ind=8 # Number of samples from single population.
+prefix="../Data/AW_array_length_20154/seed_${seed}" # Output prefix, and input prefix of given vcf
+easySFS_proj=15 # Number of chromosomes that sample is projected down into.
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -21,19 +22,6 @@ syn_easySFS_outdir="${prefix}_easySFS_output_syn/"
 nonsyn_easySFS_outdir="${prefix}_easySFS_output_nonsyn/"
 num_samples=$(($num_ind * 2))
 
-slim -d chrom=$SGE_TASK_ID AW_array_length_20154_simulation.slim
+slim -d chrom=$SGE_TASK_ID -d init_seed=$seed AW_array_length_20154_simulation.slim
 
 sed -i -r "s/^1/${SGE_TASK_ID}/g" ${prefix}_chrom_${SGE_TASK_ID}.vcf
-
-if [ "$SGE_TASK_ID" -eq 1 ]
-then
-  cp ${prefix}_chrom_1.vcf ${prefix}.vcf
-fi
-
-if [ "$SGE_TASK_ID" -eq 800 ]
-then
-  for i in {2..800}
-  do
-    grep ";MT=1\|;MT=2" ${prefix}_chrom_${i}.vcf >> ${prefix}.vcf
-  done
-fi
