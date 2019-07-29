@@ -190,3 +190,21 @@ ggplot(melt(AW_PG_2000_df), aes(x=value, y=..density.., fill = variable)) +
                  breaks=c(0.0001, 0.001, 0.01, 0.1, 1)) +
   scale_x_log10() +
   ggtitle('AW --> PG, 2000 gens')
+
+
+
+
+
+seed_1_df %>% pull(given) %>% hist()
+
+seed_1_df %>% pull(given) %>% summary()
+
+seed_1_df %>% pull(inferred) %>% summary()
+
+
+
+
+seed_1_df %>% pull(given) %>% cut(breaks=c(0.0001, 0.001, 0.01, 0.1, 1), include.lowest = T)
+
+seed_1_df %>% pull(inferred) %>% cut(breaks=c(0.0001, 0.001, 0.01, 0.1, 1), include.lowest = T)
+

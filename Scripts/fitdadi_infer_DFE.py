@@ -372,18 +372,19 @@ def main():
     sel_params = [0.10, BETAinit]
     max_likelihood = 1e-25
     for i in range(50):
-        p0 = dadi.Misc.perturb_params(sel_params, lower_bound=lower_bound,
-                                      upper_bound=upper_bound)
-        popt = Selection.optimize_log(guess_p0, nonsyn_data, spectra.integrate,
-                                      Selection.gamma_dist, theta_nonsyn,
-                                      lower_bound=lower_bound,
+        sel_params = dadi.Misc.perturb_params(best_params,
+                                              lower_bound=lower_bound,
+                                              upper_bound=upper_bound)
+        popt = Selection.optimize_log(sel_params, nonsyn_data,
+                                      spectra.integrate, Selection.gamma_dist,
+                                      theta_nonsyn, lower_bound=lower_bound,
                                       upper_bound=upper_bound,
                                       verbose=len(sel_params), maxiter=50)
         ll_model = popt[0]
         if ll_model > max_likelihood:
             max_likelihood = ll_model
             best_model = popt
-            sel_params = popt[1]
+            best_params = popt[1]
 
     p0 = guess_p0
     popt = best_model
