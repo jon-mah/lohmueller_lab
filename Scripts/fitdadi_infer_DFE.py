@@ -386,7 +386,6 @@ def main():
             best_model = popt
             best_params = popt[1]
 
-    p0 = guess_p0
     popt = best_model
 
     logger.info('Finished DFE inference.')
