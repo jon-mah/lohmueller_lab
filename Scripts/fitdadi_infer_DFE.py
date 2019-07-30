@@ -369,7 +369,7 @@ def main():
     lower_bound = [1e-3, 0]
     upper_bound = [1, upper_beta]
 
-    max_likelihood = 1e-25
+    max_likelihood = -1e25
     for i in range(50):
         p0 = initial_guess
         p0 = dadi.Misc.perturb_params(p0, lower_bound=lower_bound,
