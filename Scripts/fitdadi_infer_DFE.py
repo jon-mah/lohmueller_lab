@@ -299,14 +299,14 @@ def main():
     upper_bound = [8, 3]
     lower_bound = [1e-4, 0]
 
-    guesses = [0.5, 0.1]
+    initial_guess = [0.5, 0.1]
     with open(inferred_demography, 'w') as f:
         f.write('Beginning with demographic inference.\n')
         max_likelihood = -1e25
         for i in range(50):
-            # Pick from maximum likelihood guess
-            p0 = guesses
-            # Perturb parameters before optimization.
+            # Start at initial guess
+            p0 = initial_guess
+            # Randomly perturb parameters before optimization.
             p0 = dadi.Misc.perturb_params(
                 p0, fold=1, upper_bound=upper_bound, lower_bound=lower_bound)
             # Make the extrapolating version of demographic model function.
@@ -330,7 +330,6 @@ def main():
             logger.info(
                 'Optimal value of theta: {0}.'.format(theta))
             if ll_model > max_likelihood:
-                guesses = popt
                 best_params = popt
                 best_model = model
                 max_likelihood = ll_model
@@ -365,17 +364,16 @@ def main():
                                 Npts=300, echo=True, mp=True)
 
     BETAinit = max_gam / 3
+    sel_params = [0.15, BETAinit]
     upper_beta = 10 * max_gam
     lower_bound = [1e-3, 0]
     upper_bound = [1, upper_beta]
-
-    best_params = [0.10, BETAinit]
     max_likelihood = 1e-25
     for i in range(50):
-        sel_params = dadi.Misc.perturb_params(best_params,
-                                              lower_bound=lower_bound,
-                                              upper_bound=upper_bound)
-        popt = Selection.optimize_log(sel_params, nonsyn_data,
+        p0 = dadi.Misc.perturb_params(sel_params,
+                                      lower_bound=lower_bound,
+                                      upper_bound=upper_bound)
+        popt = Selection.optimize_log(p0, nonsyn_data,
                                       spectra.integrate, Selection.gamma_dist,
                                       theta_nonsyn, lower_bound=lower_bound,
                                       upper_bound=upper_bound,
@@ -384,7 +382,6 @@ def main():
         if ll_model > max_likelihood:
             max_likelihood = ll_model
             best_model = popt
-            best_params = popt[1]
 
     popt = best_model
 
