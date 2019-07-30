@@ -369,7 +369,7 @@ def main():
     lower_bound = [1e-3, 0]
     upper_bound = [1, upper_beta]
 
-    sel_params = [0.10, BETAinit]
+    best_params = [0.10, BETAinit]
     max_likelihood = 1e-25
     for i in range(50):
         sel_params = dadi.Misc.perturb_params(best_params,
