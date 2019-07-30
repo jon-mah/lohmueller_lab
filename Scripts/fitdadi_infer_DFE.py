@@ -369,21 +369,14 @@ def main():
     lower_bound = [1e-3, 0]
     upper_bound = [1, upper_beta]
     max_likelihood = 1e-25
-    for i in range(50):
-        p0 = dadi.Misc.perturb_params(sel_params,
-                                      lower_bound=lower_bound,
-                                      upper_bound=upper_bound)
-        popt = Selection.optimize_log(p0, nonsyn_data,
-                                      spectra.integrate, Selection.gamma_dist,
-                                      theta_nonsyn, lower_bound=lower_bound,
-                                      upper_bound=upper_bound,
-                                      verbose=len(sel_params), maxiter=50)
-        ll_model = popt[0]
-        if ll_model > max_likelihood:
-            max_likelihood = ll_model
-            best_model = popt
 
-    popt = best_model
+    p0 = dadi.Misc.perturb_params(sel_params, lower_bound=lower_bound,
+                                  upper_bound=upper_bound)
+    popt = Selection.optimize_log(p0, nonsyn_data, spectra.integrate,
+                                  Selection.gamma_dist,
+                                  theta_nonsyn, lower_bound=lower_bound,
+                                  upper_bound=upper_bound,
+                                  verbose=len(sel_params), maxiter=30)
 
     logger.info('Finished DFE inference.')
     logger.info('Integrating expected site-frequency spectrum.')
