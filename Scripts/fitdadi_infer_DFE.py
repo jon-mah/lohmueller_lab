@@ -382,7 +382,7 @@ def main():
                                                  lower_bound=lower_bound,
                                                  upper_bound=upper_bound,
                                                  verbose=len(p0), maxiter=50))
-        logger.info('Finished optomization with guess, {0}.'.format(p0))
+        logger.info('Finished optomization, results are {0}.'.format(popt))
         if popt[0] > max_likelihood:
             best_popt = numpy.copy(popt)
 
