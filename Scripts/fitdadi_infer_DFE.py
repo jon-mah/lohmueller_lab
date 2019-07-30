@@ -364,35 +364,44 @@ def main():
                                 Npts=300, echo=True, mp=True)
 
     BETAinit = max_gam / 3
-    sel_params = [0.15, BETAinit]
+    initial_guess = [0.10, BETAinit]
     upper_beta = 10 * max_gam
     lower_bound = [1e-3, 0]
     upper_bound = [1, upper_beta]
-    max_likelihood = 1e-25
 
-    p0 = dadi.Misc.perturb_params(sel_params, lower_bound=lower_bound,
-                                  upper_bound=upper_bound)
-    popt = Selection.optimize_log(p0, nonsyn_data, spectra.integrate,
-                                  Selection.gamma_dist,
-                                  theta_nonsyn, lower_bound=lower_bound,
-                                  upper_bound=upper_bound,
-                                  verbose=len(sel_params), maxiter=30)
+    max_likelihood = 1e-25
+    for i in range(50):
+        p0 = initial_guess
+        p0 = dadi.Misc.perturb_params(p0, lower_bound=lower_bound,
+                                      upper_bound=upper_bound)
+        logger.info('Beginning optimization with guess, {0}.'.format(p0))
+        popt = np.copy(Selection.optimize_log(p0, nonsyn_data,
+                                              spectra.integrate,
+                                              Selection.gamma_dist,
+                                              theta_nonsyn,
+                                              lower_bound=lower_bound,
+                                              upper_bound=upper_bound,
+                                              verbose=len(p0), maxiter=50))
+        logger.info('Finished optomization with guess, {0}.'.format(p0))
+        if popt[0] > max_likelihood:
+            best_popt = np.copy(popt)
 
     logger.info('Finished DFE inference.')
     logger.info('Integrating expected site-frequency spectrum.')
 
     expected_sfs = spectra.integrate(
-        popt[1], Selection.gamma_dist, theta_nonsyn)
+        best_popt[1], Selection.gamma_dist, theta_nonsyn)
 
     logger.info('Outputing results.')
 
     with open(inferred_DFE, 'w') as f:
         f.write(
-            'The population-scaled best-fit parameters: {0}.\n'.format(popt))
+            'The population-scaled best-fit parameters: {0}.\n'.format(
+                best_popt))
         # Divide output scale parameter by 2 * N_a
         f.write(
             'The non-scaled best-fit parameters: [{0}, array({1})].\n'.format(
-                popt[0], numpy.divide(popt[1], numpy.array([1, 2 * Na]))))
+                popt[0], numpy.divide(best_popt[1], numpy.array([1, 2 * Na]))))
         f.write('The expected SFS is: {0}.'.format(expected_sfs))
 
     logger.info('Pipeline executed succesfully.')
