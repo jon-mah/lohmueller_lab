@@ -375,16 +375,16 @@ def main():
         p0 = dadi.Misc.perturb_params(p0, lower_bound=lower_bound,
                                       upper_bound=upper_bound)
         logger.info('Beginning optimization with guess, {0}.'.format(p0))
-        popt = np.copy(Selection.optimize_log(p0, nonsyn_data,
-                                              spectra.integrate,
-                                              Selection.gamma_dist,
-                                              theta_nonsyn,
-                                              lower_bound=lower_bound,
-                                              upper_bound=upper_bound,
-                                              verbose=len(p0), maxiter=50))
+        popt = numpy.copy(Selection.optimize_log(p0, nonsyn_data,
+                                                 spectra.integrate,
+                                                 Selection.gamma_dist,
+                                                 theta_nonsyn,
+                                                 lower_bound=lower_bound,
+                                                 upper_bound=upper_bound,
+                                                 verbose=len(p0), maxiter=50))
         logger.info('Finished optomization with guess, {0}.'.format(p0))
         if popt[0] > max_likelihood:
-            best_popt = np.copy(popt)
+            best_popt = numpy.copy(popt)
 
     logger.info('Finished DFE inference.')
     logger.info('Integrating expected site-frequency spectrum.')
