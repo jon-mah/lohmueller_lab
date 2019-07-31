@@ -1,0 +1,24 @@
+##fileformat=VCFv4.2
+##fileDate=20190731
+##source=SLiM
+##INFO=<ID=MID,Number=.,Type=Integer,Description="Mutation ID in SLiM">
+##INFO=<ID=S,Number=.,Type=Float,Description="Selection Coefficient">
+##INFO=<ID=DOM,Number=.,Type=Float,Description="Dominance">
+##INFO=<ID=PO,Number=.,Type=Integer,Description="Population of Origin">
+##INFO=<ID=GO,Number=.,Type=Integer,Description="Generation of Origin">
+##INFO=<ID=MT,Number=.,Type=Integer,Description="Mutation Type">
+##INFO=<ID=AC,Number=.,Type=Integer,Description="Allele Count">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Total Depth">
+##INFO=<ID=MULTIALLELIC,Number=0,Type=Flag,Description="Multiallelic">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	i0	i1	i2	i3	i4	i5	i6	i7	i8	i9	i10	i11	i12	i13	i14
+15	85266	.	A	T	1000	PASS	MID=278807;S=-4.30073e-08;DOM=0.5;PO=1;GO=25270;MT=2;AC=4;DP=1000	GT	0|0	0|0	0|0	0|0	0|0	0|0	1|1	0|0	0|0	0|0	0|0	0|0	0|0	1|0	1|0
+15	91255	.	A	T	1000	PASS	MID=279507;S=-6.4064e-08;DOM=0.5;PO=1;GO=25665;MT=2;AC=1;DP=1000	GT	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|1	0|0	0|0	0|0
+15	112120	.	A	T	1000	PASS	MID=279060;S=0;DOM=0;PO=1;GO=25404;MT=1;AC=6;DP=1000	GT	0|0	1|0	0|0	0|0	0|0	0|0	0|1	0|0	1|0	0|0	0|0	0|0	1|0	1|0	1|0
+15	136183	.	A	T	1000	PASS	MID=279067;S=0;DOM=0;PO=1;GO=25407;MT=1;AC=5;DP=1000	GT	0|0	1|0	0|0	0|0	0|0	0|0	0|1	0|0	0|0	0|0	0|0	1|0	0|0	1|0	1|0
+15	153181	.	A	T	1000	PASS	MID=279731;S=0;DOM=0;PO=1;GO=25782;MT=1;AC=1;DP=1000	GT	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	1|0	0|0	0|0
+15	174592	.	A	T	1000	PASS	MID=279718;S=-0.000835286;DOM=0.5;PO=1;GO=25777;MT=2;AC=1;DP=1000	GT	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+15	199876	.	A	T	1000	PASS	MID=279733;S=-1.19461e-06;DOM=0.5;PO=1;GO=25785;MT=2;AC=1;DP=1000	GT	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|1	0|0	0|0	0|0
+15	224815	.	A	T	1000	PASS	MID=279680;S=0;DOM=0;PO=1;GO=25756;MT=1;AC=1;DP=1000	GT	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|1	0|0	0|0	0|0
+15	262237	.	A	T	1000	PASS	MID=279716;S=-2.0412e-11;DOM=0.5;PO=1;GO=25777;MT=2;AC=1;DP=1000	GT	0|0	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+15	423388	.	A	T	1000	PASS	MID=255768;S=-5.73919e-11;DOM=0.5;PO=1;GO=22191;MT=2;AC=24;DP=1000	GT	1|0	1|1	1|1	1|1	1|1	1|0	1|0	1|1	1|1	1|0	1|1	0|1	1|0	1|1	1|1

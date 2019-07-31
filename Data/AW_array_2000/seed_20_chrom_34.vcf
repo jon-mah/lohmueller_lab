@@ -1,0 +1,23 @@
+##fileformat=VCFv4.2
+##fileDate=20190731
+##source=SLiM
+##INFO=<ID=MID,Number=.,Type=Integer,Description="Mutation ID in SLiM">
+##INFO=<ID=S,Number=.,Type=Float,Description="Selection Coefficient">
+##INFO=<ID=DOM,Number=.,Type=Float,Description="Dominance">
+##INFO=<ID=PO,Number=.,Type=Integer,Description="Population of Origin">
+##INFO=<ID=GO,Number=.,Type=Integer,Description="Generation of Origin">
+##INFO=<ID=MT,Number=.,Type=Integer,Description="Mutation Type">
+##INFO=<ID=AC,Number=.,Type=Integer,Description="Allele Count">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Total Depth">
+##INFO=<ID=MULTIALLELIC,Number=0,Type=Flag,Description="Multiallelic">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	i0	i1	i2	i3	i4	i5	i6	i7	i8	i9	i10	i11	i12	i13	i14
+34	87064	.	A	T	1000	PASS	MID=278312;S=-6.27782e-08;DOM=0.5;PO=1;GO=25494;MT=2;AC=1;DP=1000	GT	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+34	126301	.	A	T	1000	PASS	MID=277280;S=-0.00370478;DOM=0.5;PO=1;GO=24886;MT=2;AC=9;DP=1000	GT	1|0	0|0	0|1	0|0	1|0	0|0	1|0	0|1	0|0	0|0	0|1	1|1	0|0	0|1	0|0
+34	140263	.	A	T	1000	PASS	MID=273306;S=-8.91266e-06;DOM=0.5;PO=1;GO=23790;MT=2;AC=2;DP=1000	GT	0|0	0|0	0|0	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	1|0
+34	140456	.	A	T	1000	PASS	MID=221747;S=0;DOM=0;PO=1;GO=19307;MT=1;AC=2;DP=1000	GT	0|0	0|0	0|0	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	1|0
+34	192060	.	A	T	1000	PASS	MID=278155;S=0;DOM=0;PO=1;GO=25408;MT=1;AC=4;DP=1000	GT	0|0	0|0	0|0	1|1	0|0	0|1	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+34	298757	.	A	T	1000	PASS	MID=278817;S=-0.0157079;DOM=0.5;PO=1;GO=25773;MT=2;AC=5;DP=1000	GT	0|0	0|0	0|1	0|0	1|0	0|0	0|0	0|1	0|0	0|0	0|1	1|0	0|0	0|0	0|0
+34	311111	.	A	T	1000	PASS	MID=278685;S=0;DOM=0;PO=1;GO=25695;MT=1;AC=2;DP=1000	GT	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|1
+34	356233	.	A	T	1000	PASS	MID=278681;S=-0.0050231;DOM=0.5;PO=1;GO=25694;MT=2;AC=3;DP=1000	GT	0|0	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	1|0	0|0	0|1	0|0	0|0
+34	420631	.	A	T	1000	PASS	MID=276744;S=-0.00147663;DOM=0.5;PO=1;GO=24599;MT=2;AC=7;DP=1000	GT	1|0	1|1	0|0	0|0	0|0	0|0	0|1	0|0	1|0	1|0	0|0	0|0	0|1	0|0	0|0
