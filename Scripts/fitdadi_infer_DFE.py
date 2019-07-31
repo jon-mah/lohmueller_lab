@@ -303,7 +303,7 @@ def main():
     with open(inferred_demography, 'w') as f:
         f.write('Beginning with demographic inference.\n')
         max_likelihood = -1e25
-        for i in range(50):
+        for i in range(100):
             # Start at initial guess
             p0 = initial_guess
             # Randomly perturb parameters before optimization.
@@ -364,13 +364,13 @@ def main():
                                 Npts=300, echo=True, mp=True)
 
     BETAinit = max_gam / 3
-    initial_guess = [0.10, BETAinit]
+    initial_guess = [0.09, BETAinit]
     upper_beta = 10 * max_gam
     lower_bound = [1e-3, 0]
     upper_bound = [1, upper_beta]
 
     max_likelihood = -1e25
-    for i in range(50):
+    for i in range(100):
         p0 = initial_guess
         p0 = dadi.Misc.perturb_params(p0, lower_bound=lower_bound,
                                       upper_bound=upper_bound)
@@ -381,7 +381,7 @@ def main():
                                                  theta_nonsyn,
                                                  lower_bound=lower_bound,
                                                  upper_bound=upper_bound,
-                                                 verbose=len(p0), maxiter=50))
+                                                 verbose=len(p0), maxiter=100))
         logger.info('Finished optomization, results are {0}.'.format(popt))
         if popt[0] > max_likelihood:
             best_popt = numpy.copy(popt)
