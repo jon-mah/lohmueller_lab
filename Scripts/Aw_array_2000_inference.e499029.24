@@ -1,0 +1,386 @@
+2019-08-01 12:46:44,696 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2019-08-01 12:46:44,696 - INFO - Progress is being logged to ../Data/AW_array_2000/seed_24_syn_write_pops_log.log
+
+2019-08-01 12:46:44,696 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/AW_array_2000/seed_24_syn
+	num_ind_1 = 8
+
+2019-08-01 12:46:44,699 - INFO - Finished writing ../Data/AW_array_2000/seed_24_syn_pops_file.txt.
+2019-08-01 12:46:44,934 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2019-08-01 12:46:44,934 - INFO - Progress is being logged to ../Data/AW_array_2000/seed_24_nonsyn_write_pops_log.log
+
+2019-08-01 12:46:44,934 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/AW_array_2000/seed_24_nonsyn
+	num_ind_1 = 8
+
+2019-08-01 12:46:44,937 - INFO - Finished writing ../Data/AW_array_2000/seed_24_nonsyn_pops_file.txt.
+INFO:fitdadi_infer_DFE.py:Beginning execution of fitdadi_infer_DFE.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+INFO:fitdadi_infer_DFE.py:Progress is being logged to ../Data/AW_array_2000/seed_24_fitdadi_output/log.log
+
+INFO:fitdadi_infer_DFE.py:Parsed the following arguments:
+	breed = AW
+	outprefix = ../Data/AW_array_2000/seed_24_fitdadi_output/
+	nonsyn_input_sfs = ../Data/AW_array_2000/seed_24_easySFS_output_nonsyn/dadi/pop1.sfs
+	syn_input_sfs = ../Data/AW_array_2000/seed_24_easySFS_output_syn/dadi/pop1.sfs
+
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.61873167 0.07122359].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.61873167 0.07122359].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.0018269  0.00013437].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3205883434.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.1838082828.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.3998298  0.09003155].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.3998298  0.09003155].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [3.84457641e-04 2.80657389e-05].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3208357544.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.1394383722.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.35058231 0.10215874].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.35058231 0.10215874].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.01002693 0.00074475].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3214524064.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.1811275504.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.66628653 0.05214849].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.66628653 0.05214849].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.00736695 0.00055144].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3206749159.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2664422206.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.73920877 0.19840059].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.73920877 0.19840059].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.15777681 0.01474639].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3475387675.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.3886396969.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.25039769 0.08080646].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.25039769 0.08080646].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.00300971 0.00022408].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3202605474.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2668414632.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.38116636 0.09073608].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.38116636 0.09073608].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.01121748 0.00084587].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3209955655.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2861496718.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.83782089 0.12245842].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.83782089 0.12245842].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.02598089 0.00197178].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3232383295.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.1920966341.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.52495107 0.1852632 ].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.52495107 0.1852632 ].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.01374842 0.00102869].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3216953647.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2018128448.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.64960949 0.07706241].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.64960949 0.07706241].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [1.73575846e-04 1.29611442e-05].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3199329678.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.3168729818.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.73268753 0.05286416].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.73268753 0.05286416].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.01259338 0.00094547].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3213295001.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2389803231.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.63451971 0.10395251].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.63451971 0.10395251].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.01447057 0.00109131].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3214469527.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2555726668.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.29452701 0.08133779].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.29452701 0.08133779].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.00350053 0.00025796].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.320762786.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.1826075309.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.78034457 0.05098056].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.78034457 0.05098056].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.00769929 0.00056808].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.321463562.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.152356695.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.7974955  0.08342802].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.7974955  0.08342802].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.02519713 0.00193354].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3224545787.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2854983143.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.3132564  0.13973896].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.3132564  0.13973896].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.03340751 0.00258216].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3235489059.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2606668559.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.47245954 0.11894032].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.47245954 0.11894032].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.0023297  0.00017057].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3209869221.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.143879609.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.86887677 0.10987759].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.86887677 0.10987759].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.00809776 0.00060681].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3207414778.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.267889983.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.82486878 0.17212673].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.82486878 0.17212673].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.03388482 0.00266521].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3231554912.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.3918943278.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.84722082 0.19343206].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.84722082 0.19343206].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.05614762 0.00448623].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3264820358.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2879950772.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.50662093 0.19640898].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.50662093 0.19640898].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.02298126 0.00176652].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3220828144.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.3207401568.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.34365238 0.1100407 ].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.34365238 0.1100407 ].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.00613217 0.00045436].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3209019807.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.1995925175.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.50101805 0.10811746].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.50101805 0.10811746].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.01029133 0.00077233].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3209978421.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2581964597.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.47781752 0.09158083].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.47781752 0.09158083].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.01398344 0.00105487].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3213644249.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2624146809.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.97529207 0.06235835].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.97529207 0.06235835].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [1.00000000e-04 7.44612678e-06].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3199401127.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2956075202.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.80741145 0.16778424].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.80741145 0.16778424].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.01345871 0.00099869].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3222223761.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.140991511.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.60040552 0.19303823].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.60040552 0.19303823].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.04619836 0.00370575].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3246109549.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.420130139.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.65274573 0.19089066].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.65274573 0.19089066].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.02445086 0.00187588].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3223466087.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2912366862.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.36261657 0.07832821].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.36261657 0.07832821].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.01734086 0.00133997].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3215513508.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.4179561295.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.26547244 0.17471054].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.26547244 0.17471054].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.08087872 0.00677415].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3297052939.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.3961090968.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.77232689 0.1417599 ].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.77232689 0.1417599 ].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.04288606 0.00326631].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3275122701.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.0547988133.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.65304806 0.16392419].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.65304806 0.16392419].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.04453456 0.00350388].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3248069863.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2869766699.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.7062431  0.14672473].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.7062431  0.14672473].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.03370871 0.00261288].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3234622844.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2798021906.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.29697052 0.18634226].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.29697052 0.18634226].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.06246352 0.00499747].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3279785991.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2338493761.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.99586177 0.12839425].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.99586177 0.12839425].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.01079919 0.0008125 ].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3209941085.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2728373617.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.77082164 0.15120401].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.77082164 0.15120401].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.02911193 0.00223349].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3231456078.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2454154646.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.77412412 0.0598325 ].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.77412412 0.0598325 ].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.00767783 0.00058097].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3206010809.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.3475151767.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.95926269 0.07169878].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.95926269 0.07169878].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.00537293 0.00039885].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3206869687.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2212897774.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.8203848  0.13304718].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.8203848  0.13304718].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.0259979  0.00195667].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3239241479.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.1285891458.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.32741484 0.05961689].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.32741484 0.05961689].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.00601124 0.00044132].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3215147088.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.1300198108.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.87778752 0.12064739].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.87778752 0.12064739].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.02477862 0.00190329].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3223550243.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2972947119.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.73308941 0.09233796].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.73308941 0.09233796].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.01389663 0.001052  ].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3212578663.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2903409169.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.46789918 0.07603931].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.46789918 0.07603931].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.00149922 0.00011009].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3206314254.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.17421646.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.50257332 0.08618284].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.50257332 0.08618284].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.01956096 0.00148104].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3221184459.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2364602447.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.48667538 0.13341409].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.48667538 0.13341409].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.01859268 0.00141678].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3217226852.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2955613503.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.89085249 0.15061086].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.89085249 0.15061086].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.04119755 0.00323578].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3242484868.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.3072563429.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.60331564 0.17704654].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.60331564 0.17704654].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.02212739 0.00165978].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3232793247.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.1403593047.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.79689051 0.07331006].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.79689051 0.07331006].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.01309926 0.00097023].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3222995845.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.1303647247.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.28504974 0.10558793].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.28504974 0.10558793].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.00150349 0.00011168].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3201343937.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.2631196414.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.29394918 0.07736882].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.29394918 0.07736882].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.01548705 0.00117818].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -21.3213655036.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 58.3129255217.
+INFO:fitdadi_infer_DFE.py:Finished demographic inference.
+INFO:fitdadi_infer_DFE.py:Beginning DFE inference.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [1.55627418e-01 2.32952019e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70358712279876 array([ 0.48509905, 10.67681132])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [9.48944266e-02 1.54036759e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609016089146 array([ 0.48373119, 10.74968456])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [1.76954026e-01 2.02536713e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360901595165 array([ 0.4837312 , 10.74968435])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [ 0.13652977 74.10567205].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609020810276 array([ 0.48373113, 10.74968477])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [8.69606671e-02 8.80983509e+01].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609011208663 array([ 0.48373136, 10.74967512])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [  0.15345555 126.32053596].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703592816212804 array([ 0.48424098, 10.72456897])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [5.46335208e-02 1.95266709e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703607641781634 array([ 0.48380382, 10.74504354])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [9.44865670e-02 2.22843702e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703585927568078 array([ 0.48528286, 10.66747261])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [6.27927118e-02 2.02950673e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360901615644 array([ 0.48373119, 10.74968464])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [6.27879916e-02 9.64853216e+01].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360897006006 array([ 0.48373252, 10.74961874])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [  0.10992817 105.68443267].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360795774789 array([ 0.48382952, 10.7428425 ])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [  0.14615865 113.54240743].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70357105010023 array([ 0.48559444, 10.65577386])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [6.65533506e-02 2.33675271e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360870324241 array([ 0.48374019, 10.74924274])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [1.55893216e-01 1.93537787e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360901498594 array([ 0.48373124, 10.74968187])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [7.47079131e-02 2.55975346e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70355604031707 array([ 0.48550409, 10.66681909])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [8.89869694e-02 2.47590295e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360272771662 array([ 0.48392071, 10.7402723 ])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [4.64727906e-02 2.32975734e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360900562688 array([ 0.48373192, 10.74963178])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [ 0.10113124 83.92781946].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609016665652 array([ 0.48373118, 10.74968527])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [6.23255979e-02 1.35297099e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703607087473053 array([ 0.48404472, 10.72904711])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [  0.13337038 110.04604366].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609015954818 array([ 0.48373122, 10.74968182])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [1.34864028e-01 2.12091636e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360904977688 array([ 0.48373034, 10.74972222])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [  0.11863537 113.74013642].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609016135214 array([ 0.48373119, 10.74968454])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [ 0.17144084 88.4517508 ].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609016076832 array([ 0.48373119, 10.74968449])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [5.00796817e-02 1.23120460e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703566212860654 array([ 0.48584895, 10.64408079])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [5.83628792e-02 2.02003752e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609017220792 array([ 0.48373114, 10.7496878 ])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [1.50894566e-01 2.06624551e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609008967227 array([ 0.48373141, 10.74967371])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [8.37625471e-02 2.24358169e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360898553298 array([ 0.48373208, 10.74964039])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [1.15381556e-01 2.28952106e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703593714750937 array([ 0.48412371, 10.73278166])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [6.56304440e-02 1.84752957e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360901607644 array([ 0.48373119, 10.74968452])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [7.29626655e-02 8.55011874e+01].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609015744334 array([ 0.48373121, 10.74968376])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [  0.15985182 147.81863783].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609016206045 array([ 0.48373119, 10.74968493])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [1.25358270e-01 1.67064728e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609015800772 array([ 0.4837312 , 10.74968426])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [8.24719732e-02 2.68724880e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609005193954 array([ 0.48373145, 10.74967369])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [ 0.11523217 70.53149689].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703608981509028 array([ 0.48373213, 10.74964098])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [1.23911614e-01 1.65098533e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360901497166 array([ 0.48373123, 10.74968273])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [8.00747345e-02 1.03330726e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360896587706 array([ 0.48373266, 10.74961185])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [  0.17341328 120.62421634].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703608490812286 array([ 0.48374554, 10.74900983])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [ 0.12815268 73.69039328].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609015324663 array([ 0.48373121, 10.74968402])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [1.21648042e-01 2.18125098e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360901600838 array([ 0.4837312, 10.7496844])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [5.06687371e-02 9.83725010e+01].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703597694073537 array([ 0.48403795, 10.74755289])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [  0.1690864  119.65665335].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703601106532503 array([ 0.48390299, 10.75132513])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [4.72023354e-02 2.65158816e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360901720604 array([ 0.48373116, 10.74968584])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [1.30076228e-01 2.52890828e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703608794343225 array([ 0.48374351, 10.74885648])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [4.6481885e-02 2.0093373e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360903803097 array([ 0.48373066, 10.74970725])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [8.22786067e-02 2.59105477e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609016771814 array([ 0.48373118, 10.74968517])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [  0.17846895 114.91492561].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703609016372376 array([ 0.48373119, 10.74968483])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [9.26451535e-02 1.80098514e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360901518719 array([ 0.48373122, 10.74968285])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [1.42856752e-01 1.88246322e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.7036090175625 array([ 0.48373115, 10.74968637])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [5.50793970e-02 2.26126676e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.703608932584665 array([ 0.48373589, 10.74936586])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [7.27703705e-02 1.05907511e+02].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-23.70360901332512 array([ 0.48373128, 10.74967992])].
+INFO:fitdadi_infer_DFE.py:Finished DFE inference.
+INFO:fitdadi_infer_DFE.py:Integrating expected site-frequency spectrum.
+INFO:fitdadi_infer_DFE.py:Outputing results.
+INFO:fitdadi_infer_DFE.py:Pipeline executed succesfully.
