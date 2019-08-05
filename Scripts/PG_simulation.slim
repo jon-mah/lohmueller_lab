@@ -1,0 +1,93 @@
+// Author: Miguel Guardado
+// This script is made to help simulate Ancestral Wolf Population to test for effective change in DFE.
+initialize() {
+  // Set a Seed to keep track of the type of simulation we are using.
+  setSeed(chrom + (init_seed - 1) * 1000);
+
+  // Mutations Rate is set up so be that of Arctic Wolf Population
+  initializeMutationRate(6.7250e-9);
+
+  // m1 mutation type: Neutral for synonymous sites.
+  // m2 mutation type: Deleterious for non-synonymous sites.
+  initializeMutationType("m1", 0.0, "f", 0.0);
+  initializeMutationType("m2", 0.5, "g", -0.965496, 0.0980);
+
+  // g1 genomic element type: Intron
+  // g2 genomic element type: Exon
+  initializeGenomicElementType("g1", m1, 1);
+  initializeGenomicElementType("g2", c(m1, m2), c(1.0, 2.14));
+
+  // This helps creates a loop of the exon size to create a wolf genome.
+  base = 0; // Keep track of the length of the whole genome region
+  exonbase = 0; // Keeps track of the length of the exome region
+  rates_vector = c();
+  ends_vector = c();
+  while (exonbase < 20154) {
+    // makes exon to be put inside the region
+    rates_vector = c(rates_vector, 1e-8);
+    ex_length = asInteger(rdunif(1, 100,200)) + 1;
+    initializeGenomicElement(g2, base, base + ex_length - 1);
+    base = base + ex_length;
+    exonbase = exonbase + ex_length;
+    ends_vector = c(ends_vector, base - 1);
+
+    rates_vector = c(rates_vector, 3.5e-5);
+    // makes intron to be put into the intron
+    in_length = 1;
+    initializeGenomicElement(g1, base, base + in_length - 1);
+    base = base + in_length;
+    ends_vector = c(ends_vector, base - 1);
+  }
+
+  // Initialize the recombination rate.
+  initializeRecombinationRate(rates_vector, ends_vector);
+
+}
+// This creates a the ancestral populations of wolves that was full of
+// 80,000 diploid individuals
+1
+{
+  sim.addSubpop("p1", 80000);
+}
+// After this populations is defined we let this population burn in for
+// 12N=>12(80,000)=960,000 generations. After this population is burned in
+// we create a bottle neck inside the population reducing the populations
+// from 80000 to 12500.
+800000
+{
+  //this is for wolf population bottle neck sizes
+  //p1.setSubpopulationSize(12500);
+
+  //This is for the Labradoor population bottle neck sizes
+  //p1.setSubpopulationSize(18000);
+  //m2.setDistribution("g",-2*0.49923,0.1001);
+
+  //This is for the the Pug population bottle neck sizes
+  p1.setSubpopulationSize(8300);
+  m2.setDistribution("g",-2*0.42713,0.0931);
+
+}
+// 100 generations before the simulations is finished we decide to change
+// the  DFE to account for the change in selection pressure being introduced
+// by selection. But in the case of arctic wolves we leave this distribution
+// and selection coefficient the same as we did.
+
+// After 1786 generations of now the new arctic wolf populations we will be
+// at the current time of species divergence and will effectively end the
+// simulation.
+//824251
+//{
+//  p1.outputVCFSample(15, filePath="../Data/AW/seed_" + init_seed + "_chrom_" + chrom +".vcf");
+//}
+// After 24251 generations of the new Labradoor populations we end the simulation and take the Vcf Sample of the
+// Population.
+//824251
+//{
+//  p1.outputVCFSample(15, filePath="../Data/AW/seed_" + init_seed + "_chrom_" + chrom +".vcf");
+//}
+// After 39183 generations of the new pug population at the current time we will
+// effectivly end the wolf population
+839183
+{
+  p1.outputVCFSample(15, filePath="../Data/PG/seed_" + init_seed + "_chrom_" + chrom +".vcf");
+}
