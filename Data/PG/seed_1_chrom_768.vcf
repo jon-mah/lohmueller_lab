@@ -1,0 +1,22 @@
+##fileformat=VCFv4.2
+##fileDate=20190807
+##source=SLiM
+##INFO=<ID=MID,Number=.,Type=Integer,Description="Mutation ID in SLiM">
+##INFO=<ID=S,Number=.,Type=Float,Description="Selection Coefficient">
+##INFO=<ID=DOM,Number=.,Type=Float,Description="Dominance">
+##INFO=<ID=PO,Number=.,Type=Integer,Description="Population of Origin">
+##INFO=<ID=GO,Number=.,Type=Integer,Description="Generation of Origin">
+##INFO=<ID=MT,Number=.,Type=Integer,Description="Mutation Type">
+##INFO=<ID=AC,Number=.,Type=Integer,Description="Allele Count">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Total Depth">
+##INFO=<ID=MULTIALLELIC,Number=0,Type=Flag,Description="Multiallelic">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	i0	i1	i2	i3	i4	i5	i6	i7	i8	i9	i10	i11	i12	i13	i14
+768	257	.	A	T	1000	PASS	MID=16458525;S=0;DOM=0;PO=1;GO=751595;MT=1;AC=24;DP=1000	GT	1|1	1|1	1|1	1|1	1|1	0|1	1|1	0|1	1|1	1|1	0|1	1|1	1|0	0|1	0|1
+768	1726	.	A	T	1000	PASS	MID=15902044;S=0;DOM=0;PO=1;GO=726160;MT=1;AC=10;DP=1000	GT	0|0	1|0	1|0	0|0	1|1	0|0	0|1	0|1	0|1	0|0	0|1	0|0	1|1	0|0	0|0
+768	6440	.	A	T	1000	PASS	MID=17586579;S=-3.08343e-09;DOM=0.5;PO=1;GO=829784;MT=2;AC=3;DP=1000	GT	0|1	0|0	0|0	0|0	0|1	0|0	0|1	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+768	6548	.	A	T	1000	PASS	MID=17607066;S=0;DOM=0;PO=1;GO=838884;MT=1;AC=1;DP=1000	GT	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+768	7873	.	A	T	1000	PASS	MID=17525665;S=0;DOM=0;PO=1;GO=803041;MT=1;AC=6;DP=1000	GT	0|0	0|0	1|1	1|0	0|0	0|0	1|0	0|0	0|0	1|0	0|0	0|0	0|0	1|0	0|0
+768	8941	.	A	T	1000	PASS	MID=17604736;S=0;DOM=0;PO=1;GO=837857;MT=1;AC=1;DP=1000	GT	0|0	0|0	0|0	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+768	13550	.	A	T	1000	PASS	MID=11978869;S=0;DOM=0;PO=1;GO=546980;MT=1;AC=29;DP=1000	GT	1|1	1|1	1|1	1|1	1|1	1|1	1|0	1|1	1|1	1|1	1|1	1|1	1|1	1|1	1|1
+768	17369	.	A	T	1000	PASS	MID=17578921;S=0;DOM=0;PO=1;GO=826405;MT=1;AC=4;DP=1000	GT	0|0	0|1	0|1	0|0	0|0	0|0	0|0	0|0	1|0	0|0	1|0	0|0	0|0	0|0	0|0
