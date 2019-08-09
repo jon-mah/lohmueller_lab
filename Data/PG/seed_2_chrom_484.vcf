@@ -1,0 +1,23 @@
+##fileformat=VCFv4.2
+##fileDate=20190808
+##source=SLiM
+##INFO=<ID=MID,Number=.,Type=Integer,Description="Mutation ID in SLiM">
+##INFO=<ID=S,Number=.,Type=Float,Description="Selection Coefficient">
+##INFO=<ID=DOM,Number=.,Type=Float,Description="Dominance">
+##INFO=<ID=PO,Number=.,Type=Integer,Description="Population of Origin">
+##INFO=<ID=GO,Number=.,Type=Integer,Description="Generation of Origin">
+##INFO=<ID=MT,Number=.,Type=Integer,Description="Mutation Type">
+##INFO=<ID=AC,Number=.,Type=Integer,Description="Allele Count">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Total Depth">
+##INFO=<ID=MULTIALLELIC,Number=0,Type=Flag,Description="Multiallelic">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	i0	i1	i2	i3	i4	i5	i6	i7	i8	i9	i10	i11	i12	i13	i14
+484	2070	.	A	T	1000	PASS	MID=17694239;S=-4.64959e-09;DOM=0.5;PO=1;GO=829375;MT=2;AC=7;DP=1000	GT	0|1	0|0	0|0	0|1	0|0	1|0	1|0	0|0	0|0	0|0	0|1	1|0	0|1	0|0	0|0
+484	4078	.	A	T	1000	PASS	MID=17705200;S=0;DOM=0;PO=1;GO=834196;MT=1;AC=10;DP=1000	GT	1|0	1|1	1|1	0|0	1|0	0|0	0|0	1|0	0|0	0|0	0|0	0|0	1|0	1|0	1|0
+484	5829	.	A	T	1000	PASS	MID=17702193;S=-1.60043e-05;DOM=0.5;PO=1;GO=832853;MT=2;AC=2;DP=1000	GT	0|0	0|1	0|1	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+484	9154	.	A	T	1000	PASS	MID=17708228;S=0;DOM=0;PO=1;GO=835558;MT=1;AC=9;DP=1000	GT	1|0	0|0	0|0	0|0	1|1	1|0	0|1	1|0	0|1	0|0	0|0	0|0	1|1	0|0	0|0
+484	9399	.	A	T	1000	PASS	MID=7952038;S=0;DOM=0;PO=1;GO=361089;MT=1;AC=26;DP=1000	GT	1|1	1|0	1|0	1|1	1|1	1|1	1|1	1|1	1|1	1|1	1|1	1|1	1|1	0|1	0|1
+484	11177	.	A	T	1000	PASS	MID=13932860;S=-2.77583e-10;DOM=0.5;PO=1;GO=632442;MT=2;AC=30;DP=1000	GT	1|1	1|1	1|1	1|1	1|1	1|1	1|1	1|1	1|1	1|1	1|1	1|1	1|1	1|1	1|1
+484	11974	.	A	T	1000	PASS	MID=17712402;S=-2.52136e-05;DOM=0.5;PO=1;GO=837354;MT=2;AC=2;DP=1000	GT	0|0	0|0	0|0	0|0	0|1	0|0	0|1	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+484	14675	.	A	T	1000	PASS	MID=17715483;S=-0.000596498;DOM=0.5;PO=1;GO=838732;MT=2;AC=1;DP=1000	GT	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|1	0|0	0|0	0|0	0|0	0|0	0|0
+484	15652	.	A	T	1000	PASS	MID=17713317;S=-1.07749e-09;DOM=0.5;PO=1;GO=837750;MT=2;AC=3;DP=1000	GT	0|0	0|0	0|0	0|0	0|0	0|1	0|0	0|0	0|0	0|1	0|0	0|1	0|0	0|0	0|0
