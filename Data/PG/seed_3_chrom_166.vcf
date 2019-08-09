@@ -1,0 +1,23 @@
+##fileformat=VCFv4.2
+##fileDate=20190808
+##source=SLiM
+##INFO=<ID=MID,Number=.,Type=Integer,Description="Mutation ID in SLiM">
+##INFO=<ID=S,Number=.,Type=Float,Description="Selection Coefficient">
+##INFO=<ID=DOM,Number=.,Type=Float,Description="Dominance">
+##INFO=<ID=PO,Number=.,Type=Integer,Description="Population of Origin">
+##INFO=<ID=GO,Number=.,Type=Integer,Description="Generation of Origin">
+##INFO=<ID=MT,Number=.,Type=Integer,Description="Mutation Type">
+##INFO=<ID=AC,Number=.,Type=Integer,Description="Allele Count">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Total Depth">
+##INFO=<ID=MULTIALLELIC,Number=0,Type=Flag,Description="Multiallelic">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	i0	i1	i2	i3	i4	i5	i6	i7	i8	i9	i10	i11	i12	i13	i14
+166	2935	.	A	T	1000	PASS	MID=17610515;S=-1.38609e-07;DOM=0.5;PO=1;GO=839069;MT=2;AC=1;DP=1000	GT	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+166	7587	.	A	T	1000	PASS	MID=17574820;S=0;DOM=0;PO=1;GO=823448;MT=1;AC=13;DP=1000	GT	0|0	0|0	1|0	0|1	1|1	0|1	0|0	1|1	0|1	0|1	1|0	0|1	0|0	1|0	1|0
+166	8859	.	A	T	1000	PASS	MID=17601843;S=0;DOM=0;PO=1;GO=835291;MT=1;AC=1;DP=1000	GT	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	1|0
+166	12091	.	A	T	1000	PASS	MID=17607391;S=-1.33463e-09;DOM=0.5;PO=1;GO=837702;MT=2;AC=3;DP=1000	GT	0|0	0|0	0|0	0|1	0|0	0|0	0|0	0|1	0|0	0|0	0|0	0|1	0|0	0|0	0|0
+166	13003	.	A	T	1000	PASS	MID=15973911;S=0;DOM=0;PO=1;GO=729365;MT=1;AC=7;DP=1000	GT	0|1	0|0	0|1	0|0	0|0	1|0	0|0	0|0	1|0	0|0	0|1	0|0	1|0	0|0	0|1
+166	14254	.	A	T	1000	PASS	MID=17545404;S=0;DOM=0;PO=1;GO=810587;MT=1;AC=23;DP=1000	GT	1|1	1|0	0|1	1|1	1|1	1|1	1|1	1|1	0|1	0|1	1|0	1|1	0|1	1|1	1|0
+166	17236	.	A	T	1000	PASS	MID=17604560;S=0;DOM=0;PO=1;GO=836449;MT=1;AC=1;DP=1000	GT	0|0	0|0	0|0	0|0	0|0	0|0	0|1	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+166	18331	.	A	T	1000	PASS	MID=17565406;S=-2.824e-10;DOM=0.5;PO=1;GO=819293;MT=2;AC=20;DP=1000	GT	1|0	1|1	1|0	0|1	1|0	0|1	0|1	1|1	1|1	0|0	1|0	1|1	1|0	1|1	1|1
+166	19337	.	A	T	1000	PASS	MID=17569209;S=-2.15016e-07;DOM=0.5;PO=1;GO=820947;MT=2;AC=9;DP=1000	GT	0|1	0|0	0|0	0|0	1|0	0|0	0|0	1|1	0|1	1|0	0|1	0|1	0|1	0|0	0|0
