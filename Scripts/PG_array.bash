@@ -24,4 +24,4 @@ num_samples=$(($num_ind * 2))
 
 slim -d chrom=$SGE_TASK_ID -d init_seed=$seed PG_simulation.slim
 
-sed -i -r "s/^1/${SGE_TASK_ID}/g" ${prefix}_chrom_${SGE_TASK_ID}.vcf
+# sed -i -r "s/^1/${SGE_TASK_ID}/g" ${prefix}_chrom_${SGE_TASK_ID}.vcf

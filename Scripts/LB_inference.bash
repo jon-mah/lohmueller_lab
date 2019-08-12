@@ -27,6 +27,7 @@ cp ${prefix}_chrom_1.vcf ${prefix}.vcf
 
 for i in {2..800}
 do
+  sed -i -r "s/^1\t/${i}\t/g" ${prefix}_chrom_${i}.vcf
   grep ";MT=1\|;MT=2" ${prefix}_chrom_${i}.vcf >> ${prefix}.vcf
 done
 
