@@ -22,7 +22,7 @@ initialize() {
   exonbase = 0; // Keeps track of the length of the exome region
   rates_vector = c();
   ends_vector = c();
-  while (exonbase < 20154) {
+  while (exonbase < 10077) {
     // makes exon to be put inside the region
     rates_vector = c(rates_vector, 1e-8);
     ex_length = asInteger(rdunif(1, 100,200)) + 1;
@@ -57,11 +57,11 @@ initialize() {
 {
   //This is for the Tibetan Mastiff population bottleneck
   p1.setSubpopulationSize(20000);
-  m2.setDistribution("g", -2 * 0.01772472, 0.1352)
+  m2.setDistribution("g", -2 * 0.01772472, 0.1352);
 }
 801000
 {
-  p1.outputVCFSample(15, filePath="../Data/TM/1000_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/TM/1000_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
 }
 802000
 {
@@ -77,9 +77,9 @@ initialize() {
 }
 805000
 {
-  p1.outputVCFSample(15, filePath="../Data/TM/5000_seed_" + init_seed + "_chrom_" + chrom + ".vcf);
+  p1.outputVCFSample(15, filePath="../Data/TM/5000_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
 }
 805758
 {
-  p1.outputVCFSample(15, filePath="../Data/TM/5758_seed_" + init_seed + "_chrom_" + chrom + ".vcf);
+  p1.outputVCFSample(15, filePath="../Data/TM/5758_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
 }

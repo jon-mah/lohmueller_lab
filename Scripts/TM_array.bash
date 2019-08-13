@@ -1,10 +1,10 @@
 #!/bin/bash
-#$ -t 438
+#$ -t 1-1600:1
 #$ -cwd
 #$ -V
 #$ -m a
-#$ -l h_data=10G
-#$ -l h_rt=23:55:00
+#$ -l h_data=1G
+#$ -l h_rt=23:50:00
 
 # INPUT ARGUMENTS
 seed=1
@@ -22,6 +22,6 @@ syn_easySFS_outdir="${prefix}_easySFS_output_syn/"
 nonsyn_easySFS_outdir="${prefix}_easySFS_output_nonsyn/"
 num_samples=$(($num_ind * 2))
 
-slim -d chrom=$SGE_TASK_ID -d init_seed=$seed PG_simulation.slim
+slim -d chrom=$SGE_TASK_ID -d init_seed=$seed TM_simulation.slim
 
 # sed -i -r "s/^1/${SGE_TASK_ID}/g" ${prefix}_chrom_${SGE_TASK_ID}.vcf
