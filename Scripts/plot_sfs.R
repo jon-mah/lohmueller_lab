@@ -101,9 +101,6 @@ plot_nonsyn_sfs <- function(empirical_obs_sfs_file, simulated_obs_sfs_file, empi
                   simulated_model = simulated_model_sfs,
                   x_axis = x_axis)
   
-  title = 'Replicate SEED'
-  title = sub('SEED', unlist(strsplit(simulated_obs_sfs_file, split=''))[33], title, fixed=TRUE)
-  
   p_df <- ggplot(data=df, aes(x=x_axis, y=empirical_obs_sfs, color='empirical_obs')) +
     geom_point() +
     geom_line() +
@@ -117,13 +114,11 @@ plot_nonsyn_sfs <- function(empirical_obs_sfs_file, simulated_obs_sfs_file, empi
     scale_y_continuous(name='Proportion of SNps', breaks=seq(from=0, to=0.40, by=0.05), limits=c(0, 0.30)) +
     scale_color_manual(values=c('#E69F00', '#56B4E9', '#009E73', '#CC79A7'),
                        name='Data Type',
-                       breaks=c('empirical_obs', 'simulated_obs', 'empirical_model', 'simulated_model')) +
-    ggtitle(title) +
+                       breaks=c('empirical_obs', 'simulated_obs', 'empirical_model', 'simulated_model'),
+                       labels=c('Empirical Observation', 'Simulated Observation', 'Empirical Estimation', 'Simulated Estimation')) +
     theme_bw() +
-    theme(plot.title = element_text(hjust = 0.5)) +
-    theme(legend.position = "none")
-  return_list = list(df, p_df)
-  return(return_list)
+    theme(plot.title = element_text(hjust = 0.5))
+  return(p_df)
 }
 
 plot_syn_sfs <- function(empirical_obs_sfs_file, simulated_obs_sfs_file) {
@@ -151,13 +146,12 @@ plot_syn_sfs <- function(empirical_obs_sfs_file, simulated_obs_sfs_file) {
     scale_y_continuous(name='Proportion of SNps', breaks=seq(from=0, to=0.40, by=0.05), limits=c(0, 0.30)) +
     scale_color_manual(values=c('#0072B2', '#D55E00'),
                        name='Data Type',
-                       breaks=c('empirical_obs', 'simulated_obs')) +
+                       breaks=c('empirical_obs', 'simulated_obs'),
+                       labels=c('Empirical Observation', 'Simulated Observation')) +
     ggtitle(title) +
     theme_bw() +
-    theme(plot.title = element_text(hjust = 0.5)) +
-    theme(legend.position = "none")
-  return_list = list(df, p_df)
-  return(return_list)
+    theme(plot.title = element_text(hjust = 0.5))
+  return(p_df)
 }
 
 # labels=c('Empirical Observation', 'Simulated Observation', 'Empirical Expectation', 'Simulated Expectation')) +
@@ -172,23 +166,23 @@ input_obs_syn = 'Eduardo_Scripts/20190715/syn_SFS/AW.sfs'
 
 seed_1_obs_ns = 'Data/AW_array_length_20154/seed_1_easySFS_output_nonsyn/dadi/pop1.sfs'
 seed_1_model_ns = 'Data/AW_array_length_20154/seed_1_fitdadi_output/inferred_DFE.txt'
-seed_1_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, seed_1_obs_ns, input_model_nonsyn, seed_1_model_ns)[2]
+seed_1_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, seed_1_obs_ns, input_model_nonsyn, seed_1_model_ns)
 
 seed_2_obs_ns = 'Data/AW_array_length_20154/seed_2_easySFS_output_nonsyn/dadi/pop1.sfs'
 seed_2_model_ns = 'Data/AW_array_length_20154/seed_2_fitdadi_output/inferred_DFE.txt'
-seed_2_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, seed_2_obs_ns, input_model_nonsyn, seed_2_model_ns)[2]
+seed_2_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, seed_2_obs_ns, input_model_nonsyn, seed_2_model_ns)
 
 seed_3_obs_ns = 'Data/AW_array_length_20154/seed_3_easySFS_output_nonsyn/dadi/pop1.sfs'
 seed_3_model_ns = 'Data/AW_array_length_20154/seed_3_fitdadi_output/inferred_DFE.txt'
-seed_3_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, seed_3_obs_ns, input_model_nonsyn, seed_3_model_ns)[2]
+seed_3_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, seed_3_obs_ns, input_model_nonsyn, seed_3_model_ns)
 
 seed_4_obs_ns = 'Data/AW_array_length_20154/seed_4_easySFS_output_nonsyn/dadi/pop1.sfs'
 seed_4_model_ns = 'Data/AW_array_length_20154/seed_4_fitdadi_output/inferred_DFE.txt'
-seed_4_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, seed_4_obs_ns, input_model_nonsyn, seed_4_model_ns)[2]
+seed_4_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, seed_4_obs_ns, input_model_nonsyn, seed_4_model_ns)
 
 seed_5_obs_ns = 'Data/AW_array_length_20154/seed_5_easySFS_output_nonsyn/dadi/pop1.sfs'
 seed_5_model_ns = 'Data/AW_array_length_20154/seed_5_fitdadi_output/inferred_DFE.txt'
-seed_5_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, seed_5_obs_ns, input_model_nonsyn, seed_5_model_ns)[2]
+seed_5_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, seed_5_obs_ns, input_model_nonsyn, seed_5_model_ns)
 
 # multiplot(seed_1_plot_ns, seed_3_plot_ns, seed_5_plot_ns, seed_2_plot_ns, seed_4_plot_ns, cols=2)
 
@@ -208,3 +202,52 @@ seed_4_plot_syn <- plot_syn_sfs(input_obs_syn, seed_4_obs_syn)
 
 seed_5_obs_syn = 'Data/AW_array_length_20154/seed_5_easySFS_output_syn/dadi/pop1.sfs'
 seed_5_plot_syn <- plot_syn_sfs(input_obs_syn, seed_5_obs_syn)
+
+# Pug_ns
+
+PG_seed_1_obs_ns = 'Data/PG/seed_1_easySFS_output_nonsyn/dadi/pop1.sfs'
+PG_seed_1_model_ns = 'Data/PG/seed_1_fitdadi_output/inferred_DFE.txt'
+PG_seed_1_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, PG_seed_1_obs_ns, input_model_nonsyn, PG_seed_1_model_ns)
+
+PG_seed_2_obs_ns = 'Data/PG/seed_2_easySFS_output_nonsyn/dadi/pop1.sfs'
+PG_seed_2_model_ns = 'Data/PG/seed_2_fitdadi_output/inferred_DFE.txt'
+PG_seed_2_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, PG_seed_2_obs_ns, input_model_nonsyn, PG_seed_2_model_ns)
+
+PG_seed_3_obs_ns = 'Data/PG/seed_3_easySFS_output_nonsyn/dadi/pop1.sfs'
+PG_seed_3_model_ns = 'Data/PG/seed_3_fitdadi_output/inferred_DFE.txt'
+PG_seed_3_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, PG_seed_3_obs_ns, input_model_nonsyn, PG_seed_3_model_ns)
+
+# Pug_syn
+
+PG_seed_1_obs_syn = 'Data/PG/seed_1_easySFS_output_syn/dadi/pop1.sfs'
+PG_seed_1_plot_syn = plot_syn_sfs(input_obs_syn, PG_seed_1_obs_syn)
+
+PG_seed_2_obs_syn = 'Data/PG/seed_2_easySFS_output_syn/dadi/pop1.sfs'
+PG_seed_2_plot_syn = plot_syn_sfs(input_obs_syn, PG_seed_2_obs_syn)
+
+PG_seed_3_obs_syn = 'Data/PG/seed_3_easySFS_output_syn/dadi/pop1.sfs'
+PG_seed_3_plot_syn = plot_syn_sfs(input_obs_syn, PG_seed_3_obs_syn)
+
+# AW_nonsyn
+seed_1_plot_ns + ggtitle('Arctic Wolf Nonsynonymous Replicate 1')
+seed_2_plot_ns + ggtitle('Arctic Wolf Nonsynonymous Replicate 2')
+seed_3_plot_ns + ggtitle('Arctic Wolf Nonsynonymous Replicate 3')
+seed_4_plot_ns + ggtitle('Arctic Wolf Nonsynonymous Replicate 4')
+seed_5_plot_ns + ggtitle('Arctic Wolf Nonsynonymous Replicate 5')
+
+# AW_syn
+seed_1_plot_syn + ggtitle('Arctic Wolf Synonymous Replicate 1')
+seed_2_plot_syn + ggtitle('Arctic Wolf Synonymous Replicate 2')
+seed_3_plot_syn + ggtitle('Arctic Wolf Synonymous Replicate 3')
+seed_4_plot_syn + ggtitle('Arctic Wolf Synonymous Replicate 4')
+seed_5_plot_syn + ggtitle('Arctic Wolf Synonymous Replicate 5')
+
+# PG_nonsyn
+PG_seed_1_plot_ns + ggtitle('Pug Nonsynonymous Replicate 1')
+PG_seed_2_plot_ns + ggtitle('Pug Nonsynonymous Replicate 2')
+PG_seed_3_plot_ns + ggtitle('Pug Nonsynonymous Replicate 3')
+
+# PG_syn
+PG_seed_1_plot_syn + ggtitle('Pug Synonymous Replicate 1')
+PG_seed_2_plot_syn + ggtitle('Pug Synonymous Replicate 2')
+PG_seed_3_plot_syn + ggtitle('Pug Synonymous Replicate 3')
