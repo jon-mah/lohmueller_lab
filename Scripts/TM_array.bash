@@ -1,10 +1,10 @@
 #!/bin/bash
-#$ -t 18
+#$ -t 1-800:1
 #$ -cwd
 #$ -V
 #$ -m a
 #$ -l h_data=1G
-#$ -l h_rt=23:50:00
+#$ -l h_rt=47:55:00
 
 # INPUT ARGUMENTS
 seed=1

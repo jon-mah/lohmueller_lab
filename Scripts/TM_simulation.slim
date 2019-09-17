@@ -22,7 +22,7 @@ initialize() {
   exonbase = 0; // Keeps track of the length of the exome region
   rates_vector = c();
   ends_vector = c();
-  while (exonbase < 10077) {
+  while (exonbase < 20154) {
     // makes exon to be put inside the region
     rates_vector = c(rates_vector, 1e-8);
     ex_length = asInteger(rdunif(1, 100,200)) + 1;
@@ -82,4 +82,28 @@ initialize() {
 805758
 {
   p1.outputVCFSample(15, filePath="../Data/TM/5758_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
+}
+806000
+{
+  p1.outputVCFSample(15, filePath="../Data/TM/6000_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
+}
+807000
+{
+  p1.outputVCFSample(15, filePath="../Data/TM/7000_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
+}
+808000
+{
+  p1.outputVCFSample(15, filePath="../Data/TM/8000_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
+}
+809000
+{
+  p1.outputVCFSample(15, filePath="../Data/TM/9000_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
+}
+810000
+{
+  p1.outputVCFSample(15, filePath="../Data/TM/10000_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
+}
+820000
+{
+  p1.outputVCFSample(15, filePath="../Data/TM/20000_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
 }
