@@ -22,7 +22,7 @@ initialize() {
   exonbase = 0; // Keeps track of the length of the exome region
   rates_vector = c();
   ends_vector = c();
-  while (exonbase < 20154) {
+  while (exonbase < 8062) {
     // makes exon to be put inside the region
     rates_vector = c(rates_vector, 1e-8);
     ex_length = asInteger(rdunif(1, 100,200)) + 1;
