@@ -6,7 +6,7 @@
 #$ -l h_rt=02:00:00
 
 # INPUT ARGUMENTS
-seed=1
+seed=4
 num_ind=8 # Number of samples from single population.
 prefix="../Data/AW_to_neutral/seed_${seed}" # Output prefix, and input prefix of given vcf
 easySFS_proj=16 # Number of chromosomes that sample is projected down into.
@@ -25,7 +25,7 @@ num_samples=$(($num_ind * 2))
 
 cp ${prefix}_chrom_1.vcf ${prefix}.vcf
 
-for i in {2..2000}
+for i in {2..1000}
 do
   sed -i -r "s/^1\t/${i}\t/g" ${prefix}_chrom_${i}.vcf
   grep ";MT=1\|;MT=2" ${prefix}_chrom_${i}.vcf >> ${prefix}.vcf
