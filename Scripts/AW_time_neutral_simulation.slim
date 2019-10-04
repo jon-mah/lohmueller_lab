@@ -1,0 +1,94 @@
+// Author: Miguel Guardado, Jonathan Mah
+// This script simulates the shift in DFE from AW to neutral, under an LB
+// demographic model.
+initialize() {
+  // Set a Seed to keep track of the type of simulation we are using.
+  setSeed(chrom + (init_seed - 1) * 1000);
+
+  // Mutation Rate is set up so be that of Arctic Wolf Population
+  initializeMutationRate(6.7250e-9);
+
+  // m1 mutation type: Neutral for synonymous sites.
+  // m2 mutation type: Deleterious for non-synonymous sites.
+  initializeMutationType("m1", 0.0, "f", 0.0);
+  initializeMutationType("m2", 0.5, "g", -0.965496, 0.0980);
+
+  // g1 genomic element type: Intron
+  // g2 genomic element type: Exon
+  initializeGenomicElementType("g1", m1, 1);
+  initializeGenomicElementType("g2", c(m1, m2), c(1.0, 2.14));
+
+  // This helps creates a loop of the exon size to create a wolf genome.
+  base = 0; // Keep track of the length of the whole genome region
+  exonbase = 0; // Keeps track of the length of the exome region
+  rates_vector = c();
+  ends_vector = c();
+  while (exonbase < 8062) {
+    // makes exon to be put inside the region
+    rates_vector = c(rates_vector, 1e-8);
+    ex_length = asInteger(rdunif(1, 100,200)) + 1;
+    initializeGenomicElement(g2, base, base + ex_length - 1);
+    base = base + ex_length;
+    exonbase = exonbase + ex_length;
+    ends_vector = c(ends_vector, base - 1);
+
+    rates_vector = c(rates_vector, 3.5e-5);
+    // makes intron to be put into the intron
+    in_length = 1;
+    initializeGenomicElement(g1, base, base + in_length - 1);
+    base = base + in_length;
+    ends_vector = c(ends_vector, base - 1);
+  }
+
+  // Initialize the recombination rate.
+  initializeRecombinationRate(rates_vector, ends_vector);
+
+}
+// This creates a the ancestral populations of wolves that was full of
+// 80,000 diploid individuals
+1
+{
+  sim.addSubpop("p1", 80000);
+}
+// After this population is defined we let this population burn in for
+// 10N=>10(80,000)=800,000 generations.
+800000
+{
+  // Roughly 24,000 generations before the simulation ends, we bottleneck.
+  p1.setSubpopulationSize(19000);
+}
+// 10,000 generations before the simulation ends, we shift the DFE to neutral.
+814251
+{
+  m2.setDistribution("f", 0.0);
+  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/0_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
+}
+814351
+{
+  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/100_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
+}
+814451
+{
+  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/200_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
+}
+814751
+{
+  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/500_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
+}
+815251
+{
+  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/1000_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
+}
+816251
+{
+  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/2000_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
+}
+819251
+{
+  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/5000_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
+}
+// After 24,251 generations under a Labrador demography, we end the simulation.
+824251
+{
+  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/10000_seed_" + init_seed + "_chrom_" + chrom + ".vcf");
+}
