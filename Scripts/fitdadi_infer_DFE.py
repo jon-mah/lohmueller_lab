@@ -386,6 +386,25 @@ def main():
         if popt[0] > max_likelihood:
             best_popt = numpy.copy(popt)
 
+    max_likelihood = -1e25
+    for i in range(100):
+        p0_neutral = initial_guess
+        p0_neutral = dadi.Misc.perturb_params(p0_neutral,
+                                              lower_bound=lower_bound,
+                                              upper_bound=upper_bound)
+        logger.info('Beginning optimization with guess, {0}.'.format(
+            p0_neutral))
+        popt = numpy.copy(Selection.optimize_log(p0_neutral, nonsyn_data,
+                                                 spectra.integrate,
+                                                 Selection.neugamma,
+                                                 theta_nonsyn,
+                                                 lower_bound=lower_bound,
+                                                 upper_bound=upper_bound,
+                                                 verbose=len(p0), maxiter=100))
+        logger.info('Finished optimization, results are {0}.'.format(popt))
+        if popt[0] > max_likelihood:
+            best_popt_neutral = numpy.copy(popt)
+
     logger.info('Finished DFE inference.')
     logger.info('Integrating expected site-frequency spectrum.')
 
@@ -395,13 +414,25 @@ def main():
     logger.info('Outputing results.')
 
     with open(inferred_DFE, 'w') as f:
+        f.write('Assuming a gamma-distributed DFE...')
         f.write(
             'The population-scaled best-fit parameters: {0}.\n'.format(
                 best_popt))
         # Divide output scale parameter by 2 * N_a
         f.write(
             'The non-scaled best-fit parameters: [{0}, array({1})].\n'.format(
-                popt[0], numpy.divide(best_popt[1], numpy.array([1, 2 * Na]))))
+                best_popt[0],
+                numpy.divide(best_popt[1], numpy.array([1, 2 * Na]))))
+        f.write('The expected SFS is: {0}.'.format(expected_sfs))
+        f.write('Assuming a neutral-gamma-distributed DFE...')
+        f.write(
+            'The population-scaled best-fit parameters: {0}.\n'.format(
+                best_popt_neutral))
+        # Divide output scale parameter by 2 * N_a
+        f.write(
+            'The non-scaled best-fit parameters: [{0}, array({1})].\n'.format(
+                best_popt_neutral[0],
+                numpy.divide(best_popt_neutral[1], numpy.array([1, 2 * Na]))))
         f.write('The expected SFS is: {0}.'.format(expected_sfs))
 
     logger.info('Pipeline executed succesfully.')

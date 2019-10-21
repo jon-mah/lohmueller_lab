@@ -25,7 +25,7 @@ num_samples=$(($num_ind * 2))
 
 cp ${prefix}_chrom_1.vcf ${prefix}.vcf
 
-for i in {2..1000}
+for i in {2..2000}
 do
   sed -i -r "s/^1\t/${i}\t/g" ${prefix}_chrom_${i}.vcf
   grep ";MT=1\|;MT=2" ${prefix}_chrom_${i}.vcf >> ${prefix}.vcf
