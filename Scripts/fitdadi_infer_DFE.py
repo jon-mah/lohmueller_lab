@@ -396,7 +396,7 @@ def main():
             p0_neutral))
         popt = numpy.copy(Selection.optimize_log(p0_neutral, nonsyn_data,
                                                  spectra.integrate,
-                                                 Selection.neugamma(p=1),
+                                                 Selection.neugamma,
                                                  theta_nonsyn,
                                                  lower_bound=lower_bound,
                                                  upper_bound=upper_bound,
