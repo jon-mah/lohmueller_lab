@@ -262,7 +262,7 @@ class DemographicAndDFEInference():
         else:
                 return dadi.Selection.gamma_dist(-mgamma, alpha, beta) * (1-p)
 
-    def main():
+    def main(self):
         """Execute main function."""
         # Parse command line arguments
         parser = inferDFEParser()
@@ -477,4 +477,4 @@ class DemographicAndDFEInference():
 
 
 if __name__ == '__main__':
-    DemographicAndDFEInference.main()
+    DemographicAndDFEInference().main()
