@@ -234,6 +234,27 @@ def four_epoch(params, ns, pts):
     return fs
 
 
+def neugamma(mgamma, alpha, beta, p=1):
+    """Return a neutral gamma distribution.
+
+    mgamma: Sign of gamma distribution.
+    p: Proportion of sites assigned to neutral distribution,
+        default value is one.
+    alpha: alpha parameter of gamma distribution.
+    beta: beta parameter of gamma distribution.
+    """
+    mgamma = -mgamma
+    print('mgamma = ' + str(mgamma))
+    print('p = ' + str(p))
+    print('alpha = ' + str(alpha))
+    print('beta = ' + str(beta))
+    if (0 <= mgamma) and (mgamma < -smallgamma):
+            return p/(-smallgamma) + (1-p)*dadi.Selection.gamma_dist(
+                -mgamma, alpha, beta)
+    else:
+            return dadi.Selection.gamma_dist(-mgamma, alpha, beta) * (1-p)
+
+
 def main():
     """Execute main function."""
     # Parse command line arguments
@@ -396,7 +417,7 @@ def main():
             p0_neutral))
         popt = numpy.copy(Selection.optimize_log(p0_neutral, nonsyn_data,
                                                  spectra.integrate,
-                                                 Selection.neugamma,
+                                                 fitdadi_infer_DFE.neugamma,
                                                  theta_nonsyn,
                                                  lower_bound=lower_bound,
                                                  upper_bound=upper_bound,
