@@ -265,7 +265,7 @@ class DemographicAndDFEInference():
     def main(self):
         """Execute main function."""
         # Parse command line arguments
-        parser = inferDFEParser()
+        parser = self.inferDFEParser()
         args = vars(parser.parse_args())
         prog = parser.prog
 
