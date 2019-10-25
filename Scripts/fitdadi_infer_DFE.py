@@ -15,6 +15,9 @@ import warnings
 import numpy
 import dadi
 import Selection
+import scipy.stats.distributions
+import scipy.integrate
+import scipy.optimize
 
 
 class ArgumentParserNoArgHelp(argparse.ArgumentParser):
@@ -30,19 +33,21 @@ class ArgumentParserNoArgHelp(argparse.ArgumentParser):
 class DemographicAndDFEInference():
     """Wrapper class to allow functions to reference each other."""
 
-    def ExistingFile(fname):
+    def ExistingFile(self, fname):
         """Return *fname* if existing file, otherwise raise ValueError."""
         if os.path.isfile(fname):
             return fname
         else:
             raise ValueError("%s must specify a valid file name" % fname)
 
-    def ExistingBreed(breed):
-        """If *breed* is "AW", "LB", or "PG", return it, else raise ValueError.
+    def ExistingBreed(self, breed):
+        """Return *breed* if existing, else raise ValueError.
 
         "AW" indicates arctic wolf data.
         "LB" indicates labrador data.
         "PG" indicates pug data.
+        "TM" indicates tibetan mastiff data.
+        "MD" indicates mixed dog data.
         """
         if breed == "AW":
             return breed
@@ -53,7 +58,7 @@ class DemographicAndDFEInference():
         else:
             raise ValueError('%s must specify a valid breed.' % breed)
 
-    def inferDFEParser():
+    def inferDFEParser(self):
         """Return *argparse.ArgumentParser* for ``fitdadi_infer_DFE.py``."""
         parser = ArgumentParserNoArgHelp(
             description=(
@@ -62,25 +67,25 @@ class DemographicAndDFEInference():
                 'specified for use by the python package, `easySFS.py`.'),
             formatter_class=argparse.ArgumentDefaultsHelpFormatter)
         parser.add_argument(
-            'syn_input_sfs', type=ExistingFile,
+            'syn_input_sfs', type=self.ExistingFile,
             help=('Synonynomous site-frequency spectrum from which the '
                   'demographic parameters should be inferred.'))
         parser.add_argument(
-            'nonsyn_input_sfs', type=ExistingFile,
+            'nonsyn_input_sfs', type=self.ExistingFile,
             help=('Nonsynonynomous site-frequency spectrum from which the '
                   'distribution of fitness effects should be inferred.'))
         parser.add_argument(
             'outprefix', type=str,
             help='The file prefix for the output `*inferred_demography.txt`.')
         parser.add_argument(
-            '--breed', type=ExistingBreed,
+            '--breed', type=self.ExistingBreed,
             help=('The breed of organism from which the input `.vcf` is drawn '
                   'from. Must be "AW", for arctic wolves, "LB" for labrador '
                   'or "PG" for pug. The default is arctic wolves.'),
             default='AW')
         return parser
 
-    def snm(notused, ns, pts):
+    def snm(self, notused, ns, pts):
         """Return a standard neutral model.
 
         ns = (n1, )
@@ -94,7 +99,7 @@ class DemographicAndDFEInference():
         fs = dadi.Spectrum.from_phi(phi, ns, (xx, ))
         return fs
 
-    def two_epoch(params, ns, pts):
+    def two_epoch(self, params, ns, pts):
         """Define a two-epoch demography, i.e., an instantaneous size change.
 
         params = (nu, T)
@@ -115,7 +120,7 @@ class DemographicAndDFEInference():
         fs = dadi.Spectrum.from_phi(phi, ns, (xx,))
         return fs
 
-    def two_epoch_sel(params, ns, pts):
+    def two_epoch_sel(self, params, ns, pts):
         """Define a two-epoch demography, i.e., an instantaneous size change.
 
         This method incorporates a gamma parameter.
@@ -139,7 +144,7 @@ class DemographicAndDFEInference():
         fs = dadi.Spectrum.from_phi(phi, ns, (xx, ))
         return fs
 
-    def growth(params, ns, pts):
+    def growth(self, params, ns, pts):
         """Exponential growth beginning some time ago.
 
         params = (nu, T)
@@ -161,7 +166,7 @@ class DemographicAndDFEInference():
         fs = dadi.Spectrum.from_phi(phi, ns, (xx, ))
         return fs
 
-    def bottlegrowth(params, ns, pts):
+    def bottlegrowth(self, params, ns, pts):
         """Instantaneous size change followed by exponential growth.
 
         params = (nuB, nuF, T)
@@ -188,7 +193,7 @@ class DemographicAndDFEInference():
         fs = dadi.Spectrum.from_phi(phi, ns, (xx, ))
         return fs
 
-    def three_epoch(params, ns, pts):
+    def three_epoch(self, params, ns, pts):
         """Define a three-epoch demography.
 
         params = (nuB, nuF, TB, TF)
@@ -212,7 +217,7 @@ class DemographicAndDFEInference():
         fs = dadi.Spectrum.from_phi(phi, ns, (xx, ))
         return fs
 
-    def four_epoch(params, ns, pts):
+    def four_epoch(self, params, ns, pts):
         """Define a four-epoch demography.
 
         params = (Na, Nb, Nc, Ta, Tb, Tc)
@@ -242,25 +247,20 @@ class DemographicAndDFEInference():
         fs = dadi.Spectrum.from_phi(phi, ns, (xx, ))
         return fs
 
-    def neugamma(mgamma, alpha, beta, p=1):
-        """Return a neutral gamma distribution.
-
-        mgamma: Sign of gamma distribution.
-        p: Proportion of sites assigned to neutral distribution,
-            default value is one.
-        alpha: alpha parameter of gamma distribution.
-        beta: beta parameter of gamma distribution.
+    def gamma_dist(self, mgamma, alpha, beta):
         """
+        x, shape, scale
+        """
+        return scipy.stats.distributions.gamma.pdf(-mgamma, alpha, scale=beta)
+
+    def neugamma(self, mgamma, pneu, alpha, beta):
         mgamma = -mgamma
-        print('mgamma = ' + str(mgamma))
-        print('p = ' + str(p))
-        print('alpha = ' + str(alpha))
-        print('beta = ' + str(beta))
-        if (0 <= mgamma) and (mgamma < -smallgamma):
-                return p/(-smallgamma) + (1-p)*dadi.Selection.gamma_dist(
-                    -mgamma, alpha, beta)
+        # Assume anything with gamma < 1e-4 is neutral
+        if (0 <= mgamma) and (mgamma < 1e-4):
+            return pneu / (1e-4) + (1 - pneu) * self.gamma_dist(
+                -mgamma, alpha, beta)
         else:
-                return dadi.Selection.gamma_dist(-mgamma, alpha, beta) * (1-p)
+            return self.gamma_dist(-mgamma, alpha, beta) * (1 - pneu)
 
     def main(self):
         """Execute main function."""
@@ -342,7 +342,7 @@ class DemographicAndDFEInference():
                     p0, fold=1, upper_bound=upper_bound,
                     lower_bound=lower_bound)
                 # Make the extrapolating version of demographic model function.
-                func_ex = dadi.Numerics.make_extrap_log_func(two_epoch)
+                func_ex = dadi.Numerics.make_extrap_log_func(self.two_epoch)
                 logger.info(
                     'Beginning optimization with guess, {0}.'.format(p0))
                 popt = dadi.Inference.optimize_log_lbfgsb(
@@ -392,7 +392,8 @@ class DemographicAndDFEInference():
         max_gam = max_s * 2 * Na
 
         pts_l = [1200, 1400, 1600]
-        spectra = Selection.spectra(demog_params, nonsyn_ns, two_epoch_sel,
+        spectra = Selection.spectra(demog_params, nonsyn_ns, 
+                                    self.two_epoch_sel,
                                     pts_l=pts_l, int_bounds=(1e-5, max_gam),
                                     Npts=300, echo=True, mp=True)
 
@@ -403,14 +404,14 @@ class DemographicAndDFEInference():
         upper_bound = [1, upper_beta]
 
         max_likelihood = -1e25
-        for i in range(100):
+        for i in range(2):
             p0 = initial_guess
             p0 = dadi.Misc.perturb_params(p0, lower_bound=lower_bound,
                                           upper_bound=upper_bound)
             logger.info('Beginning optimization with guess, {0}.'.format(p0))
             popt = numpy.copy(Selection.optimize_log(p0, nonsyn_data,
                                                      spectra.integrate,
-                                                     Selection.gamma_dist,
+                                                     self.gamma_dist,
                                                      theta_nonsyn,
                                                      lower_bound=lower_bound,
                                                      upper_bound=upper_bound,
@@ -420,8 +421,15 @@ class DemographicAndDFEInference():
             if popt[0] > max_likelihood:
                 best_popt = numpy.copy(popt)
 
+        neugamma_vec = numpy.frompyfunc(self.neugamma, 4, 1)
+
+        BETAinit = max_gam / 3
+        initial_guess = [0.999999999, 0.09, BETAinit]
+        upper_beta = 10 * max_gam
+        lower_bound = [0.8, 1e-3, 1e-2]
+        upper_bound = [1, 1, upper_beta]
         max_likelihood = -1e25
-        for i in range(100):
+        for i in range(2):
             p0_neutral = initial_guess
             p0_neutral = dadi.Misc.perturb_params(p0_neutral,
                                                   lower_bound=lower_bound,
@@ -430,7 +438,7 @@ class DemographicAndDFEInference():
                 p0_neutral))
             popt = numpy.copy(Selection.optimize_log(p0_neutral, nonsyn_data,
                                                      spectra.integrate,
-                                                     self.neugamma,
+                                                     neugamma_vec,
                                                      theta_nonsyn,
                                                      lower_bound=lower_bound,
                                                      upper_bound=upper_bound,
@@ -444,7 +452,7 @@ class DemographicAndDFEInference():
         logger.info('Integrating expected site-frequency spectrum.')
 
         expected_sfs = spectra.integrate(
-            best_popt[1], Selection.gamma_dist, theta_nonsyn)
+            best_popt[1], self.gamma_dist, theta_nonsyn)
 
         logger.info('Outputing results.')
 
@@ -470,7 +478,8 @@ class DemographicAndDFEInference():
                 '[{0}, array({1})].\n'.format(
                     best_popt_neutral[0],
                     numpy.divide(
-                        best_popt_neutral[1], numpy.array([1, 2 * Na]))))
+                        best_popt_neutral[1], 
+                        numpy.array([1, 1, 2 * Na]))))
             f.write('The expected SFS is: {0}.'.format(expected_sfs))
 
         logger.info('Pipeline executed succesfully.')
