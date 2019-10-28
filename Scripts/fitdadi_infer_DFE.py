@@ -248,12 +248,29 @@ class DemographicAndDFEInference():
         return fs
 
     def gamma_dist(self, mgamma, alpha, beta):
-        """
-        x, shape, scale
+        """Define a gamma distribution.
+
+        self: reference to this instance of a gamma distribution.
+        mgamma: float which describes the mean value of this gamma
+             distribution.
+        alpha: shape parameter of the gamma distribution.
+        beta: scale parameter of the gamma distribution.
         """
         return scipy.stats.distributions.gamma.pdf(-mgamma, alpha, scale=beta)
 
     def neugamma(self, mgamma, pneu, alpha, beta):
+        """Define a neutral-gamma distribution.
+
+        self: reference to this instance of a neutral-gamma distribution.
+        mgamma: float which describes the mean value of this neutral-gamma
+            distribution.
+        pneu: proportion of elements which are assumed to be neutral, i.e.,
+            equal to 0.
+        alpha: shape parameter of the non-neutral elements of the
+            neutral-gamma distribution.
+        beta: scale parameter of the non-neutral elements of the
+            neutral-gamma distribution.
+        """
         mgamma = -mgamma
         # Assume anything with gamma < 1e-4 is neutral
         if (0 <= mgamma) and (mgamma < 1e-4):
@@ -392,7 +409,7 @@ class DemographicAndDFEInference():
         max_gam = max_s * 2 * Na
 
         pts_l = [1200, 1400, 1600]
-        spectra = Selection.spectra(demog_params, nonsyn_ns, 
+        spectra = Selection.spectra(demog_params, nonsyn_ns,
                                     self.two_epoch_sel,
                                     pts_l=pts_l, int_bounds=(1e-5, max_gam),
                                     Npts=300, echo=True, mp=True)
@@ -423,10 +440,33 @@ class DemographicAndDFEInference():
 
         neugamma_vec = numpy.frompyfunc(self.neugamma, 4, 1)
 
-        BETAinit = max_gam / 3
         initial_guess = [0.999999999, 0.09, BETAinit]
-        upper_beta = 10 * max_gam
         lower_bound = [0, 1e-3, 1e-2]
+        upper_bound = [1, 1, upper_beta]
+        max_likelihood = -1e25
+        for i in range(2):
+            p0_neugamma = initial_guess
+            p0_neugamma = dadi.Misc.perturb_params(p0_neugamma,
+                                                   lower_bound=lower_bound,
+                                                   upper_bound=upper_bound)
+            logger.info('Beginning optimization with guess, {0}.'.format(
+                p0_neugamma))
+            popt = numpy.copy(Selection.optimize_log(p0_neugamma, nonsyn_data,
+                                                     spectra.integrate,
+                                                     neugamma_vec,
+                                                     theta_nonsyn,
+                                                     lower_bound=lower_bound,
+                                                     upper_bound=upper_bound,
+                                                     verbose=len(p0_neugamma),
+                                                     maxiter=100))
+            logger.info('Finished optimization, results are {0}.'.format(popt))
+            if popt[0] > max_likelihood:
+                best_popt_neugamma = numpy.copy(popt)
+
+        neutral_vec = numpy.frompyfunc(self.neugamma, 4, 1)
+
+        initial_guess = [1, 0.09, BETAinit]
+        lower_bound = [1, 1e-3, 1e-2]
         upper_bound = [1, 1, upper_beta]
         max_likelihood = -1e25
         for i in range(2):
@@ -438,7 +478,7 @@ class DemographicAndDFEInference():
                 p0_neutral))
             popt = numpy.copy(Selection.optimize_log(p0_neutral, nonsyn_data,
                                                      spectra.integrate,
-                                                     neugamma_vec,
+                                                     neutral_vec,
                                                      theta_nonsyn,
                                                      lower_bound=lower_bound,
                                                      upper_bound=upper_bound,
@@ -454,8 +494,11 @@ class DemographicAndDFEInference():
         expected_sfs = spectra.integrate(
             best_popt[1], self.gamma_dist, theta_nonsyn)
 
+        expected_sfs_neugamma = spectra.integrate(
+            best_popt_neugamma[1], neugamma_vec, theta_nonsyn)
+
         expected_sfs_neutral = spectra.integrate(
-            best_popt_neutral[1], neugamma_vec, theta_nonsyn)
+            best_popt_neutral[1], neutral_vec, theta_nonsyn)
 
         logger.info('Outputing results.')
 
@@ -474,6 +517,20 @@ class DemographicAndDFEInference():
             f.write('Assuming a neutral-gamma-distributed DFE...\n')
             f.write(
                 'The population-scaled best-fit parameters: {0}.\n'.format(
+                    best_popt_neugamma))
+            # Divide output scale parameter by 2 * N_a
+            f.write(
+                'The non-scaled best-fit parameters: '
+                '[{0}, array({1})].\n'.format(
+                    best_popt_neugamma[0],
+                    numpy.divide(
+                        best_popt_neugamma[1],
+                        numpy.array([1, 1, 2 * Na]))))
+            f.write('The expected SFS is: {0}.\n\n'.format(
+                expected_sfs_neugamma))
+            f.write('Assuming a neutral-distributed DFE...\n')
+            f.write(
+                'The population-scaled best-fit parameters: {0}.\n'.format(
                     best_popt_neutral))
             # Divide output scale parameter by 2 * N_a
             f.write(
@@ -481,7 +538,7 @@ class DemographicAndDFEInference():
                 '[{0}, array({1})].\n'.format(
                     best_popt_neutral[0],
                     numpy.divide(
-                        best_popt_neutral[1], 
+                        best_popt_neutral[1],
                         numpy.array([1, 1, 2 * Na]))))
             f.write('The expected SFS is: {0}.\n\n'.format(
                 expected_sfs_neutral))

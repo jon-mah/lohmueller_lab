@@ -229,12 +229,9 @@ def lognormal_dist(mgamma, mu, sigma, scal_fac=1):
 def normal_dist(mgamma, mu, sigma):
     return scipy.stats.distributions.norm.pdf(-mgamma, loc=mu, scale=sigma)
 
+
 def neugamma(mgamma, p, alpha, beta):
         mgamma=-mgamma
-        print('mgamma = ' + str(mgamma))
-        print('p = ' + str(p))
-        print('alpha = ' + str(alpha))
-        print('beta = ' + str(beta))
         if (0 <= mgamma) and (mgamma < -smallgamma):
                 return p/(-smallgamma) + (1-p)*dadi.Selection.gamma_dist(
                     -mgamma,alpha, beta)
