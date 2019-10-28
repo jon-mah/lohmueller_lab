@@ -426,7 +426,7 @@ class DemographicAndDFEInference():
         BETAinit = max_gam / 3
         initial_guess = [0.999999999, 0.09, BETAinit]
         upper_beta = 10 * max_gam
-        lower_bound = [0.8, 1e-3, 1e-2]
+        lower_bound = [0, 1e-3, 1e-2]
         upper_bound = [1, 1, upper_beta]
         max_likelihood = -1e25
         for i in range(2):
@@ -454,10 +454,13 @@ class DemographicAndDFEInference():
         expected_sfs = spectra.integrate(
             best_popt[1], self.gamma_dist, theta_nonsyn)
 
+        expected_sfs_neutral = spectra.integrate(
+            best_popt_neutral[1], neugamma_vec, theta_nonsyn)
+
         logger.info('Outputing results.')
 
         with open(inferred_DFE, 'w') as f:
-            f.write('Assuming a gamma-distributed DFE...')
+            f.write('Assuming a gamma-distributed DFE...\n')
             f.write(
                 'The population-scaled best-fit parameters: {0}.\n'.format(
                     best_popt))
@@ -467,8 +470,8 @@ class DemographicAndDFEInference():
                 '[{0}, array({1})].\n'.format(
                     best_popt[0],
                     numpy.divide(best_popt[1], numpy.array([1, 2 * Na]))))
-            f.write('The expected SFS is: {0}.'.format(expected_sfs))
-            f.write('Assuming a neutral-gamma-distributed DFE...')
+            f.write('The expected SFS is: {0}.\n\n'.format(expected_sfs))
+            f.write('Assuming a neutral-gamma-distributed DFE...\n')
             f.write(
                 'The population-scaled best-fit parameters: {0}.\n'.format(
                     best_popt_neutral))
@@ -480,7 +483,8 @@ class DemographicAndDFEInference():
                     numpy.divide(
                         best_popt_neutral[1], 
                         numpy.array([1, 1, 2 * Na]))))
-            f.write('The expected SFS is: {0}.'.format(expected_sfs))
+            f.write('The expected SFS is: {0}.\n\n'.format(
+                expected_sfs_neutral))
 
         logger.info('Pipeline executed succesfully.')
 
