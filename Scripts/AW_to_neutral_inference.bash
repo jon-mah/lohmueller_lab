@@ -3,7 +3,7 @@
 #$ -V
 #$ -m bea
 #$ -l h_data=1G
-#$ -l h_rt=02:00:00
+#$ -l h_rt=04:00:00
 
 # INPUT ARGUMENTS
 seed=5

@@ -48,12 +48,19 @@ class DemographicAndDFEInference():
         "PG" indicates pug data.
         "TM" indicates tibetan mastiff data.
         "MD" indicates mixed dog data.
+        "MW" indicates mixed wolf data.
         """
         if breed == "AW":
             return breed
         elif breed == "LB":
             return breed
         elif breed == "PG":
+            return breed
+        elif breed == "TM":
+            return breed
+        elif breed == "MD":
+            return breed
+        elif breed == "MW":
             return breed
         else:
             raise ValueError('%s must specify a valid breed.' % breed)
@@ -398,7 +405,8 @@ class DemographicAndDFEInference():
         theta_syn = best_theta
         theta_nonsyn = theta_syn * 2.14
 
-        Lsyn_dict = {'AW': 5144295, 'LB': 4874191, 'PG': 5095613}
+        Lsyn_dict = {'AW': 5320115, 'LB': 5043978, 'PG': 5270603,
+                     'TM': 2693499, 'MD': 3820358, 'MW': 4015625}
 
         Lsyn = Lsyn_dict[breed]  # Length of synonymous sites.
         u = 5.38E-09
@@ -421,7 +429,7 @@ class DemographicAndDFEInference():
         upper_bound = [1, upper_beta]
 
         max_likelihood = -1e25
-        for i in range(2):
+        for i in range(100):
             p0 = initial_guess
             p0 = dadi.Misc.perturb_params(p0, lower_bound=lower_bound,
                                           upper_bound=upper_bound)
@@ -444,7 +452,7 @@ class DemographicAndDFEInference():
         lower_bound = [0, 1e-3, 1e-2]
         upper_bound = [1, 1, upper_beta]
         max_likelihood = -1e25
-        for i in range(2):
+        for i in range(100):
             p0_neugamma = initial_guess
             p0_neugamma = dadi.Misc.perturb_params(p0_neugamma,
                                                    lower_bound=lower_bound,
@@ -465,11 +473,11 @@ class DemographicAndDFEInference():
 
         neutral_vec = numpy.frompyfunc(self.neugamma, 4, 1)
 
-        initial_guess = [1, 0.09, BETAinit]
-        lower_bound = [1, 1e-3, 1e-2]
+        initial_guess = [0.999999999, 0.09, BETAinit]
+        lower_bound = [0.99, 1e-3, 1e-2]
         upper_bound = [1, 1, upper_beta]
         max_likelihood = -1e25
-        for i in range(2):
+        for i in range(5):
             p0_neutral = initial_guess
             p0_neutral = dadi.Misc.perturb_params(p0_neutral,
                                                   lower_bound=lower_bound,
