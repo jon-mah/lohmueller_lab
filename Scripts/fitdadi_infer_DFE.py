@@ -370,31 +370,49 @@ class DemographicAndDFEInference():
                 logger.info(
                     'Beginning optimization with guess, {0}.'.format(p0))
                 popt = dadi.Inference.optimize_log_lbfgsb(
-                    p0, syn_data, func_ex, pts_l,
+                    p0=p0, data=syn_data, model_func=func_ex, pts=pts_l,
                     lower_bound=lower_bound, upper_bound=upper_bound,
                     verbose=len(p0), maxiter=100)
                 logger.info(
                     'Finished optimization with guess, ' + str(p0) + '.')
                 logger.info('Best fit parameters: {0}.'.format(popt))
                 # Calculate the best-fit model allele-frequency spectrum.
-                model = func_ex(popt, syn_ns, pts_l)
+                # Note, this spectrum needs to be multiplied by "theta".
+                non_scaled_spectrum = func_ex(popt[0], syn_ns, pts_l)
                 # Likelihood of the data given the model AFS.
-                ll_model = dadi.Inference.ll_multinom(model, syn_data)
+                multinomial_ll_non_scaled_spectrum = \
+                    dadi.Inference.ll_multinom(
+                        model=non_scaled_spectrum, data=syn_data)
                 logger.info(
-                    'Maximum log composite likelihood: {0}.'.format(ll_model))
-                theta = dadi.Inference.optimal_sfs_scaling(model, syn_data)
+                    'Maximum log composite likelihood: {0}.'.format(
+                        multinomial_ll_non_scaled_spectrum))
+                theta = dadi.Inference.optimal_sfs_scaling(
+                    non_scaled_spectrum, syn_data)
                 logger.info(
                     'Optimal value of theta: {0}.'.format(theta))
-                if ll_model > max_likelihood:
+                if multinomial_ll_non_scaled_spectrum > max_likelihood:
                     best_params = popt
-                    best_model = model
-                    max_likelihood = ll_model
-                    best_theta = theta
+                    best_non_scaled_spectrum = non_scaled_spectrum
+                    max_likelihood = multinomial_ll_non_scaled_spectrum
+                    theta_syn = theta
+            best_scaled_spectrum = theta_syn * best_non_scaled_spectrum
+            theta_nonsyn = theta_syn * 2.14
+            poisson_ll = dadi.Inference.ll(
+                model=best_scaled_spectrum, data=syn_data)
             f.write('Best fit parameters: {0}.\n'.format(best_params))
             f.write(
-                'Maximum log composite likelihood: {0}.\n'.format(
+                'Maximum multinomial log composite likelihood: {0}.\n'.format(
                     max_likelihood))
-            f.write('Optimal value of theta: {0}.\n'.format(best_theta))
+            f.write(
+                'Maximum poisson log composite likelihood: {0}.\n'.format(
+                    poisson_ll))
+            f.write('Non-scaled best-fit model spectrum: {0}.\n'.format(
+                best_non_scaled_spectrum))
+            f.write('Optimal value of theta_syn: {0}.\n'.format(theta_syn))
+            f.write('Optimal value of theta_nonsyn: {0}.\n'.format(
+                theta_nonsyn))
+            f.write('Scaled best-fit model spectrum: {0}.\n'.format(
+                best_scaled_spectrum))
 
         logger.info('Finished demographic inference.')
         logger.info('Beginning DFE inference.')
@@ -402,8 +420,6 @@ class DemographicAndDFEInference():
         nonsyn_ns = nonsyn_data.sample_sizes
 
         demog_params = best_params
-        theta_syn = best_theta
-        theta_nonsyn = theta_syn * 2.14
 
         Lsyn_dict = {'AW': 5320115, 'LB': 5043978, 'PG': 5270603,
                      'TM': 2693499, 'MD': 3820358, 'MW': 4015625}
