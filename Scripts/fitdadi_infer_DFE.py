@@ -378,7 +378,7 @@ class DemographicAndDFEInference():
                 logger.info('Best fit parameters: {0}.'.format(popt))
                 # Calculate the best-fit model allele-frequency spectrum.
                 # Note, this spectrum needs to be multiplied by "theta".
-                non_scaled_spectrum = func_ex(popt[0], syn_ns, pts_l)
+                non_scaled_spectrum = func_ex(popt, syn_ns, pts_l)
                 # Likelihood of the data given the model AFS.
                 multinomial_ll_non_scaled_spectrum = \
                     dadi.Inference.ll_multinom(
