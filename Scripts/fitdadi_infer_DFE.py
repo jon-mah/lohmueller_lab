@@ -299,6 +299,9 @@ class DemographicAndDFEInference():
         outprefix = args['outprefix']
         breed = args['breed']
 
+        # Numpy options
+        numpy.set_printoptions(linewidth=numpy.inf)
+
         # create output directory if needed
         outdir = os.path.dirname(args['outprefix'])
         if outdir:
