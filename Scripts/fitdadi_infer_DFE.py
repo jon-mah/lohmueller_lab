@@ -361,7 +361,7 @@ class DemographicAndDFEInference():
         with open(inferred_demography, 'w') as f:
             f.write('Beginning with demographic inference.\n')
             max_likelihood = -1e25
-            for i in range(100):
+            for i in range(5):
                 # Start at initial guess
                 p0 = initial_guess
                 # Randomly perturb parameters before optimization.
@@ -448,7 +448,7 @@ class DemographicAndDFEInference():
         upper_bound = [1, upper_beta]
 
         max_likelihood = -1e25
-        for i in range(100):
+        for i in range(5):
             p0 = initial_guess
             p0 = dadi.Misc.perturb_params(p0, lower_bound=lower_bound,
                                           upper_bound=upper_bound)
@@ -464,6 +464,7 @@ class DemographicAndDFEInference():
             logger.info('Finished optomization, results are {0}.'.format(popt))
             if popt[0] > max_likelihood:
                 best_popt = numpy.copy(popt)
+                max_likelihood = popt[0]
 
         neugamma_vec = numpy.frompyfunc(self.neugamma, 4, 1)
 
@@ -471,7 +472,7 @@ class DemographicAndDFEInference():
         lower_bound = [0, 1e-3, 1e-2]
         upper_bound = [1, 1, upper_beta]
         max_likelihood = -1e25
-        for i in range(100):
+        for i in range(5):
             p0_neugamma = initial_guess
             p0_neugamma = dadi.Misc.perturb_params(p0_neugamma,
                                                    lower_bound=lower_bound,
@@ -489,6 +490,7 @@ class DemographicAndDFEInference():
             logger.info('Finished optimization, results are {0}.'.format(popt))
             if popt[0] > max_likelihood:
                 best_popt_neugamma = numpy.copy(popt)
+                max_likelihood = popt[0]
 
         neutral_vec = numpy.frompyfunc(self.neugamma, 4, 1)
 
@@ -514,6 +516,7 @@ class DemographicAndDFEInference():
             logger.info('Finished optimization, results are {0}.'.format(popt))
             if popt[0] > max_likelihood:
                 best_popt_neutral = numpy.copy(popt)
+                max_likelihood = popt[0]
 
         logger.info('Finished DFE inference.')
         logger.info('Integrating expected site-frequency spectrum.')

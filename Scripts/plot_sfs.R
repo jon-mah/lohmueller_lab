@@ -164,9 +164,9 @@ input_obs_nonsyn = 'Eduardo_Scripts/20190715/ns_SFS/AW.sfs'
 input_model_nonsyn = 'Eduardo_Output/AW/inferred_DFE.txt'
 input_obs_syn = 'Eduardo_Scripts/20190715/syn_SFS/AW.sfs'
 
-# seed_1_obs_ns = 'Data/AW_array_length_20154/seed_1_easySFS_output_nonsyn/dadi/pop1.sfs'
-# seed_1_model_ns = 'Data/AW_array_length_20154/seed_1_fitdadi_output/inferred_DFE.txt'
-# seed_1_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, seed_1_obs_ns, input_model_nonsyn, seed_1_model_ns)
+seed_1_obs_ns = 'Data/AW_array_length_20154/seed_1_easySFS_output_nonsyn/dadi/pop1.sfs'
+seed_1_model_ns = 'Data/AW_array_length_20154/seed_1_fitdadi_output/inferred_DFE.txt'
+seed_1_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, seed_1_obs_ns, input_model_nonsyn, seed_1_model_ns)
 
 # seed_2_obs_ns = 'Data/AW_array_length_20154/seed_2_easySFS_output_nonsyn/dadi/pop1.sfs'
 # seed_2_model_ns = 'Data/AW_array_length_20154/seed_2_fitdadi_output/inferred_DFE.txt'
@@ -183,6 +183,8 @@ input_obs_syn = 'Eduardo_Scripts/20190715/syn_SFS/AW.sfs'
 # seed_5_obs_ns = 'Data/AW_array_length_20154/seed_5_easySFS_output_nonsyn/dadi/pop1.sfs'
 # seed_5_model_ns = 'Data/AW_array_length_20154/seed_5_fitdadi_output/inferred_DFE.txt'
 # seed_5_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, seed_5_obs_ns, input_model_nonsyn, seed_5_model_ns)
+
+seed_1_gamma_ns = 
 
 # multiplot(seed_1_plot_ns, seed_3_plot_ns, seed_5_plot_ns, seed_2_plot_ns, seed_4_plot_ns, cols=2)
 
@@ -243,11 +245,11 @@ input_obs_syn = 'Eduardo_Scripts/20190715/syn_SFS/AW.sfs'
 # seed_5_plot_syn + ggtitle('Arctic Wolf Synonymous Replicate 5')
 
 # PG_nonsyn
-PG_seed_1_plot_ns + ggtitle('Pug Nonsynonymous Replicate 1')
-PG_seed_2_plot_ns + ggtitle('Pug Nonsynonymous Replicate 2')
-PG_seed_3_plot_ns + ggtitle('Pug Nonsynonymous Replicate 3')
+# PG_seed_1_plot_ns + ggtitle('Pug Nonsynonymous Replicate 1')
+# PG_seed_2_plot_ns + ggtitle('Pug Nonsynonymous Replicate 2')
+# PG_seed_3_plot_ns + ggtitle('Pug Nonsynonymous Replicate 3')
 
 # PG_syn
-PG_seed_1_plot_syn + ggtitle('Pug Synonymous Replicate 1')
-PG_seed_2_plot_syn + ggtitle('Pug Synonymous Replicate 2')
-PG_seed_3_plot_syn + ggtitle('Pug Synonymous Replicate 3')
+# PG_seed_1_plot_syn + ggtitle('Pug Synonymous Replicate 1')
+# PG_seed_2_plot_syn + ggtitle('Pug Synonymous Replicate 2')
+# PG_seed_3_plot_syn + ggtitle('Pug Synonymous Replicate 3')

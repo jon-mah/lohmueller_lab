@@ -86,7 +86,7 @@ ggplot(melt(seed_1_df), aes(x=value, y=..density.., fill = variable)) +
   scale_x_log10() +
   ggtitle('Seed 1')
 
-seed_1_df <- data.frame(given = given_dist,
+minseed_1_df <- data.frame(given = given_dist,
                         inferred = seed_1_dist)
 
 ggplot(melt(seed_1_df), aes(x=value, y=..density.., fill = variable)) + 
