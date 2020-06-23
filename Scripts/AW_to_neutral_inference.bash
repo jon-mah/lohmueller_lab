@@ -4,6 +4,7 @@
 #$ -m bea
 #$ -l h_data=1G
 #$ -l h_rt=04:00:00
+#$ -l h_vmem=50G
 
 # INPUT ARGUMENTS
 seed=5
