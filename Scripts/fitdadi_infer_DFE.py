@@ -441,8 +441,9 @@ class DemographicAndDFEInference():
                                     pts_l=pts_l, int_bounds=(1e-5, max_gam),
                                     Npts=300, echo=True, mp=True)
 
-        print(spectra)
-
+        #Insert
+        logger.info(spectra)
+        #Insert
         BETAinit = max_gam / 3
         initial_guess = [0.09, BETAinit]
         upper_beta = 10 * max_gam
