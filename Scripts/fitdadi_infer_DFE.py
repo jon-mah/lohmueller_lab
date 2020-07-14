@@ -494,7 +494,6 @@ class DemographicAndDFEInference():
             neugamma_guesses[popt[0]] = popt
 
         neutral_vec = numpy.frompyfunc(self.neugamma, 4, 1)
-        logger.info(neutral_vec.tostring())
         initial_guess = [1, 0.09, BETAinit]
         lower_bound = [1, 1e-3, 1e-2]
         upper_bound = [1, 1, upper_beta]
