@@ -443,7 +443,7 @@ class DemographicAndDFEInference():
 
         logger.info(spectra.integrate)
         BETAinit = max_gam / 3
-        initial_guess = [0.09, BETAinit]
+        initial_guess = [0.5, BETAinit]
         upper_beta = 10 * max_gam
         lower_bound = [1e-3, 0]
         upper_bound = [1, upper_beta]
@@ -495,9 +495,9 @@ class DemographicAndDFEInference():
             neugamma_guesses[popt[0]] = popt
 
         neutral_vec = numpy.frompyfunc(self.neugamma, 4, 1)
-
-        initial_guess = [1, 1, BETAinit]
-        lower_bound = [1, 1, BETAinit]
+        logger.info(neutral_vec)
+        initial_guess = [1, 0.09, BETAinit]
+        lower_bound = [1, 1e-3, 1e-2]
         upper_bound = [1, 1, upper_beta]
         neutral_max_likelihoods = []
         neutral_guesses = dict()
