@@ -361,7 +361,7 @@ class DemographicAndDFEInference():
         with open(inferred_demography, 'w') as f:
             f.write('Beginning with demographic inference.\n')
             max_likelihood = -1e25
-            for i in range(100):
+            for i in range(4):
                 # Start at initial guess
                 p0 = initial_guess
                 # Randomly perturb parameters before optimization.
@@ -441,9 +441,7 @@ class DemographicAndDFEInference():
                                     pts_l=pts_l, int_bounds=(1e-5, max_gam),
                                     Npts=300, echo=True, mp=True)
 
-        #Insert
-        logger.info(spectra)
-        #Insert
+        logger.info(spectra.integrate)
         BETAinit = max_gam / 3
         initial_guess = [0.09, BETAinit]
         upper_beta = 10 * max_gam
@@ -452,7 +450,7 @@ class DemographicAndDFEInference():
 
         gamma_max_likelihoods = []
         gamma_guesses = dict()
-        for i in range(20):
+        for i in range(4):
             p0 = initial_guess
             p0 = dadi.Misc.perturb_params(p0, lower_bound=lower_bound,
                                           upper_bound=upper_bound)
@@ -477,7 +475,7 @@ class DemographicAndDFEInference():
         upper_bound = [1, 1, upper_beta]
         neugamma_max_likelihoods = []
         neugamma_guesses = dict()
-        for i in range(20):
+        for i in range(4):
             p0_neugamma = initial_guess
             p0_neugamma = dadi.Misc.perturb_params(p0_neugamma,
                                                    lower_bound=lower_bound,
@@ -498,12 +496,12 @@ class DemographicAndDFEInference():
 
         neutral_vec = numpy.frompyfunc(self.neugamma, 4, 1)
 
-        initial_guess = [0.999999999, 0.09, BETAinit]
-        lower_bound = [0.99, 1e-3, 1e-2]
+        initial_guess = [1, 1, BETAinit]
+        lower_bound = [1, 1, BETAinit]
         upper_bound = [1, 1, upper_beta]
         neutral_max_likelihoods = []
         neutral_guesses = dict()
-        for i in range(20):
+        for i in range(4):
             p0_neutral = initial_guess
             p0_neutral = dadi.Misc.perturb_params(p0_neutral,
                                                   lower_bound=lower_bound,
@@ -517,7 +515,7 @@ class DemographicAndDFEInference():
                                                      lower_bound=lower_bound,
                                                      upper_bound=upper_bound,
                                                      verbose=len(p0_neutral),
-                                                     maxiter=25))
+                                                     maxiter=1))
             logger.info('Finished optimization, results are {0}.'.format(popt))
             neutral_max_likelihoods.append(popt[0])
             neutral_guesses[popt[0]] = popt
