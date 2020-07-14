@@ -7,7 +7,7 @@
 #$ -l h_vmem=50G
 
 # INPUT ARGUMENTS
-seed=1
+seed=5
 num_ind=8 # Number of samples from single population.
 prefix="../Data/AW_to_neutral/seed_${seed}" # Output prefix, and input prefix of given vcf
 easySFS_proj=16 # Number of chromosomes that sample is projected down into.
