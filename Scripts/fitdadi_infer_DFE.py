@@ -441,7 +441,6 @@ class DemographicAndDFEInference():
                                     pts_l=pts_l, int_bounds=(1e-5, max_gam),
                                     Npts=300, echo=True, mp=True)
 
-        logger.info(spectra.integrate)
         BETAinit = max_gam / 3
         initial_guess = [0.09, BETAinit]
         upper_beta = 10 * max_gam
@@ -567,12 +566,13 @@ class DemographicAndDFEInference():
                             numpy.array([1, 1, 2 * Na]))))
                 f.write('The expected SFS is: {0}.\n\n'.format(
                     expected_sfs_neugamma))
+            f.write('Assuming a neutral-distributed DFE...\n')
+            f.write('Outputting best 5 MLE estimates.\n')
             for i in range(5):
                 best_popt_neutral = neutral_guesses[
                     neutral_max_likelihoods[-i]]
                 expected_sfs_neutral = spectra.integrate(
                     best_popt_neutral[1], neutral_vec, theta_nonsyn)
-                f.write('Assuming a neutral-distributed DFE...\n')
                 f.write(
                     'The population-scaled best-fit parameters: {0}.\n'.format(
                         best_popt_neutral))
