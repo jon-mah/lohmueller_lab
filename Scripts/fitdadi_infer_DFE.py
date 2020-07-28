@@ -361,7 +361,7 @@ class DemographicAndDFEInference():
         with open(inferred_demography, 'w') as f:
             f.write('Beginning with demographic inference.\n')
             max_likelihood = -1e25
-            for i in range(6):
+            for i in range(100):
                 # Start at initial guess
                 p0 = initial_guess
                 # Randomly perturb parameters before optimization.
@@ -449,7 +449,7 @@ class DemographicAndDFEInference():
 
         gamma_max_likelihoods = []
         gamma_guesses = dict()
-        for i in range(6):
+        for i in range(25):
             p0 = initial_guess
             p0 = dadi.Misc.perturb_params(p0, lower_bound=lower_bound,
                                           upper_bound=upper_bound)
@@ -474,7 +474,7 @@ class DemographicAndDFEInference():
         upper_bound = [1, 1, upper_beta]
         neugamma_max_likelihoods = []
         neugamma_guesses = dict()
-        for i in range(6):
+        for i in range(25):
             p0_neugamma = initial_guess
             p0_neugamma = dadi.Misc.perturb_params(p0_neugamma,
                                                    lower_bound=lower_bound,
@@ -499,7 +499,7 @@ class DemographicAndDFEInference():
         upper_bound = [1, 1, upper_beta]
         neutral_max_likelihoods = []
         neutral_guesses = dict()
-        for i in range(6):
+        for i in range(25):
             p0_neutral = initial_guess
             p0_neutral = dadi.Misc.perturb_params(p0_neutral,
                                                   lower_bound=lower_bound,
@@ -531,8 +531,8 @@ class DemographicAndDFEInference():
         with open(inferred_DFE, 'w') as f:
             f.write('Assuming a gamma-distributed DFE...\n')
             f.write('Outputting best 5 MLE estimates.\n')
-            for i in range(5):
-                best_popt = gamma_guesses[gamma_max_likelihoods[-i]]
+            for i in range(25):
+                best_popt = gamma_guesses[gamma_max_likelihoods[i]]
                 expected_sfs = spectra.integrate(
                     best_popt[1], self.gamma_dist, theta_nonsyn)
                 f.write(
@@ -547,9 +547,9 @@ class DemographicAndDFEInference():
                 f.write('The expected SFS is: {0}.\n\n'.format(expected_sfs))
             f.write('Assuming a neutral-gamma-distributed DFE...\n')
             f.write('Outputting best 5 MLE estimates.\n')
-            for i in range(5):
+            for i in range(25):
                 best_popt_neugamma = neugamma_guesses[
-                    neugamma_max_likelihoods[-i]]
+                    neugamma_max_likelihoods[i]]
                 expected_sfs_neugamma = spectra.integrate(
                     best_popt_neugamma[1], neugamma_vec, theta_nonsyn)
                 f.write(
@@ -567,9 +567,9 @@ class DemographicAndDFEInference():
                     expected_sfs_neugamma))
             f.write('Assuming a neutral-distributed DFE...\n')
             f.write('Outputting best 5 MLE estimates.\n')
-            for i in range(5):
+            for i in range(25):
                 best_popt_neutral = neutral_guesses[
-                    neutral_max_likelihoods[-i]]
+                    neutral_max_likelihoods[i]]
                 expected_sfs_neutral = spectra.integrate(
                     best_popt_neutral[1], neutral_vec, theta_nonsyn)
                 f.write(
