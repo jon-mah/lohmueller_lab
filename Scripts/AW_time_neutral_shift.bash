@@ -22,7 +22,7 @@ nonsyn_easySFS_outdir="${prefix}_easySFS_output_nonsyn/"
 num_samples=$(($num_ind * 2))
 
 # If `SLiM` is not an executable, then comment out the next line.
-slim AW_to_neutral_shift_simulation.slim
+slim AW_time_neutral_shift_simulation.slim
 
 # If `SLiM` is not an executable, then uncomment the next line and
 # provide a path to `SLiM`.
