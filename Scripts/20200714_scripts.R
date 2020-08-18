@@ -97,6 +97,47 @@ seed_5_neutral_sfs = fold_sfs(c(4181.628181281013, 2727.549430025411, 2169.00289
                                 994.59214744668, 919.0651336445619, 852.6317890126271, 
                                 793.8573171940453, 741.6169882051198, 695.0045395690929))
 
+# Recap_gamma_sfs
+recap_1_gamma_sfs = fold_sfs(c(5670.828535664526, 3336.7227431058723, 2317.172757888442,
+                               1738.980634263227, 1374.754124653865, 1128.9954391704384,
+                               954.1644460026565, 824.37003875558, 724.6000141089215,
+                               645.6950854951266, 581.8143722716296, 529.084721618632,
+                               484.8476369923741, 447.22224294080155, 414.8421645823929))
+recap_2_gamma_sfs = fold_sfs(c(5614.788229377486, 3332.9571074921923, 2306.2812657468767,
+                               1725.1196214483641, 1361.3301134336857, 1117.123585819368,
+                               943.9436642517369, 815.582344640432, 716.980179139859,
+                               639.0126501470386, 575.8876664222278, 523.7746380462813,
+                               480.04781831661023, 442.8505325896902, 410.83416711825276))
+recap_3_gamma_sfs = fold_sfs(c(5585.194704727483, 3406.5616641473566, 2348.8105654614046,
+                               1748.9436511244116, 1376.5554239475102, 1128.3281253928662,
+                               953.0405911099102, 823.3941130406671, 723.8962344621092,
+                               645.2450657552445, 581.5693916635017, 528.9984933584927,
+                               484.8832352087187, 447.35165727279576, 415.0443527335086))
+recap_4_gamma_sfs = fold_sfs(c(5590.120019606571, 3315.6074080062713, 2288.3972941680076,
+                               1708.8581386215742, 1347.2961609304364, 1105.135115547361,
+                               933.6295630947939, 806.5946063664608, 709.0423701963281,
+                               631.9160924322148, 569.4762232185708, 517.9304345406797,
+                               474.68042860035166, 437.889338073104, 406.2230567957856))
+recap_5_gamma_sfs = fold_sfs(c(5684.701163486969, 3411.129529948263, 2358.260080772335,
+                               1760.7327674531575, 1387.5237908221686, 1137.61280558636,
+                               960.7087088849398, 829.7406851613198, 729.2103072233732,
+                               649.7563009887192, 585.4495880505467, 532.374756959042,
+                               487.85041707548936, 449.98167148016034, 417.3926908157998))
+
+# recap_nonsyn_sfs
+recap_1_nonsyn_sfs = c(6086, 3776, 2856, 2217, 1966, 1792, 1755, 733)
+recap_2_nonsyn_sfs = c(5978, 3803, 2713, 2257, 1978, 1803, 1628, 814)
+recap_3_nonsyn_sfs = c(5959, 3837, 2879, 2293, 1969, 1796, 1618, 817)
+recap_4_nonsyn_sfs = c(5921, 3721, 2821, 2160, 1922, 1799, 1663, 831)
+recap_5_nonsyn_sfs = c(6111, 3801, 2974, 2218, 1949, 1842, 1638, 849)
+
+# recap_syn_sfs
+recap_1_syn_sfs = c(8459, 5744, 4354, 3671, 3246, 3037, 2778, 1440)
+recap_2_syn_sfs = c(8486, 5752, 4387, 3683, 3244, 3045, 2784, 1373)
+recap_3_syn_sfs = c(8361, 5702, 4487, 3594, 3133, 2964, 2793, 1428)
+recap_4_syn_sfs = c(8465, 5719, 4368, 3699, 3187, 2928, 2859, 1349)
+recap_5_syn_sfs = c(8334, 5704, 4328, 3639, 3265, 2895, 2784, 1396)
+
 fold_sfs <- function(given_sfs) {
   return_sfs = c(given_sfs[1] + given_sfs[15], 
                  given_sfs[2] + given_sfs[14], 
@@ -108,6 +149,286 @@ fold_sfs <- function(given_sfs) {
                  given_sfs[8])
   return (return_sfs)
 }
+
+x_axis = 1:8
+
+df = data.frame(recap_1_gamma_sfs, seed_1_gamma_sfs,
+                recap_2_gamma_sfs, seed_2_gamma_sfs,
+                recap_3_gamma_sfs, seed_3_gamma_sfs,
+                recap_4_gamma_sfs, seed_4_gamma_sfs,
+                recap_5_gamma_sfs, seed_5_gamma_sfs,
+                x_axis = x_axis)
+p_df <- ggplot(data=df, aes(x=x_axis, y=recap_1_gamma_sfs, color='recap_1_gamma_sfs')) +
+  geom_point(shape=1) +
+  geom_line() +
+  geom_point(shape=1, aes(x=x_axis, y=recap_2_gamma_sfs, color='recap_2_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=recap_2_gamma_sfs, color='recap_2_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=recap_3_gamma_sfs, color='recap_3_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=recap_3_gamma_sfs, color='recap_3_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=recap_4_gamma_sfs, color='recap_4_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=recap_4_gamma_sfs, color='recap_4_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=recap_5_gamma_sfs, color='recap_5_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=recap_5_gamma_sfs, color='recap_5_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=seed_1_gamma_sfs, color='seed_1_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=seed_1_gamma_sfs, color='seed_1_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=seed_2_gamma_sfs, color='seed_2_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=seed_2_gamma_sfs, color='seed_2_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=seed_3_gamma_sfs, color='seed_3_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=seed_3_gamma_sfs, color='seed_3_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=seed_4_gamma_sfs, color='seed_4_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=seed_4_gamma_sfs, color='seed_4_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=seed_5_gamma_sfs, color='seed_5_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=seed_5_gamma_sfs, color='seed_5_gamma_sfs')) +
+  scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
+  scale_y_continuous(name='Number of SNPs') +
+  scale_color_manual(values=c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000", 'red'),
+                     name='Data Type',
+                     breaks=c('recap_1_gamma_sfs', 'recap_2_gamma_sfs', 
+                              'recap_3_gamma_sfs', 'recap_4_gamma_sfs', 
+                              'recap_5_gamma_sfs', 'seed_1_gamma_sfs',
+                              'seed_2_gamma_sfs', 'seed_3_gamma_sfs',
+                              'seed_4_gamma_sfs', 'seed_5_gamma_sfs'),
+                     labels=c('recap_1_gamma_sfs', 'recap_2_gamma_sfs', 
+                              'recap_3_gamma_sfs', 'recap_4_gamma_sfs', 
+                              'recap_5_gamma_sfs', 'seed_1_gamma_sfs',
+                              'seed_2_gamma_sfs', 'seed_3_gamma_sfs',
+                              'seed_4_gamma_sfs', 'seed_5_gamma_sfs')) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggtitle('Recap vs Shifted Count gamma SFS')
+
+p_df
+
+
+df = data.frame(recap_1_gamma_sfs / sum(recap_1_gamma_sfs), seed_1_gamma_sfs / sum(seed_1_gamma_sfs),
+                recap_2_gamma_sfs / sum(recap_2_gamma_sfs), seed_2_gamma_sfs / sum(seed_2_gamma_sfs),
+                recap_3_gamma_sfs / sum(recap_3_gamma_sfs), seed_3_gamma_sfs / sum(seed_3_gamma_sfs),
+                recap_4_gamma_sfs / sum(recap_4_gamma_sfs), seed_4_gamma_sfs / sum(seed_4_gamma_sfs),
+                recap_5_gamma_sfs / sum(recap_5_gamma_sfs), seed_5_gamma_sfs / sum(seed_5_gamma_sfs),
+                x_axis = x_axis)
+count_to_proportional = function(sfs) {
+  return(sfs / sum(sfs))
+}
+
+p_df <- ggplot(data=df, aes(x=x_axis, y=count_to_proportional(recap_1_gamma_sfs), color='recap_1_gamma_sfs')) +
+  geom_point(shape=1) +
+  geom_line() +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(recap_2_gamma_sfs), color='recap_2_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(recap_2_gamma_sfs), color='recap_2_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(recap_3_gamma_sfs), color='recap_3_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(recap_3_gamma_sfs), color='recap_3_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(recap_4_gamma_sfs), color='recap_4_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(recap_4_gamma_sfs), color='recap_4_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(recap_5_gamma_sfs), color='recap_5_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(recap_5_gamma_sfs), color='recap_5_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(seed_1_gamma_sfs), color='seed_1_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(seed_1_gamma_sfs), color='seed_1_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(seed_2_gamma_sfs), color='seed_2_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(seed_2_gamma_sfs), color='seed_2_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(seed_3_gamma_sfs), color='seed_3_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(seed_3_gamma_sfs), color='seed_3_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(seed_4_gamma_sfs), color='seed_4_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(seed_4_gamma_sfs), color='seed_4_gamma_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(seed_5_gamma_sfs), color='seed_5_gamma_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(seed_5_gamma_sfs), color='seed_5_gamma_sfs')) +
+  scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
+  scale_y_continuous(name='Proportion of SNPs') +
+  scale_color_manual(values=c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000", 'red'),
+                     name='Data Type',
+                     breaks=c('recap_1_gamma_sfs', 'recap_2_gamma_sfs', 
+                              'recap_3_gamma_sfs', 'recap_4_gamma_sfs', 
+                              'recap_5_gamma_sfs', 'seed_1_gamma_sfs',
+                              'seed_2_gamma_sfs', 'seed_3_gamma_sfs',
+                              'seed_4_gamma_sfs', 'seed_5_gamma_sfs'),
+                     labels=c('recap_1_gamma_sfs', 'recap_2_gamma_sfs', 
+                              'recap_3_gamma_sfs', 'recap_4_gamma_sfs', 
+                              'recap_5_gamma_sfs', 'seed_1_gamma_sfs',
+                              'seed_2_gamma_sfs', 'seed_3_gamma_sfs',
+                              'seed_4_gamma_sfs', 'seed_5_gamma_sfs')) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggtitle('Recap vs Shifted proportional gamma SFS')
+
+p_df
+
+x_axis = 1:8
+
+df = data.frame(recap_1_nonsyn_sfs, empirical_nonsyn_sfs_1,
+                recap_2_nonsyn_sfs, empirical_nonsyn_sfs_2,
+                recap_3_nonsyn_sfs, empirical_nonsyn_sfs_3,
+                recap_4_nonsyn_sfs, empirical_nonsyn_sfs_4,
+                recap_5_nonsyn_sfs, empirical_nonsyn_sfs_5,
+                x_axis = x_axis)
+p_df <- ggplot(data=df, aes(x=x_axis, y=recap_1_nonsyn_sfs, color='recap_1_nonsyn_sfs')) +
+  geom_point(shape=1) +
+  geom_line() +
+  geom_point(shape=1, aes(x=x_axis, y=recap_2_nonsyn_sfs, color='recap_2_nonsyn_sfs')) +
+  geom_line(aes(x=x_axis, y=recap_2_nonsyn_sfs, color='recap_2_nonsyn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=recap_3_nonsyn_sfs, color='recap_3_nonsyn_sfs')) +
+  geom_line(aes(x=x_axis, y=recap_3_nonsyn_sfs, color='recap_3_nonsyn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=recap_4_nonsyn_sfs, color='recap_4_nonsyn_sfs')) +
+  geom_line(aes(x=x_axis, y=recap_4_nonsyn_sfs, color='recap_4_nonsyn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=recap_5_nonsyn_sfs, color='recap_5_nonsyn_sfs')) +
+  geom_line(aes(x=x_axis, y=recap_5_nonsyn_sfs, color='recap_5_nonsyn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=empirical_nonsyn_sfs_1, color='empirical_nonsyn_sfs_1')) +
+  geom_line(aes(x=x_axis, y=empirical_nonsyn_sfs_1, color='empirical_nonsyn_sfs_1')) +
+  geom_point(shape=1, aes(x=x_axis, y=empirical_nonsyn_sfs_2, color='empirical_nonsyn_sfs_2')) +
+  geom_line(aes(x=x_axis, y=empirical_nonsyn_sfs_2, color='empirical_nonsyn_sfs_2')) +
+  geom_point(shape=1, aes(x=x_axis, y=empirical_nonsyn_sfs_3, color='empirical_nonsyn_sfs_3')) +
+  geom_line(aes(x=x_axis, y=empirical_nonsyn_sfs_3, color='empirical_nonsyn_sfs_3')) +
+  geom_point(shape=1, aes(x=x_axis, y=empirical_nonsyn_sfs_4, color='empirical_nonsyn_sfs_4')) +
+  geom_line(aes(x=x_axis, y=empirical_nonsyn_sfs_4, color='empirical_nonsyn_sfs_4')) +
+  geom_point(shape=1, aes(x=x_axis, y=empirical_nonsyn_sfs_5, color='empirical_nonsyn_sfs_5')) +
+  geom_line(aes(x=x_axis, y=empirical_nonsyn_sfs_5, color='empirical_nonsyn_sfs_5')) +
+  scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
+  scale_y_continuous(name='Number of SNPs') +
+  scale_color_manual(values=c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000", 'red'),
+                     name='Data Type',
+                     breaks=c('recap_1_nonsyn_sfs', 'recap_2_nonsyn_sfs', 
+                              'recap_3_nonsyn_sfs', 'recap_4_nonsyn_sfs', 
+                              'recap_5_nonsyn_sfs', 'empirical_nonsyn_sfs_1',
+                              'empirical_nonsyn_sfs_2', 'empirical_nonsyn_sfs_3',
+                              'empirical_nonsyn_sfs_4', 'empirical_nonsyn_sfs_5'),
+                     labels=c('recap_1_nonsyn_sfs', 'recap_2_nonsyn_sfs', 
+                              'recap_3_nonsyn_sfs', 'recap_4_nonsyn_sfs', 
+                              'recap_5_nonsyn_sfs', 'empirical_nonsyn_sfs_1',
+                              'empirical_nonsyn_sfs_2', 'empirical_nonsyn_sfs_3',
+                              'empirical_nonsyn_sfs_4', 'empirical_nonsyn_sfs_5')) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggtitle('Recap vs Shifted Count Nonsynonymous SFS')
+
+p_df
+
+p_df <- ggplot(data=df, aes(x=x_axis, y=count_to_proportional(recap_1_nonsyn_sfs), color='recap_1_nonsyn_sfs')) +
+  geom_point(shape=1) +
+  geom_line() +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(recap_2_nonsyn_sfs), color='recap_2_nonsyn_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(recap_2_nonsyn_sfs), color='recap_2_nonsyn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(recap_3_nonsyn_sfs), color='recap_3_nonsyn_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(recap_3_nonsyn_sfs), color='recap_3_nonsyn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(recap_4_nonsyn_sfs), color='recap_4_nonsyn_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(recap_4_nonsyn_sfs), color='recap_4_nonsyn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(recap_5_nonsyn_sfs), color='recap_5_nonsyn_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(recap_5_nonsyn_sfs), color='recap_5_nonsyn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(empirical_nonsyn_sfs_1), color='empirical_nonsyn_sfs_1')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(empirical_nonsyn_sfs_1), color='empirical_nonsyn_sfs_1')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(empirical_nonsyn_sfs_2), color='empirical_nonsyn_sfs_2')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(empirical_nonsyn_sfs_2), color='empirical_nonsyn_sfs_2')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(empirical_nonsyn_sfs_3), color='empirical_nonsyn_sfs_3')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(empirical_nonsyn_sfs_3), color='empirical_nonsyn_sfs_3')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(empirical_nonsyn_sfs_4), color='empirical_nonsyn_sfs_4')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(empirical_nonsyn_sfs_4), color='empirical_nonsyn_sfs_4')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(empirical_nonsyn_sfs_5), color='empirical_nonsyn_sfs_5')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(empirical_nonsyn_sfs_5), color='empirical_nonsyn_sfs_5')) +
+  scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
+  scale_y_continuous(name='Number of SNPs') +
+  scale_color_manual(values=c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000", 'red'),
+                     name='Data Type',
+                     breaks=c('recap_1_nonsyn_sfs', 'recap_2_nonsyn_sfs', 
+                              'recap_3_nonsyn_sfs', 'recap_4_nonsyn_sfs', 
+                              'recap_5_nonsyn_sfs', 'empirical_nonsyn_sfs_1',
+                              'empirical_nonsyn_sfs_2', 'empirical_nonsyn_sfs_3',
+                              'empirical_nonsyn_sfs_4', 'empirical_nonsyn_sfs_5'),
+                     labels=c('recap_1_nonsyn_sfs', 'recap_2_nonsyn_sfs', 
+                              'recap_3_nonsyn_sfs', 'recap_4_nonsyn_sfs', 
+                              'recap_5_nonsyn_sfs', 'empirical_nonsyn_sfs_1',
+                              'empirical_nonsyn_sfs_2', 'empirical_nonsyn_sfs_3',
+                              'empirical_nonsyn_sfs_4', 'empirical_nonsyn_sfs_5')) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggtitle('Recap vs Shifted Proportional Nonsynonymous SFS')
+
+p_df
+
+df = data.frame(recap_1_syn_sfs, empirical_syn_sfs_1,
+                recap_2_syn_sfs, empirical_syn_sfs_2,
+                recap_3_syn_sfs, empirical_syn_sfs_3,
+                recap_4_syn_sfs, empirical_syn_sfs_4,
+                recap_5_syn_sfs, empirical_syn_sfs_5,
+                x_axis = x_axis)
+p_df <- ggplot(data=df, aes(x=x_axis, y=recap_1_syn_sfs, color='recap_1_syn_sfs')) +
+  geom_point(shape=1) +
+  geom_line() +
+  geom_point(shape=1, aes(x=x_axis, y=recap_2_syn_sfs, color='recap_2_syn_sfs')) +
+  geom_line(aes(x=x_axis, y=recap_2_syn_sfs, color='recap_2_syn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=recap_3_syn_sfs, color='recap_3_syn_sfs')) +
+  geom_line(aes(x=x_axis, y=recap_3_syn_sfs, color='recap_3_syn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=recap_4_syn_sfs, color='recap_4_syn_sfs')) +
+  geom_line(aes(x=x_axis, y=recap_4_syn_sfs, color='recap_4_syn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=recap_5_syn_sfs, color='recap_5_syn_sfs')) +
+  geom_line(aes(x=x_axis, y=recap_5_syn_sfs, color='recap_5_syn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=empirical_syn_sfs_1, color='empirical_syn_sfs_1')) +
+  geom_line(aes(x=x_axis, y=empirical_syn_sfs_1, color='empirical_syn_sfs_1')) +
+  geom_point(shape=1, aes(x=x_axis, y=empirical_syn_sfs_2, color='empirical_syn_sfs_2')) +
+  geom_line(aes(x=x_axis, y=empirical_syn_sfs_2, color='empirical_syn_sfs_2')) +
+  geom_point(shape=1, aes(x=x_axis, y=empirical_syn_sfs_3, color='empirical_syn_sfs_3')) +
+  geom_line(aes(x=x_axis, y=empirical_syn_sfs_3, color='empirical_syn_sfs_3')) +
+  geom_point(shape=1, aes(x=x_axis, y=empirical_syn_sfs_4, color='empirical_syn_sfs_4')) +
+  geom_line(aes(x=x_axis, y=empirical_syn_sfs_4, color='empirical_syn_sfs_4')) +
+  geom_point(shape=1, aes(x=x_axis, y=empirical_syn_sfs_5, color='empirical_syn_sfs_5')) +
+  geom_line(aes(x=x_axis, y=empirical_syn_sfs_5, color='empirical_syn_sfs_5')) +
+  scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
+  scale_y_continuous(name='Number of SNPs') +
+  scale_color_manual(values=c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000", 'red'),
+                     name='Data Type',
+                     breaks=c('recap_1_syn_sfs', 'recap_2_syn_sfs', 
+                              'recap_3_syn_sfs', 'recap_4_syn_sfs', 
+                              'recap_5_syn_sfs', 'empirical_syn_sfs_1',
+                              'empirical_syn_sfs_2', 'empirical_syn_sfs_3',
+                              'empirical_syn_sfs_4', 'empirical_syn_sfs_5'),
+                     labels=c('recap_1_syn_sfs', 'recap_2_syn_sfs', 
+                              'recap_3_syn_sfs', 'recap_4_syn_sfs', 
+                              'recap_5_syn_sfs', 'empirical_syn_sfs_1',
+                              'empirical_syn_sfs_2', 'empirical_syn_sfs_3',
+                              'empirical_syn_sfs_4', 'empirical_syn_sfs_5')) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggtitle('Recap vs Shifted Count Synonymous SFS')
+
+p_df
+
+p_df <- ggplot(data=df, aes(x=x_axis, y=count_to_proportional(recap_1_syn_sfs), color='recap_1_syn_sfs')) +
+  geom_point(shape=1) +
+  geom_line() +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(recap_2_syn_sfs), color='recap_2_syn_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(recap_2_syn_sfs), color='recap_2_syn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(recap_3_syn_sfs), color='recap_3_syn_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(recap_3_syn_sfs), color='recap_3_syn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(recap_4_syn_sfs), color='recap_4_syn_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(recap_4_syn_sfs), color='recap_4_syn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(recap_5_syn_sfs), color='recap_5_syn_sfs')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(recap_5_syn_sfs), color='recap_5_syn_sfs')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(empirical_syn_sfs_1), color='empirical_syn_sfs_1')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(empirical_syn_sfs_1), color='empirical_syn_sfs_1')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(empirical_syn_sfs_2), color='empirical_syn_sfs_2')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(empirical_syn_sfs_2), color='empirical_syn_sfs_2')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(empirical_syn_sfs_3), color='empirical_syn_sfs_3')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(empirical_syn_sfs_3), color='empirical_syn_sfs_3')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(empirical_syn_sfs_4), color='empirical_syn_sfs_4')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(empirical_syn_sfs_4), color='empirical_syn_sfs_4')) +
+  geom_point(shape=1, aes(x=x_axis, y=count_to_proportional(empirical_syn_sfs_5), color='empirical_syn_sfs_5')) +
+  geom_line(aes(x=x_axis, y=count_to_proportional(empirical_syn_sfs_5), color='empirical_syn_sfs_5')) +
+  scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
+  scale_y_continuous(name='Number of SNPs') +
+  scale_color_manual(values=c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000", 'red'),
+                     name='Data Type',
+                     breaks=c('recap_1_syn_sfs', 'recap_2_syn_sfs', 
+                              'recap_3_syn_sfs', 'recap_4_syn_sfs', 
+                              'recap_5_syn_sfs', 'empirical_syn_sfs_1',
+                              'empirical_syn_sfs_2', 'empirical_syn_sfs_3',
+                              'empirical_syn_sfs_4', 'empirical_syn_sfs_5'),
+                     labels=c('recap_1_syn_sfs', 'recap_2_syn_sfs', 
+                              'recap_3_syn_sfs', 'recap_4_syn_sfs', 
+                              'recap_5_syn_sfs', 'empirical_syn_sfs_1',
+                              'empirical_syn_sfs_2', 'empirical_syn_sfs_3',
+                              'empirical_syn_sfs_4', 'empirical_syn_sfs_5')) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggtitle('Recap vs Shifted Proportional Synonymous SFS')
+
+p_df
+
 
 plot_sfs_comparison <- function(gamma_sfs, neugamma_sfs, empirical_sfs) {
   # It is assumed that the given sfs is folded, and describes 16 individuals.
@@ -315,9 +636,76 @@ ancestral_hist <-hist(ancestral_bin,breaks = c(0,1,2,3,4),freq = FALSE,main="AW"
 
 ancestral_bar <- ancestral_hist$density
 
-bin_neugamma_1 <- .bincode(seed_1_neugamma, breaks=c(0, 10e-5, 10e-4, 10e-3, 10e-1), right=TRUE)
-hist_neugamma_1 <- hist(bin_neugamma_1, breaks = c(0, 1, 2, 3, 4), freq = FALSE)
-bar_neugamma_1 <- hist_neugamma_1$density
+recap_gamma_1 <- rgamma(100000, shape = 0.10166433, scale = 3.65199084)
+recap_gamma_1 <- replace(recap_gamma_1, recap_gamma_1 > 1, 1)
+bar_recap_gamma_1 <- compute_bar(recap_gamma_1)
+
+recap_gamma_2 <- rgamma(100000, shape = 0.09999237, scale = 4.84024034)
+recap_gamma_2 <- replace(recap_gamma_2, recap_gamma_2 > 1, 1)
+bar_recap_gamma_2 <- compute_bar(recap_gamma_2)
+
+recap_gamma_3 <- rgamma(100000, shape = 0.09876697, scale = 4.65686381)
+recap_gamma_3 <- replace(recap_gamma_3, recap_gamma_3 > 1, 1)
+bar_recap_gamma_3 <- compute_bar(recap_gamma_3)
+
+recap_gamma_4 <- rgamma(100000, shape = 0.10046261, scale = 4.71949352)
+recap_gamma_4 <- replace(recap_gamma_4, recap_gamma_4 > 1, 1)
+bar_recap_gamma_4 <- compute_bar(recap_gamma_4)
+
+recap_gamma_5 <- rgamma(100000, shape = 0.10225009, scale =  2.77497495)
+recap_gamma_5 <- replace(recap_gamma_5, recap_gamma_5 > 1, 1)
+bar_recap_gamma_5 <- compute_bar(recap_gamma_5)
+
+
+TAB_recap_gamma <- rbind(ancestral_bar, bar_recap_gamma_1, bar_recap_gamma_2, bar_recap_gamma_3, bar_recap_gamma_4, bar_recap_gamma_5) 
+
+barplot(TAB_recap_gamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="(Recapitulated) Gamma distributed DFE")
+legend("top", inset=.02, c("Ancestral", "Seed 1", "Seed 2", "Seed 3", "Seed 4", "Seed 5"), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
+       horiz=FALSE, cex=1)
+
+recap_neugamma_1 <- rgamma(10000, shape = 0.18405779, scale =  0.31091049)
+recap_neugamma_1 <- sort(recap_neugamma_1)
+recap_neugamma_1 <- replace(recap_neugamma_1, recap_neugamma_1 > 1, 1)
+recap_neugamma_1 <- c(recap_neugamma_1[1:1424] * 0 + 0.000000001, recap_neugamma_1[1425:10000])
+bar_recap_neugamma_1 <- compute_bar(recap_neugamma_1)
+
+recap_neugamma_2 <- rgamma(10000, shape = 0.18167239, scale = 0.46937791)
+recap_neugamma_2 <- sort(recap_neugamma_2)
+recap_neugamma_2 <- replace(recap_neugamma_2, recap_neugamma_2 > 1, 1)
+recap_neugamma_2 <- c(recap_neugamma_2[1:1478] * 0 + 0.000000001, recap_neugamma_2[1479:10000])
+bar_recap_neugamma_2 <- compute_bar(recap_neugamma_2)
+
+recap_neugamma_3 <- rgamma(10000, shape = 0.15829279, scale = 0.6388670)
+recap_neugamma_3 <- sort(recap_neugamma_3)
+recap_neugamma_3 <- replace(recap_neugamma_3, recap_neugamma_3 > 1, 1)
+recap_neugamma_3 <- c(recap_neugamma_3[1:1209] * 0 + 0.000000001, recap_neugamma_3[1210:10000])
+bar_recap_neugamma_3 <- compute_bar(recap_neugamma_3)
+
+recap_neugamma_4 <- rgamma(10000, shape = 0.17164891, scale = 1.0565724)
+recap_neugamma_4 <- sort(recap_neugamma_4)
+recap_neugamma_4 <- replace(recap_neugamma_4, recap_neugamma_4 > 1, 1)
+recap_neugamma_4 <- c(recap_neugamma_4[1:1546] * 0 + 0.000000001, recap_neugamma_4[1547:10000])
+bar_recap_neugamma_4 <- compute_bar(recap_neugamma_4)
+
+recap_neugamma_5 <- rgamma(10000, shape = 0.20197546, scale = 0.16501615)
+recap_neugamma_5 <- sort(recap_neugamma_5)
+recap_neugamma_5 <- replace(recap_neugamma_5, recap_neugamma_5 > 1, 1)
+recap_neugamma_5 <- c(recap_neugamma_5[1:1559] * 0 + 0.000000001, recap_neugamma_5[1600:10000])
+bar_recap_neugamma_5 <- compute_bar(recap_neugamma_5)
+
+TAB_recap_neugamma <- rbind(ancestral_bar, bar_recap_neugamma_1, bar_recap_neugamma_2, bar_recap_neugamma_3, bar_recap_neugamma_4, bar_recap_neugamma_5) 
+
+barplot(TAB_recap_neugamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="(Recapitulated) Neutral-gamma distributed DFE")
+legend("top", inset=.02, c("Ancestral", "Seed 1", "Seed 2", "Seed 3", "Seed 4", "Seed 5"), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
+       horiz=FALSE, cex=1)
 
 bar_gamma_1 <- compute_bar(seed_1_gamma)
 bar_gamma_2 <- compute_bar(seed_2_gamma)
@@ -330,7 +718,7 @@ TAB_gamma <- rbind(ancestral_bar, bar_gamma_1, bar_gamma_2, bar_gamma_3, bar_gam
 barplot(TAB_gamma, beside=T, xlab="s", ylab="Density", 
         col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
         names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
-        main="Gamma distributed DFE")
+        main="(Shift to neutral) Gamma distributed DFE")
 legend("top", inset=.02, c("Ancestral", "Seed 1", "Seed 2", "Seed 3", "Seed 4", "Seed 5"), 
        fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
        horiz=FALSE, cex=1)
@@ -346,7 +734,7 @@ TAB_neugamma <- rbind(ancestral_bar, bar_neugamma_1, bar_neugamma_2, bar_neugamm
 barplot(TAB_neugamma, beside=T, xlab="s", ylab="Density", 
         col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
         names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
-        main="Neutral-gamma distributed DFE")
+        main="(Shift to neutral) Neutral-gamma distributed DFE")
 legend("top", inset=.02, c("Ancestral", "Seed 1", "Seed 2", "Seed 3", "Seed 4", "Seed 5"), 
        fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
        horiz=FALSE, cex=1)
