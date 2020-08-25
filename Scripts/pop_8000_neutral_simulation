@@ -1,0 +1,149 @@
+//Author: Miguel Guardado	Date: 09/27/2019
+// This script is made to help simualte Ancestral Wolf Population to test for effective change in DFE.
+initialize() {
+  //Set a Seed to keep track of the type of simulation we are using.
+  setSeed(1);
+  //Mutations Rate is set up so be that of Arctic Wolf Popualtion
+  initializeMutationRate(6.7250e-9);
+
+  // m1 mutation type: Neutral for synonomous sites.
+  // m2 mutation type: Deleterious for Non-Synonomous sites.
+  initializeMutationType("m1", 0.5, "f", 0.0);
+  initializeMutationType("m2", 0.5, "f", 0.0);
+
+
+  // g1 genomic element type: Synonomous sites
+  // g2 genomic element type: NonSysnonomous sites
+  initializeGenomicElementType("g1", m1, 1);
+  initializeGenomicElementType("g2",c(m1,m2),c(1.0,2.14));
+
+  //This helps creates a loop of the exon size to create a wolf genome.
+  base = 0; //Keep track of the length of the whole genome region
+  exonbase = 0; //Keeps track of the length of the exome region
+  //1612386
+  while (exonbase < 1612386) {
+    if(exonbase==0){
+      ex_length = asInteger(rdunif(1, 100,200)) + 1;
+      initializeGenomicElement(g2, base, base + ex_length - 1);
+      base = base + ex_length;
+      exonbase = exonbase +ex_length;
+      recomblength=c(base-1);
+      recombrate=c(1e-8);
+    } else {
+      // makes exon to be put inside the region
+      ex_length = asInteger(rdunif(1, 100,200)) + 1;
+      initializeGenomicElement(g2, base, base + ex_length-1);
+      base = base + ex_length;
+      exonbase = exonbase +ex_length;
+      recomblength=c(recomblength,base-1);
+      recombrate=c(recombrate,1e-8);
+
+    }
+
+     // makes intron to be put into the intron
+       in_length = asInteger(1);
+       initializeGenomicElement(g1, base, base + in_length-1);
+       base= base + in_length;
+       recomblength=c(recomblength,base-1);
+      recombrate=c(recombrate,3.5e-4);
+
+   }
+   initializeRecombinationRate(recombrate,recomblength);
+}
+// This creates a the ancestral populations of wolves that wass full of 80,000 diploid individuals
+1
+{
+  sim.addSubpop("p1", 8000);
+}
+// After this populations is defined we let this population burn in for 12N=>12(80,000)=960,000 generations. After this population is burned in we create a bottle neck inside the population reducing the populations  from 80000 to 12500
+96000
+{
+  p1.setSubpopulationSize(1250);
+  // This changes the DFE inside the population after a bottle neck occurs
+  // m2.setDistribution("g",-2*0.4496,0.0931);
+  // m2.setDistribution("f",0.0);
+  // DFE for pug (0.4496,0.0931)
+  // DFE for LB (0.49923,0.1001)
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/0_gen.vcf");
+}
+
+96010
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/10_gen.vcf");
+}
+96020
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/20_gen.vcf");
+}
+96030
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/30_gen.vcf");
+}
+96040
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/40_gen.vcf");
+}
+96050
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/50_gen.vcf");
+}
+96060
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/60_gen.vcf");
+}
+96070
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/70_gen.vcf");
+}
+96080
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/80_gen.vcf");
+}
+96090
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/90_gen.vcf");
+}
+96100
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/100_gen.vcf");
+}
+96110
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/110_gen.vcf");
+}
+96120
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/120_gen.vcf");
+}
+96130
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/130_gen.vcf");
+}
+96140
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/140_gen.vcf");
+}
+96150
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/150_gen.vcf");
+}
+96200
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/200_gen.vcf");
+}
+96250
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/250_gen.vcf");
+}
+96300
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/300_gen.vcf");
+}
+96350
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/350_gen.vcf");
+}
+96400
+{
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral/400_gen.vcf");
+}

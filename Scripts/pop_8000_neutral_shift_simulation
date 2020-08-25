@@ -59,92 +59,92 @@ initialize() {
 // After this populations is defined we let this population burn in for 12N=>12(80,000)=960,000 generations. After this population is burned in we create a bottle neck inside the population reducing the populations  from 80000 to 12500
 96000
 {
-  p1.setSubpopulationSize(313);
+  p1.setSubpopulationSize(1250);
   //This changes the DFE inside the population after a bottle neck occurs
   //m2.setDistribution("g",-2*0.4496,0.0931);
   m2.setDistribution("f",0.0);
   //DFE for pug (0.4496,0.0931)
   //DFE for LB (0.49923,0.1001)
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/0_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/0_gen.vcf");
 }
 
 96010
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/10_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/10_gen.vcf");
 }
 96020
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/20_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/20_gen.vcf");
 }
 96030
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/30_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/30_gen.vcf");
 }
 96040
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/40_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/40_gen.vcf");
 }
 96050
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/50_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/50_gen.vcf");
 }
 96060
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/60_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/60_gen.vcf");
 }
 96070
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/70_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/70_gen.vcf");
 }
 96080
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/80_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/80_gen.vcf");
 }
 96090
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/90_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/90_gen.vcf");
 }
 96100
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/100_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/100_gen.vcf");
 }
 96110
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/110_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/110_gen.vcf");
 }
 96120
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/120_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/120_gen.vcf");
 }
 96130
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/130_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/130_gen.vcf");
 }
 96140
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/140_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/140_gen.vcf");
 }
 96150
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/150_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/150_gen.vcf");
 }
 96200
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/200_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/200_gen.vcf");
 }
 96250
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/250_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/250_gen.vcf");
 }
 96300
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/300_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/300_gen.vcf");
 }
 96350
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/350_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/350_gen.vcf");
 }
 96400
 {
-  p1.outputVCFSample(15, filePath="../Data/AW_time_neutral/400_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_8000_neutral_shift/400_gen.vcf");
 }
