@@ -62,7 +62,7 @@ initialize() {
   p1.setSubpopulationSize(1250);
   //This changes the DFE inside the population after a bottle neck occurs
   //m2.setDistribution("g",-2*0.4496,0.0931);
-  m2.setDistribution("m2",0.5,"g",-2*0.482728,0.0980);
+  m2.setDistribution("g",-2*0.482728,0.0980);
   //DFE for pug (0.4496,0.0931)
   //DFE for LB (0.49923,0.1001)
   p1.outputVCFSample(15, filePath="../Data/pop_4000_AW_AW/0_gen.vcf");

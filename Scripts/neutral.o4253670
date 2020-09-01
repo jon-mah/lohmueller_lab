@@ -1,10 +1,10 @@
 // Initial random seed:
-1737245794913
+1871773329112
 
 // RunInitializeCallbacks():
 initializeMutationRate(6.725e-09);
 initializeMutationType(1, 0.5, "f", 0);
-initializeMutationType(2, 0.5, "g", -0.965456, 0.098);
+initializeMutationType(2, 0.5, "f", 0);
 initializeGenomicElementType(1, m1, 1);
 initializeGenomicElementType(2, c(m1, m2), c(1, 2.14));
 initializeGenomicElement(g2, 0, 111);
