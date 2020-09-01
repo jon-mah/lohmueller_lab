@@ -54,97 +54,97 @@ initialize() {
 // This creates a the ancestral populations of wolves that wass full of 80,000 diploid individuals
 1
 {
-  sim.addSubpop("p1", 8000);
+  sim.addSubpop("p1", 2000);
 }
 // After this populations is defined we let this population burn in for 12N=>12(80,000)=960,000 generations. After this population is burned in we create a bottle neck inside the population reducing the populations  from 80000 to 12500
-96000
+24000
 {
   p1.setSubpopulationSize(1250);
   //This changes the DFE inside the population after a bottle neck occurs
   //m2.setDistribution("g",-2*0.4496,0.0931);
-  m2.setDistribution("m2",0.5,"g",-2*0.482728,0.0980);
+  //m2.setDistribution("f",0.0);
   //DFE for pug (0.4496,0.0931)
   //DFE for LB (0.49923,0.1001)
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/0_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/0_gen.vcf");
 }
 
-96010
+24010
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/10_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/10_gen.vcf");
 }
-96020
+24020
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/20_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/20_gen.vcf");
 }
-96030
+24030
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/30_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/30_gen.vcf");
 }
-96040
+24040
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/40_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/40_gen.vcf");
 }
-96050
+24050
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/50_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/50_gen.vcf");
 }
-96060
+24060
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/60_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/60_gen.vcf");
 }
-96070
+24070
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/70_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/70_gen.vcf");
 }
-96080
+24080
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/80_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/80_gen.vcf");
 }
-96090
+24090
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/90_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/90_gen.vcf");
 }
-96100
+24100
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/100_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/100_gen.vcf");
 }
-96110
+24110
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/110_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/110_gen.vcf");
 }
-96120
+24120
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/120_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/120_gen.vcf");
 }
-96130
+24130
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/130_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/130_gen.vcf");
 }
-96140
+24140
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/140_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/140_gen.vcf");
 }
-96150
+24150
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/150_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/150_gen.vcf");
 }
-96200
+24200
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/200_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/200_gen.vcf");
 }
-96250
+24250
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/250_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/250_gen.vcf");
 }
-96300
+24300
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/300_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/300_gen.vcf");
 }
-96350
+24350
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/350_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/350_gen.vcf");
 }
-96400
+24400
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_8000_AW_AW/400_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_2000_recap/400_gen.vcf");
 }

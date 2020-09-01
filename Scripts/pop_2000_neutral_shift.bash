@@ -8,7 +8,7 @@
 # INPUT ARGUMENTS
 seed=1
 num_ind=8 # Number of samples from single population.
-prefix="../Data/pop_8000_neutral/seed_${seed}" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_2000_neutral_shift/seed_${seed}" # Output prefix, and input prefix of given vcf
 easySFS_proj=16 # Number of chromosomes that sample is projected down into.
 
 # DERIVED Arguments
@@ -22,8 +22,8 @@ nonsyn_easySFS_outdir="${prefix}_easySFS_output_nonsyn/"
 num_samples=$(($num_ind * 2))
 
 # If `SLiM` is not an executable, then comment out the next line.
-slim pop_8000_neutral_simulation
+slim pop_2000_neutral_shift_simulation
 
 # If `SLiM` is not an executable, then uncomment the next line and
 # provide a path to `SLiM`.
-# ./slim -d chrom=$SGE_TASK_ID -d init_seed=$seed pop_8000_neutral_simulation.slim
+# ./slim -d chrom=$SGE_TASK_ID -d init_seed=$seed pop_2000_neutral_shift_simulation.slim
