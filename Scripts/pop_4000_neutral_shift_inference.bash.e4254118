@@ -1,0 +1,798 @@
+grep: ../Data/pop_4000_neutral_shift/0.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/0.vcf: No such file or directory
+2020-09-01 09:14:39,889 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:14:39,889 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/0_syn_write_pops_log.log
+
+2020-09-01 09:14:39,889 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/0_syn
+	num_ind_1 = 8
+
+2020-09-01 09:14:39,890 - INFO - Finished writing ../Data/pop_4000_neutral_shift/0_syn_pops_file.txt.
+2020-09-01 09:14:39,996 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:14:39,997 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/0_nonsyn_write_pops_log.log
+
+2020-09-01 09:14:39,997 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/0_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:14:39,998 - INFO - Finished writing ../Data/pop_4000_neutral_shift/0_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/10.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/10.vcf: No such file or directory
+2020-09-01 09:14:51,372 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:14:51,372 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/10_syn_write_pops_log.log
+
+2020-09-01 09:14:51,373 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/10_syn
+	num_ind_1 = 8
+
+2020-09-01 09:14:51,374 - INFO - Finished writing ../Data/pop_4000_neutral_shift/10_syn_pops_file.txt.
+2020-09-01 09:14:51,476 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:14:51,476 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/10_nonsyn_write_pops_log.log
+
+2020-09-01 09:14:51,476 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/10_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:14:51,478 - INFO - Finished writing ../Data/pop_4000_neutral_shift/10_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/20.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/20.vcf: No such file or directory
+2020-09-01 09:14:56,397 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:14:56,397 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/20_syn_write_pops_log.log
+
+2020-09-01 09:14:56,397 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/20_syn
+	num_ind_1 = 8
+
+2020-09-01 09:14:56,399 - INFO - Finished writing ../Data/pop_4000_neutral_shift/20_syn_pops_file.txt.
+2020-09-01 09:14:56,503 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:14:56,503 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/20_nonsyn_write_pops_log.log
+
+2020-09-01 09:14:56,503 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/20_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:14:56,505 - INFO - Finished writing ../Data/pop_4000_neutral_shift/20_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/30.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/30.vcf: No such file or directory
+2020-09-01 09:15:01,076 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:01,076 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/30_syn_write_pops_log.log
+
+2020-09-01 09:15:01,077 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/30_syn
+	num_ind_1 = 8
+
+2020-09-01 09:15:01,078 - INFO - Finished writing ../Data/pop_4000_neutral_shift/30_syn_pops_file.txt.
+2020-09-01 09:15:01,231 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:01,231 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/30_nonsyn_write_pops_log.log
+
+2020-09-01 09:15:01,231 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/30_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:15:01,234 - INFO - Finished writing ../Data/pop_4000_neutral_shift/30_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/40.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/40.vcf: No such file or directory
+2020-09-01 09:15:07,028 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:07,029 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/40_syn_write_pops_log.log
+
+2020-09-01 09:15:07,029 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/40_syn
+	num_ind_1 = 8
+
+2020-09-01 09:15:07,030 - INFO - Finished writing ../Data/pop_4000_neutral_shift/40_syn_pops_file.txt.
+2020-09-01 09:15:07,135 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:07,135 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/40_nonsyn_write_pops_log.log
+
+2020-09-01 09:15:07,136 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/40_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:15:07,137 - INFO - Finished writing ../Data/pop_4000_neutral_shift/40_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/50.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/50.vcf: No such file or directory
+2020-09-01 09:15:12,176 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:12,177 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/50_syn_write_pops_log.log
+
+2020-09-01 09:15:12,177 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/50_syn
+	num_ind_1 = 8
+
+2020-09-01 09:15:12,178 - INFO - Finished writing ../Data/pop_4000_neutral_shift/50_syn_pops_file.txt.
+2020-09-01 09:15:12,281 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:12,281 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/50_nonsyn_write_pops_log.log
+
+2020-09-01 09:15:12,281 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/50_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:15:12,283 - INFO - Finished writing ../Data/pop_4000_neutral_shift/50_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/60.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/60.vcf: No such file or directory
+2020-09-01 09:15:16,827 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:16,827 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/60_syn_write_pops_log.log
+
+2020-09-01 09:15:16,827 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/60_syn
+	num_ind_1 = 8
+
+2020-09-01 09:15:16,828 - INFO - Finished writing ../Data/pop_4000_neutral_shift/60_syn_pops_file.txt.
+2020-09-01 09:15:16,932 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:16,932 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/60_nonsyn_write_pops_log.log
+
+2020-09-01 09:15:16,933 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/60_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:15:16,935 - INFO - Finished writing ../Data/pop_4000_neutral_shift/60_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/70.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/70.vcf: No such file or directory
+2020-09-01 09:15:21,357 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:21,358 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/70_syn_write_pops_log.log
+
+2020-09-01 09:15:21,358 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/70_syn
+	num_ind_1 = 8
+
+2020-09-01 09:15:21,359 - INFO - Finished writing ../Data/pop_4000_neutral_shift/70_syn_pops_file.txt.
+2020-09-01 09:15:21,463 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:21,463 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/70_nonsyn_write_pops_log.log
+
+2020-09-01 09:15:21,463 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/70_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:15:21,465 - INFO - Finished writing ../Data/pop_4000_neutral_shift/70_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/80.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/80.vcf: No such file or directory
+2020-09-01 09:15:26,001 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:26,001 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/80_syn_write_pops_log.log
+
+2020-09-01 09:15:26,002 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/80_syn
+	num_ind_1 = 8
+
+2020-09-01 09:15:26,003 - INFO - Finished writing ../Data/pop_4000_neutral_shift/80_syn_pops_file.txt.
+2020-09-01 09:15:26,113 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:26,114 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/80_nonsyn_write_pops_log.log
+
+2020-09-01 09:15:26,114 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/80_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:15:26,115 - INFO - Finished writing ../Data/pop_4000_neutral_shift/80_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/90.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/90.vcf: No such file or directory
+2020-09-01 09:15:31,472 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:31,472 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/90_syn_write_pops_log.log
+
+2020-09-01 09:15:31,472 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/90_syn
+	num_ind_1 = 8
+
+2020-09-01 09:15:31,474 - INFO - Finished writing ../Data/pop_4000_neutral_shift/90_syn_pops_file.txt.
+2020-09-01 09:15:31,578 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:31,578 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/90_nonsyn_write_pops_log.log
+
+2020-09-01 09:15:31,578 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/90_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:15:31,580 - INFO - Finished writing ../Data/pop_4000_neutral_shift/90_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/100.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/100.vcf: No such file or directory
+2020-09-01 09:15:36,219 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:36,219 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/100_syn_write_pops_log.log
+
+2020-09-01 09:15:36,220 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/100_syn
+	num_ind_1 = 8
+
+2020-09-01 09:15:36,221 - INFO - Finished writing ../Data/pop_4000_neutral_shift/100_syn_pops_file.txt.
+2020-09-01 09:15:36,326 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:36,327 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/100_nonsyn_write_pops_log.log
+
+2020-09-01 09:15:36,327 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/100_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:15:36,329 - INFO - Finished writing ../Data/pop_4000_neutral_shift/100_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/110.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/110.vcf: No such file or directory
+2020-09-01 09:15:40,847 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:40,847 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/110_syn_write_pops_log.log
+
+2020-09-01 09:15:40,847 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/110_syn
+	num_ind_1 = 8
+
+2020-09-01 09:15:40,849 - INFO - Finished writing ../Data/pop_4000_neutral_shift/110_syn_pops_file.txt.
+2020-09-01 09:15:40,954 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:40,954 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/110_nonsyn_write_pops_log.log
+
+2020-09-01 09:15:40,954 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/110_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:15:40,956 - INFO - Finished writing ../Data/pop_4000_neutral_shift/110_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/120.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/120.vcf: No such file or directory
+2020-09-01 09:15:45,536 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:45,536 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/120_syn_write_pops_log.log
+
+2020-09-01 09:15:45,536 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/120_syn
+	num_ind_1 = 8
+
+2020-09-01 09:15:45,538 - INFO - Finished writing ../Data/pop_4000_neutral_shift/120_syn_pops_file.txt.
+2020-09-01 09:15:45,641 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:45,642 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/120_nonsyn_write_pops_log.log
+
+2020-09-01 09:15:45,642 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/120_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:15:45,643 - INFO - Finished writing ../Data/pop_4000_neutral_shift/120_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/130.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/130.vcf: No such file or directory
+2020-09-01 09:15:50,228 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:50,228 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/130_syn_write_pops_log.log
+
+2020-09-01 09:15:50,228 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/130_syn
+	num_ind_1 = 8
+
+2020-09-01 09:15:50,230 - INFO - Finished writing ../Data/pop_4000_neutral_shift/130_syn_pops_file.txt.
+2020-09-01 09:15:50,338 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:50,338 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/130_nonsyn_write_pops_log.log
+
+2020-09-01 09:15:50,338 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/130_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:15:50,340 - INFO - Finished writing ../Data/pop_4000_neutral_shift/130_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/140.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/140.vcf: No such file or directory
+2020-09-01 09:15:54,829 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:54,829 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/140_syn_write_pops_log.log
+
+2020-09-01 09:15:54,829 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/140_syn
+	num_ind_1 = 8
+
+2020-09-01 09:15:54,831 - INFO - Finished writing ../Data/pop_4000_neutral_shift/140_syn_pops_file.txt.
+2020-09-01 09:15:54,935 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:54,935 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/140_nonsyn_write_pops_log.log
+
+2020-09-01 09:15:54,935 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/140_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:15:54,937 - INFO - Finished writing ../Data/pop_4000_neutral_shift/140_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/150.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/150.vcf: No such file or directory
+2020-09-01 09:15:59,420 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:59,420 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/150_syn_write_pops_log.log
+
+2020-09-01 09:15:59,421 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/150_syn
+	num_ind_1 = 8
+
+2020-09-01 09:15:59,422 - INFO - Finished writing ../Data/pop_4000_neutral_shift/150_syn_pops_file.txt.
+2020-09-01 09:15:59,527 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:15:59,528 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/150_nonsyn_write_pops_log.log
+
+2020-09-01 09:15:59,528 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/150_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:15:59,530 - INFO - Finished writing ../Data/pop_4000_neutral_shift/150_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/200.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/200.vcf: No such file or directory
+2020-09-01 09:16:04,121 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:16:04,122 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/200_syn_write_pops_log.log
+
+2020-09-01 09:16:04,122 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/200_syn
+	num_ind_1 = 8
+
+2020-09-01 09:16:04,123 - INFO - Finished writing ../Data/pop_4000_neutral_shift/200_syn_pops_file.txt.
+2020-09-01 09:16:04,230 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:16:04,231 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/200_nonsyn_write_pops_log.log
+
+2020-09-01 09:16:04,231 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/200_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:16:04,233 - INFO - Finished writing ../Data/pop_4000_neutral_shift/200_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/250.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/250.vcf: No such file or directory
+2020-09-01 09:16:08,685 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:16:08,686 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/250_syn_write_pops_log.log
+
+2020-09-01 09:16:08,686 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/250_syn
+	num_ind_1 = 8
+
+2020-09-01 09:16:08,687 - INFO - Finished writing ../Data/pop_4000_neutral_shift/250_syn_pops_file.txt.
+2020-09-01 09:16:08,788 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:16:08,788 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/250_nonsyn_write_pops_log.log
+
+2020-09-01 09:16:08,788 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/250_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:16:08,789 - INFO - Finished writing ../Data/pop_4000_neutral_shift/250_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/300.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/300.vcf: No such file or directory
+2020-09-01 09:16:13,328 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:16:13,328 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/300_syn_write_pops_log.log
+
+2020-09-01 09:16:13,328 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/300_syn
+	num_ind_1 = 8
+
+2020-09-01 09:16:13,330 - INFO - Finished writing ../Data/pop_4000_neutral_shift/300_syn_pops_file.txt.
+2020-09-01 09:16:13,433 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:16:13,434 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/300_nonsyn_write_pops_log.log
+
+2020-09-01 09:16:13,434 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/300_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:16:13,435 - INFO - Finished writing ../Data/pop_4000_neutral_shift/300_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/350.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/350.vcf: No such file or directory
+2020-09-01 09:16:18,342 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:16:18,342 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/350_syn_write_pops_log.log
+
+2020-09-01 09:16:18,342 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/350_syn
+	num_ind_1 = 8
+
+2020-09-01 09:16:18,343 - INFO - Finished writing ../Data/pop_4000_neutral_shift/350_syn_pops_file.txt.
+2020-09-01 09:16:18,447 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:16:18,448 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/350_nonsyn_write_pops_log.log
+
+2020-09-01 09:16:18,448 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/350_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:16:18,450 - INFO - Finished writing ../Data/pop_4000_neutral_shift/350_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+grep: ../Data/pop_4000_neutral_shift/400.vcf: No such file or directory
+grep: ../Data/pop_4000_neutral_shift/400.vcf: No such file or directory
+2020-09-01 09:16:23,227 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:16:23,227 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/400_syn_write_pops_log.log
+
+2020-09-01 09:16:23,227 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/400_syn
+	num_ind_1 = 8
+
+2020-09-01 09:16:23,229 - INFO - Finished writing ../Data/pop_4000_neutral_shift/400_syn_pops_file.txt.
+2020-09-01 09:16:23,333 - INFO - Beginning execution of write_pops_file.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-09-01 09:16:23,333 - INFO - Progress is being logged to ../Data/pop_4000_neutral_shift/400_nonsyn_write_pops_log.log
+
+2020-09-01 09:16:23,333 - INFO - Parsed the following arguments:
+	num_ind_2 = 0
+	outprefix = ../Data/pop_4000_neutral_shift/400_nonsyn
+	num_ind_1 = 8
+
+2020-09-01 09:16:23,335 - INFO - Finished writing ../Data/pop_4000_neutral_shift/400_nonsyn_pops_file.txt.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
+Traceback (most recent call last):
+  File "easySFS.py", line 646, in <module>
+    main()
+  File "easySFS.py", line 590, in main
+    indnames = get_inds_from_input(args.vcf_name, args.verbose)
+  File "easySFS.py", line 410, in get_inds_from_input
+    raise Exception("No sample names found in the input vcf. Check vcf file formatting.")
+Exception: No sample names found in the input vcf. Check vcf file formatting.
