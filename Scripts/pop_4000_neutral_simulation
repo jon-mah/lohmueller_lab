@@ -9,8 +9,7 @@ initialize() {
   // m1 mutation type: Neutral for synonomous sites.
   // m2 mutation type: Deleterious for Non-Synonomous sites.
   initializeMutationType("m1", 0.5, "f", 0.0);
-  initializeMutationType("m2",0.5,"g",-2*0.482728,0.0980);
-  // DFE for arctic wolf(0.482728,0.0980)
+  initializeMutationType("m2", 0.5, "f", 0.0);
 
 
   // g1 genomic element type: Synonomous sites
@@ -54,97 +53,97 @@ initialize() {
 // This creates a the ancestral populations of wolves that wass full of 80,000 diploid individuals
 1
 {
-  sim.addSubpop("p1", 2000);
+  sim.addSubpop("p1", 4000);
 }
 // After this populations is defined we let this population burn in for 12N=>12(80,000)=960,000 generations. After this population is burned in we create a bottle neck inside the population reducing the populations  from 80000 to 12500
-24000
+48000
 {
   p1.setSubpopulationSize(1250);
-  //This changes the DFE inside the population after a bottle neck occurs
-  //m2.setDistribution("g",-2*0.4496,0.0931);
-  m2.setDistribution("m2",0.5,"g",-2*0.482728,0.0980);
-  //DFE for pug (0.4496,0.0931)
-  //DFE for LB (0.49923,0.1001)
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/0_gen.vcf");
+  // This changes the DFE inside the population after a bottle neck occurs
+  // m2.setDistribution("g",-2*0.4496,0.0931);
+  // m2.setDistribution("f",0.0);
+  // DFE for pug (0.4496,0.0931)
+  // DFE for LB (0.49923,0.1001)
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/0_gen.vcf");
 }
 
-24010
+48010
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/10_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/10_gen.vcf");
 }
-24020
+48020
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/20_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/20_gen.vcf");
 }
-24030
+48030
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/30_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/30_gen.vcf");
 }
-24040
+48040
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/40_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/40_gen.vcf");
 }
-24050
+48050
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/50_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/50_gen.vcf");
 }
-24060
+48060
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/60_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/60_gen.vcf");
 }
-24070
+48070
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/70_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/70_gen.vcf");
 }
-24080
+48080
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/80_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/80_gen.vcf");
 }
-24090
+48090
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/90_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/90_gen.vcf");
 }
-24100
+48100
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/100_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/100_gen.vcf");
 }
-24110
+48110
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/110_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/110_gen.vcf");
 }
-24120
+48120
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/120_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/120_gen.vcf");
 }
-24130
+48130
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/130_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/130_gen.vcf");
 }
-24140
+48140
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/140_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/140_gen.vcf");
 }
-24150
+48150
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/150_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/150_gen.vcf");
 }
-24200
+48200
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/200_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/200_gen.vcf");
 }
-24250
+48250
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/250_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/250_gen.vcf");
 }
-24300
+48300
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/300_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/300_gen.vcf");
 }
-24350
+48350
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/350_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/350_gen.vcf");
 }
-24400
+48400
 {
-  p1.outputVCFSample(15, filePath="../Data/pop_2000_AW_AW/400_gen.vcf");
+  p1.outputVCFSample(15, filePath="../Data/pop_4000_neutral/400_gen.vcf");
 }
