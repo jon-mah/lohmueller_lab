@@ -7,7 +7,7 @@
 
 # INPUT ARGUMENTS
 num_ind=8 # Number of samples from single population.
-prefix="../Data/pop_4000_AW_AW/0" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/0_gen" # Output prefix, and input prefix of given vcf
 easySFS_proj=16 # Number of chromosomes that sample is projected down into.
 
 # DERIVED ARGUMENTS
@@ -33,7 +33,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 # python fitdadi_infer_DFE.py ${syn_easySFS_outdir}dadi/pop1.sfs ${nonsyn_easySFS_outdir}dadi/pop1.sfs ${prefix}_fitdadi_output/ --breed "LB"
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/10" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/10_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -59,7 +59,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/20" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/20_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -85,7 +85,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/30" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/30_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -111,7 +111,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/40" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/40_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -137,7 +137,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/50" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/50_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -163,7 +163,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/60" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/60_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -189,7 +189,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/70" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/70_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -215,7 +215,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/80" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/80_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -241,7 +241,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/90" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/90_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -267,7 +267,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/100" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/100_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -293,7 +293,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/110" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/110_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -319,7 +319,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/120" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/120_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -345,7 +345,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/130" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/130_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -371,7 +371,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/140" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/140_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -397,7 +397,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/150" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/150_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -423,7 +423,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/200" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/200_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -449,7 +449,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/250" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/250_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -475,7 +475,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/300" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/300_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -501,7 +501,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/350" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/350_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
@@ -527,7 +527,7 @@ python easySFS.py -i $nonsyn_inputvcf -p $nonsyn_output_pops_file -o $nonsyn_eas
 
 
 # INPUT ARGUMENTS
-prefix="../Data/pop_4000_AW_AW/400" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_AW_AW/400_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
