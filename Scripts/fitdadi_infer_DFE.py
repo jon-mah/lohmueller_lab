@@ -565,26 +565,26 @@ class DemographicAndDFEInference():
                             numpy.array([1, 1, 2 * Na]))))
                 f.write('The expected SFS is: {0}.\n\n'.format(
                     expected_sfs_neugamma))
-            f.write('Assuming a neutral-distributed DFE...\n')
-            f.write('Outputting best 5 MLE estimates.\n')
-            for i in range(25):
-                best_popt_neutral = neutral_guesses[
-                    neutral_max_likelihoods[i]]
-                expected_sfs_neutral = spectra.integrate(
-                    best_popt_neutral[1], neutral_vec, theta_nonsyn)
-                f.write(
-                    'The population-scaled best-fit parameters: {0}.\n'.format(
-                        best_popt_neutral))
-                # Divide output scale parameter by 2 * N_a
-                f.write(
-                    'The non-scaled best-fit parameters: '
-                    '[{0}, array({1})].\n'.format(
-                        best_popt_neutral[0],
-                        numpy.divide(
-                            best_popt_neutral[1],
-                            numpy.array([1, 1, 2 * Na]))))
-                f.write('The expected SFS is: {0}.\n\n'.format(
-                    expected_sfs_neutral))
+            # f.write('Assuming a neutral-distributed DFE...\n')
+            # f.write('Outputting best 5 MLE estimates.\n')
+            # for i in range(25):
+            #     best_popt_neutral = neutral_guesses[
+            #         neutral_max_likelihoods[i]]
+            #     expected_sfs_neutral = spectra.integrate(
+            #         best_popt_neutral[1], neutral_vec, theta_nonsyn)
+            #     f.write(
+            #         'The population-scaled best-fit parameters: {0}.\n'.format(
+            #             best_popt_neutral))
+            #     # Divide output scale parameter by 2 * N_a
+            #     f.write(
+            #         'The non-scaled best-fit parameters: '
+            #         '[{0}, array({1})].\n'.format(
+            #             best_popt_neutral[0],
+            #             numpy.divide(
+            #                 best_popt_neutral[1],
+            #                 numpy.array([1, 1, 2 * Na]))))
+            #     f.write('The expected SFS is: {0}.\n\n'.format(
+            #         expected_sfs_neutral))
 
         logger.info('Pipeline executed succesfully.')
 
