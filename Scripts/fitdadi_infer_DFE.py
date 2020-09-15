@@ -530,7 +530,7 @@ class DemographicAndDFEInference():
 
         with open(inferred_DFE, 'w') as f:
             f.write('Assuming a gamma-distributed DFE...\n')
-            f.write('Outputting best 5 MLE estimates.\n')
+            f.write('Outputting best 25 MLE estimates.\n')
             for i in range(25):
                 best_popt = gamma_guesses[gamma_max_likelihoods[i]]
                 expected_sfs = spectra.integrate(
