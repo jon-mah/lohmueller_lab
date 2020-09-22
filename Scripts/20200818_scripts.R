@@ -218,6 +218,16 @@ pop_4000_no_demo_shift_syn_300 = c(49, 35, 26, 15, 16, 6, 8, 9)
 pop_4000_no_demo_shift_syn_350 = c(54, 36, 16, 18, 12, 17, 8, 5)
 pop_4000_no_demo_shift_syn_400 = c(58, 32, 18, 15, 14, 13, 12, 7)
 
+pop_4000_no_demo_no_shift_nonsyn_0 = c(56, 30, 25, 20, 13, 20, 15, 5)
+pop_4000_no_demo_no_shift_nonsyn_50 = c(49, 35, 22, 22, 13, 14, 17, 6)
+pop_4000_no_demo_no_shift_nonsyn_100 = c(60, 32, 20, 15, 18, 17, 13, 9)
+pop_4000_no_demo_no_shift_nonsyn_150 = c(67, 39, 12, 23, 28, 11, 10, 6)
+pop_4000_no_demo_no_shift_nonsyn_200 = c(63, 30, 21, 18, 17, 10, 12, 9)
+pop_4000_no_demo_no_shift_nonsyn_250 = c(69, 29, 20, 9, 20, 15, 10, 11)
+pop_4000_no_demo_no_shift_nonsyn_300 = c(68, 19, 32, 21, 14, 9, 16, 4)
+pop_4000_no_demo_no_shift_nonsyn_350 = c(56, 33, 24, 21, 13, 15, 17, 3)
+pop_4000_no_demo_no_shift_nonsyn_400 = c(69, 38, 18, 17, 15, 18, 16, 6)
+
 fold_sfs <- function(given_sfs) {
   return_sfs = c(given_sfs[1] + given_sfs[15], 
                  given_sfs[2] + given_sfs[14], 
@@ -261,7 +271,7 @@ p_df <- ggplot(data=df, aes(x=x_axis, y=recap_1_gamma_sfs, color='recap_1_gamma_
   geom_line(aes(x=x_axis, y=seed_5_gamma_sfs, color='seed_5_gamma_sfs')) +
   scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
   scale_y_continuous(name='Number of SNPs') +
-  scale_color_manual(values=c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000", 'red'),
+  scale_color_manual(values=c("#999999", "#999999", "#999999", "#999999", "#999999", "red", "red", "red", "red", 'red'),
                      name='Data Type',
                      breaks=c('recap_1_gamma_sfs', 'recap_2_gamma_sfs', 
                               'recap_3_gamma_sfs', 'recap_4_gamma_sfs', 
@@ -313,7 +323,7 @@ p_df <- ggplot(data=df, aes(x=x_axis, y=count_to_proportional(recap_1_gamma_sfs)
   geom_line(aes(x=x_axis, y=count_to_proportional(seed_5_gamma_sfs), color='seed_5_gamma_sfs')) +
   scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
   scale_y_continuous(name='Proportion of SNPs') +
-  scale_color_manual(values=c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000", 'red'),
+  scale_color_manual(values=c("#999999", "#999999", "#999999", "#999999", "#999999", "red", "red", "red", "red", 'red'),
                      name='Data Type',
                      breaks=c('recap_1_gamma_sfs', 'recap_2_gamma_sfs', 
                               'recap_3_gamma_sfs', 'recap_4_gamma_sfs', 
@@ -362,7 +372,7 @@ p_df <- ggplot(data=df, aes(x=x_axis, y=recap_1_nonsyn_sfs, color='recap_1_nonsy
   geom_line(aes(x=x_axis, y=empirical_nonsyn_sfs_5, color='empirical_nonsyn_sfs_5')) +
   scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
   scale_y_continuous(name='Number of SNPs') +
-  scale_color_manual(values=c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000", 'red'),
+  scale_color_manual(values=c("red", "red", "red", "red", 'red', "#999999", "#999999", "#999999", "#999999", "#999999"),
                      name='Data Type',
                      breaks=c('recap_1_nonsyn_sfs', 'recap_2_nonsyn_sfs', 
                               'recap_3_nonsyn_sfs', 'recap_4_nonsyn_sfs', 
@@ -403,7 +413,7 @@ p_df <- ggplot(data=df, aes(x=x_axis, y=count_to_proportional(recap_1_nonsyn_sfs
   geom_line(aes(x=x_axis, y=count_to_proportional(empirical_nonsyn_sfs_5), color='empirical_nonsyn_sfs_5')) +
   scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
   scale_y_continuous(name='Number of SNPs') +
-  scale_color_manual(values=c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000", 'red'),
+  scale_color_manual(values=c("red", "red", "red", "red", 'red', "#999999", "#999999", "#999999", "#999999", "#999999"),
                      name='Data Type',
                      breaks=c('recap_1_nonsyn_sfs', 'recap_2_nonsyn_sfs', 
                               'recap_3_nonsyn_sfs', 'recap_4_nonsyn_sfs', 
@@ -450,7 +460,7 @@ p_df <- ggplot(data=df, aes(x=x_axis, y=recap_1_syn_sfs, color='recap_1_syn_sfs'
   geom_line(aes(x=x_axis, y=empirical_syn_sfs_5, color='empirical_syn_sfs_5')) +
   scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
   scale_y_continuous(name='Number of SNPs') +
-  scale_color_manual(values=c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000", 'red'),
+  scale_color_manual(values=c("red", "red", "red", "red", 'red', "#999999", "#999999", "#999999", "#999999", "#999999"),
                      name='Data Type',
                      breaks=c('recap_1_syn_sfs', 'recap_2_syn_sfs', 
                               'recap_3_syn_sfs', 'recap_4_syn_sfs', 
@@ -491,7 +501,7 @@ p_df <- ggplot(data=df, aes(x=x_axis, y=count_to_proportional(recap_1_syn_sfs), 
   geom_line(aes(x=x_axis, y=count_to_proportional(empirical_syn_sfs_5), color='empirical_syn_sfs_5')) +
   scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
   scale_y_continuous(name='Number of SNPs') +
-  scale_color_manual(values=c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000", 'red'),
+  scale_color_manual(values=c("red", "red", "red", "red", 'red', "#999999", "#999999", "#999999", "#999999", "#999999"),
                      name='Data Type',
                      breaks=c('recap_1_syn_sfs', 'recap_2_syn_sfs', 
                               'recap_3_syn_sfs', 'recap_4_syn_sfs', 
@@ -818,6 +828,637 @@ barplot(TAB_neugamma, beside=T, xlab="s", ylab="Density",
 legend("top", inset=.02, c("Ancestral", "Seed 1", "Seed 2", "Seed 3", "Seed 4", "Seed 5"), 
        fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
        horiz=FALSE, cex=1)
+
+# Gamma distributions of 0th gen
+pop_4000_AW_AW_0_gamma = rgamma(10000, shape=8.70426901e-02, scale=5.78155986e+03)
+pop_4000_neutral_0_gamma = rgamma(10000, shape=1.04124511e-03, scale=2.68516104e+02)
+pop_4000_neutral_shift_0_gamma = rgamma(10000, shape=8.57675970e-02, scale=3.39075559e+03)
+pop_4000_no_demo_0_gamma = rgamma(10000, shape=9.79405888e-02, scale=3.51131482e+03)
+pop_4000_no_demo_shift_0_gamma = rgamma(10000, shape=9.91500302e-02, scale=2.80774613e+03)
+pop_4000_no_demo_no_shift_0_gamma = rgamma(10000, shape=9.42719126e-02, scale=1.85529527e+03)
+pop_4000_recap_0_gamma = rgamma(10000, shape=8.75532829e-02, scale=5.91419095e+03)
+
+pop_4000_AW_AW_0_gamma = replace(pop_4000_AW_AW_0_gamma, pop_4000_AW_AW_0_gamma > 1, 1)
+pop_4000_AW_AW_0_gamma_bar <- compute_bar(pop_4000_AW_AW_0_gamma)
+
+pop_4000_neutral_0_gamma = replace(pop_4000_neutral_0_gamma, pop_4000_neutral_0_gamma > 1, 1)
+pop_4000_neutral_0_gamma_bar = compute_bar(pop_4000_neutral_0_gamma)
+
+pop_4000_neutral_shift_0_gamma = replace(pop_4000_neutral_shift_0_gamma, pop_4000_neutral_shift_0_gamma > 1, 1)
+pop_4000_neutral_shift_0_gamma_bar = compute_bar(pop_4000_neutral_shift_0_gamma)
+
+pop_4000_no_demo_0_gamma = replace(pop_4000_no_demo_0_gamma, pop_4000_no_demo_0_gamma > 1, 1)
+pop_4000_no_demo_0_gamma_bar = compute_bar(pop_4000_no_demo_0_gamma)
+
+pop_4000_no_demo_shift_0_gamma = replace(pop_4000_no_demo_shift_0_gamma, pop_4000_no_demo_shift_0_gamma > 1, 1)
+pop_4000_no_demo_shift_0_gamma_bar = compute_bar(pop_4000_no_demo_shift_0_gamma)
+
+pop_4000_no_demo_no_shift_0_gamma = replace(pop_4000_no_demo_no_shift_0_gamma, pop_4000_no_demo_no_shift_0_gamma > 1, 1)
+pop_4000_no_demo_no_shift_0_gamma_bar = compute_bar(pop_4000_no_demo_no_shift_0_gamma)
+
+pop_4000_recap_0_gamma = replace(pop_4000_recap_0_gamma, pop_4000_recap_0_gamma > 1, 1)
+pop_4000_recap_0_gamma_bar = compute_bar(pop_4000_recap_0_gamma)
+
+pop_4000_AW_AW_0_neugamma = replace(pop_4000_AW_AW_0_neugamma, pop_4000_AW_AW_0_neugamma > 1, 1)
+pop_4000_neutral_0_neugamma = replace(pop_4000_neutral_0_neugamma, pop_4000_neutral_0_neugamma > 1, 1)
+pop_4000_neutral_shift_0_neugamma = replace(pop_4000_neutral_shift_0_neugamma, pop_4000_neutral_shift_0_neugamma > 1, 1)
+pop_4000_no_demo_0_neugamma = replace(pop_4000_no_demo_0_neugamma, pop_4000_no_demo_0_neugamma > 1, 1)
+pop_4000_no_demo_shift_0_neugamma = replace(pop_4000_no_demo_shift_0_neugamma, pop_4000_no_demo_shift_0_neugamma > 1, 1)
+pop_4000_no_demo_shift_0_neugamma = replace(pop_4000_no_demo_no_shift_0_neugamma, pop_4000_no_demo_no_shift_0_neugamma > 1, 1)
+pop_4000_recap_0_neugamma = replace(pop_4000_recap_0_neugamma, pop_4000_recap_0_neugamma > 1, 1)
+
+TAB_recap_gamma <- rbind(pop_4000_AW_AW_0_gamma_bar,
+                         pop_4000_neutral_0_gamma_bar,
+                         pop_4000_neutral_shift_0_gamma_bar,
+                         pop_4000_no_demo_0_gamma_bar,
+                         pop_4000_no_demo_shift_0_gamma_bar,
+                         pop_4000_no_demo_no_shift_0_gamma_bar,
+                         pop_4000_recap_0_gamma_bar)
+
+barplot(TAB_recap_gamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="0 generations after shift in DFE")
+legend("top", inset=.02, c("AW_AW", "neutral", "neutral_shift", "no_demo", "no_demo_shift", "no_demo_no_shift", "recap"), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+       horiz=FALSE, cex=1)
+
+# Gamma distributions of 50th gen
+pop_4000_AW_AW_50_gamma = rgamma(10000, shape=8.70426901e-02, scale=5.78155986e+03)
+pop_4000_neutral_50_gamma = rgamma(10000, shape=1.04124511e-03, scale=2.68516104e+02)
+pop_4000_neutral_shift_50_gamma = rgamma(10000, shape=8.57675970e-02, scale=3.39075559e+03)
+pop_4000_no_demo_50_gamma = rgamma(10000, shape=9.79405888e-02, scale=3.51131482e+03)
+pop_4000_no_demo_shift_50_gamma = rgamma(10000, shape=9.91500302e-02, scale=2.80774613e+03)
+pop_4000_no_demo_no_shift_50_gamma = rgamma(10000, shape=9.42719126e-02, scale=1.85529527e+03)
+pop_4000_recap_50_gamma = rgamma(10000, shape=8.75532829e-02, scale=5.91419095e+03)
+
+pop_4000_AW_AW_50_gamma = replace(pop_4000_AW_AW_50_gamma, pop_4000_AW_AW_50_gamma > 1, 1)
+pop_4000_AW_AW_50_gamma_bar <- compute_bar(pop_4000_AW_AW_50_gamma)
+
+pop_4000_neutral_50_gamma = replace(pop_4000_neutral_50_gamma, pop_4000_neutral_50_gamma > 1, 1)
+pop_4000_neutral_50_gamma_bar = compute_bar(pop_4000_neutral_50_gamma)
+
+pop_4000_neutral_shift_50_gamma = replace(pop_4000_neutral_shift_50_gamma, pop_4000_neutral_shift_50_gamma > 1, 1)
+pop_4000_neutral_shift_50_gamma_bar = compute_bar(pop_4000_neutral_shift_50_gamma)
+
+pop_4000_no_demo_50_gamma = replace(pop_4000_no_demo_50_gamma, pop_4000_no_demo_50_gamma > 1, 1)
+pop_4000_no_demo_50_gamma_bar = compute_bar(pop_4000_no_demo_50_gamma)
+
+pop_4000_no_demo_shift_50_gamma = replace(pop_4000_no_demo_shift_50_gamma, pop_4000_no_demo_shift_50_gamma > 1, 1)
+pop_4000_no_demo_shift_50_gamma_bar = compute_bar(pop_4000_no_demo_shift_50_gamma)
+
+pop_4000_no_demo_no_shift_50_gamma = replace(pop_4000_no_demo_no_shift_50_gamma, pop_4000_no_demo_no_shift_50_gamma > 1, 1)
+pop_4000_no_demo_no_shift_50_gamma_bar = compute_bar(pop_4000_no_demo_no_shift_50_gamma)
+
+pop_4000_recap_50_gamma = replace(pop_4000_recap_50_gamma, pop_4000_recap_50_gamma > 1, 1)
+pop_4000_recap_50_gamma_bar = compute_bar(pop_4000_recap_50_gamma)
+
+pop_4000_AW_AW_50_neugamma = replace(pop_4000_AW_AW_50_neugamma, pop_4000_AW_AW_50_neugamma > 1, 1)
+pop_4000_neutral_50_neugamma = replace(pop_4000_neutral_50_neugamma, pop_4000_neutral_50_neugamma > 1, 1)
+pop_4000_neutral_shift_50_neugamma = replace(pop_4000_neutral_shift_50_neugamma, pop_4000_neutral_shift_50_neugamma > 1, 1)
+pop_4000_no_demo_50_neugamma = replace(pop_4000_no_demo_50_neugamma, pop_4000_no_demo_50_neugamma > 1, 1)
+pop_4000_no_demo_shift_50_neugamma = replace(pop_4000_no_demo_shift_50_neugamma, pop_4000_no_demo_shift_50_neugamma > 1, 1)
+pop_4000_no_demo_shift_50_neugamma = replace(pop_4000_no_demo_no_shift_50_neugamma, pop_4000_no_demo_no_shift_50_neugamma > 1, 1)
+pop_4000_recap_50_neugamma = replace(pop_4000_recap_50_neugamma, pop_4000_recap_50_neugamma > 1, 1)
+
+TAB_recap_gamma <- rbind(pop_4000_AW_AW_50_gamma_bar,
+                         pop_4000_neutral_50_gamma_bar,
+                         pop_4000_neutral_shift_50_gamma_bar,
+                         pop_4000_no_demo_50_gamma_bar,
+                         pop_4000_no_demo_shift_50_gamma_bar,
+                         pop_4000_no_demo_no_shift_50_gamma_bar,
+                         pop_4000_recap_50_gamma_bar)
+
+barplot(TAB_recap_gamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="50 generations after shift in DFE")
+legend("top", inset=.02, c("AW_AW", "neutral", "neutral_shift", "no_demo", "no_demo_shift", "no_demo_no_shift", "recap"), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+       horiz=FALSE, cex=1)
+
+# Gamma distributions of 100th gen
+pop_4000_AW_AW_100_gamma = rgamma(10000, shape=8.70426901e-02, scale=5.78155986e+03)
+pop_4000_neutral_100_gamma = rgamma(10000, shape=1.04124511e-03, scale=2.68516104e+02)
+pop_4000_neutral_shift_100_gamma = rgamma(10000, shape=8.57675970e-02, scale=3.39075559e+03)
+pop_4000_no_demo_100_gamma = rgamma(10000, shape=9.79405888e-02, scale=3.51131482e+03)
+pop_4000_no_demo_shift_100_gamma = rgamma(10000, shape=9.91500302e-02, scale=2.80774613e+03)
+pop_4000_no_demo_no_shift_100_gamma = rgamma(10000, shape=9.42719126e-02, scale=1.85529527e+03)
+pop_4000_recap_100_gamma = rgamma(10000, shape=8.75532829e-02, scale=5.91419095e+03)
+
+pop_4000_AW_AW_100_gamma = replace(pop_4000_AW_AW_100_gamma, pop_4000_AW_AW_100_gamma > 1, 1)
+pop_4000_AW_AW_100_gamma_bar <- compute_bar(pop_4000_AW_AW_100_gamma)
+
+pop_4000_neutral_100_gamma = replace(pop_4000_neutral_100_gamma, pop_4000_neutral_100_gamma > 1, 1)
+pop_4000_neutral_100_gamma_bar = compute_bar(pop_4000_neutral_100_gamma)
+
+pop_4000_neutral_shift_100_gamma = replace(pop_4000_neutral_shift_100_gamma, pop_4000_neutral_shift_100_gamma > 1, 1)
+pop_4000_neutral_shift_100_gamma_bar = compute_bar(pop_4000_neutral_shift_100_gamma)
+
+pop_4000_no_demo_100_gamma = replace(pop_4000_no_demo_100_gamma, pop_4000_no_demo_100_gamma > 1, 1)
+pop_4000_no_demo_100_gamma_bar = compute_bar(pop_4000_no_demo_100_gamma)
+
+pop_4000_no_demo_shift_100_gamma = replace(pop_4000_no_demo_shift_100_gamma, pop_4000_no_demo_shift_100_gamma > 1, 1)
+pop_4000_no_demo_shift_100_gamma_bar = compute_bar(pop_4000_no_demo_shift_100_gamma)
+
+pop_4000_no_demo_no_shift_100_gamma = replace(pop_4000_no_demo_no_shift_100_gamma, pop_4000_no_demo_no_shift_100_gamma > 1, 1)
+pop_4000_no_demo_no_shift_100_gamma_bar = compute_bar(pop_4000_no_demo_no_shift_100_gamma)
+
+pop_4000_recap_100_gamma = replace(pop_4000_recap_100_gamma, pop_4000_recap_100_gamma > 1, 1)
+pop_4000_recap_100_gamma_bar = compute_bar(pop_4000_recap_100_gamma)
+
+pop_4000_AW_AW_100_neugamma = replace(pop_4000_AW_AW_100_neugamma, pop_4000_AW_AW_100_neugamma > 1, 1)
+pop_4000_neutral_100_neugamma = replace(pop_4000_neutral_100_neugamma, pop_4000_neutral_100_neugamma > 1, 1)
+pop_4000_neutral_shift_100_neugamma = replace(pop_4000_neutral_shift_100_neugamma, pop_4000_neutral_shift_100_neugamma > 1, 1)
+pop_4000_no_demo_100_neugamma = replace(pop_4000_no_demo_100_neugamma, pop_4000_no_demo_100_neugamma > 1, 1)
+pop_4000_no_demo_shift_100_neugamma = replace(pop_4000_no_demo_shift_100_neugamma, pop_4000_no_demo_shift_100_neugamma > 1, 1)
+pop_4000_no_demo_shift_100_neugamma = replace(pop_4000_no_demo_no_shift_100_neugamma, pop_4000_no_demo_no_shift_100_neugamma > 1, 1)
+pop_4000_recap_100_neugamma = replace(pop_4000_recap_100_neugamma, pop_4000_recap_100_neugamma > 1, 1)
+
+TAB_recap_gamma <- rbind(pop_4000_AW_AW_100_gamma_bar,
+                         pop_4000_neutral_100_gamma_bar,
+                         pop_4000_neutral_shift_100_gamma_bar,
+                         pop_4000_no_demo_100_gamma_bar,
+                         pop_4000_no_demo_shift_100_gamma_bar,
+                         pop_4000_no_demo_no_shift_100_gamma_bar,
+                         pop_4000_recap_100_gamma_bar)
+
+barplot(TAB_recap_gamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="100 generations after shift in DFE")
+legend("top", inset=.02, c("AW_AW", "neutral", "neutral_shift", "no_demo", "no_demo_shift", "no_demo_no_shift", "recap"), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+       horiz=FALSE, cex=1)
+
+# Gamma distributions of 150th gen
+pop_4000_AW_AW_150_gamma = rgamma(10000, shape=8.70426901e-02, scale=5.78155986e+03)
+pop_4000_neutral_150_gamma = rgamma(10000, shape=1.04124511e-03, scale=2.68516104e+02)
+pop_4000_neutral_shift_150_gamma = rgamma(10000, shape=8.57675970e-02, scale=3.39075559e+03)
+pop_4000_no_demo_150_gamma = rgamma(10000, shape=9.79405888e-02, scale=3.51131482e+03)
+pop_4000_no_demo_shift_150_gamma = rgamma(10000, shape=9.91500302e-02, scale=2.80774613e+03)
+pop_4000_no_demo_no_shift_150_gamma = rgamma(10000, shape=9.42719126e-02, scale=1.85529527e+03)
+pop_4000_recap_150_gamma = rgamma(10000, shape=8.75532829e-02, scale=5.91419095e+03)
+
+pop_4000_AW_AW_150_gamma = replace(pop_4000_AW_AW_150_gamma, pop_4000_AW_AW_150_gamma > 1, 1)
+pop_4000_AW_AW_150_gamma_bar <- compute_bar(pop_4000_AW_AW_150_gamma)
+
+pop_4000_neutral_150_gamma = replace(pop_4000_neutral_150_gamma, pop_4000_neutral_150_gamma > 1, 1)
+pop_4000_neutral_150_gamma_bar = compute_bar(pop_4000_neutral_150_gamma)
+
+pop_4000_neutral_shift_150_gamma = replace(pop_4000_neutral_shift_150_gamma, pop_4000_neutral_shift_150_gamma > 1, 1)
+pop_4000_neutral_shift_150_gamma_bar = compute_bar(pop_4000_neutral_shift_150_gamma)
+
+pop_4000_no_demo_150_gamma = replace(pop_4000_no_demo_150_gamma, pop_4000_no_demo_150_gamma > 1, 1)
+pop_4000_no_demo_150_gamma_bar = compute_bar(pop_4000_no_demo_150_gamma)
+
+pop_4000_no_demo_shift_150_gamma = replace(pop_4000_no_demo_shift_150_gamma, pop_4000_no_demo_shift_150_gamma > 1, 1)
+pop_4000_no_demo_shift_150_gamma_bar = compute_bar(pop_4000_no_demo_shift_150_gamma)
+
+pop_4000_no_demo_no_shift_150_gamma = replace(pop_4000_no_demo_no_shift_150_gamma, pop_4000_no_demo_no_shift_150_gamma > 1, 1)
+pop_4000_no_demo_no_shift_150_gamma_bar = compute_bar(pop_4000_no_demo_no_shift_150_gamma)
+
+pop_4000_recap_150_gamma = replace(pop_4000_recap_150_gamma, pop_4000_recap_150_gamma > 1, 1)
+pop_4000_recap_150_gamma_bar = compute_bar(pop_4000_recap_150_gamma)
+
+pop_4000_AW_AW_150_neugamma = replace(pop_4000_AW_AW_150_neugamma, pop_4000_AW_AW_150_neugamma > 1, 1)
+pop_4000_neutral_150_neugamma = replace(pop_4000_neutral_150_neugamma, pop_4000_neutral_150_neugamma > 1, 1)
+pop_4000_neutral_shift_150_neugamma = replace(pop_4000_neutral_shift_150_neugamma, pop_4000_neutral_shift_150_neugamma > 1, 1)
+pop_4000_no_demo_150_neugamma = replace(pop_4000_no_demo_150_neugamma, pop_4000_no_demo_150_neugamma > 1, 1)
+pop_4000_no_demo_shift_150_neugamma = replace(pop_4000_no_demo_shift_150_neugamma, pop_4000_no_demo_shift_150_neugamma > 1, 1)
+pop_4000_no_demo_shift_150_neugamma = replace(pop_4000_no_demo_no_shift_150_neugamma, pop_4000_no_demo_no_shift_150_neugamma > 1, 1)
+pop_4000_recap_150_neugamma = replace(pop_4000_recap_150_neugamma, pop_4000_recap_150_neugamma > 1, 1)
+
+TAB_recap_gamma <- rbind(pop_4000_AW_AW_150_gamma_bar,
+                         pop_4000_neutral_150_gamma_bar,
+                         pop_4000_neutral_shift_150_gamma_bar,
+                         pop_4000_no_demo_150_gamma_bar,
+                         pop_4000_no_demo_shift_150_gamma_bar,
+                         pop_4000_no_demo_no_shift_150_gamma_bar,
+                         pop_4000_recap_150_gamma_bar)
+
+barplot(TAB_recap_gamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="150 generations after shift in DFE")
+legend("top", inset=.02, c("AW_AW", "neutral", "neutral_shift", "no_demo", "no_demo_shift", "no_demo_no_shift", "recap"), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+       horiz=FALSE, cex=1)
+
+# Gamma distributions of 200th gen
+pop_4000_AW_AW_200_gamma = rgamma(10000, shape=8.70426901e-02, scale=5.78155986e+03)
+pop_4000_neutral_200_gamma = rgamma(10000, shape=1.04124511e-03, scale=2.68516104e+02)
+pop_4000_neutral_shift_200_gamma = rgamma(10000, shape=8.57675970e-02, scale=3.39075559e+03)
+pop_4000_no_demo_200_gamma = rgamma(10000, shape=9.79405888e-02, scale=3.51131482e+03)
+pop_4000_no_demo_shift_200_gamma = rgamma(10000, shape=9.91500302e-02, scale=2.80774613e+03)
+pop_4000_no_demo_no_shift_200_gamma = rgamma(10000, shape=9.42719126e-02, scale=1.85529527e+03)
+pop_4000_recap_200_gamma = rgamma(10000, shape=8.75532829e-02, scale=5.91419095e+03)
+
+pop_4000_AW_AW_200_gamma = replace(pop_4000_AW_AW_200_gamma, pop_4000_AW_AW_200_gamma > 1, 1)
+pop_4000_AW_AW_200_gamma_bar <- compute_bar(pop_4000_AW_AW_200_gamma)
+
+pop_4000_neutral_200_gamma = replace(pop_4000_neutral_200_gamma, pop_4000_neutral_200_gamma > 1, 1)
+pop_4000_neutral_200_gamma_bar = compute_bar(pop_4000_neutral_200_gamma)
+
+pop_4000_neutral_shift_200_gamma = replace(pop_4000_neutral_shift_200_gamma, pop_4000_neutral_shift_200_gamma > 1, 1)
+pop_4000_neutral_shift_200_gamma_bar = compute_bar(pop_4000_neutral_shift_200_gamma)
+
+pop_4000_no_demo_200_gamma = replace(pop_4000_no_demo_200_gamma, pop_4000_no_demo_200_gamma > 1, 1)
+pop_4000_no_demo_200_gamma_bar = compute_bar(pop_4000_no_demo_200_gamma)
+
+pop_4000_no_demo_shift_200_gamma = replace(pop_4000_no_demo_shift_200_gamma, pop_4000_no_demo_shift_200_gamma > 1, 1)
+pop_4000_no_demo_shift_200_gamma_bar = compute_bar(pop_4000_no_demo_shift_200_gamma)
+
+pop_4000_no_demo_no_shift_200_gamma = replace(pop_4000_no_demo_no_shift_200_gamma, pop_4000_no_demo_no_shift_200_gamma > 1, 1)
+pop_4000_no_demo_no_shift_200_gamma_bar = compute_bar(pop_4000_no_demo_no_shift_200_gamma)
+
+pop_4000_recap_200_gamma = replace(pop_4000_recap_200_gamma, pop_4000_recap_200_gamma > 1, 1)
+pop_4000_recap_200_gamma_bar = compute_bar(pop_4000_recap_200_gamma)
+
+pop_4000_AW_AW_200_neugamma = replace(pop_4000_AW_AW_200_neugamma, pop_4000_AW_AW_200_neugamma > 1, 1)
+pop_4000_neutral_200_neugamma = replace(pop_4000_neutral_200_neugamma, pop_4000_neutral_200_neugamma > 1, 1)
+pop_4000_neutral_shift_200_neugamma = replace(pop_4000_neutral_shift_200_neugamma, pop_4000_neutral_shift_200_neugamma > 1, 1)
+pop_4000_no_demo_200_neugamma = replace(pop_4000_no_demo_200_neugamma, pop_4000_no_demo_200_neugamma > 1, 1)
+pop_4000_no_demo_shift_200_neugamma = replace(pop_4000_no_demo_shift_200_neugamma, pop_4000_no_demo_shift_200_neugamma > 1, 1)
+pop_4000_no_demo_shift_200_neugamma = replace(pop_4000_no_demo_no_shift_200_neugamma, pop_4000_no_demo_no_shift_200_neugamma > 1, 1)
+pop_4000_recap_200_neugamma = replace(pop_4000_recap_200_neugamma, pop_4000_recap_200_neugamma > 1, 1)
+
+TAB_recap_gamma <- rbind(pop_4000_AW_AW_200_gamma_bar,
+                         pop_4000_neutral_200_gamma_bar,
+                         pop_4000_neutral_shift_200_gamma_bar,
+                         pop_4000_no_demo_200_gamma_bar,
+                         pop_4000_no_demo_shift_200_gamma_bar,
+                         pop_4000_no_demo_no_shift_200_gamma_bar,
+                         pop_4000_recap_200_gamma_bar)
+
+barplot(TAB_recap_gamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="200 generations after shift in DFE")
+legend("top", inset=.02, c("AW_AW", "neutral", "neutral_shift", "no_demo", "no_demo_shift", "no_demo_no_shift", "recap"), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+       horiz=FALSE, cex=1)
+
+# Gamma distributions of 250th gen
+pop_4000_AW_AW_250_gamma = rgamma(10000, shape=8.70426901e-02, scale=5.78155986e+03)
+pop_4000_neutral_250_gamma = rgamma(10000, shape=1.04124511e-03, scale=2.68516104e+02)
+pop_4000_neutral_shift_250_gamma = rgamma(10000, shape=8.57675970e-02, scale=3.39075559e+03)
+pop_4000_no_demo_250_gamma = rgamma(10000, shape=9.79405888e-02, scale=3.51131482e+03)
+pop_4000_no_demo_shift_250_gamma = rgamma(10000, shape=9.91500302e-02, scale=2.80774613e+03)
+pop_4000_no_demo_no_shift_250_gamma = rgamma(10000, shape=9.42719126e-02, scale=1.85529527e+03)
+pop_4000_recap_250_gamma = rgamma(10000, shape=8.75532829e-02, scale=5.91419095e+03)
+
+pop_4000_AW_AW_250_gamma = replace(pop_4000_AW_AW_250_gamma, pop_4000_AW_AW_250_gamma > 1, 1)
+pop_4000_AW_AW_250_gamma_bar <- compute_bar(pop_4000_AW_AW_250_gamma)
+
+pop_4000_neutral_250_gamma = replace(pop_4000_neutral_250_gamma, pop_4000_neutral_250_gamma > 1, 1)
+pop_4000_neutral_250_gamma_bar = compute_bar(pop_4000_neutral_250_gamma)
+
+pop_4000_neutral_shift_250_gamma = replace(pop_4000_neutral_shift_250_gamma, pop_4000_neutral_shift_250_gamma > 1, 1)
+pop_4000_neutral_shift_250_gamma_bar = compute_bar(pop_4000_neutral_shift_250_gamma)
+
+pop_4000_no_demo_250_gamma = replace(pop_4000_no_demo_250_gamma, pop_4000_no_demo_250_gamma > 1, 1)
+pop_4000_no_demo_250_gamma_bar = compute_bar(pop_4000_no_demo_250_gamma)
+
+pop_4000_no_demo_shift_250_gamma = replace(pop_4000_no_demo_shift_250_gamma, pop_4000_no_demo_shift_250_gamma > 1, 1)
+pop_4000_no_demo_shift_250_gamma_bar = compute_bar(pop_4000_no_demo_shift_250_gamma)
+
+pop_4000_no_demo_no_shift_250_gamma = replace(pop_4000_no_demo_no_shift_250_gamma, pop_4000_no_demo_no_shift_250_gamma > 1, 1)
+pop_4000_no_demo_no_shift_250_gamma_bar = compute_bar(pop_4000_no_demo_no_shift_250_gamma)
+
+pop_4000_recap_250_gamma = replace(pop_4000_recap_250_gamma, pop_4000_recap_250_gamma > 1, 1)
+pop_4000_recap_250_gamma_bar = compute_bar(pop_4000_recap_250_gamma)
+
+pop_4000_AW_AW_250_neugamma = replace(pop_4000_AW_AW_250_neugamma, pop_4000_AW_AW_250_neugamma > 1, 1)
+pop_4000_neutral_250_neugamma = replace(pop_4000_neutral_250_neugamma, pop_4000_neutral_250_neugamma > 1, 1)
+pop_4000_neutral_shift_250_neugamma = replace(pop_4000_neutral_shift_250_neugamma, pop_4000_neutral_shift_250_neugamma > 1, 1)
+pop_4000_no_demo_250_neugamma = replace(pop_4000_no_demo_250_neugamma, pop_4000_no_demo_250_neugamma > 1, 1)
+pop_4000_no_demo_shift_250_neugamma = replace(pop_4000_no_demo_shift_250_neugamma, pop_4000_no_demo_shift_250_neugamma > 1, 1)
+pop_4000_no_demo_shift_250_neugamma = replace(pop_4000_no_demo_no_shift_250_neugamma, pop_4000_no_demo_no_shift_250_neugamma > 1, 1)
+pop_4000_recap_250_neugamma = replace(pop_4000_recap_250_neugamma, pop_4000_recap_250_neugamma > 1, 1)
+
+TAB_recap_gamma <- rbind(pop_4000_AW_AW_250_gamma_bar,
+                         pop_4000_neutral_250_gamma_bar,
+                         pop_4000_neutral_shift_250_gamma_bar,
+                         pop_4000_no_demo_250_gamma_bar,
+                         pop_4000_no_demo_shift_250_gamma_bar,
+                         pop_4000_no_demo_no_shift_250_gamma_bar,
+                         pop_4000_recap_250_gamma_bar)
+
+barplot(TAB_recap_gamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="250 generations after shift in DFE")
+legend("top", inset=.02, c("AW_AW", "neutral", "neutral_shift", "no_demo", "no_demo_shift", "no_demo_no_shift", "recap"), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+       horiz=FALSE, cex=1)
+
+# Gamma distributions of 300th gen
+pop_4000_AW_AW_300_gamma = rgamma(10000, shape=8.70426901e-02, scale=5.78155986e+03)
+pop_4000_neutral_300_gamma = rgamma(10000, shape=1.04124511e-03, scale=2.68516104e+02)
+pop_4000_neutral_shift_300_gamma = rgamma(10000, shape=8.57675970e-02, scale=3.39075559e+03)
+pop_4000_no_demo_300_gamma = rgamma(10000, shape=9.79405888e-02, scale=3.51131482e+03)
+pop_4000_no_demo_shift_300_gamma = rgamma(10000, shape=9.91500302e-02, scale=2.80774613e+03)
+pop_4000_no_demo_no_shift_300_gamma = rgamma(10000, shape=9.42719126e-02, scale=1.85529527e+03)
+pop_4000_recap_300_gamma = rgamma(10000, shape=8.75532829e-02, scale=5.91419095e+03)
+
+pop_4000_AW_AW_300_gamma = replace(pop_4000_AW_AW_300_gamma, pop_4000_AW_AW_300_gamma > 1, 1)
+pop_4000_AW_AW_300_gamma_bar <- compute_bar(pop_4000_AW_AW_300_gamma)
+
+pop_4000_neutral_300_gamma = replace(pop_4000_neutral_300_gamma, pop_4000_neutral_300_gamma > 1, 1)
+pop_4000_neutral_300_gamma_bar = compute_bar(pop_4000_neutral_300_gamma)
+
+pop_4000_neutral_shift_300_gamma = replace(pop_4000_neutral_shift_300_gamma, pop_4000_neutral_shift_300_gamma > 1, 1)
+pop_4000_neutral_shift_300_gamma_bar = compute_bar(pop_4000_neutral_shift_300_gamma)
+
+pop_4000_no_demo_300_gamma = replace(pop_4000_no_demo_300_gamma, pop_4000_no_demo_300_gamma > 1, 1)
+pop_4000_no_demo_300_gamma_bar = compute_bar(pop_4000_no_demo_300_gamma)
+
+pop_4000_no_demo_shift_300_gamma = replace(pop_4000_no_demo_shift_300_gamma, pop_4000_no_demo_shift_300_gamma > 1, 1)
+pop_4000_no_demo_shift_300_gamma_bar = compute_bar(pop_4000_no_demo_shift_300_gamma)
+
+pop_4000_no_demo_no_shift_300_gamma = replace(pop_4000_no_demo_no_shift_300_gamma, pop_4000_no_demo_no_shift_300_gamma > 1, 1)
+pop_4000_no_demo_no_shift_300_gamma_bar = compute_bar(pop_4000_no_demo_no_shift_300_gamma)
+
+pop_4000_recap_300_gamma = replace(pop_4000_recap_300_gamma, pop_4000_recap_300_gamma > 1, 1)
+pop_4000_recap_300_gamma_bar = compute_bar(pop_4000_recap_300_gamma)
+
+pop_4000_AW_AW_300_neugamma = replace(pop_4000_AW_AW_300_neugamma, pop_4000_AW_AW_300_neugamma > 1, 1)
+pop_4000_neutral_300_neugamma = replace(pop_4000_neutral_300_neugamma, pop_4000_neutral_300_neugamma > 1, 1)
+pop_4000_neutral_shift_300_neugamma = replace(pop_4000_neutral_shift_300_neugamma, pop_4000_neutral_shift_300_neugamma > 1, 1)
+pop_4000_no_demo_300_neugamma = replace(pop_4000_no_demo_300_neugamma, pop_4000_no_demo_300_neugamma > 1, 1)
+pop_4000_no_demo_shift_300_neugamma = replace(pop_4000_no_demo_shift_300_neugamma, pop_4000_no_demo_shift_300_neugamma > 1, 1)
+pop_4000_no_demo_shift_300_neugamma = replace(pop_4000_no_demo_no_shift_300_neugamma, pop_4000_no_demo_no_shift_300_neugamma > 1, 1)
+pop_4000_recap_300_neugamma = replace(pop_4000_recap_300_neugamma, pop_4000_recap_300_neugamma > 1, 1)
+
+TAB_recap_gamma <- rbind(pop_4000_AW_AW_300_gamma_bar,
+                         pop_4000_neutral_300_gamma_bar,
+                         pop_4000_neutral_shift_300_gamma_bar,
+                         pop_4000_no_demo_300_gamma_bar,
+                         pop_4000_no_demo_shift_300_gamma_bar,
+                         pop_4000_no_demo_no_shift_300_gamma_bar,
+                         pop_4000_recap_300_gamma_bar)
+
+barplot(TAB_recap_gamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="300 generations after shift in DFE")
+legend("top", inset=.02, c("AW_AW", "neutral", "neutral_shift", "no_demo", "no_demo_shift", "no_demo_no_shift", "recap"), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+       horiz=FALSE, cex=1)
+
+# Gamma distributions of 350th gen
+pop_4000_AW_AW_350_gamma = rgamma(10000, shape=8.70426901e-02, scale=5.78155986e+03)
+pop_4000_neutral_350_gamma = rgamma(10000, shape=1.04124511e-03, scale=2.68516104e+02)
+pop_4000_neutral_shift_350_gamma = rgamma(10000, shape=8.57675970e-02, scale=3.39075559e+03)
+pop_4000_no_demo_350_gamma = rgamma(10000, shape=9.79405888e-02, scale=3.51131482e+03)
+pop_4000_no_demo_shift_350_gamma = rgamma(10000, shape=9.91500302e-02, scale=2.80774613e+03)
+pop_4000_no_demo_no_shift_350_gamma = rgamma(10000, shape=9.42719126e-02, scale=1.85529527e+03)
+pop_4000_recap_350_gamma = rgamma(10000, shape=8.75532829e-02, scale=5.91419095e+03)
+
+pop_4000_AW_AW_350_gamma = replace(pop_4000_AW_AW_350_gamma, pop_4000_AW_AW_350_gamma > 1, 1)
+pop_4000_AW_AW_350_gamma_bar <- compute_bar(pop_4000_AW_AW_350_gamma)
+
+pop_4000_neutral_350_gamma = replace(pop_4000_neutral_350_gamma, pop_4000_neutral_350_gamma > 1, 1)
+pop_4000_neutral_350_gamma_bar = compute_bar(pop_4000_neutral_350_gamma)
+
+pop_4000_neutral_shift_350_gamma = replace(pop_4000_neutral_shift_350_gamma, pop_4000_neutral_shift_350_gamma > 1, 1)
+pop_4000_neutral_shift_350_gamma_bar = compute_bar(pop_4000_neutral_shift_350_gamma)
+
+pop_4000_no_demo_350_gamma = replace(pop_4000_no_demo_350_gamma, pop_4000_no_demo_350_gamma > 1, 1)
+pop_4000_no_demo_350_gamma_bar = compute_bar(pop_4000_no_demo_350_gamma)
+
+pop_4000_no_demo_shift_350_gamma = replace(pop_4000_no_demo_shift_350_gamma, pop_4000_no_demo_shift_350_gamma > 1, 1)
+pop_4000_no_demo_shift_350_gamma_bar = compute_bar(pop_4000_no_demo_shift_350_gamma)
+
+pop_4000_no_demo_no_shift_350_gamma = replace(pop_4000_no_demo_no_shift_350_gamma, pop_4000_no_demo_no_shift_350_gamma > 1, 1)
+pop_4000_no_demo_no_shift_350_gamma_bar = compute_bar(pop_4000_no_demo_no_shift_350_gamma)
+
+pop_4000_recap_350_gamma = replace(pop_4000_recap_350_gamma, pop_4000_recap_350_gamma > 1, 1)
+pop_4000_recap_350_gamma_bar = compute_bar(pop_4000_recap_350_gamma)
+
+pop_4000_AW_AW_350_neugamma = replace(pop_4000_AW_AW_350_neugamma, pop_4000_AW_AW_350_neugamma > 1, 1)
+pop_4000_neutral_350_neugamma = replace(pop_4000_neutral_350_neugamma, pop_4000_neutral_350_neugamma > 1, 1)
+pop_4000_neutral_shift_350_neugamma = replace(pop_4000_neutral_shift_350_neugamma, pop_4000_neutral_shift_350_neugamma > 1, 1)
+pop_4000_no_demo_350_neugamma = replace(pop_4000_no_demo_350_neugamma, pop_4000_no_demo_350_neugamma > 1, 1)
+pop_4000_no_demo_shift_350_neugamma = replace(pop_4000_no_demo_shift_350_neugamma, pop_4000_no_demo_shift_350_neugamma > 1, 1)
+pop_4000_no_demo_shift_350_neugamma = replace(pop_4000_no_demo_no_shift_350_neugamma, pop_4000_no_demo_no_shift_350_neugamma > 1, 1)
+pop_4000_recap_350_neugamma = replace(pop_4000_recap_350_neugamma, pop_4000_recap_350_neugamma > 1, 1)
+
+TAB_recap_gamma <- rbind(pop_4000_AW_AW_350_gamma_bar,
+                         pop_4000_neutral_350_gamma_bar,
+                         pop_4000_neutral_shift_350_gamma_bar,
+                         pop_4000_no_demo_350_gamma_bar,
+                         pop_4000_no_demo_shift_350_gamma_bar,
+                         pop_4000_no_demo_no_shift_350_gamma_bar,
+                         pop_4000_recap_350_gamma_bar)
+
+barplot(TAB_recap_gamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="350 generations after shift in DFE")
+legend("top", inset=.02, c("AW_AW", "neutral", "neutral_shift", "no_demo", "no_demo_shift", "no_demo_no_shift", "recap"), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+       horiz=FALSE, cex=1)
+
+# Gamma distributions of 400th gen
+pop_4000_AW_AW_400_gamma = rgamma(10000, shape=8.70426901e-02, scale=5.78155986e+03)
+pop_4000_neutral_400_gamma = rgamma(10000, shape=1.04124511e-03, scale=2.68516104e+02)
+pop_4000_neutral_shift_400_gamma = rgamma(10000, shape=8.57675970e-02, scale=3.39075559e+03)
+pop_4000_no_demo_400_gamma = rgamma(10000, shape=9.79405888e-02, scale=3.51131482e+03)
+pop_4000_no_demo_shift_400_gamma = rgamma(10000, shape=9.91500302e-02, scale=2.80774613e+03)
+pop_4000_no_demo_no_shift_400_gamma = rgamma(10000, shape=9.42719126e-02, scale=1.85529527e+03)
+pop_4000_recap_400_gamma = rgamma(10000, shape=8.75532829e-02, scale=5.91419095e+03)
+
+pop_4000_AW_AW_400_gamma = replace(pop_4000_AW_AW_400_gamma, pop_4000_AW_AW_400_gamma > 1, 1)
+pop_4000_AW_AW_400_gamma_bar <- compute_bar(pop_4000_AW_AW_400_gamma)
+
+pop_4000_neutral_400_gamma = replace(pop_4000_neutral_400_gamma, pop_4000_neutral_400_gamma > 1, 1)
+pop_4000_neutral_400_gamma_bar = compute_bar(pop_4000_neutral_400_gamma)
+
+pop_4000_neutral_shift_400_gamma = replace(pop_4000_neutral_shift_400_gamma, pop_4000_neutral_shift_400_gamma > 1, 1)
+pop_4000_neutral_shift_400_gamma_bar = compute_bar(pop_4000_neutral_shift_400_gamma)
+
+pop_4000_no_demo_400_gamma = replace(pop_4000_no_demo_400_gamma, pop_4000_no_demo_400_gamma > 1, 1)
+pop_4000_no_demo_400_gamma_bar = compute_bar(pop_4000_no_demo_400_gamma)
+
+pop_4000_no_demo_shift_400_gamma = replace(pop_4000_no_demo_shift_400_gamma, pop_4000_no_demo_shift_400_gamma > 1, 1)
+pop_4000_no_demo_shift_400_gamma_bar = compute_bar(pop_4000_no_demo_shift_400_gamma)
+
+pop_4000_no_demo_no_shift_400_gamma = replace(pop_4000_no_demo_no_shift_400_gamma, pop_4000_no_demo_no_shift_400_gamma > 1, 1)
+pop_4000_no_demo_no_shift_400_gamma_bar = compute_bar(pop_4000_no_demo_no_shift_400_gamma)
+
+pop_4000_recap_400_gamma = replace(pop_4000_recap_400_gamma, pop_4000_recap_400_gamma > 1, 1)
+pop_4000_recap_400_gamma_bar = compute_bar(pop_4000_recap_400_gamma)
+
+pop_4000_AW_AW_400_neugamma = replace(pop_4000_AW_AW_400_neugamma, pop_4000_AW_AW_400_neugamma > 1, 1)
+pop_4000_neutral_400_neugamma = replace(pop_4000_neutral_400_neugamma, pop_4000_neutral_400_neugamma > 1, 1)
+pop_4000_neutral_shift_400_neugamma = replace(pop_4000_neutral_shift_400_neugamma, pop_4000_neutral_shift_400_neugamma > 1, 1)
+pop_4000_no_demo_400_neugamma = replace(pop_4000_no_demo_400_neugamma, pop_4000_no_demo_400_neugamma > 1, 1)
+pop_4000_no_demo_shift_400_neugamma = replace(pop_4000_no_demo_shift_400_neugamma, pop_4000_no_demo_shift_400_neugamma > 1, 1)
+pop_4000_no_demo_shift_400_neugamma = replace(pop_4000_no_demo_no_shift_400_neugamma, pop_4000_no_demo_no_shift_400_neugamma > 1, 1)
+pop_4000_recap_400_neugamma = replace(pop_4000_recap_400_neugamma, pop_4000_recap_400_neugamma > 1, 1)
+
+TAB_recap_gamma <- rbind(pop_4000_AW_AW_400_gamma_bar,
+                         pop_4000_neutral_400_gamma_bar,
+                         pop_4000_neutral_shift_400_gamma_bar,
+                         pop_4000_no_demo_400_gamma_bar,
+                         pop_4000_no_demo_shift_400_gamma_bar,
+                         pop_4000_no_demo_no_shift_400_gamma_bar,
+                         pop_4000_recap_400_gamma_bar)
+
+barplot(TAB_recap_gamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="400 generations after shift in DFE")
+legend("top", inset=.02, c("AW_AW", "neutral", "neutral_shift", "no_demo", "no_demo_shift", "no_demo_no_shift", "recap"), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+       horiz=FALSE, cex=1)
+_________________
+recap_gamma_1 <- replace(recap_gamma_1, recap_gamma_1 > 1, 1)
+
+pop_4000_AW_AW_350_neugamma = rgamma(10000, shape=, scale=)
+pop_4000_neutral_350_neugamma = rgamma(10000, shape=, scale=)
+pop_4000_neutral_shift_350_neugamma = rgamma(10000, shape=, scale=)
+pop_4000_no_demo_350_neugamma = rgamma(10000, shape=, scale=)
+pop_4000_no_demo_shift_neugamma = rgamma(10000, shape=, scale=)
+pop_4000_no_demo_no_shift_neugamma = rgamma(10000, shape=, scale=)
+pop_4000_recap_neugamma = rgamma(10000, shape=, scale=)
+
+pop_4000_AW_AW_350_neugamma = sort(pop_4000_AW_AW_350_neugamma)
+pop_4000_neutral_350_neugamma = sort(pop_4000_neutral_350_neugamma)
+pop_4000_neutral_shift_350_neugamma = sort(pop_4000_neutral_shift_350_neugamma)
+pop_4000_no_demo_350_neugamma = sort(pop_4000_no_demo_350_neugamma)
+pop_4000_no_demo_shift_350_neugamma = sort(pop_4000_no_demo_shift_350_neugamma)
+pop_4000_no_demo_no_shift_350_neugamma = sort(pop_4000_no_demo_no_shift_350_neugamma)
+pop_4000_recap_350_neugamma = sort(pop_4000_recap_350_neugamma)
+
+# pop_4000_AW_AW_350_neugamma = c(pop_4000_AW_AW_350_neugamma[1:]) * 0 + 0.000000001, pop_4000_AW_AW_350_neugamma[:10000])
+# pop_4000_neutral_350_neugamma = c(pop_4000_neutral_350_neugamma[1:]) * 0 + 0.000000001, pop_4000_neutral_350_neugamma[:10000])
+# pop_4000_neutral_shift_350_neugamma = c(pop_4000_neutral_shift_350_neugamma[1:]) * 0 + 0.000000001, pop_4000_neutral_shift_350_neugamma[:10000])
+# pop_4000_no_demo_350_neugamma = c(pop_4000_no_demo_350_neugamma[1:]) * 0 + 0.000000001, pop_4000_no_demo_350_neugamma[:10000])
+# pop_4000_no_demo_shift_350_neugamma = c(pop_4000_no_demo_shift_350_neugamma[1:]) * 0 + 0.000000001, pop_4000_no_demo_shift_350_neugamma[:10000])
+# pop_4000_no_demo_no_shift_350_neugamma = c(pop_4000_no_demo_no_shift_350_neugamma[1:]) * 0 + 0.000000001, pop_4000_no_demo_no_shift_350_neugamma[:10000])
+# pop_4000_recap_350_neugamma = c(pop_4000_recap_350_neugamma[1:]) * 0 + 0.000000001, pop_4000_recap_350_neugamma[:10000])
+
+
+## binning
+ancestral <-rgamma(1000000, shape = 0.0988, scale = 4.45514494) 
+
+ancestral <-replace(ancestral, ancestral > 1, 1)
+
+ancestral_bin <- .bincode(ancestral,breaks=c(0,10e-5,10e-4,10e-3,10e-1),right=TRUE)
+
+ancestral_hist <-hist(ancestral_bin,breaks = c(0,1,2,3,4),freq = FALSE,main="AW",xlab="s",xaxt="n")
+
+ancestral_bar <- ancestral_hist$density
+
+recap_gamma_1 <- rgamma(100000, shape = 0.10166433, scale = 3.65199084)
+recap_gamma_1 <- replace(recap_gamma_1, recap_gamma_1 > 1, 1)
+bar_recap_gamma_1 <- compute_bar(recap_gamma_1)
+
+recap_gamma_2 <- rgamma(100000, shape = 0.09999237, scale = 4.84024034)
+recap_gamma_2 <- replace(recap_gamma_2, recap_gamma_2 > 1, 1)
+bar_recap_gamma_2 <- compute_bar(recap_gamma_2)
+
+recap_gamma_3 <- rgamma(100000, shape = 0.09876697, scale = 4.65686381)
+recap_gamma_3 <- replace(recap_gamma_3, recap_gamma_3 > 1, 1)
+bar_recap_gamma_3 <- compute_bar(recap_gamma_3)
+
+recap_gamma_4 <- rgamma(100000, shape = 0.10046261, scale = 4.71949352)
+recap_gamma_4 <- replace(recap_gamma_4, recap_gamma_4 > 1, 1)
+bar_recap_gamma_4 <- compute_bar(recap_gamma_4)
+
+recap_gamma_5 <- rgamma(100000, shape = 0.10225009, scale =  2.77497495)
+recap_gamma_5 <- replace(recap_gamma_5, recap_gamma_5 > 1, 1)
+bar_recap_gamma_5 <- compute_bar(recap_gamma_5)
+
+
+TAB_recap_gamma <- rbind(ancestral_bar, bar_recap_gamma_1, bar_recap_gamma_2, bar_recap_gamma_3, bar_recap_gamma_4, bar_recap_gamma_5) 
+
+barplot(TAB_recap_gamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="(Recapitulated) Gamma distributed DFE")
+legend("top", inset=.02, c("Ancestral", "Seed 1", "Seed 2", "Seed 3", "Seed 4", "Seed 5"), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
+       horiz=FALSE, cex=1)
+
+recap_neugamma_1 <- rgamma(10000, shape = 0.18405779, scale =  0.31091049)
+recap_neugamma_1 <- sort(recap_neugamma_1)
+recap_neugamma_1 <- replace(recap_neugamma_1, recap_neugamma_1 > 1, 1)
+recap_neugamma_1 <- c(recap_neugamma_1[1:1424] * 0 + 0.000000001, recap_neugamma_1[1425:10000])
+bar_recap_neugamma_1 <- compute_bar(recap_neugamma_1)
+
+recap_neugamma_2 <- rgamma(10000, shape = 0.18167239, scale = 0.46937791)
+recap_neugamma_2 <- sort(recap_neugamma_2)
+recap_neugamma_2 <- replace(recap_neugamma_2, recap_neugamma_2 > 1, 1)
+recap_neugamma_2 <- c(recap_neugamma_2[1:1478] * 0 + 0.000000001, recap_neugamma_2[1479:10000])
+bar_recap_neugamma_2 <- compute_bar(recap_neugamma_2)
+
+recap_neugamma_3 <- rgamma(10000, shape = 0.15829279, scale = 0.6388670)
+recap_neugamma_3 <- sort(recap_neugamma_3)
+recap_neugamma_3 <- replace(recap_neugamma_3, recap_neugamma_3 > 1, 1)
+recap_neugamma_3 <- c(recap_neugamma_3[1:1209] * 0 + 0.000000001, recap_neugamma_3[1210:10000])
+bar_recap_neugamma_3 <- compute_bar(recap_neugamma_3)
+
+recap_neugamma_4 <- rgamma(10000, shape = 0.17164891, scale = 1.0565724)
+recap_neugamma_4 <- sort(recap_neugamma_4)
+recap_neugamma_4 <- replace(recap_neugamma_4, recap_neugamma_4 > 1, 1)
+recap_neugamma_4 <- c(recap_neugamma_4[1:1546] * 0 + 0.000000001, recap_neugamma_4[1547:10000])
+bar_recap_neugamma_4 <- compute_bar(recap_neugamma_4)
+
+recap_neugamma_5 <- rgamma(10000, shape = 0.20197546, scale = 0.16501615)
+recap_neugamma_5 <- sort(recap_neugamma_5)
+recap_neugamma_5 <- replace(recap_neugamma_5, recap_neugamma_5 > 1, 1)
+recap_neugamma_5 <- c(recap_neugamma_5[1:1559] * 0 + 0.000000001, recap_neugamma_5[1600:10000])
+bar_recap_neugamma_5 <- compute_bar(recap_neugamma_5)
+
+TAB_recap_neugamma <- rbind(ancestral_bar, bar_recap_neugamma_1, bar_recap_neugamma_2, bar_recap_neugamma_3, bar_recap_neugamma_4, bar_recap_neugamma_5) 
+
+barplot(TAB_recap_neugamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="(Recapitulated) Neutral-gamma distributed DFE")
+legend("top", inset=.02, c("Ancestral", "Seed 1", "Seed 2", "Seed 3", "Seed 4", "Seed 5"), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
+       horiz=FALSE, cex=1)
+
+bar_gamma_1 <- compute_bar(seed_1_gamma)
+bar_gamma_2 <- compute_bar(seed_2_gamma)
+bar_gamma_3 <- compute_bar(seed_3_gamma)
+bar_gamma_4 <- compute_bar(seed_4_gamma)
+bar_gamma_5 <- compute_bar(seed_5_gamma)
+
+TAB_gamma <- rbind(ancestral_bar, bar_gamma_1, bar_gamma_2, bar_gamma_3, bar_gamma_4, bar_gamma_5) 
+
+barplot(TAB_gamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="(Shift to neutral) Gamma distributed DFE")
+legend("top", inset=.02, c("Ancestral", "Seed 1", "Seed 2", "Seed 3", "Seed 4", "Seed 5"), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
+       horiz=FALSE, cex=1)
+
+bar_neugamma_1 <- compute_bar(seed_1_neugamma)
+bar_neugamma_2 <- compute_bar(seed_2_neugamma)
+bar_neugamma_3 <- compute_bar(seed_3_neugamma)
+bar_neugamma_4 <- compute_bar(seed_4_neugamma)
+bar_neugamma_5 <- compute_bar(seed_5_neugamma)
+
+TAB_neugamma <- rbind(ancestral_bar, bar_neugamma_1, bar_neugamma_2, bar_neugamma_3, bar_neugamma_4, bar_neugamma_5) 
+
+barplot(TAB_neugamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="(Shift to neutral) Neutral-gamma distributed DFE")
+legend("top", inset=.02, c("Ancestral", "Seed 1", "Seed 2", "Seed 3", "Seed 4", "Seed 5"), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4"), 
+       horiz=FALSE, cex=1)
+
+
+____
+
 
 nonsyn_0 = c(29, 12, 9, 7, 8, 4, 9, 3)
 nonsyn_10 = c(35, 7, 9, 4, 8, 7, 12, 2)
