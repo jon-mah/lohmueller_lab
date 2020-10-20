@@ -23,7 +23,7 @@ initialize() {
   exonbase = 0; // Keeps track of the length of the exome region
   rates_vector = c();
   ends_vector = c();
-  while (exonbase < 2015) {
+  while (exonbase < 806) {
     // makes exon to be put inside the region
     rates_vector = c(rates_vector, 1e-8);
     ex_length = asInteger(rdunif(1, 100,200)) + 1;
@@ -32,7 +32,7 @@ initialize() {
     exonbase = exonbase + ex_length;
     ends_vector = c(ends_vector, base - 1);
 
-    rates_vector = c(rates_vector, 3.5e-5);
+    rates_vector = c(rates_vector, 3.5e-4);
     // makes intron to be put into the intron
     in_length = 1;
     initializeGenomicElement(g1, base, base + in_length - 1);
@@ -52,74 +52,75 @@ initialize() {
 }
 // After this population is defined we let this population burn in for
 // 10N=>10(80,000)=800,000 generations.
-800000
+// 800000
+80000
 {
   // Roughly 24,000 generations before the simulation ends, we bottleneck.
   // p1.setSubpopulationSize(19000);
   // no demographic change
 }
 // 10,000 generations before the simulation ends, we shift the DFE to neutral.
-814251
+81425
 {
   m2.setDistribution("f", 0.0);
 }
 // time sampling
 {
-  p1.outputVCFSample(15, filePath="../Data/no_demo_array/0_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/no_demo_fast_recomb_array_reduced/0_seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }
-814261
+81426
 {
-  p1.outputVCFSample(15, filePath="../Data/no_demo_array/10_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/no_demo_fast_recomb_array_reduced/10_seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }
-814271
+81427
 {
-  p1.outputVCFSample(15, filePath="../Data/no_demo_array/20_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/no_demo_fast_recomb_array_reduced/20_seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }
-814281
+81428
 {
-  p1.outputVCFSample(15, filePath="../Data/no_demo_array/30_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/no_demo_fast_recomb_array_reduced/30_seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }
-814291
+81429
 {
-  p1.outputVCFSample(15, filePath="../Data/no_demo_array/40_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/no_demo_fast_recomb_array_reduced/40_seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }
-814301
+81430
 {
-  p1.outputVCFSample(15, filePath="../Data/no_demo_array/50_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/no_demo_fast_recomb_array_reduced/50_seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }
-814351
+81435
 {
-  p1.outputVCFSample(15, filePath="../Data/no_demo_array/100_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/no_demo_fast_recomb_array_reduced/100_seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }
-814401
+81440
 {
-  p1.outputVCFSample(15, filePath="../Data/no_demo_array/150_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/no_demo_fast_recomb_array_reduced/150_seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }
-814451
+81445
 {
-  p1.outputVCFSample(15, filePath="../Data/no_demo_array/200_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/no_demo_fast_recomb_array_reduced/200_seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }
-814501
+81450
 {
-  p1.outputVCFSample(15, filePath="../Data/no_demo_array/250_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/no_demo_fast_recomb_array_reduced/250_seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }
-814551
+81455
 {
-  p1.outputVCFSample(15, filePath="../Data/no_demo_array/300_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/no_demo_fast_recomb_array_reduced/300_seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }
-814601
+81460
 {
-  p1.outputVCFSample(15, filePath="../Data/no_demo_array/350_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/no_demo_fast_recomb_array_reduced/350_seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }
-814651
+81465
 {
-  p1.outputVCFSample(15, filePath="../Data/no_demo_array/400_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/no_demo_fast_recomb_array_reduced/400_seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }
-814701
+81470
 {
-  p1.outputVCFSample(15, filePath="../Data/no_demo_array/450_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/no_demo_fast_recomb_array_reduced/450_seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }
-814751
+81475
 {
-  p1.outputVCFSample(15, filePath="../Data/no_demo_array/500_seed_" + init_seed + "_chrom_" + chrom +".vcf");
+  p1.outputVCFSample(15, filePath="../Data/no_demo_fast_recomb_array_reduced/500_seed_" + init_seed + "_chrom_" + chrom +".vcf");
 }
