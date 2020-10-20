@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -t 1:80
+#$ -t 1:40
 #$ -cwd
 #$ -V
 #$ -l h_data=10G

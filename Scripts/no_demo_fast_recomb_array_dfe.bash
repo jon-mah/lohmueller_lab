@@ -1,17 +1,18 @@
 #!/bin/bash
-#$ -t 1:40
 #$ -cwd
 #$ -V
-#$ -l h_data=10G
-#$ -l h_rt=9:55:00
+#$ -m bea
+#$ -l h_data=1G
+#$ -l h_rt=04:00:00
+#$ -l h_vmem=50G
 
 # INPUT ARGUMENTS
 seed=1
 num_ind=8 # Number of samples from single population.
-prefix="../Data/no_demo_fast_recomb_array/seed_${seed}" # Output prefix, and input prefix of given vcf
 easySFS_proj=16 # Number of chromosomes that sample is projected down into.
+prefix="../Data/no_demo_fast_recomb_array/300_seed_${seed}" # Output prefix, and input prefix of given vcf
 
-# DERIVED Arguments
+# DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
 syn_inputvcf="${prefix}_syn.vcf"
 nonsyn_inputvcf="${prefix}_nonsyn.vcf"
@@ -21,9 +22,4 @@ syn_easySFS_outdir="${prefix}_easySFS_output_syn/"
 nonsyn_easySFS_outdir="${prefix}_easySFS_output_nonsyn/"
 num_samples=$(($num_ind * 2))
 
-# If `SLiM` is not an executable, then comment out the next line.
-slim -d chrom=$SGE_TASK_ID -d init_seed=$seed no_demo_fast_recomb_array_simulation.slim
-
-# If `SLiM` is not an executable, then uncomment the next line and
-# provide a path to `SLiM`.
-# ./slim -d chrom=$SGE_TASK_ID -d init_seed=$seed AW_to_neutral_simulation.slim
+python fitdadi_infer_DFE.py ${syn_easySFS_outdir}dadi/pop1.sfs ${nonsyn_easySFS_outdir}dadi/pop1.sfs ${prefix}_fitdadi_output/ --breed "LB"
