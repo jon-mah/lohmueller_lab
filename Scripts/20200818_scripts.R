@@ -228,6 +228,18 @@ pop_4000_no_demo_no_shift_nonsyn_300 = c(68, 19, 32, 21, 14, 9, 16, 4)
 pop_4000_no_demo_no_shift_nonsyn_350 = c(56, 33, 24, 21, 13, 15, 17, 3)
 pop_4000_no_demo_no_shift_nonsyn_400 = c(69, 38, 18, 17, 15, 18, 16, 6)
 
+full_no_demo_nonsyn_0 = c(1420, 233, 47, 12, 1, 0, 1, 0) * 2
+full_no_demo_nonsyn_50 = c(1466, 194, 39, 15, 3, 0, 0, 0) * 2 
+full_no_demo_nonsyn_100 = c(1455, 174, 50, 8, 2, 0, 0, 0) * 2
+full_no_demo_nonsyn_150 = c(1436, 241, 54, 8, 3, 0, 0, 0) * 2
+full_no_demo_nonsyn_200 = c(1463, 207, 44, 16, 3, 2, 0, 0) * 2
+
+full_no_demo_syn_0 = c(1639, 295, 70, 8, 4, 1, 2, 0) * 2
+full_no_demo_syn_50 = c(1586, 286, 66, 7, 2, 0, 0, 0) * 2
+full_no_demo_syn_100 = c(1668, 258, 68, 11, 0, 0, 0, 0) * 2
+full_no_demo_syn_150 = c(1599, 284, 66, 12, 4, 0, 0, 0) * 2
+full_no_demo_syn_200 = c(1699, 249, 65, 15, 6, 2, 0, 0) * 2
+
 fold_sfs <- function(given_sfs) {
   return_sfs = c(given_sfs[1] + given_sfs[15], 
                  given_sfs[2] + given_sfs[14], 
@@ -2003,6 +2015,62 @@ p_df <- ggplot(data=df, aes(x=x_axis, y=pop_4000_no_demo_shift_syn_0, color = 's
                               'syn_300', 'syn_400'),
                      labels=c('syn_0', 'syn_100', 'syn_200', 
                               'syn_300', 'syn_400')) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggtitle('Generations since shift, No Demographic Shift (Synonymous)')
+p_df
+
+df = data.frame(full_no_demo_nonsyn_0, full_no_demo_nonsyn_50,
+                full_no_demo_nonsyn_100, full_no_demo_nonsyn_150,
+                full_no_demo_nonsyn_200, x_axis = x_axis)
+
+p_df <- ggplot(data=df, aes(x=x_axis, y=full_no_demo_nonsyn_0, color = 'nonsyn_0')) +
+  geom_point() +
+  geom_line() +
+  geom_point(shape=1, aes(x=x_axis, y=full_no_demo_nonsyn_50, color='nonsyn_50')) +
+  geom_line(aes(x=x_axis, y=full_no_demo_nonsyn_50, color='nonsyn_50')) +
+  geom_point(shape=1, aes(x=x_axis, y=full_no_demo_nonsyn_100, color='nonsyn_100')) +
+  geom_line(aes(x=x_axis, y=full_no_demo_nonsyn_100, color='nonsyn_100')) +
+  geom_point(shape=1, aes(x=x_axis, y=full_no_demo_nonsyn_150, color='nonsyn_150')) +
+  geom_line(aes(x=x_axis, y=full_no_demo_nonsyn_150, color='nonsyn_150')) +
+  geom_point(shape=1, aes(x=x_axis, y=full_no_demo_nonsyn_200, color='nonsyn_200')) +
+  geom_line(aes(x=x_axis, y=full_no_demo_nonsyn_200, color='nonsyn_200')) +
+  scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
+  scale_y_continuous(name='Number of SNPs') +
+  scale_color_manual(values=c('black', 'violet', 'green', 'orange', 'grey'),
+                     name='Data Type',
+                     breaks=c('nonsyn_0', 'nonsyn_50', 'nonsyn_100', 
+                              'nonsyn_150', 'nonsyn_200'),
+                     labels=c('nonsyn_0', 'nonsyn_50', 'nonsyn_100', 
+                              'nonsyn_150', 'nonsyn_200')) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggtitle('Generations since shift, No Demographic Shift (Nonsynonymous)')
+p_df
+
+df = data.frame(full_no_demo_syn_0, full_no_demo_syn_50,
+                full_no_demo_syn_100, full_no_demo_syn_150,
+                full_no_demo_syn_200, x_axis = x_axis)
+
+p_df <- ggplot(data=df, aes(x=x_axis, y=full_no_demo_syn_0, color = 'syn_0')) +
+  geom_point() +
+  geom_line() +
+  geom_point(shape=1, aes(x=x_axis, y=full_no_demo_syn_50, color='syn_50')) +
+  geom_line(aes(x=x_axis, y=full_no_demo_syn_50, color='syn_50')) +
+  geom_point(shape=1, aes(x=x_axis, y=full_no_demo_syn_100, color='syn_100')) +
+  geom_line(aes(x=x_axis, y=full_no_demo_syn_100, color='syn_100')) +
+  geom_point(shape=1, aes(x=x_axis, y=full_no_demo_syn_150, color='syn_150')) +
+  geom_line(aes(x=x_axis, y=full_no_demo_syn_150, color='syn_150')) +
+  geom_point(shape=1, aes(x=x_axis, y=full_no_demo_syn_200, color='syn_200')) +
+  geom_line(aes(x=x_axis, y=full_no_demo_syn_200, color='syn_200')) +
+  scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
+  scale_y_continuous(name='Number of SNPs') +
+  scale_color_manual(values=c('black', 'violet', 'green', 'orange', 'grey'),
+                     name='Data Type',
+                     breaks=c('syn_0', 'syn_50', 'syn_100', 
+                              'syn_150', 'syn_200'),
+                     labels=c('syn_0', 'syn_50', 'syn_100', 
+                              'syn_150', 'syn_200')) +
   theme_bw() +
   theme(plot.title = element_text(hjust = 0.5)) +
   ggtitle('Generations since shift, No Demographic Shift (Synonymous)')

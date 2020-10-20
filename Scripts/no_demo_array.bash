@@ -2,9 +2,8 @@
 #$ -t 1:80
 #$ -cwd
 #$ -V
-#$ -m a
 #$ -l h_data=10G
-#$ -l h_rt=3:55:00
+#$ -l h_rt=9:55:00
 
 # INPUT ARGUMENTS
 seed=1
