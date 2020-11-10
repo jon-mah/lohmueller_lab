@@ -522,7 +522,7 @@ class DemographicAndDFEInference():
 
         gamma_max_likelihoods.sort()
         neugamma_max_likelihoods.sort()
-        neutral_max_likelihoods.sort()
+        # neutral_max_likelihoods.sort()
 
         logger.info('Integrating expected site-frequency spectrum.')
 
