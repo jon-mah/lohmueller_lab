@@ -1,0 +1,29 @@
+// Author: Jonathan Mah
+// This is a skeleton script to simulate sequences in parallel.
+initialize() {
+  // Initialize random seed.
+  setSeed(chrom + (init_seed - 1) * 10000);
+
+  // Mutation rate
+  initializeMutationRate(1e-8);
+
+  // m1 mutation type: Neutral for synonymous sites.
+  initializeMutationType("m1", 0.0, "f", 0.0);
+
+  // g1 genomic element type: Uniform genomic element.
+  initializeGenomicElementType("g1", m1, 1);
+
+  // Initialize recombination rate.
+  initializeRecombinationRate(1e-8);
+
+}
+// First generation
+1
+{
+  sim.addSubpop("p1", 500);
+}
+
+1000
+{
+  sim.outputFull();
+}
