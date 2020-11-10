@@ -168,6 +168,16 @@ pop_4000_neutral_shift_nonsyn_300 = c(46, 23, 16, 20, 17, 19, 17, 9)
 pop_4000_neutral_shift_nonsyn_350 = c(45, 23, 22, 18, 30, 7, 18, 10)
 pop_4000_neutral_shift_nonsyn_400 = c(52, 21, 22, 18, 23, 15, 15, 10)
 
+pop_4000_working_neutral_shift_nonsyn_0 = c(56, 30, 25, 20, 13, 20, 15, 5)
+pop_4000_working_neutral_shift_nonsyn_50 = c(50, 38, 24, 12, 24, 15, 14, 7)
+pop_4000_working_neutral_shift_nonsyn_100 = c(68, 29, 15, 21, 17, 16, 21, 5)
+pop_4000_working_neutral_shift_nonsyn_150 = c(63, 29, 21, 20, 18, 19, 18, 5)
+pop_4000_working_neutral_shift_nonsyn_200 = c(60, 30, 19, 18, 20, 18, 14, 10)
+pop_4000_working_neutral_shift_nonsyn_250 = c(32, 35, 28, 23, 22, 10, 18, 5)
+pop_4000_working_neutral_shift_nonsyn_300 = c(45, 28, 23, 14, 13, 24, 23, 7)
+pop_4000_working_neutral_shift_nonsyn_350 = c(48, 23, 29, 23, 17, 22, 11, 8)
+pop_4000_working_neutral_shift_nonsyn_400 = c(56, 24, 19, 16, 21, 16, 19, 10)
+
 pop_4000_no_demo_nonsyn_0 = c(56, 30, 25, 20, 13, 20, 15, 5)
 pop_4000_no_demo_nonsyn_50 = c(49, 35, 22, 22, 13, 14, 17, 6)
 pop_4000_no_demo_nonsyn_100 = c(60, 32, 20, 15, 18, 17, 13, 9)
@@ -1223,6 +1233,7 @@ legend("top", inset=.02, c("AW_AW", "neutral", "neutral_shift", "no_demo", "no_d
 pop_4000_AW_AW_350_gamma = rgamma(10000, shape=8.70426901e-02, scale=5.78155986e+03)
 pop_4000_neutral_350_gamma = rgamma(10000, shape=1.04124511e-03, scale=2.68516104e+02)
 pop_4000_neutral_shift_350_gamma = rgamma(10000, shape=8.57675970e-02, scale=3.39075559e+03)
+pop_4000_working_neutral_shift_350_gamma = rgamma(10000, shape=8.37675970e-02, scale=3.49075559e+03)
 pop_4000_no_demo_350_gamma = rgamma(10000, shape=9.79405888e-02, scale=3.51131482e+03)
 pop_4000_no_demo_shift_350_gamma = rgamma(10000, shape=9.91500302e-02, scale=2.80774613e+03)
 pop_4000_no_demo_no_shift_350_gamma = rgamma(10000, shape=9.42719126e-02, scale=1.85529527e+03)
@@ -1237,6 +1248,9 @@ pop_4000_neutral_350_gamma_bar = compute_bar(pop_4000_neutral_350_gamma)
 pop_4000_neutral_shift_350_gamma = replace(pop_4000_neutral_shift_350_gamma, pop_4000_neutral_shift_350_gamma > 1, 1)
 pop_4000_neutral_shift_350_gamma_bar = compute_bar(pop_4000_neutral_shift_350_gamma)
 
+pop_4000_working_neutral_shift_350_gamma = replace(pop_4000_working_neutral_shift_350_gamma, pop_4000_working_neutral_shift_350_gamma > 1, 1)
+pop_4000_working_neutral_shift_350_gamma_bar = compute_bar(pop_4000_working_neutral_shift_350_gamma)
+
 pop_4000_no_demo_350_gamma = replace(pop_4000_no_demo_350_gamma, pop_4000_no_demo_350_gamma > 1, 1)
 pop_4000_no_demo_350_gamma_bar = compute_bar(pop_4000_no_demo_350_gamma)
 
@@ -1249,13 +1263,13 @@ pop_4000_no_demo_no_shift_350_gamma_bar = compute_bar(pop_4000_no_demo_no_shift_
 pop_4000_recap_350_gamma = replace(pop_4000_recap_350_gamma, pop_4000_recap_350_gamma > 1, 1)
 pop_4000_recap_350_gamma_bar = compute_bar(pop_4000_recap_350_gamma)
 
-pop_4000_AW_AW_350_neugamma = replace(pop_4000_AW_AW_350_neugamma, pop_4000_AW_AW_350_neugamma > 1, 1)
-pop_4000_neutral_350_neugamma = replace(pop_4000_neutral_350_neugamma, pop_4000_neutral_350_neugamma > 1, 1)
-pop_4000_neutral_shift_350_neugamma = replace(pop_4000_neutral_shift_350_neugamma, pop_4000_neutral_shift_350_neugamma > 1, 1)
-pop_4000_no_demo_350_neugamma = replace(pop_4000_no_demo_350_neugamma, pop_4000_no_demo_350_neugamma > 1, 1)
-pop_4000_no_demo_shift_350_neugamma = replace(pop_4000_no_demo_shift_350_neugamma, pop_4000_no_demo_shift_350_neugamma > 1, 1)
-pop_4000_no_demo_shift_350_neugamma = replace(pop_4000_no_demo_no_shift_350_neugamma, pop_4000_no_demo_no_shift_350_neugamma > 1, 1)
-pop_4000_recap_350_neugamma = replace(pop_4000_recap_350_neugamma, pop_4000_recap_350_neugamma > 1, 1)
+# pop_4000_AW_AW_350_neugamma = replace(pop_4000_AW_AW_350_neugamma, pop_4000_AW_AW_350_neugamma > 1, 1)
+# pop_4000_neutral_350_neugamma = replace(pop_4000_neutral_350_neugamma, pop_4000_neutral_350_neugamma > 1, 1)
+# pop_4000_neutral_shift_350_neugamma = replace(pop_4000_neutral_shift_350_neugamma, pop_4000_neutral_shift_350_neugamma > 1, 1)
+# pop_4000_no_demo_350_neugamma = replace(pop_4000_no_demo_350_neugamma, pop_4000_no_demo_350_neugamma > 1, 1)
+# pop_4000_no_demo_shift_350_neugamma = replace(pop_4000_no_demo_shift_350_neugamma, pop_4000_no_demo_shift_350_neugamma > 1, 1)
+# pop_4000_no_demo_shift_350_neugamma = replace(pop_4000_no_demo_no_shift_350_neugamma, pop_4000_no_demo_no_shift_350_neugamma > 1, 1)
+# pop_4000_recap_350_neugamma = replace(pop_4000_recap_350_neugamma, pop_4000_recap_350_neugamma > 1, 1)
 
 TAB_recap_gamma <- rbind(pop_4000_AW_AW_350_gamma_bar,
                          pop_4000_neutral_350_gamma_bar,
@@ -1271,6 +1285,20 @@ barplot(TAB_recap_gamma, beside=T, xlab="s", ylab="Density",
         main="350 generations after shift in DFE")
 legend("top", inset=.02, c("AW_AW", "neutral", "neutral_shift", "no_demo", "no_demo_shift", "no_demo_no_shift", "recap"), 
        fill=c("firebrick1", "dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick3", "dodgerblue4", "dodgerblue3"), 
+       horiz=FALSE, cex=1)
+
+TAB_recap_gamma <- rbind(pop_4000_AW_AW_350_gamma_bar,
+                         pop_4000_recap_350_gamma_bar,
+                         pop_4000_neutral_shift_350_gamma_bar,
+                         pop_4000_working_neutral_shift_350_gamma_bar,
+                         pop_4000_neutral_350_gamma_bar)
+
+barplot(TAB_recap_gamma, beside=T, xlab="s", ylab="Density", 
+        col=c("dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick1", "deepskyblue"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="350 generations after shift in DFE")
+legend("top", inset=.02, c("AW_AW", "recap", "neutral_shift", "working_neutral_shift", "neutral"), 
+       fill=c("dodgerblue2", "dodgerblue", "deepskyblue2", "firebrick1", "deepskyblue"), 
        horiz=FALSE, cex=1)
 
 # Gamma distributions of 400th gen

@@ -361,7 +361,7 @@ class DemographicAndDFEInference():
         with open(inferred_demography, 'w') as f:
             f.write('Beginning with demographic inference.\n')
             max_likelihood = -1e25
-            for i in range(10):
+            for i in range(1):
                 # Start at initial guess
                 p0 = initial_guess
                 # Randomly perturb parameters before optimization.
@@ -449,7 +449,7 @@ class DemographicAndDFEInference():
 
         gamma_max_likelihoods = []
         gamma_guesses = dict()
-        for i in range(10):
+        for i in range(1):
             p0 = initial_guess
             p0 = dadi.Misc.perturb_params(p0, lower_bound=lower_bound,
                                           upper_bound=upper_bound)
@@ -474,7 +474,7 @@ class DemographicAndDFEInference():
         upper_bound = [1, 1, upper_beta]
         neugamma_max_likelihoods = []
         neugamma_guesses = dict()
-        for i in range(10):
+        for i in range(1):
             p0_neugamma = initial_guess
             p0_neugamma = dadi.Misc.perturb_params(p0_neugamma,
                                                    lower_bound=lower_bound,
@@ -488,7 +488,7 @@ class DemographicAndDFEInference():
                                                      lower_bound=lower_bound,
                                                      upper_bound=upper_bound,
                                                      verbose=len(p0_neugamma),
-                                                     maxiter=25))
+                                                     maxiter=1))
             logger.info('Finished optimization, results are {0}.'.format(popt))
             neugamma_max_likelihoods.append(popt[0])
             neugamma_guesses[popt[0]] = popt
