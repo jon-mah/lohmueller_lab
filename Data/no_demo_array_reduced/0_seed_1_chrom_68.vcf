@@ -1,5 +1,5 @@
 ##fileformat=VCFv4.2
-##fileDate=20201020
+##fileDate=20201109
 ##source=SLiM
 ##INFO=<ID=MID,Number=.,Type=Integer,Description="Mutation ID in SLiM">
 ##INFO=<ID=S,Number=.,Type=Float,Description="Selection Coefficient">
@@ -12,5 +12,5 @@
 ##INFO=<ID=MULTIALLELIC,Number=0,Type=Flag,Description="Multiallelic">
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	i0	i1	i2	i3	i4	i5	i6	i7	i8	i9	i10	i11	i12	i13	i14
-1	251	.	A	T	1000	PASS	MID=16195;S=-5.98079e-10;DOM=0.5;PO=1;GO=69856;MT=2;AC=10;DP=1000	GT	0|0	0|0	1|0	0|0	0|1	1|1	1|1	0|1	0|0	1|0	0|1	0|1	0|0	0|0	0|0
+1	251	.	A	T	1000	PASS	MID=16195;S=0;DOM=0.5;PO=1;GO=69856;MT=2;AC=10;DP=1000	GT	0|0	0|0	1|0	0|0	0|1	1|1	1|1	0|1	0|0	1|0	0|1	0|1	0|0	0|0	0|0
 1	1183	.	A	T	1000	PASS	MID=17528;S=0;DOM=0;PO=1;GO=75237;MT=1;AC=2;DP=1000	GT	0|0	0|0	0|0	0|0	0|0	0|0	1|1	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
