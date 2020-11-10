@@ -449,7 +449,7 @@ class DemographicAndDFEInference():
 
         gamma_max_likelihoods = []
         gamma_guesses = dict()
-        for i in range(1):
+        for i in range(5):
             p0 = initial_guess
             p0 = dadi.Misc.perturb_params(p0, lower_bound=lower_bound,
                                           upper_bound=upper_bound)
