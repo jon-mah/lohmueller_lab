@@ -1233,7 +1233,7 @@ legend("top", inset=.02, c("AW_AW", "neutral", "neutral_shift", "no_demo", "no_d
 pop_4000_AW_AW_350_gamma = rgamma(10000, shape=8.70426901e-02, scale=5.78155986e+03)
 pop_4000_neutral_350_gamma = rgamma(10000, shape=1.04124511e-03, scale=2.68516104e+02)
 pop_4000_neutral_shift_350_gamma = rgamma(10000, shape=8.57675970e-02, scale=3.39075559e+03)
-pop_4000_working_neutral_shift_350_gamma = rgamma(10000, shape=8.37675970e-02, scale=3.49075559e+03)
+pop_4000_working_neutral_shift_350_gamma = rgamma(10000, shape=7.53185953e-02, scale=3.75002654e+03)
 pop_4000_no_demo_350_gamma = rgamma(10000, shape=9.79405888e-02, scale=3.51131482e+03)
 pop_4000_no_demo_shift_350_gamma = rgamma(10000, shape=9.91500302e-02, scale=2.80774613e+03)
 pop_4000_no_demo_no_shift_350_gamma = rgamma(10000, shape=9.42719126e-02, scale=1.85529527e+03)
@@ -1799,6 +1799,111 @@ p_df <- ggplot(data=df, aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_0, color =
   theme_bw() +
   theme(plot.title = element_text(hjust = 0.5)) +
   ggtitle('Generations since shift, Shift to Neutral')
+
+x_axis = 1:8
+
+df = data.frame(pop_4000_neutral_shift_nonsyn_0, pop_4000_neutral_shift_nonsyn_50, 
+                pop_4000_neutral_shift_nonsyn_100, pop_4000_neutral_shift_nonsyn_150, 
+                pop_4000_neutral_shift_nonsyn_200, pop_4000_neutral_shift_nonsyn_250, 
+                pop_4000_neutral_shift_nonsyn_300, pop_4000_neutral_shift_nonsyn_350,
+                pop_4000_neutral_shift_nonsyn_400, x_axis = x_axis)
+
+p_df <- ggplot(data=df, aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_0, color = 'nonsyn_0')) +
+  geom_point() +
+  geom_line() +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_50, color='nonsyn_50')) +
+  geom_line(aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_50, color='nonsyn_50')) +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_100, color='nonsyn_100')) +
+  geom_line(aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_100, color='nonsyn_100')) +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_150, color='nonsyn_150')) +
+  geom_line(aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_150, color='nonsyn_150')) +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_200, color='nonsyn_200')) +
+  geom_line(aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_200, color='nonsyn_200')) +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_250, color='nonsyn_250')) +
+  geom_line(aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_250, color='nonsyn_250')) +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_300, color='nonsyn_300')) +
+  geom_line(aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_300, color='nonsyn_300')) +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_350, color='nonsyn_350')) +
+  geom_line(aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_350, color='nonsyn_350')) +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_400, color='nonsyn_400')) +
+  geom_line(aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_400, color='nonsyn_400')) +
+  scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
+  scale_y_continuous(name='Number of SNPs') +
+  scale_color_manual(values=c('black', 'purple', 'violet', 'blue', 'green', 'yellow', 'orange', 'red', 'grey'),
+                     name='Data Type',
+                     breaks=c('nonsyn_0', 'nonsyn_50', 'nonsyn_100', 'nonsyn_150', 'nonsyn_200', 
+                              'nonsyn_250', 'nonsyn_300', 'nonsyn_350', 'nonsyn_400'),
+                     labels=c('nonsyn_0', 'nonsyn_50', 'nonsyn_100', 'nonsyn_150', 'nonsyn_200', 
+                              'nonsyn_250', 'nonsyn_300', 'nonsyn_350', 'nonsyn_400')) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggtitle('Generations since shift, Shift to Neutral')
+
+p_df
+
+x_axis = 1:8
+
+df = data.frame(pop_4000_neutral_shift_nonsyn_0,
+                pop_4000_neutral_shift_nonsyn_100,
+                pop_4000_neutral_shift_nonsyn_200, 
+                pop_4000_neutral_shift_nonsyn_300,
+                pop_4000_neutral_shift_nonsyn_400, x_axis = x_axis)
+
+p_df <- ggplot(data=df, aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_0, color = 'nonsyn_0')) +
+  geom_point() +
+  geom_line() +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_100, color='nonsyn_100')) +
+  geom_line(aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_100, color='nonsyn_100')) +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_200, color='nonsyn_200')) +
+  geom_line(aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_200, color='nonsyn_200')) +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_300, color='nonsyn_300')) +
+  geom_line(aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_300, color='nonsyn_300')) +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_400, color='nonsyn_400')) +
+  geom_line(aes(x=x_axis, y=pop_4000_neutral_shift_nonsyn_400, color='nonsyn_400')) +
+  scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
+  scale_y_continuous(name='Number of SNPs') +
+  scale_color_manual(values=c('black', 'violet', 'blue', 'yellow', 'red'),
+                     name='Data Type',
+                     breaks=c('nonsyn_0', 'nonsyn_100', 'nonsyn_200', 
+                              'nonsyn_300', 'nonsyn_400'),
+                     labels=c('nonsyn_0', 'nonsyn_100', 'nonsyn_200', 
+                              'nonsyn_300', 'nonsyn_400')) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggtitle('Generations since shift, Shift to Neutral (bugged)')
+
+p_df
+
+x_axis = 1:8
+
+df = data.frame(pop_4000_working_neutral_shift_nonsyn_0,
+                pop_4000_working_neutral_shift_nonsyn_100,
+                pop_4000_working_neutral_shift_nonsyn_200, 
+                pop_4000_working_neutral_shift_nonsyn_300,
+                pop_4000_working_neutral_shift_nonsyn_400, x_axis = x_axis)
+
+p_df <- ggplot(data=df, aes(x=x_axis, y=pop_4000_working_neutral_shift_nonsyn_0, color = 'nonsyn_0')) +
+  geom_point() +
+  geom_line() +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_working_neutral_shift_nonsyn_100, color='nonsyn_100')) +
+  geom_line(aes(x=x_axis, y=pop_4000_working_neutral_shift_nonsyn_100, color='nonsyn_100')) +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_working_neutral_shift_nonsyn_200, color='nonsyn_200')) +
+  geom_line(aes(x=x_axis, y=pop_4000_working_neutral_shift_nonsyn_200, color='nonsyn_200')) +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_working_neutral_shift_nonsyn_300, color='nonsyn_300')) +
+  geom_line(aes(x=x_axis, y=pop_4000_working_neutral_shift_nonsyn_300, color='nonsyn_300')) +
+  geom_point(shape=1, aes(x=x_axis, y=pop_4000_working_neutral_shift_nonsyn_400, color='nonsyn_400')) +
+  geom_line(aes(x=x_axis, y=pop_4000_working_neutral_shift_nonsyn_400, color='nonsyn_400')) +
+  scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
+  scale_y_continuous(name='Number of SNPs') +
+  scale_color_manual(values=c('black', 'violet', 'blue', 'yellow', 'red'),
+                     name='Data Type',
+                     breaks=c('nonsyn_0', 'nonsyn_100', 'nonsyn_200', 
+                              'nonsyn_300', 'nonsyn_400'),
+                     labels=c('nonsyn_0', 'nonsyn_100', 'nonsyn_200', 
+                              'nonsyn_300', 'nonsyn_400')) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggtitle('Generations since shift, Shift to Neutral (fixed?)')
 
 p_df
 
