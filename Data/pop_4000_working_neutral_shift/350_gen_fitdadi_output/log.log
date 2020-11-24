@@ -1,0 +1,32 @@
+2020-11-10 09:40:24,988 - INFO - Beginning execution of fitdadi_infer_DFE.py in directory /u/home/j/jonmah/lohmueller_lab/Scripts
+
+2020-11-10 09:40:24,989 - INFO - Progress is being logged to ../Data/pop_4000_working_neutral_shift/350_gen_fitdadi_output/log.log
+
+2020-11-10 09:40:24,989 - INFO - Parsed the following arguments:
+	breed = LB
+	outprefix = ../Data/pop_4000_working_neutral_shift/350_gen_fitdadi_output/
+	nonsyn_input_sfs = ../Data/pop_4000_working_neutral_shift/350_gen_easySFS_output_nonsyn/dadi/pop1.sfs
+	syn_input_sfs = ../Data/pop_4000_working_neutral_shift/350_gen_easySFS_output_syn/dadi/pop1.sfs
+
+2020-11-10 09:40:24,993 - INFO - Beginning optimization with guess, [0.31645644 0.15841747].
+2020-11-10 09:40:25,558 - INFO - Finished optimization with guess, [0.31645644 0.15841747].
+2020-11-10 09:40:25,559 - INFO - Best fit parameters: [0.70259026 0.43169024].
+2020-11-10 09:40:25,582 - INFO - Maximum log composite likelihood: -20.9439613619.
+2020-11-10 09:40:25,583 - INFO - Optimal value of theta: 52.8779652411.
+2020-11-10 09:40:25,587 - INFO - Finished demographic inference.
+2020-11-10 09:40:25,587 - INFO - Beginning DFE inference.
+2020-11-10 09:40:51,094 - INFO - Beginning optimization with guess, [9.02366775e-02 1.50358106e+02].
+2020-11-10 09:40:57,037 - INFO - Finished optomization, results are [-24.97487729423839 array([7.60254884e-02, 3.85637603e+03])].
+2020-11-10 09:40:57,038 - INFO - Beginning optimization with guess, [4.71316722e-02 1.77865373e+02].
+2020-11-10 09:41:02,290 - INFO - Finished optomization, results are [-24.989428304465097 array([7.58114992e-02, 3.81220028e+03])].
+2020-11-10 09:41:02,292 - INFO - Beginning optimization with guess, [4.50388608e-02 2.00912421e+02].
+2020-11-10 09:41:15,459 - INFO - Finished optomization, results are [-24.94707912792489 array([7.72028739e-02, 3.82834877e+03])].
+2020-11-10 09:41:15,461 - INFO - Beginning optimization with guess, [9.92958699e-02 1.75200028e+02].
+2020-11-10 09:41:20,915 - INFO - Finished optomization, results are [-25.01916944517515 array([7.53185953e-02, 3.75002654e+03])].
+2020-11-10 09:41:20,915 - INFO - Beginning optimization with guess, [1.04550499e-01 1.67127865e+02].
+2020-11-10 09:41:27,111 - INFO - Finished optomization, results are [-25.044004241617195 array([7.48019151e-02, 3.73498768e+03])].
+2020-11-10 09:41:27,111 - INFO - Beginning optimization with guess, [9.90000000e-01 4.97026925e-02 1.10894180e+02].
+2020-11-10 09:41:28,312 - INFO - Finished optimization, results are [-45.30463718472916 array([3.60592304e-01, 5.01487551e-02, 1.11189660e+02])].
+2020-11-10 09:41:28,313 - INFO - Finished DFE inference.
+2020-11-10 09:41:28,313 - INFO - Integrating expected site-frequency spectrum.
+2020-11-10 09:41:28,313 - INFO - Outputing results.

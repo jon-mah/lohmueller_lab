@@ -2,13 +2,13 @@
 #$ -cwd
 #$ -V
 #$ -m bea
-#$ -l h_data=1G
+#$ -l h_data=10G
 #$ -l h_rt=02:00:00
 
 # INPUT ARGUMENTS
-seed=5
+seed=1
 num_ind=8 # Number of samples from single population.
-prefix="../Data/AW_to_neutral/seed_${seed}" # Output prefix, and input prefix of given vcf
+prefix="../Data/AW_time_neutral/1000_seed_${seed}" # Output prefix, and input prefix of given vcf
 easySFS_proj=16 # Number of chromosomes that sample is projected down into.
 
 # DERIVED ARGUMENTS
@@ -23,13 +23,13 @@ num_samples=$(($num_ind * 2))
 
 # Merge all `.vcf` files.
 
-cp ${prefix}_chrom_1.vcf ${prefix}.vcf
+# cp ${prefix}_chrom_1.vcf ${prefix}.vcf
 
-for i in {2..1000}
-do
-  sed -i -r "s/^1\t/${i}\t/g" ${prefix}_chrom_${i}.vcf
-  grep ";MT=1\|;MT=2" ${prefix}_chrom_${i}.vcf >> ${prefix}.vcf
-done
+# for i in {2..800}
+# do
+#   sed -i -r "s/^1\t/${i}\t/g" ${prefix}_chrom_${i}.vcf
+#   grep ";MT=1\|;MT=2" ${prefix}_chrom_${i}.vcf >> ${prefix}.vcf
+# done
 
 # Separate input `.vcf` file into synonymous and nonsynonymous.
 grep "#\|;MT=1" ${prefix}.vcf > $syn_inputvcf

@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -t 1-1000:1
+#$ -t 1-800:1
 #$ -cwd
 #$ -V
 #$ -m a
@@ -23,7 +23,10 @@ nonsyn_easySFS_outdir="${prefix}_easySFS_output_nonsyn/"
 num_samples=$(($num_ind * 2))
 
 # If `SLiM` is not an executable, then comment out the next line.
-slim -d chrom=$SGE_TASK_ID -d init_seed=$seed AW_to_neutral_simulation.slim
+slim -d chrom=$SGE_TASK_ID -d init_seed=$seed AW_time_neutral_simulation.slim
+
+rm -rf *.e*
+rm -rf *.o*
 
 # If `SLiM` is not an executable, then uncomment the next line and
 # provide a path to `SLiM`.

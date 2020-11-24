@@ -10,7 +10,7 @@
 seed=1
 num_ind=8 # Number of samples from single population.
 easySFS_proj=16 # Number of chromosomes that sample is projected down into.
-prefix="../Data/pop_4000_working_neutral_shift/350_seed_${seed}" # Output prefix, and input prefix of given vcf
+prefix="../Data/pop_4000_working_neutral_shift/350_gen" # Output prefix, and input prefix of given vcf
 
 # DERIVED ARGUMENTS
 inputvcf="${prefix}.vcf"
