@@ -350,7 +350,7 @@ class DemographicAndDFEInference():
         # Construct initial Spectrum object from input synonymous sfs.
         syn_data = dadi.Spectrum.from_file(syn_input_sfs)
         syn_ns = syn_data.sample_sizes  # Number of samples.
-        pts_l = [80, 100, 120]
+        pts_l = [20, 40, 60]
 
         # Optomize parameters for this model.
         # First set parameter bounds for optimization
@@ -435,7 +435,7 @@ class DemographicAndDFEInference():
         max_s = 0.5
         max_gam = max_s * 2 * Na
 
-        pts_l = [1200, 1400, 1600]
+        pts_l = [20, 40, 60]
         spectra = Selection.spectra(demog_params, nonsyn_ns,
                                     self.two_epoch_sel,
                                     pts_l=pts_l, int_bounds=(1e-5, max_gam),
@@ -520,8 +520,8 @@ class DemographicAndDFEInference():
 
         logger.info('Finished DFE inference.')
 
-        gamma_max_likelihoods.sort()
-        neugamma_max_likelihoods.sort()
+        gamma_max_likelihoods.sort(reverse=True)
+        neugamma_max_likelihoods.sort(reverse=True)
         # neutral_max_likelihoods.sort()
 
         logger.info('Integrating expected site-frequency spectrum.')

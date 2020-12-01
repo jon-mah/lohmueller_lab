@@ -4,6 +4,38 @@ library(reshape2)
 
 seed(1)
 
+AW_time_neutral_syn_0 = c(1336, 925, 863, 659, 654, 588, 602, 303) * 5.24
+AW_time_neutral_syn_100 = c(1333, 981, 827, 693, 628, 633, 590, 272) * 5.24
+AW_time_neutral_syn_500 = c(1318, 959, 801, 731, 636, 601, 553, 323) * 5.24
+AW_time_neutral_syn_1000 = c(1359, 919, 772, 661, 621, 627, 578, 293) * 5.24
+
+AW_time_neutral_nonsyn_0 = c(1149, 818, 580, 506, 438, 410, 370, 222) * 5.24
+AW_time_neutral_nonsyn_100 = c(1149, 767, 625, 504, 436, 412, 384, 219) * 5.24
+AW_time_neutral_nonsyn_500 = c(1159, 736, 629, 502, 408, 443, 395, 172) * 5.24
+AW_time_neutral_nonsyn_1000 = c(1160, 730, 600, 526, 471, 410, 372, 176) * 5.24
+
+AW_time_neutral_model_0 = fold_sfs(c(1083.8217423659942, 639.105625811822, 473.63170077844126,
+                                     377.47862087357674, 311.97443975854156, 263.89914351270386,
+                                     227.11424274753506, 198.20174460574117, 175.0296053475136,
+                                     156.16759764134207, 140.6094372022964, 127.62395208757901,
+                                     116.66774309060558, 107.33022345237016, 99.29716418704837)) * 5.24
+AW_time_neutral_model_100 = fold_sfs(c(1057.611492856535, 656.6488915864197, 488.50978463075324,
+                                       386.0687406083278, 315.6163315896187, 264.3252836738079,
+                                       225.67359608464324, 195.80758744895576, 172.25317408020442,
+                                       153.34186590199022, 137.9121515675515, 125.13702698245214,
+                                       114.41720121761925, 105.31183156049798, 97.49216623984152)) * 5.24
+AW_time_neutral_model_500 = fold_sfs(c(1068.1744572772743, 646.0107438866596, 478.78883930968374,
+                                       378.8932484860498, 310.4212432864932, 260.4128516863096,
+                                       222.52539240492735, 193.08912082127742, 169.7655042400789,
+                                       150.97498526351652, 135.6103835387216, 122.87584091550994,
+                                       112.18863636605177, 103.11582411324686, 95.3316928363605)) * 5.24
+AW_time_neutral_model_1000 = fold_sfs(c(1072.3418958941693, 593.9448005353303, 436.3217173579642,
+                                        352.6135631661072, 298.2093951549262, 258.83001597338273, 
+                                        228.44413131887634, 204.0249380938084, 183.8589056725876, 
+                                        166.88466381995661, 152.39733113324644, 139.90225399575755,
+                                        129.03669416999378, 119.5251067762354, 111.15218419773238)) * 5.24
+
+
 empirical_syn_sfs_1 = c(2317, 1626, 1393, 1277, 1178, 1159, 1138, 518)
 empirical_syn_sfs_2 = c(2256, 1554, 1347, 1320, 1217, 1203, 1158, 568)
 empirical_syn_sfs_3 = c(2285, 1588, 1359, 1277, 1198, 1164, 1152, 571)
@@ -263,6 +295,84 @@ fold_sfs <- function(given_sfs) {
 }
 
 x_axis = 1:8
+
+df = data.frame(AW_time_neutral_syn_0,
+                AW_time_neutral_syn_100,
+                AW_time_neutral_syn_500,
+                AW_time_neutral_syn_1000)
+
+p_df <- ggplot(data=df, aes(x=x_axis, y=AW_time_neutral_syn_0, color='AW_time_neutral_syn_0')) +
+  geom_point(shape=1) +
+  geom_line() +
+  geom_point(shape=1, aes(x=x_axis, y=AW_time_neutral_syn_100, color='AW_time_neutral_syn_100')) +
+  geom_line(aes(x=x_axis, y=AW_time_neutral_syn_100, color='AW_time_neutral_syn_100')) +
+  geom_point(shape=1, aes(x=x_axis, y=AW_time_neutral_syn_500, color='AW_time_neutral_syn_500')) +
+  geom_line(aes(x=x_axis, y=AW_time_neutral_syn_500, color='AW_time_neutral_syn_500')) +
+  geom_point(shape=1, aes(x=x_axis, y=AW_time_neutral_syn_1000, color='AW_time_neutral_syn_1000')) +
+  geom_line(aes(x=x_axis, y=AW_time_neutral_syn_1000, color='AW_time_neutral_syn_1000')) +
+  scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
+  scale_y_continuous(name='Number of SNPs') +
+  scale_color_manual(values=c('blue', 'orange', 'red', 'green'),
+                     name='Data Type',
+                     breaks=c('AW_time_neutral_syn_0',
+                              'AW_time_neutral_syn_100',
+                              'AW_time_neutral_syn_500',
+                              'AW_time_neutral_syn_1000'),
+                     labels=c('AW_time_neutral_syn_0',
+                              'AW_time_neutral_syn_100',
+                              'AW_time_neutral_syn_500',
+                              'AW_time_neutral_syn_1000')) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggtitle('Shift to neutral, synonymous SFS')
+
+p_df
+
+df= data.frame(AW_time_neutral_nonsyn_0, AW_time_neutral_model_0,
+               AW_time_neutral_nonsyn_100, AW_time_neutral_model_100,
+               AW_time_neutral_nonsyn_500, AW_time_neutral_model_500,
+               AW_time_neutral_nonsyn_1000, AW_time_neutral_model_1000)
+
+p_df <- ggplot(data=df, aes(x=x_axis, y=AW_time_neutral_nonsyn_0, color='AW_time_neutral_nonsyn_0')) +
+  geom_point(shape=1) +
+  geom_line() +
+  geom_point(shape=1, aes(x=x_axis, y=AW_time_neutral_nonsyn_100, color='AW_time_neutral_nonsyn_100')) +
+  geom_line(aes(x=x_axis, y=AW_time_neutral_nonsyn_100, color='AW_time_neutral_nonsyn_100')) +
+  geom_point(shape=1, aes(x=x_axis, y=AW_time_neutral_nonsyn_500, color='AW_time_neutral_nonsyn_500')) +
+  geom_line(aes(x=x_axis, y=AW_time_neutral_nonsyn_500, color='AW_time_neutral_nonsyn_500')) +
+  geom_point(shape=1, aes(x=x_axis, y=AW_time_neutral_nonsyn_1000, color='AW_time_neutral_nonsyn_1000')) +
+  geom_line(aes(x=x_axis, y=AW_time_neutral_nonsyn_1000, color='AW_time_neutral_nonsyn_1000')) +
+  geom_point(shape=1, aes(x=x_axis, y=AW_time_neutral_model_0, color='AW_time_neutral_model_0')) +
+  geom_line(aes(x=x_axis, y=AW_time_neutral_model_100, color='AW_time_neutral_model_100')) +
+  geom_point(shape=1, aes(x=x_axis, y=AW_time_neutral_model_100, color='AW_time_neutral_model_100')) +
+  geom_line(aes(x=x_axis, y=AW_time_neutral_model_100, color='AW_time_neutral_model_100')) +
+  geom_point(shape=1, aes(x=x_axis, y=AW_time_neutral_model_500, color='AW_time_neutral_model_500')) +
+  geom_line(aes(x=x_axis, y=AW_time_neutral_model_500, color='AW_time_neutral_model_500')) +
+  geom_point(shape=1, aes(x=x_axis, y=AW_time_neutral_model_1000, color='AW_time_neutral_model_1000')) +
+  geom_line(aes(x=x_axis, y=AW_time_neutral_model_1000, color='AW_time_neutral_model_1000')) +
+  scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
+  scale_y_continuous(name='Number of SNPs') +
+  scale_color_manual(values=c('black', 'black', 'black', 'black', 'red', 'red', 'red', 'red'),
+                     name='Data Type',
+                     breaks=c('AW_time_neutral_nonsyn_0', 'AW_time_neutral_model_0',
+                              'AW_time_neutral_nonsyn_100', 'AW_time_neutral_model_100',
+                              'AW_time_neutral_nonsyn_500', 'AW_time_neutral_model_500',
+                              'AW_time_neutral_nonsyn_1000', 'AW_time_neutral_model_1000'),
+                     labels=c('AW_time_neutral_nonsyn_0', 'AW_time_neutral_model_0',
+                              'AW_time_neutral_nonsyn_100', 'AW_time_neutral_model_100',
+                              'AW_time_neutral_nonsyn_500', 'AW_time_neutral_model_500',
+                              'AW_time_neutral_nonsyn_1000', 'AW_time_neutral_model_1000')) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggtitle('Shift to neutral, nonsynonymous and model SFS')
+
+p_df
+
+plot_sfs_comparison(AW_time_neutral_syn_0, AW_time_neutral_nonsyn_0, AW_time_neutral_model_0) + ggtitle('Generation 0 sfs comparison')
+plot_sfs_comparison(AW_time_neutral_syn_100, AW_time_neutral_nonsyn_100, AW_time_neutral_model_100) + ggtitle('Generation 100 sfs comparison')
+plot_sfs_comparison(AW_time_neutral_syn_500, AW_time_neutral_nonsyn_500, AW_time_neutral_model_500) + ggtitle('Generation 500 sfs comparison')
+plot_sfs_comparison(AW_time_neutral_syn_1000, AW_time_neutral_nonsyn_1000, AW_time_neutral_model_1000) + ggtitle('Generation 1000 sfs comparison')
+
 
 df = data.frame(recap_1_gamma_sfs, seed_1_gamma_sfs,
                 recap_2_gamma_sfs, seed_2_gamma_sfs,
@@ -545,26 +655,26 @@ p_df
 plot_sfs_comparison <- function(gamma_sfs, neugamma_sfs, empirical_sfs) {
   # It is assumed that the given sfs is folded, and describes 16 individuals.
   x_axis = 1:8
-  gamma_sfs = gamma_sfs / sum(gamma_sfs)
-  neugamma_sfs = neugamma_sfs / sum(neugamma_sfs)
-  empirical_sfs = empirical_sfs / sum(empirical_sfs)
+  # gamma_sfs = gamma_sfs / sum(gamma_sfs)
+  # neugamma_sfs = neugamma_sfs / sum(neugamma_sfs)
+  # empirical_sfs = empirical_sfs / sum(empirical_sfs)
   df = data.frame(gamma_sfs = gamma_sfs,
                   neugamma_sfs = neugamma_sfs,
                   empirical_sfs = empirical_sfs,
                   x_axis = x_axis)
-  p_df <- ggplot(data=df, aes(x=x_axis, y=gamma_sfs, color='gamma_sfs')) +
+  p_df <- ggplot(data=df, aes(x=x_axis, y=gamma_sfs, color='syn_sfs')) +
     geom_point() +
     geom_line() +
-    geom_point(aes(x=x_axis, y=neugamma_sfs, color='neugamma_sfs')) +
-    geom_line(aes(x=x_axis, y=neugamma_sfs, color='neugamma_sfs')) +
-    geom_point(aes(x=x_axis, y=empirical_sfs, color='empirical_sfs')) +
-    geom_line(aes(x=x_axis, y=empirical_sfs, color='empirical_sfs')) +
+    geom_point(aes(x=x_axis, y=neugamma_sfs, color='nonsyn_sfs')) +
+    geom_line(aes(x=x_axis, y=neugamma_sfs, color='nonsyn_sfs')) +
+    geom_point(aes(x=x_axis, y=empirical_sfs, color='model_sfs')) +
+    geom_line(aes(x=x_axis, y=empirical_sfs, color='model_sfs')) +
     scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
     scale_y_continuous(name='Proportion of SNps') +
     scale_color_manual(values=c('#FF6347', '#9400D3', '#009E73'),
                        name='Data Type',
-                       breaks=c('gamma_sfs', 'neugamma_sfs', 'empirical_sfs'),
-                       labels=c('gamma_sfs', 'neugamma_sfs', 'empirical_sfs')) +
+                       breaks=c('syn_sfs', 'nonsyn_sfs', 'model_sfs'),
+                       labels=c('syn_sfs', 'nonsyn_sfs', 'model_sfs')) +
     theme_bw() +
     theme(plot.title = element_text(hjust = 0.5))
   return(p_df)
@@ -684,6 +794,37 @@ p_df <- ggplot(data=df, aes(x=x_axis, y=empirical_nonsyn_sfs_1, color='empirical
 p_df
 
 # gamma vs neugamma distribution
+AW_time_neutral_0_gamma = rgamma(10000, shape=0.13613819, scale=0.27895706)
+AW_time_neutral_100_gamma = rgamma(10000, shape=0.12631414, scale=0.51913395)
+AW_time_neutral_500_gamma = rgamma(10000, shape=0.14589274, scale=0.17883975)
+AW_time_neutral_1000_gamma = rgamma(10000, shape=0.10385309, scale=2.86116584)
+
+AW_time_neutral_0_gamma = replace(AW_time_neutral_0_gamma, AW_time_neutral_0_gamma > 1, 1)
+AW_time_neutral_100_gamma = replace(AW_time_neutral_100_gamma, AW_time_neutral_100_gamma > 1, 1)
+AW_time_neutral_500_gamma = replace(AW_time_neutral_500_gamma, AW_time_neutral_500_gamma > 1, 1)
+AW_time_neutral_1000_gamma = replace(AW_time_neutral_1000_gamma, AW_time_neutral_1000_gamma > 1, 1)
+
+bar_AW_time_neutral_0_gamma = compute_bar(AW_time_neutral_0_gamma)
+bar_AW_time_neutral_100_gamma = compute_bar(AW_time_neutral_100_gamma)
+bar_AW_time_neutral_500_gamma = compute_bar(AW_time_neutral_500_gamma)
+bar_AW_time_neutral_1000_gamma = compute_bar(AW_time_neutral_1000_gamma)
+
+TAB_AW_time_neutral_gamma <- rbind(bar_AW_time_neutral_0_gamma,
+                                   bar_AW_time_neutral_100_gamma,
+                                   bar_AW_time_neutral_500_gamma,
+                                   bar_AW_time_neutral_1000_gamma) 
+
+barplot(TAB_AW_time_neutral_gamma, beside=T, xlab="s", ylab="Density", 
+        col=c("firebrick1", "dodgerblue2", "dodgerblue", "dodgerblue4"), 
+        names.arg = c("0 - 0.0001", "0.0001 - 0.001", "0.001 - 0.01", "0.01 - 1"), 
+        main="Gamma distributed DFE over time (shift to neutral)")
+legend("top", inset=.02, c('0 Generations', '100 generations', '500 generations', '1000 generations'), 
+       fill=c("firebrick1", "dodgerblue2", "dodgerblue", "dodgerblue4"), 
+       horiz=FALSE, cex=1)
+
+recap_gamma_1 <- replace(recap_gamma_1, recap_gamma_1 > 1, 1)
+bar_recap_gamma_1 <- compute_bar(recap_gamma_1)
+
 seed_1_gamma = rgamma(10000, shape=0.52218345, scale = 24.12967973)
 seed_2_gamma = rgamma(10000, shape=0.42616827, scale = 82.97655387)
 seed_3_gamma = rgamma(10000, shape=0.47562804, scale = 64.7016557)
