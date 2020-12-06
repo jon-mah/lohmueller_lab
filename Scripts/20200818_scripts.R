@@ -4,10 +4,10 @@ library(reshape2)
 
 seed(1)
 
-AW_time_neutral_syn_0 = c(1336, 925, 863, 659, 654, 588, 602, 303) * 5.24
-AW_time_neutral_syn_100 = c(1333, 981, 827, 693, 628, 633, 590, 272) * 5.24
-AW_time_neutral_syn_500 = c(1318, 959, 801, 731, 636, 601, 553, 323) * 5.24
-AW_time_neutral_syn_1000 = c(1359, 919, 772, 661, 621, 627, 578, 293) * 5.24
+AW_time_neutral_syn_0 = c(1336, 925, 863, 659, 654, 588, 602, 303) * 6.3
+AW_time_neutral_syn_100 = c(1333, 981, 827, 693, 628, 633, 590, 272) * 6.3
+AW_time_neutral_syn_500 = c(1318, 959, 801, 731, 636, 601, 553, 323) * 6.3
+AW_time_neutral_syn_1000 = c(1359, 919, 772, 661, 621, 627, 578, 293) * 6.3
 
 AW_time_neutral_nonsyn_0 = c(1149, 818, 580, 506, 438, 410, 370, 222) * 5.24
 AW_time_neutral_nonsyn_100 = c(1149, 767, 625, 504, 436, 412, 384, 219) * 5.24
@@ -328,10 +328,10 @@ p_df <- ggplot(data=df, aes(x=x_axis, y=AW_time_neutral_syn_0, color='AW_time_ne
 
 p_df
 
-df= data.frame(AW_time_neutral_nonsyn_0, AW_time_neutral_model_0,
-               AW_time_neutral_nonsyn_100, AW_time_neutral_model_100,
-               AW_time_neutral_nonsyn_500, AW_time_neutral_model_500,
-               AW_time_neutral_nonsyn_1000, AW_time_neutral_model_1000)
+df = data.frame(AW_time_neutral_nonsyn_0,
+                AW_time_neutral_nonsyn_100,
+                AW_time_neutral_nonsyn_500,
+                AW_time_neutral_nonsyn_1000)
 
 p_df <- ggplot(data=df, aes(x=x_axis, y=AW_time_neutral_nonsyn_0, color='AW_time_neutral_nonsyn_0')) +
   geom_point(shape=1) +
@@ -342,8 +342,32 @@ p_df <- ggplot(data=df, aes(x=x_axis, y=AW_time_neutral_nonsyn_0, color='AW_time
   geom_line(aes(x=x_axis, y=AW_time_neutral_nonsyn_500, color='AW_time_neutral_nonsyn_500')) +
   geom_point(shape=1, aes(x=x_axis, y=AW_time_neutral_nonsyn_1000, color='AW_time_neutral_nonsyn_1000')) +
   geom_line(aes(x=x_axis, y=AW_time_neutral_nonsyn_1000, color='AW_time_neutral_nonsyn_1000')) +
-  geom_point(shape=1, aes(x=x_axis, y=AW_time_neutral_model_0, color='AW_time_neutral_model_0')) +
-  geom_line(aes(x=x_axis, y=AW_time_neutral_model_100, color='AW_time_neutral_model_100')) +
+  scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
+  scale_y_continuous(name='Number of SNPs') +
+  scale_color_manual(values=c('blue', 'orange', 'red', 'green'),
+                     name='Data Type',
+                     breaks=c('AW_time_neutral_nonsyn_0',
+                              'AW_time_neutral_nonsyn_100',
+                              'AW_time_neutral_nonsyn_500',
+                              'AW_time_neutral_nonsyn_1000'),
+                     labels=c('AW_time_neutral_nonsyn_0',
+                              'AW_time_neutral_nonsyn_100',
+                              'AW_time_neutral_nonsyn_500',
+                              'AW_time_neutral_nonsyn_1000')) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggtitle('Shift to neutral, nonsynonymous SFS')
+
+p_df
+
+df = data.frame(AW_time_neutral_model_0,
+                AW_time_neutral_model_100,
+                AW_time_neutral_model_500,
+                AW_time_neutral_model_1000)
+
+p_df <- ggplot(data=df, aes(x=x_axis, y=AW_time_neutral_model_0, color='AW_time_neutral_model_0')) +
+  geom_point(shape=1) +
+  geom_line() +
   geom_point(shape=1, aes(x=x_axis, y=AW_time_neutral_model_100, color='AW_time_neutral_model_100')) +
   geom_line(aes(x=x_axis, y=AW_time_neutral_model_100, color='AW_time_neutral_model_100')) +
   geom_point(shape=1, aes(x=x_axis, y=AW_time_neutral_model_500, color='AW_time_neutral_model_500')) +
@@ -352,19 +376,19 @@ p_df <- ggplot(data=df, aes(x=x_axis, y=AW_time_neutral_nonsyn_0, color='AW_time
   geom_line(aes(x=x_axis, y=AW_time_neutral_model_1000, color='AW_time_neutral_model_1000')) +
   scale_x_continuous(name='Frequency in Sample', breaks=x_axis, limits = c(1, 8)) +
   scale_y_continuous(name='Number of SNPs') +
-  scale_color_manual(values=c('black', 'black', 'black', 'black', 'red', 'red', 'red', 'red'),
+  scale_color_manual(values=c('blue', 'orange', 'red', 'green'),
                      name='Data Type',
-                     breaks=c('AW_time_neutral_nonsyn_0', 'AW_time_neutral_model_0',
-                              'AW_time_neutral_nonsyn_100', 'AW_time_neutral_model_100',
-                              'AW_time_neutral_nonsyn_500', 'AW_time_neutral_model_500',
-                              'AW_time_neutral_nonsyn_1000', 'AW_time_neutral_model_1000'),
-                     labels=c('AW_time_neutral_nonsyn_0', 'AW_time_neutral_model_0',
-                              'AW_time_neutral_nonsyn_100', 'AW_time_neutral_model_100',
-                              'AW_time_neutral_nonsyn_500', 'AW_time_neutral_model_500',
-                              'AW_time_neutral_nonsyn_1000', 'AW_time_neutral_model_1000')) +
+                     breaks=c('AW_time_neutral_model_0',
+                              'AW_time_neutral_model_100',
+                              'AW_time_neutral_model_500',
+                              'AW_time_neutral_model_1000'),
+                     labels=c('AW_time_neutral_model_0',
+                              'AW_time_neutral_model_100',
+                              'AW_time_neutral_model_500',
+                              'AW_time_neutral_model_1000')) +
   theme_bw() +
   theme(plot.title = element_text(hjust = 0.5)) +
-  ggtitle('Shift to neutral, nonsynonymous and model SFS')
+  ggtitle('Shift to neutral, model SFS')
 
 p_df
 
@@ -797,7 +821,7 @@ p_df
 AW_time_neutral_0_gamma = rgamma(10000, shape=0.13613819, scale=0.27895706)
 AW_time_neutral_100_gamma = rgamma(10000, shape=0.12631414, scale=0.51913395)
 AW_time_neutral_500_gamma = rgamma(10000, shape=0.14589274, scale=0.17883975)
-AW_time_neutral_1000_gamma = rgamma(10000, shape=0.10385309, scale=2.86116584)
+AW_time_neutral_1000_gamma = rgamma(10000, shape=0.09385309, scale=2.86116584)
 
 AW_time_neutral_0_gamma = replace(AW_time_neutral_0_gamma, AW_time_neutral_0_gamma > 1, 1)
 AW_time_neutral_100_gamma = replace(AW_time_neutral_100_gamma, AW_time_neutral_100_gamma > 1, 1)
