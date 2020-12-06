@@ -4,7 +4,7 @@
 #$ -V
 #$ -m a
 #$ -l h_data=10G
-#$ -l h_rt=23:55:00
+#$ -l h_rt=47:55:00
 
 # INPUT ARGUMENTS
 seed=1
