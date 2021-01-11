@@ -461,37 +461,37 @@ class DemographicAndDFEInference():
                                                      lower_bound=lower_bound,
                                                      upper_bound=upper_bound,
                                                      verbose=len(p0),
-                                                     maxiter=25))
+                                                     maxiter=50))
             logger.info('Finished optomization, results are {0}.'.format(popt))
 
             gamma_max_likelihoods.append(popt[0])
             gamma_guesses[popt[0]] = popt
 
-        neugamma_vec = numpy.frompyfunc(self.neugamma, 4, 1)
+        # neugamma_vec = numpy.frompyfunc(self.neugamma, 4, 1)
 
-        initial_guess = [0.999999999, 0.09, BETAinit]
-        lower_bound = [0, 1e-3, 1e-2]
-        upper_bound = [1, 1, upper_beta]
-        neugamma_max_likelihoods = []
-        neugamma_guesses = dict()
-        for i in range(5):
-            p0_neugamma = initial_guess
-            p0_neugamma = dadi.Misc.perturb_params(p0_neugamma,
-                                                   lower_bound=lower_bound,
-                                                   upper_bound=upper_bound)
-            logger.info('Beginning optimization with guess, {0}.'.format(
-                p0_neugamma))
-            popt = numpy.copy(Selection.optimize_log(p0_neugamma, nonsyn_data,
-                                                     spectra.integrate,
-                                                     neugamma_vec,
-                                                     theta_nonsyn,
-                                                     lower_bound=lower_bound,
-                                                     upper_bound=upper_bound,
-                                                     verbose=len(p0_neugamma),
-                                                     maxiter=25))
-            logger.info('Finished optimization, results are {0}.'.format(popt))
-            neugamma_max_likelihoods.append(popt[0])
-            neugamma_guesses[popt[0]] = popt
+        # initial_guess = [0.999999999, 0.09, BETAinit]
+        # lower_bound = [0, 1e-3, 1e-2]
+        # upper_bound = [1, 1, upper_beta]
+        # neugamma_max_likelihoods = []
+        # neugamma_guesses = dict()
+        # for i in range(5):
+        #     p0_neugamma = initial_guess
+        #     p0_neugamma = dadi.Misc.perturb_params(p0_neugamma,
+        #                                            lower_bound=lower_bound,
+        #                                            upper_bound=upper_bound)
+        #     logger.info('Beginning optimization with guess, {0}.'.format(
+        #         p0_neugamma))
+        #     popt = numpy.copy(Selection.optimize_log(p0_neugamma, nonsyn_data,
+        #                                              spectra.integrate,
+        #                                              neugamma_vec,
+        #                                              theta_nonsyn,
+        #                                              lower_bound=lower_bound,
+        #                                              upper_bound=upper_bound,
+        #                                              verbose=len(p0_neugamma),
+        #                                              maxiter=50))
+        #     logger.info('Finished optimization, results are {0}.'.format(popt))
+        #     neugamma_max_likelihoods.append(popt[0])
+        #     neugamma_guesses[popt[0]] = popt
 
         # neutral_vec = numpy.frompyfunc(self.neugamma, 4, 1)
         # initial_guess = [1, 0.09, BETAinit]
@@ -521,7 +521,7 @@ class DemographicAndDFEInference():
         logger.info('Finished DFE inference.')
 
         gamma_max_likelihoods.sort(reverse=True)
-        neugamma_max_likelihoods.sort(reverse=True)
+        # neugamma_max_likelihoods.sort(reverse=True)
         # neutral_max_likelihoods.sort()
 
         logger.info('Integrating expected site-frequency spectrum.')
@@ -545,26 +545,26 @@ class DemographicAndDFEInference():
                         best_popt[0],
                         numpy.divide(best_popt[1], numpy.array([1, 2 * Na]))))
                 f.write('The expected SFS is: {0}.\n\n'.format(expected_sfs))
-            f.write('Assuming a neutral-gamma-distributed DFE...\n')
-            f.write('Outputting best 25 MLE estimates.\n')
-            for i in range(5):
-                best_popt_neugamma = neugamma_guesses[
-                    neugamma_max_likelihoods[i]]
-                expected_sfs_neugamma = spectra.integrate(
-                    best_popt_neugamma[1], neugamma_vec, theta_nonsyn)
-                f.write(
-                    'The population-scaled best-fit parameters: {0}.\n'.format(
-                        best_popt_neugamma))
-                # Divide output scale parameter by 2 * N_a
-                f.write(
-                    'The non-scaled best-fit parameters: '
-                    '[{0}, array({1})].\n'.format(
-                        best_popt_neugamma[0],
-                        numpy.divide(
-                            best_popt_neugamma[1],
-                            numpy.array([1, 1, 2 * Na]))))
-                f.write('The expected SFS is: {0}.\n\n'.format(
-                    expected_sfs_neugamma))
+            # f.write('Assuming a neutral-gamma-distributed DFE...\n')
+            # f.write('Outputting best 25 MLE estimates.\n')
+            # for i in range(5):
+            #     best_popt_neugamma = neugamma_guesses[
+            #         neugamma_max_likelihoods[i]]
+            #     expected_sfs_neugamma = spectra.integrate(
+            #         best_popt_neugamma[1], neugamma_vec, theta_nonsyn)
+            #     f.write(
+            #         'The population-scaled best-fit parameters: {0}.\n'.format(
+            #             best_popt_neugamma))
+            #     # Divide output scale parameter by 2 * N_a
+            #     f.write(
+            #         'The non-scaled best-fit parameters: '
+            #         '[{0}, array({1})].\n'.format(
+            #             best_popt_neugamma[0],
+            #             numpy.divide(
+            #                 best_popt_neugamma[1],
+            #                 numpy.array([1, 1, 2 * Na]))))
+            #      f.write('The expected SFS is: {0}.\n\n'.format(
+            #         expected_sfs_neugamma))
             # f.write('Assuming a neutral-distributed DFE...\n')
             # f.write('Outputting best 5 MLE estimates.\n')
             # for i in range(5):
