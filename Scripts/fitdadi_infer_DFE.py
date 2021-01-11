@@ -444,8 +444,8 @@ class DemographicAndDFEInference():
         BETAinit = 3 * max_gam
         initial_guess = [1e-3, BETAinit]
         upper_beta = 12 * max_gam
-        lower_bound = [1e-3, 1e-3]
-        upper_bound = [10, upper_beta]
+        lower_bound = [1e-3, 0]
+        upper_bound = [100000, upper_beta]
 
         gamma_max_likelihoods = []
         gamma_guesses = dict()
