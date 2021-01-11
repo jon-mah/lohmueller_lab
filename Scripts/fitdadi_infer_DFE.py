@@ -441,7 +441,7 @@ class DemographicAndDFEInference():
                                     pts_l=pts_l, int_bounds=(1e-5, max_gam),
                                     Npts=750, echo=True, mp=True)
 
-        BETAinit = max_gam
+        BETAinit = 3 * max_gam
         initial_guess = [1e-3, BETAinit]
         upper_beta = 12 * max_gam
         lower_bound = [1e-3, 1e-3]
@@ -449,7 +449,7 @@ class DemographicAndDFEInference():
 
         gamma_max_likelihoods = []
         gamma_guesses = dict()
-        for i in range(5):
+        for i in range(3):
             p0 = initial_guess
             p0 = dadi.Misc.perturb_params(p0, lower_bound=lower_bound,
                                           upper_bound=upper_bound)
@@ -531,7 +531,7 @@ class DemographicAndDFEInference():
         with open(inferred_DFE, 'w') as f:
             f.write('Assuming a gamma-distributed DFE...\n')
             f.write('Outputting best 25 MLE estimates.\n')
-            for i in range(5):
+            for i in range(3):
                 best_popt = gamma_guesses[gamma_max_likelihoods[i]]
                 expected_sfs = spectra.integrate(
                     best_popt[1], self.gamma_dist, theta_nonsyn)
