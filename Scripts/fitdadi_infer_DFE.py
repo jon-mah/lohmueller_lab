@@ -361,7 +361,7 @@ class DemographicAndDFEInference():
         with open(inferred_demography, 'w') as f:
             f.write('Beginning with demographic inference.\n')
             max_likelihood = -1e25
-            for i in range(5):
+            for i in range(25):
                 # Start at initial guess
                 p0 = initial_guess
                 # Randomly perturb parameters before optimization.
@@ -375,7 +375,7 @@ class DemographicAndDFEInference():
                 popt = dadi.Inference.optimize_log_lbfgsb(
                     p0=p0, data=syn_data, model_func=func_ex, pts=pts_l,
                     lower_bound=lower_bound, upper_bound=upper_bound,
-                    verbose=len(p0), maxiter=5)
+                    verbose=len(p0), maxiter=25)
                 logger.info(
                     'Finished optimization with guess, ' + str(p0) + '.')
                 logger.info('Best fit parameters: {0}.'.format(popt))
@@ -449,7 +449,7 @@ class DemographicAndDFEInference():
 
         gamma_max_likelihoods = []
         gamma_guesses = dict()
-        for i in range(5):
+        for i in range(25):
             p0 = initial_guess
             p0 = dadi.Misc.perturb_params(p0, lower_bound=lower_bound,
                                           upper_bound=upper_bound)
@@ -461,7 +461,7 @@ class DemographicAndDFEInference():
                                                      lower_bound=lower_bound,
                                                      upper_bound=upper_bound,
                                                      verbose=len(p0),
-                                                     maxiter=5))
+                                                     maxiter=25))
             logger.info('Finished optomization, results are {0}.'.format(popt))
 
             gamma_max_likelihoods.append(popt[0])
@@ -474,7 +474,7 @@ class DemographicAndDFEInference():
         upper_bound = [1, 1, upper_beta]
         neugamma_max_likelihoods = []
         neugamma_guesses = dict()
-        for i in range(5):
+        for i in range(25):
             p0_neugamma = initial_guess
             p0_neugamma = dadi.Misc.perturb_params(p0_neugamma,
                                                    lower_bound=lower_bound,
@@ -488,7 +488,7 @@ class DemographicAndDFEInference():
                                                      lower_bound=lower_bound,
                                                      upper_bound=upper_bound,
                                                      verbose=len(p0_neugamma),
-                                                     maxiter=5))
+                                                     maxiter=25))
             logger.info('Finished optimization, results are {0}.'.format(popt))
             neugamma_max_likelihoods.append(popt[0])
             neugamma_guesses[popt[0]] = popt
@@ -531,7 +531,7 @@ class DemographicAndDFEInference():
         with open(inferred_DFE, 'w') as f:
             f.write('Assuming a gamma-distributed DFE...\n')
             f.write('Outputting best 25 MLE estimates.\n')
-            for i in range(5):
+            for i in range(25):
                 best_popt = gamma_guesses[gamma_max_likelihoods[i]]
                 expected_sfs = spectra.integrate(
                     best_popt[1], self.gamma_dist, theta_nonsyn)
@@ -547,7 +547,7 @@ class DemographicAndDFEInference():
                 f.write('The expected SFS is: {0}.\n\n'.format(expected_sfs))
             f.write('Assuming a neutral-gamma-distributed DFE...\n')
             f.write('Outputting best 25 MLE estimates.\n')
-            for i in range(5):
+            for i in range(25):
                 best_popt_neugamma = neugamma_guesses[
                     neugamma_max_likelihoods[i]]
                 expected_sfs_neugamma = spectra.integrate(
