@@ -1,61 +1,51 @@
-2021-01-11 08:33:57,829 - INFO - Beginning execution of fitdadi_infer_DFE.py in directory /u/project/ngarud/jonmah/lohmueller_lab/Scripts
+2021-01-11 08:45:29,493 - INFO - Beginning execution of fitdadi_infer_DFE.py in directory /u/project/ngarud/jonmah/lohmueller_lab/Scripts
 
-2021-01-11 08:33:57,829 - INFO - Progress is being logged to ../Data/20201208_eduardo_sfs/AW_n8_norel/log.log
+2021-01-11 08:45:29,493 - INFO - Progress is being logged to ../Data/20201208_eduardo_sfs/AW_n8_norel/log.log
 
-2021-01-11 08:33:57,830 - INFO - Parsed the following arguments:
+2021-01-11 08:45:29,493 - INFO - Parsed the following arguments:
 	breed = AW
 	outprefix = ../Data/20201208_eduardo_sfs/AW_n8_norel/
 	nonsyn_input_sfs = ../Data/20201208_eduardo_sfs/AW.n8.NS.norel.sfs
 	syn_input_sfs = ../Data/20201208_eduardo_sfs/AW.n8.S.norel.sfs
 
-2021-01-11 08:33:57,833 - INFO - Beginning optimization with guess, [0.43140246 0.05084796].
-2021-01-11 08:33:59,488 - INFO - Finished optimization with guess, [0.43140246 0.05084796].
-2021-01-11 08:33:59,488 - INFO - Best fit parameters: [0.14711705 0.03790099].
-2021-01-11 08:33:59,540 - INFO - Maximum log composite likelihood: -38.4516609818.
-2021-01-11 08:33:59,541 - INFO - Optimal value of theta: 7305.03773156.
-2021-01-11 08:33:59,541 - INFO - Beginning optimization with guess, [0.30066407 0.1236462 ].
-2021-01-11 08:34:01,105 - INFO - Finished optimization with guess, [0.30066407 0.1236462 ].
-2021-01-11 08:34:01,106 - INFO - Best fit parameters: [0.17864907 0.05344086].
-2021-01-11 08:34:01,171 - INFO - Maximum log composite likelihood: -40.2270605203.
-2021-01-11 08:34:01,172 - INFO - Optimal value of theta: 7478.55895751.
-2021-01-11 08:34:01,172 - INFO - Beginning optimization with guess, [0.46752877 0.16439712].
-2021-01-11 08:34:03,270 - INFO - Finished optimization with guess, [0.46752877 0.16439712].
-2021-01-11 08:34:03,270 - INFO - Best fit parameters: [0.22354876 0.09255887].
-2021-01-11 08:34:03,326 - INFO - Maximum log composite likelihood: -47.1099819802.
-2021-01-11 08:34:03,327 - INFO - Optimal value of theta: 7986.33491998.
-2021-01-11 08:34:03,327 - INFO - Beginning optimization with guess, [0.26025544 0.08577782].
-2021-01-11 08:34:04,863 - INFO - Finished optimization with guess, [0.26025544 0.08577782].
-2021-01-11 08:34:04,863 - INFO - Best fit parameters: [0.13438592 0.03300316].
-2021-01-11 08:34:04,913 - INFO - Maximum log composite likelihood: -38.1047568508.
-2021-01-11 08:34:04,914 - INFO - Optimal value of theta: 7259.00936799.
-2021-01-11 08:34:04,914 - INFO - Beginning optimization with guess, [0.54962033 0.05466445].
-2021-01-11 08:34:06,316 - INFO - Finished optimization with guess, [0.54962033 0.05466445].
-2021-01-11 08:34:06,316 - INFO - Best fit parameters: [0.15004914 0.03861896].
-2021-01-11 08:34:06,367 - INFO - Maximum log composite likelihood: -38.6351709317.
-2021-01-11 08:34:06,367 - INFO - Optimal value of theta: 7292.67559988.
-2021-01-11 08:34:06,370 - INFO - Finished demographic inference.
-2021-01-11 08:34:06,370 - INFO - Beginning DFE inference.
-2021-01-11 08:35:35,634 - INFO - Beginning optimization with guess, [9.48655730e-02 1.20546921e+04].
-2021-01-11 08:35:42,470 - INFO - Finished optomization, results are [-119.71933901928242 array([0.98981448, 2.40271084])].
-2021-01-11 08:35:42,471 - INFO - Beginning optimization with guess, [1.21307582e-01 1.90820290e+04].
-2021-01-11 08:35:49,498 - INFO - Finished optomization, results are [-119.33307064798191 array([0.99081889, 2.41016357])].
-2021-01-11 08:35:49,498 - INFO - Beginning optimization with guess, [1.29001572e-01 2.42481562e+04].
-2021-01-11 08:35:55,504 - INFO - Finished optomization, results are [-121.57045758588447 array([0.95969928, 2.48599283])].
-2021-01-11 08:35:55,505 - INFO - Beginning optimization with guess, [1.08047695e-01 2.46910052e+04].
-2021-01-11 08:36:03,328 - INFO - Finished optomization, results are [-118.36350657241383 array([0.99691773, 2.43217666])].
-2021-01-11 08:36:03,329 - INFO - Beginning optimization with guess, [5.84055568e-02 1.88300859e+04].
-2021-01-11 08:36:09,354 - INFO - Finished optomization, results are [-118.8293439734216 array([0.99036177, 2.43343513])].
-2021-01-11 08:36:09,355 - INFO - Beginning optimization with guess, [6.56708184e-01 1.13483275e-01 2.09124167e+04].
-2021-01-11 08:36:35,790 - INFO - Finished optimization, results are [-180.15059219292834 array([0.32834629, 0.97895259, 6.10898943])].
-2021-01-11 08:36:35,801 - INFO - Beginning optimization with guess, [9.44390981e-01 5.16912080e-02 2.36501310e+04].
-2021-01-11 08:37:04,291 - INFO - Finished optimization, results are [-137.45883744302682 array([0.15352606, 0.99554413, 3.38451455])].
-2021-01-11 08:37:04,292 - INFO - Beginning optimization with guess, [5.79236862e-01 8.99599499e-02 1.85395931e+04].
-2021-01-11 08:37:35,030 - INFO - Finished optimization, results are [-153.31266560192034 array([0.23399889, 0.99628964, 4.17370709])].
-2021-01-11 08:37:35,033 - INFO - Beginning optimization with guess, [7.13782909e-01 8.73278109e-02 2.59864558e+04].
-2021-01-11 08:37:58,827 - INFO - Finished optimization, results are [-170.5650694458791 array([0.29098228, 0.98066649, 5.06016831])].
-2021-01-11 08:37:58,829 - INFO - Beginning optimization with guess, [6.60862644e-01 1.09205594e-01 1.79254767e+04].
-2021-01-11 08:38:23,472 - INFO - Finished optimization, results are [-186.4463341074088 array([0.34194872, 0.96117469, 6.64713534])].
-2021-01-11 08:38:23,473 - INFO - Finished DFE inference.
-2021-01-11 08:38:23,473 - INFO - Integrating expected site-frequency spectrum.
-2021-01-11 08:38:23,473 - INFO - Outputing results.
-2021-01-11 08:38:23,959 - INFO - Pipeline executed succesfully.
+2021-01-11 08:45:29,496 - INFO - Beginning optimization with guess, [0.56638983 0.13748408].
+2021-01-11 08:45:31,117 - INFO - Finished optimization with guess, [0.56638983 0.13748408].
+2021-01-11 08:45:31,117 - INFO - Best fit parameters: [0.21124896 0.07401224].
+2021-01-11 08:45:31,171 - INFO - Maximum log composite likelihood: -44.0616175541.
+2021-01-11 08:45:31,171 - INFO - Optimal value of theta: 7666.22376143.
+2021-01-11 08:45:31,172 - INFO - Beginning optimization with guess, [0.69857908 0.15054053].
+2021-01-11 08:45:32,749 - INFO - Finished optimization with guess, [0.69857908 0.15054053].
+2021-01-11 08:45:32,750 - INFO - Best fit parameters: [0.20768834 0.06904769].
+2021-01-11 08:45:32,803 - INFO - Maximum log composite likelihood: -43.4928333624.
+2021-01-11 08:45:32,803 - INFO - Optimal value of theta: 7571.16207034.
+2021-01-11 08:45:32,804 - INFO - Beginning optimization with guess, [0.67807586 0.05369469].
+2021-01-11 08:45:34,246 - INFO - Finished optimization with guess, [0.67807586 0.05369469].
+2021-01-11 08:45:34,246 - INFO - Best fit parameters: [0.19467485 0.05851535].
+2021-01-11 08:45:34,298 - INFO - Maximum log composite likelihood: -42.0517077909.
+2021-01-11 08:45:34,299 - INFO - Optimal value of theta: 7422.44822454.
+2021-01-11 08:45:34,299 - INFO - Beginning optimization with guess, [0.27849901 0.05352292].
+2021-01-11 08:45:35,821 - INFO - Finished optimization with guess, [0.27849901 0.05352292].
+2021-01-11 08:45:35,822 - INFO - Best fit parameters: [0.21691655 0.083663  ].
+2021-01-11 08:45:35,877 - INFO - Maximum log composite likelihood: -45.4543580621.
+2021-01-11 08:45:35,878 - INFO - Optimal value of theta: 7853.66174799.
+2021-01-11 08:45:35,878 - INFO - Beginning optimization with guess, [0.60222863 0.14249332].
+2021-01-11 08:45:37,470 - INFO - Finished optimization with guess, [0.60222863 0.14249332].
+2021-01-11 08:45:37,470 - INFO - Best fit parameters: [0.2079668  0.06986446].
+2021-01-11 08:45:37,523 - INFO - Maximum log composite likelihood: -43.5248448333.
+2021-01-11 08:45:37,524 - INFO - Optimal value of theta: 7591.73609071.
+2021-01-11 08:45:37,526 - INFO - Finished demographic inference.
+2021-01-11 08:45:37,526 - INFO - Beginning DFE inference.
+2021-01-11 08:48:23,638 - INFO - Beginning optimization with guess, [1.17262134e-01 3.16896517e+04].
+2021-01-11 08:48:29,265 - INFO - Finished optomization, results are [-90.55462778619312 array([0.96703555, 2.54189531])].
+2021-01-11 08:48:29,265 - INFO - Beginning optimization with guess, [1.73053015e-01 1.14026277e+04].
+2021-01-11 08:48:35,592 - INFO - Finished optomization, results are [-89.88971305693212 array([0.99679416, 2.43465275])].
+2021-01-11 08:48:35,593 - INFO - Beginning optimization with guess, [1.49062020e-01 2.61500536e+04].
+2021-01-11 08:48:40,995 - INFO - Finished optomization, results are [-89.4117564747803 array([0.9946555 , 2.46199091])].
+2021-01-11 08:48:40,995 - INFO - Beginning optimization with guess, [5.06765060e-02 9.88667983e+03].
+2021-01-11 08:48:46,757 - INFO - Finished optomization, results are [-91.38380841823073 array([0.96946414, 2.5078054 ])].
+2021-01-11 08:48:46,757 - INFO - Beginning optimization with guess, [5.70810475e-02 8.91528900e+03].
+2021-01-11 08:48:53,336 - INFO - Finished optomization, results are [-89.85516705070313 array([0.984019  , 2.49095259])].
+2021-01-11 08:48:53,337 - INFO - Finished DFE inference.
+2021-01-11 08:48:53,337 - INFO - Integrating expected site-frequency spectrum.
+2021-01-11 08:48:53,337 - INFO - Outputing results.
+2021-01-11 08:48:53,446 - INFO - Pipeline executed succesfully.
