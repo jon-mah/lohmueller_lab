@@ -439,11 +439,11 @@ class DemographicAndDFEInference():
         spectra = Selection.spectra(demog_params, nonsyn_ns,
                                     self.two_epoch_sel,
                                     pts_l=pts_l, int_bounds=(1e-5, max_gam),
-                                    Npts=300, echo=True, mp=True)
+                                    Npts=500, echo=True, mp=True)
 
-        BETAinit = max_gam / 3
-        initial_guess = [0.09, BETAinit]
-        upper_beta = 10 * max_gam
+        BETAinit = max_gam / 2
+        initial_guess = [0.01, BETAinit]
+        upper_beta = 12 * max_gam
         lower_bound = [1e-3, 0]
         upper_bound = [1, upper_beta]
 
