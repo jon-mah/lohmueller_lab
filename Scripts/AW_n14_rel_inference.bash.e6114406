@@ -1,0 +1,107 @@
+INFO:fitdadi_infer_DFE.py:Beginning execution of fitdadi_infer_DFE.py in directory /u/project/ngarud/jonmah/lohmueller_lab/Scripts
+
+INFO:fitdadi_infer_DFE.py:Progress is being logged to ../Data/20201208_eduardo_sfs/AW_n14_rel/log.log
+
+INFO:fitdadi_infer_DFE.py:Parsed the following arguments:
+	breed = AW
+	outprefix = ../Data/20201208_eduardo_sfs/AW_n14_rel/
+	nonsyn_input_sfs = ../Data/20201208_eduardo_sfs/AW.n14.NS.rel.sfs
+	syn_input_sfs = ../Data/20201208_eduardo_sfs/AW.n14.S.rel.sfs
+
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.75934153 0.06540538].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.75934153 0.06540538].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.16016334 0.04524459].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -72.3990063268.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 7351.61795449.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.25336237 0.11108922].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.25336237 0.11108922].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.11799102 0.0283705 ].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -66.6852229914.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 7210.68024863.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.88250198 0.13995063].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.88250198 0.13995063].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.16967763 0.04859176].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -74.9522566099.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 7334.31590074.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.5825892 0.0648156].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.5825892 0.0648156].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.14488979 0.03717358].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -69.6002962588.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 7225.11565967.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.35936109 0.05184904].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.35936109 0.05184904].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.13277147 0.03298306].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -67.8706618671.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 7213.24422008.
+INFO:fitdadi_infer_DFE.py:Finished demographic inference.
+INFO:fitdadi_infer_DFE.py:Beginning DFE inference.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [1.30006623e-03 1.79482299e+05].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-178.70956429963508 array([1.16034731e+03, 1.47015684e-03])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [1.08266042e-03 1.31268081e+05].
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:py.warnings:/u/project/ngarud/jonmah/lohmueller_lab/Scripts/Selection.py:301: UserWarning: Warning: converting a masked element to nan.
+  os.linesep))
+
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:py.warnings:/u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/scipy/optimize/optimize.py:670: UserWarning: Warning: converting a masked element to nan.
+  grad[k] = (f(*((xk + d,) + args)) - f0) / d[k]
+
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:py.warnings:/u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/scipy/optimize/linesearch.py:171: UserWarning: Warning: converting a masked element to nan.
+  amin, amax, isave, dsave)
+
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:py.warnings:/u/home/j/jonmah/.conda/envs/jonmah_env/lib/python2.7/site-packages/numpy/core/numeric.py:538: UserWarning: Warning: converting a masked element to nan.
+  return array(a, dtype, copy=False, order=order)
+
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+WARNING:Inference:Model is 0 where data is neither masked nor 0.
+WARNING:Inference:Number of affected entries is 14. Sum of data in those entries is 23597.7:
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-761.7570416856006 array([4.90755826e-02, 1.88187491e+05])].
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [1.01000000e-03 1.75185999e+05].
+INFO:fitdadi_infer_DFE.py:Finished optomization, results are [-178.72132400712417 array([8.89123784e+02, 1.91894390e-03])].
+INFO:fitdadi_infer_DFE.py:Finished DFE inference.
+INFO:fitdadi_infer_DFE.py:Integrating expected site-frequency spectrum.
+INFO:fitdadi_infer_DFE.py:Outputing results.
+INFO:fitdadi_infer_DFE.py:Pipeline executed succesfully.
