@@ -22,12 +22,12 @@ setwd("C:/Users/jonat/Desktop/UCLA_BIG_SURP/lohmueller_lab")
 #
 multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
   library(grid)
-  
+
   # Make a list from the ... arguments and plotlist
   plots <- c(list(...), plotlist)
-  
+
   numPlots = length(plots)
-  
+
   # If layout is NULL, then use 'cols' to determine layout
   if (is.null(layout)) {
     # Make the panel
@@ -36,20 +36,20 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
     layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
                      ncol = cols, nrow = ceiling(numPlots/cols))
   }
-  
+
   if (numPlots==1) {
     print(plots[[1]])
-    
+
   } else {
     # Set up the page
     grid.newpage()
     pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
-    
+
     # Make each plot, in the correct location
     for (i in 1:numPlots) {
       # Get the i,j matrix positions of the regions that contain this subplot
       matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
-      
+
       print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
                                       layout.pos.col = matchidx$col))
     }
@@ -59,13 +59,13 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 sfs_to_array <- function(path_to_sfs_file) {
   # Argument `path_to_sfs_file` must be a string containing the path to an SFS in `dadi` format.
   given_sfs = as.numeric(unlist(strsplit(readLines(path_to_sfs_file)[2], ' ')))
-  
+
   # It is assumed that the given sfs is folded, and describes 16 individuals.
   given_sfs = given_sfs[2:9]
-  
+
   # Convert to proportional SFS.
   given_sfs = given_sfs / sum(given_sfs)
-  
+
   return (given_sfs)
 }
 
@@ -75,7 +75,7 @@ model_sfs_to_array <- function(path_to_sfs_file) {
   given_sfs = unlist(strsplit(sfs_string, split=''))
   given_sfs = paste(unlist(given_sfs[5:(length(given_sfs)-5)]), sep='', collapse='')
   given_sfs = as.numeric(unlist(strsplit(given_sfs, split = '[[:space:]]')))
-  
+
   for (index in 1:7) {
     given_sfs[index] = given_sfs[index] + given_sfs[(length(given_sfs) - index + 1)]
   }
@@ -91,16 +91,16 @@ plot_nonsyn_sfs <- function(empirical_obs_sfs_file, simulated_obs_sfs_file, empi
   simulated_obs_sfs = sfs_to_array(simulated_obs_sfs_file)
   empirical_model_sfs = model_sfs_to_array(empirical_model_sfs_file)
   simulated_model_sfs = model_sfs_to_array(simulated_model_sfs_file)
-  
+
   # It is assumed that the given sfs is folded, and describes 16 individuals.
   x_axis = 1:8
-  
+
   df = data.frame(empirical_obs = empirical_obs_sfs,
                   simulated_obs = simulated_obs_sfs,
                   empirical_model = empirical_model_sfs,
                   simulated_model = simulated_model_sfs,
                   x_axis = x_axis)
-  
+
   p_df <- ggplot(data=df, aes(x=x_axis, y=empirical_obs_sfs, color='empirical_obs')) +
     geom_point() +
     geom_line() +
@@ -126,17 +126,17 @@ plot_syn_sfs <- function(empirical_obs_sfs_file, simulated_obs_sfs_file) {
   # Argument `simulated_obs_sfs` must be a string containing the path to an SFS in `dadi` format.
   empirical_obs_sfs = sfs_to_array(empirical_obs_sfs_file)
   simulated_obs_sfs = sfs_to_array(simulated_obs_sfs_file)
-  
+
   # It is assumed that the given sfs is folded, and describes 16 individuals.
   x_axis = 1:8
-  
+
   df = data.frame(empirical_obs = empirical_obs_sfs,
                   simulated_obs = simulated_obs_sfs,
                   x_axis = x_axis)
-  
+
   title = 'Replicate SEED'
   title = sub('SEED', unlist(strsplit(simulated_obs_sfs_file, split=''))[33], title, fixed=TRUE)
-  
+
   p_df <- ggplot(data=df, aes(x=x_axis, y=empirical_obs_sfs, color='empirical_obs')) +
     geom_point() +
     geom_line() +
@@ -184,7 +184,7 @@ seed_1_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, seed_1_obs_ns, input_model_n
 # seed_5_model_ns = 'Data/AW_array_length_20154/seed_5_fitdadi_output/inferred_DFE.txt'
 # seed_5_plot_ns <- plot_nonsyn_sfs(input_obs_nonsyn, seed_5_obs_ns, input_model_nonsyn, seed_5_model_ns)
 
-seed_1_gamma_ns = 
+seed_1_gamma_ns =
 
 # multiplot(seed_1_plot_ns, seed_3_plot_ns, seed_5_plot_ns, seed_2_plot_ns, seed_4_plot_ns, cols=2)
 
