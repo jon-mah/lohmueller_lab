@@ -505,6 +505,10 @@ class DemographicAndDFEInference():
         # Mixed-uniform distributed DFE inference
         mixunif_vec = numpy.frompyfunc(self.mixunif, 5, 1)
 
+        def consfunc(x, *args):
+            """Constraint function."""
+            return 1-sum(x)
+
         initial_guess = [0.20, 0.20, 0.20, 0.20, 0.20]
         lower_bound = [0, 0, 0, 0, 0]
         upper_bound = [1, 1, 1, 1, 1]
