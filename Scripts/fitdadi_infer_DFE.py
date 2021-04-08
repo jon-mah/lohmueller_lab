@@ -317,22 +317,6 @@ class DemographicAndDFEInference():
             h = 0
         return h
 
-    def pointmass(self, mean, p1):
-        """Define a pointmass distribution.
-
-        self: reference to this instance of a neutral-gamma distribution.
-        mean: float which describes the mean value of this distribution
-        p1: Proportion of distribution in bin.
-        """
-        mean = -mean
-        b0 = 0.
-        b1 = 1.
-        if ((mean >= b0) and (mean < b1)):
-            h = p1/(b1-b0)
-        else:
-            h = 0
-        return numpy.aray([h])
-
     def main(self):
         """Execute main function."""
         # Parse command line arguments
@@ -518,38 +502,6 @@ class DemographicAndDFEInference():
             gamma_max_likelihoods.append(popt[0])
             gamma_guesses[popt[0]] = popt
 
-        # Pointmass distributed DFE inference
-        pointmass_vec = numpy.frompyfunc(self.pointmass, 2, 1)
-
-        def consfunc(x, *args):
-            """Constrain function."""
-            return 1-sum(x)
-
-        initial_guess = [0.1, 1]
-        lower_bound = [0, 0]
-        upper_bound = [4, 1]
-        pointmass_max_likelihoods = []
-        pointmass_guesses = dict()
-        for i in range(5):
-            p0_pointmass = initial_guess
-            p0_pointmass = dadi.Misc.perturb_params(p0_pointmass,
-                                                    lower_bound=lower_bound,
-                                                    upper_bound=upper_bound)
-            logger.info('Beginning optimization with guess, {0}.'.format(
-                p0_pointmass))
-            popt = Selection.optimize_cons(p0_pointmass, nonsyn_data,
-                                          spectra.integrate,
-                                          pointmass_vec,
-                                          theta_nonsyn,
-                                          lower_bound=lower_bound,
-                                          upper_bound=upper_bound,
-                                          verbose=len(p0_pointmass),
-                                          maxiter=25,
-                                          constraint=consfunc)
-            logger.info('Finished optimization, results are {0}.'.format(popt))
-            pointmass_max_likelihoods.append(popt[0])
-            pointmass_guesses[popt[0]] = popt
-
         # Mixed-uniform distributed DFE inference
         mixunif_vec = numpy.frompyfunc(self.mixunif, 5, 1)
 
@@ -610,7 +562,6 @@ class DemographicAndDFEInference():
         gamma_max_likelihoods.sort(reverse=True)
         neugamma_max_likelihoods.sort(reverse=True)
         mixunif_max_likelihoods.sort(reverse=True)
-        pointmass_max_likelihoods.sort(reverse=True)
 
         logger.info('Integrating expected site-frequency spectrum.')
 
@@ -672,26 +623,6 @@ class DemographicAndDFEInference():
                             numpy.array([1, 1, 1, 1, 1]))))
                 f.write('The expected SFS is: {0}.\n\n'.format(
                     expected_sfs_mixunif))
-            f.write('Assuming a point-mass-distributed DFE...\n')
-            f.write('Outputting best 5 MLE estimates.\n')
-            for i in range(5):
-                best_popt_mixunif = pointmass_guesses[
-                    pointmass_max_likelihoods[i]]
-                expected_sfs_pointmass = spectra.integrate(
-                    best_popt_pointmass[1], pointmass_vec, theta_nonsyn)
-                f.write(
-                    'The population-scaled best-fit parameters: {0}.\n'.format(
-                        best_popt_pointmass))
-                f.write(
-                    'The non-scaled best-fit parameters: '
-                    '[{0}, array({1})].\n'.format(
-                        best_popt_pointmass[0],
-                        numpy.divide(
-                            best_popt_pointmass[1],
-                            numpy.array([1, 1]))))
-                f.write('The expected SFS is: {0}.\n\n'.format(
-                    expected_sfs_pointmass))
-
 
         logger.info('Pipeline executed succesfully.')
 
