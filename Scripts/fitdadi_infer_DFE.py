@@ -624,7 +624,7 @@ class DemographicAndDFEInference():
                         best_popt_mixunif[0],
                         numpy.divide(
                             best_popt_mixunif[1],
-                            numpy.array([1, 1, 1, 1, 1]))))
+                            numpy.array([1, 1, 1, 1]))))
                 f.write('The expected SFS is: {0}.\n\n'.format(
                     expected_sfs_mixunif))
 
