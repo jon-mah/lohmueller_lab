@@ -317,12 +317,12 @@ class DemographicAndDFEInference():
             h = 0
         return h
 
-    def pointmass(self, mean, proportion):
+    def pointmass(self, mean, p1):
         """Define a pointmass distribution.
 
         self: reference to this instance of a neutral-gamma distribution.
         mean: float which describes the mean value of this distribution
-        proportion: Proportion of distribution in bin.
+        p1: Proportion of distribution in bin.
         """
         mean = -mean
         b0 = 0.
