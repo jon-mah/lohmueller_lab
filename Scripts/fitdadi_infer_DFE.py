@@ -331,7 +331,7 @@ class DemographicAndDFEInference():
             h = p1/(b1-b0)
         else:
             h = 0
-        return mean
+        return h
 
     def main(self):
         """Execute main function."""
@@ -521,6 +521,10 @@ class DemographicAndDFEInference():
         # Pointmass distributed DFE inference
         pointmass_vec = numpy.frompyfunc(self.pointmass, 2, 1)
 
+        def consfunc(x, *args):
+            """Constrain function."""
+            return 1-sum(x)
+
         initial_guess = [0.1, 1]
         lower_bound = [0, 0]
         upper_bound = [4, 1]
@@ -540,17 +544,14 @@ class DemographicAndDFEInference():
                                           lower_bound=lower_bound,
                                           upper_bound=upper_bound,
                                           verbose=len(p0_pointmass),
-                                          maxiter=25)
+                                          maxiter=25,
+                                          constraint=consfunc)
             logger.info('Finished optimization, results are {0}.'.format(popt))
             pointmass_max_likelihoods.append(popt[0])
             pointmass_guesses[popt[0]] = popt
 
         # Mixed-uniform distributed DFE inference
         mixunif_vec = numpy.frompyfunc(self.mixunif, 5, 1)
-
-        def consfunc(x, *args):
-            """Constrain function."""
-            return 1-sum(x)
 
         initial_guess = [0.20, 0.20, 0.20, 0.20, 0.20]
         lower_bound = [0, 0, 0, 0, 0]
