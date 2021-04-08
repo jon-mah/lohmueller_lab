@@ -408,7 +408,7 @@ class DemographicAndDFEInference():
                 popt = dadi.Inference.optimize_log_lbfgsb(
                     p0=p0, data=syn_data, model_func=func_ex, pts=pts_l,
                     lower_bound=lower_bound, upper_bound=upper_bound,
-                    verbose=len(p0), maxiter=25)
+                    verbose=len(p0), maxiter=5)
                 logger.info(
                     'Finished optimization with guess, ' + str(p0) + '.')
                 logger.info('Best fit parameters: {0}.'.format(popt))
@@ -496,7 +496,7 @@ class DemographicAndDFEInference():
                                           lower_bound=lower_bound,
                                           upper_bound=upper_bound,
                                           verbose=len(p0),
-                                          maxiter=25)
+                                          maxiter=5)
             logger.info('Finished optomization, results are {0}.'.format(popt))
 
             gamma_max_likelihoods.append(popt[0])
@@ -518,13 +518,13 @@ class DemographicAndDFEInference():
             logger.info('Beginning optimization with guess, {0}.'.format(
                 p0_neugamma))
             popt = Selection.optimize_log(p0_neugamma, nonsyn_data,
-                                                     spectra.integrate,
-                                                     neugamma_vec,
-                                                     theta_nonsyn,
-                                                     lower_bound=lower_bound,
-                                                     upper_bound=upper_bound,
-                                                     verbose=len(p0_neugamma),
-                                                     maxiter=25)
+                                          spectra.integrate,
+                                          neugamma_vec,
+                                          theta_nonsyn,
+                                          lower_bound=lower_bound,
+                                          upper_bound=upper_bound,
+                                          verbose=len(p0_neugamma),
+                                          maxiter=5)
             logger.info('Finished optimization, results are {0}.'.format(popt))
             neugamma_max_likelihoods.append(popt[0])
             neugamma_guesses[popt[0]] = popt
@@ -534,7 +534,7 @@ class DemographicAndDFEInference():
 
         def consfunc(x, *args):
             """Constrain function."""
-            return 1 - sum(x)
+            return 1-sum(x)
 
         initial_guess = [0.20, 0.20, 0.20, 0.20, 0.20]
         lower_bound = [0, 0, 0, 0, 0]
