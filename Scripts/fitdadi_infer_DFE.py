@@ -331,7 +331,7 @@ class DemographicAndDFEInference():
             h = p1/(b1-b0)
         else:
             h = 0
-        return h
+        return numpy.aray([h])
 
     def main(self):
         """Execute main function."""
