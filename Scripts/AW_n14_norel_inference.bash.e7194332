@@ -1,0 +1,46 @@
+INFO:fitdadi_infer_DFE.py:Beginning execution of fitdadi_infer_DFE.py in directory /u/project/ngarud/jonmah/lohmueller_lab/Scripts
+
+INFO:fitdadi_infer_DFE.py:Progress is being logged to ../Data/20201208_eduardo_sfs/AW_n14_norel/log.log
+
+INFO:fitdadi_infer_DFE.py:Parsed the following arguments:
+	breed = AW
+	outprefix = ../Data/20201208_eduardo_sfs/AW_n14_norel/
+	nonsyn_input_sfs = ../Data/20201208_eduardo_sfs/AW.n14.NS.norel.sfs
+	syn_input_sfs = ../Data/20201208_eduardo_sfs/AW.n14.S.norel.sfs
+
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.36353088 0.10550513].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.36353088 0.10550513].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.19936286 0.06040704].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -91.4153761192.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 7282.2853425.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.56096358 0.10804652].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.56096358 0.10804652].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.16551198 0.04459165].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -78.2177810962.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 7208.27743711.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.54464773 0.06760783].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.54464773 0.06760783].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.11126821 0.02554682].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -69.036461513.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 7124.39650262.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.28210339 0.06257243].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.28210339 0.06257243].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.07959594 0.01530667].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -70.0400791401.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 6906.89698872.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [0.29162577 0.08631144].
+INFO:fitdadi_infer_DFE.py:Finished optimization with guess, [0.29162577 0.08631144].
+INFO:fitdadi_infer_DFE.py:Best fit parameters: [0.20409071 0.11161664].
+INFO:fitdadi_infer_DFE.py:Maximum log composite likelihood: -116.257967174.
+INFO:fitdadi_infer_DFE.py:Optimal value of theta: 8755.09488261.
+INFO:fitdadi_infer_DFE.py:Finished demographic inference.
+INFO:fitdadi_infer_DFE.py:Beginning DFE inference.
+INFO:fitdadi_infer_DFE.py:Beginning optimization with guess, [1.58382567e-03 2.43322361e+05].
+Traceback (most recent call last):
+  File "fitdadi_infer_DFE.py", line 593, in <module>
+    DemographicAndDFEInference().main()
+  File "fitdadi_infer_DFE.py", line 464, in main
+    maxiter=50))
+  File "/u/home/j/jonmah/project-ngarud/miniconda3/envs/dadi_env/lib/python2.7/site-packages/numpy/lib/function_base.py", line 1505, in copy
+    return array(a, order=order, copy=True)
+ValueError: setting an array element with a sequence.

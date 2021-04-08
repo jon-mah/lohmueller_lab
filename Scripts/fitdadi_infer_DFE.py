@@ -454,14 +454,14 @@ class DemographicAndDFEInference():
             p0 = dadi.Misc.perturb_params(p0, lower_bound=lower_bound,
                                           upper_bound=upper_bound)
             logger.info('Beginning optimization with guess, {0}.'.format(p0))
-            popt = numpy.copy(Selection.optimize_log(p0, nonsyn_data,
-                                                     spectra.integrate,
-                                                     self.gamma_dist,
-                                                     theta_nonsyn,
-                                                     lower_bound=lower_bound,
-                                                     upper_bound=upper_bound,
-                                                     verbose=len(p0),
-                                                     maxiter=50))
+            popt = Selection.optimize_log(p0, nonsyn_data,
+                                          spectra.integrate,
+                                          self.gamma_dist,
+                                          theta_nonsyn,
+                                          lower_bound=lower_bound,
+                                          upper_bound=upper_bound,
+                                          verbose=len(p0),
+                                          maxiter=50)
             logger.info('Finished optomization, results are {0}.'.format(popt))
 
             gamma_max_likelihoods.append(popt[0])
