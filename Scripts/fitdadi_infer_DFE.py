@@ -289,7 +289,7 @@ class DemographicAndDFEInference():
         else:
             return self.gamma_dist(-mgamma, alpha, beta) * (1 - pneu)
 
-    def mixunif(self, mean, p1, p2, p3, p4):
+    def mixunif(self, mgamma, p1, p2, p3, p4, p5):
         """Define a mixed-uniform distribution.
 
         self: reference to this instance of a neutral-gamma distribution.
@@ -299,20 +299,23 @@ class DemographicAndDFEInference():
         p3: Proportion of distribution in third bin.
         p4: Proportion of distribution in fourth bin.
         """
-        mean = -mean  # Distribution describes negative s values
-        b0 = 0.
-        b1 = 1.01
-        b2 = 10.1
-        b3 = 101
-        b4 = 1011
-        if ((mgamma >= b0) and (mgamma < b1)):
+        mgamma = -mgamma
+        b0 = 0.;
+        b1 = 1.;
+        b2 = 10.;
+        b3 = 100.;
+        b4 = 1000.;
+        b5=100000
+        if ((mgamma >=b0) and (mgamma < b1)):
             h = p1/(b1-b0)
-        elif ((mgamma >= b1) and (mgamma <= b2)):
-            h = p2 / (b2 - b1)
-        elif ((mgamma >= b2) and (mgamma <= b3)):
-            h = p3 / (b3 - b2)
-        elif ((mgamma >= b3) and (mgamma <= b4)):
-            h = p4 / (b4 - b3)
+        elif ((mgamma >=b1) and (mgamma <= b2)):
+            h = p2/(b2-b1)
+        elif ((mgamma >=b2) and (mgamma <= b3)):
+            h = p3/(b3-b2)
+        elif ((mgamma >=b3) and (mgamma <= b4)):
+            h = p4/(b4-b3)
+        elif ((mgamma >=b4) and (mgamma <= b5)):
+            h = p5/(b5-b4)
         else:
             h = 0
         return h
@@ -502,6 +505,38 @@ class DemographicAndDFEInference():
             gamma_max_likelihoods.append(popt[0])
             gamma_guesses[popt[0]] = popt
 
+        # Mixed-uniform distributed DFE inference
+        mixunif_vec = numpy.frompyfunc(self.mixunif, 6, 1)
+
+        def consfunc(x, *args):
+            """Constrain function."""
+            return 1-sum(x)
+
+        initial_guess = [0.20, 0.20, 0.20, 0.20, 0.20]
+        lower_bound = [0, 0, 0, 0, 0]
+        upper_bound = [1, 1, 1, 1, 1]
+        mixunif_max_likelihoods = []
+        mixunif_guesses = dict()
+        for i in range(5):
+            p0_mixunif = initial_guess
+            p0_mixunif = dadi.Misc.perturb_params(p0_mixunif,
+                                                  lower_bound=lower_bound,
+                                                  upper_bound=upper_bound)
+            logger.info('Beginning optimization with guess, {0}.'.format(
+                p0_mixunif))
+            popt = numpy.copy(Selection.optimize_cons(p0_mixunif, nonsyn_data,
+                                                      spectra.integrate,
+                                                      mixunif_vec,
+                                                      theta_nonsyn,
+                                                      lower_bound=lower_bound,
+                                                      upper_bound=upper_bound,
+                                                      verbose=len(p0_mixunif),
+                                                      maxiter=25,
+                                                      constraint=consfunc))
+            logger.info('Finished optimization, results are {0}.'.format(popt))
+            mixunif_max_likelihoods.append(popt[0])
+            mixunif_guesses[popt[0]] = popt
+
         # Neu-gamma distributed DFE inference
         neugamma_vec = numpy.frompyfunc(self.neugamma, 4, 1)
 
@@ -528,38 +563,6 @@ class DemographicAndDFEInference():
             logger.info('Finished optimization, results are {0}.'.format(popt))
             neugamma_max_likelihoods.append(popt[0])
             neugamma_guesses[popt[0]] = popt
-
-        # Mixed-uniform distributed DFE inference
-        mixunif_vec = numpy.frompyfunc(self.mixunif, 5, 1)
-
-        def consfunc(x, *args):
-            """Constrain function."""
-            return 1-sum(x)
-
-        initial_guess = [0.20, 0.20, 0.20, 0.20, 0.20]
-        lower_bound = [0, 0, 0, 0, 0]
-        upper_bound = [1, 1, 1, 1, 1]
-        mixunif_max_likelihoods = []
-        mixunif_guesses = dict()
-        for i in range(5):
-            p0_mixunif = initial_guess
-            p0_mixunif = dadi.Misc.perturb_params(p0_mixunif,
-                                                  lower_bound=lower_bound,
-                                                  upper_bound=upper_bound)
-            logger.info('Beginning optimization with guess, {0}.'.format(
-                p0_mixunif))
-            popt = Selection.optimize_cons(p0_mixunif, nonsyn_data,
-                                           spectra.integrate,
-                                           mixunif_vec,
-                                           theta_nonsyn,
-                                           lower_bound=lower_bound,
-                                           upper_bound=upper_bound,
-                                           verbose=len(p0_mixunif),
-                                           maxiter=25,
-                                           constraint=consfunc)
-            logger.info('Finished optimization, results are {0}.'.format(popt))
-            mixunif_max_likelihoods.append(popt[0])
-            mixunif_guesses[popt[0]] = popt
 
         logger.info('Finished DFE inference.')
 
