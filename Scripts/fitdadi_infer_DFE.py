@@ -49,6 +49,7 @@ class DemographicAndDFEInference():
         "TM" indicates tibetan mastiff data.
         "MD" indicates mixed dog data.
         "MW" indicates mixed wolf data.
+        "BC" indicates border collie data.
         """
         if breed == "AW":
             return breed
@@ -61,6 +62,8 @@ class DemographicAndDFEInference():
         elif breed == "MD":
             return breed
         elif breed == "MW":
+            return breed
+        elif breed == "BC":
             return breed
         else:
             raise ValueError('%s must specify a valid breed.' % breed)
@@ -286,6 +289,34 @@ class DemographicAndDFEInference():
         else:
             return self.gamma_dist(-mgamma, alpha, beta) * (1 - pneu)
 
+    def mixunif(self, mean, p1, p2, p3, p4):
+        """Define a mixed-uniform distribution.
+
+        self: reference to this instance of a neutral-gamma distribution.
+        mean: float which describes the mean value of this distribution
+        p1: Proportion of distribution in first bin.
+        p2: Proportion of distribution in second bin.
+        p3: Proportion of distribution in third bin.
+        p4: Proportion of distribution in fourth bin.
+        """
+        mean = -mean  # Distribution describes negative s values
+        b0 = 0.
+        b1 = 1.01
+        b2 = 10.1
+        b3 = 101
+        b4 = 1011
+        if ((mgamma >= b0) and (mgamma < b1)):
+            h = p1/(b1-b0)
+        elif ((mgamma >= b1) and (mgamma <= b2)):
+            h = p2 / (b2 - b1)
+        elif ((mgamma >= b2) and (mgamma <= b3)):
+            h = p3 / (b3 - b2)
+        elif ((mgamma >= b3) and (mgamma <= b4)):
+            h = p4 / (b4 - b3)
+        else:
+            h = 0
+        return h
+
     def main(self):
         """Execute main function."""
         # Parse command line arguments
@@ -314,11 +345,13 @@ class DemographicAndDFEInference():
         # Remove output files if they already exist
         underscore = '' if args['outprefix'][-1] == '/' else '_'
         inferred_demography = \
-            '{0}{1}inferred_demography.txt'.format(
-                args['outprefix'], underscore)
+            '{0}{1}{2}_inferred_demography.txt'.format(
+                args['outprefix'], underscore, breed)
         inferred_DFE = \
-            '{0}{1}inferred_DFE.txt'.format(args['outprefix'], underscore)
-        logfile = '{0}{1}log.log'.format(args['outprefix'], underscore)
+            '{0}{1}{2}_inferred_DFE.txt'.format(
+                args['outprefix'], underscore, breed)
+        logfile = '{0}{1}{2}_log.log'.format(
+            args['outprefix'], underscore, breed)
         to_remove = [logfile, inferred_demography, inferred_DFE]
         for f in to_remove:
             if os.path.isfile(f):
@@ -425,7 +458,8 @@ class DemographicAndDFEInference():
         demog_params = best_params
 
         Lsyn_dict = {'AW': 5320115, 'LB': 5043978, 'PG': 5270603,
-                     'TM': 2693499, 'MD': 3820358, 'MW': 4015625}
+                     'TM': 2693499, 'BC': 5205136, 'MW': 4015625,
+                     'MD': 3820358}
 
         Lsyn = Lsyn_dict[breed]  # Length of synonymous sites.
         u = 5.38E-09
@@ -447,9 +481,10 @@ class DemographicAndDFEInference():
         lower_bound = [1e-3, 0]
         upper_bound = [100000, upper_beta]
 
+        # Gamma-distributed DFE inference
         gamma_max_likelihoods = []
         gamma_guesses = dict()
-        for i in range(3):
+        for i in range(5):
             p0 = initial_guess
             p0 = dadi.Misc.perturb_params(p0, lower_bound=lower_bound,
                                           upper_bound=upper_bound)
@@ -461,68 +496,76 @@ class DemographicAndDFEInference():
                                           lower_bound=lower_bound,
                                           upper_bound=upper_bound,
                                           verbose=len(p0),
-                                          maxiter=50)
+                                          maxiter=25)
             logger.info('Finished optomization, results are {0}.'.format(popt))
 
             gamma_max_likelihoods.append(popt[0])
             gamma_guesses[popt[0]] = popt
 
-        # neugamma_vec = numpy.frompyfunc(self.neugamma, 4, 1)
+        # Neu-gamma distributed DFE inference
+        neugamma_vec = numpy.frompyfunc(self.neugamma, 4, 1)
 
-        # initial_guess = [0.999999999, 0.09, BETAinit]
-        # lower_bound = [0, 1e-3, 1e-2]
-        # upper_bound = [1, 1, upper_beta]
-        # neugamma_max_likelihoods = []
-        # neugamma_guesses = dict()
-        # for i in range(5):
-        #     p0_neugamma = initial_guess
-        #     p0_neugamma = dadi.Misc.perturb_params(p0_neugamma,
-        #                                            lower_bound=lower_bound,
-        #                                            upper_bound=upper_bound)
-        #     logger.info('Beginning optimization with guess, {0}.'.format(
-        #         p0_neugamma))
-        #     popt = numpy.copy(Selection.optimize_log(p0_neugamma, nonsyn_data,
-        #                                              spectra.integrate,
-        #                                              neugamma_vec,
-        #                                              theta_nonsyn,
-        #                                              lower_bound=lower_bound,
-        #                                              upper_bound=upper_bound,
-        #                                              verbose=len(p0_neugamma),
-        #                                              maxiter=50))
-        #     logger.info('Finished optimization, results are {0}.'.format(popt))
-        #     neugamma_max_likelihoods.append(popt[0])
-        #     neugamma_guesses[popt[0]] = popt
+        initial_guess = [0.999999999, 0.09, BETAinit]
+        lower_bound = [0, 1e-3, 1e-2]
+        upper_bound = [1, 1, upper_beta]
+        neugamma_max_likelihoods = []
+        neugamma_guesses = dict()
+        for i in range(5):
+            p0_neugamma = initial_guess
+            p0_neugamma = dadi.Misc.perturb_params(p0_neugamma,
+                                                   lower_bound=lower_bound,
+                                                   upper_bound=upper_bound)
+            logger.info('Beginning optimization with guess, {0}.'.format(
+                p0_neugamma))
+            popt = Selection.optimize_log(p0_neugamma, nonsyn_data,
+                                                     spectra.integrate,
+                                                     neugamma_vec,
+                                                     theta_nonsyn,
+                                                     lower_bound=lower_bound,
+                                                     upper_bound=upper_bound,
+                                                     verbose=len(p0_neugamma),
+                                                     maxiter=25)
+            logger.info('Finished optimization, results are {0}.'.format(popt))
+            neugamma_max_likelihoods.append(popt[0])
+            neugamma_guesses[popt[0]] = popt
 
-        # neutral_vec = numpy.frompyfunc(self.neugamma, 4, 1)
-        # initial_guess = [1, 0.09, BETAinit]
-        # lower_bound = [1, 1e-3, 1e-2]
-        # upper_bound = [1, 1, upper_beta]
-        # neutral_max_likelihoods = []
-        # neutral_guesses = dict()
-        # for i in range(5):
-        #     p0_neutral = initial_guess
-        #     p0_neutral = dadi.Misc.perturb_params(p0_neutral,
-        #                                           lower_bound=lower_bound,
-        #                                           upper_bound=upper_bound)
-        #     logger.info('Beginning optimization with guess, {0}.'.format(
-        #         p0_neutral))
-        #     popt = numpy.copy(Selection.optimize_log(p0_neutral, nonsyn_data,
-        #                                              spectra.integrate,
-        #                                              neutral_vec,
-        #                                              theta_nonsyn,
-        #                                              lower_bound=lower_bound,
-        #                                              upper_bound=upper_bound,
-        #                                              verbose=len(p0_neutral),
-        #                                              maxiter=1))
-        #     logger.info('Finished optimization, results are {0}.'.format(popt))
-        #     neutral_max_likelihoods.append(popt[0])
-        #     neutral_guesses[popt[0]] = popt
+        # Mixed-uniform distributed DFE inference
+        mixunif_vec = numpy.frompyfunc(self.mixunif, 5, 1)
+
+        def consfunc(x, *args):
+            """Constrain function."""
+            return 1 - sum(x)
+
+        initial_guess = [0.20, 0.20, 0.20, 0.20, 0.20]
+        lower_bound = [0, 0, 0, 0, 0]
+        upper_bound = [1, 1, 1, 1, 1]
+        mixunif_max_likelihoods = []
+        mixunif_guesses = dict()
+        for i in range(5):
+            p0_mixunif = initial_guess
+            p0_mixunif = dadi.Misc.perturb_params(p0_mixunif,
+                                                  lower_bound=lower_bound,
+                                                  upper_bound=upper_bound)
+            logger.info('Beginning optimization with guess, {0}.'.format(
+                p0_mixunif))
+            popt = Selection.optimize_cons(p0_mixunif, nonsyn_data,
+                                           spectra.integrate,
+                                           mixunif_vec,
+                                           theta_nonsyn,
+                                           lower_bound=lower_bound,
+                                           upper_bound=upper_bound,
+                                           verbose=len(p0_mixunif),
+                                           maxiter=25,
+                                           constraint=consfunc)
+            logger.info('Finished optimization, results are {0}.'.format(popt))
+            mixunif_max_likelihoods.append(popt[0])
+            mixunif_guesses[popt[0]] = popt
 
         logger.info('Finished DFE inference.')
 
         gamma_max_likelihoods.sort(reverse=True)
-        # neugamma_max_likelihoods.sort(reverse=True)
-        # neutral_max_likelihoods.sort()
+        neugamma_max_likelihoods.sort(reverse=True)
+        mixunif_max_likelihoods.sort(reverse=True)
 
         logger.info('Integrating expected site-frequency spectrum.')
 
@@ -531,7 +574,7 @@ class DemographicAndDFEInference():
         with open(inferred_DFE, 'w') as f:
             f.write('Assuming a gamma-distributed DFE...\n')
             f.write('Outputting best 25 MLE estimates.\n')
-            for i in range(3):
+            for i in range(5):
                 best_popt = gamma_guesses[gamma_max_likelihoods[i]]
                 expected_sfs = spectra.integrate(
                     best_popt[1], self.gamma_dist, theta_nonsyn)
@@ -545,46 +588,46 @@ class DemographicAndDFEInference():
                         best_popt[0],
                         numpy.divide(best_popt[1], numpy.array([1, 2 * Na]))))
                 f.write('The expected SFS is: {0}.\n\n'.format(expected_sfs))
-            # f.write('Assuming a neutral-gamma-distributed DFE...\n')
-            # f.write('Outputting best 25 MLE estimates.\n')
-            # for i in range(5):
-            #     best_popt_neugamma = neugamma_guesses[
-            #         neugamma_max_likelihoods[i]]
-            #     expected_sfs_neugamma = spectra.integrate(
-            #         best_popt_neugamma[1], neugamma_vec, theta_nonsyn)
-            #     f.write(
-            #         'The population-scaled best-fit parameters: {0}.\n'.format(
-            #             best_popt_neugamma))
-            #     # Divide output scale parameter by 2 * N_a
-            #     f.write(
-            #         'The non-scaled best-fit parameters: '
-            #         '[{0}, array({1})].\n'.format(
-            #             best_popt_neugamma[0],
-            #             numpy.divide(
-            #                 best_popt_neugamma[1],
-            #                 numpy.array([1, 1, 2 * Na]))))
-            #      f.write('The expected SFS is: {0}.\n\n'.format(
-            #         expected_sfs_neugamma))
-            # f.write('Assuming a neutral-distributed DFE...\n')
-            # f.write('Outputting best 5 MLE estimates.\n')
-            # for i in range(5):
-            #     best_popt_neutral = neutral_guesses[
-            #         neutral_max_likelihoods[i]]
-            #     expected_sfs_neutral = spectra.integrate(
-            #         best_popt_neutral[1], neutral_vec, theta_nonsyn)
-            #     f.write(
-            #         'The population-scaled best-fit parameters: {0}.\n'.format(
-            #             best_popt_neutral))
-            #     # Divide output scale parameter by 2 * N_a
-            #     f.write(
-            #         'The non-scaled best-fit parameters: '
-            #         '[{0}, array({1})].\n'.format(
-            #             best_popt_neutral[0],
-            #             numpy.divide(
-            #                 best_popt_neutral[1],
-            #                 numpy.array([1, 1, 2 * Na]))))
-            #     f.write('The expected SFS is: {0}.\n\n'.format(
-            #         expected_sfs_neutral))
+            f.write('Assuming a neutral-gamma-distributed DFE...\n')
+            f.write('Outputting best 25 MLE estimates.\n')
+            for i in range(5):
+                best_popt_neugamma = neugamma_guesses[
+                    neugamma_max_likelihoods[i]]
+                expected_sfs_neugamma = spectra.integrate(
+                    best_popt_neugamma[1], neugamma_vec, theta_nonsyn)
+                f.write(
+                    'The population-scaled best-fit parameters: {0}.\n'.format(
+                        best_popt_neugamma))
+                # Divide output scale parameter by 2 * N_a
+                f.write(
+                    'The non-scaled best-fit parameters: '
+                    '[{0}, array({1})].\n'.format(
+                        best_popt_neugamma[0],
+                        numpy.divide(
+                            best_popt_neugamma[1],
+                            numpy.array([1, 1, 2 * Na]))))
+                f.write('The expected SFS is: {0}.\n\n'.format(
+                    expected_sfs_neugamma))
+            f.write('Assuming a mixed-unif-distributed DFE...\n')
+            f.write('Outputting best 5 MLE estimates.\n')
+            for i in range(5):
+                best_popt_mixunif = mixunif_guesses[
+                    mixunif_max_likelihoods[i]]
+                expected_sfs_mixunif = spectra.integrate(
+                    best_popt_mixunif[1], mixunif_vec, theta_nonsyn)
+                f.write(
+                    'The population-scaled best-fit parameters: {0}.\n'.format(
+                        best_popt_mixunif))
+                f.write(
+                    'The non-scaled best-fit parameters: '
+                    '[{0}, array({1})].\n'.format(
+                        best_popt_mixunif[0],
+                        numpy.divide(
+                            best_popt_mixunif[1],
+                            numpy.array([1, 1, 1, 1, 1]))))
+                f.write('The expected SFS is: {0}.\n\n'.format(
+                    expected_sfs_mixunif))
+
 
         logger.info('Pipeline executed succesfully.')
 
