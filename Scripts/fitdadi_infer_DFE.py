@@ -524,15 +524,15 @@ class DemographicAndDFEInference():
                                                   upper_bound=upper_bound)
             logger.info('Beginning optimization with guess, {0}.'.format(
                 p0_mixunif))
-            popt = numpy.copy(Selection.optimize_cons(p0_mixunif, nonsyn_data,
-                                                      spectra.integrate,
-                                                      mixunif_vec,
-                                                      theta_nonsyn,
-                                                      lower_bound=lower_bound,
-                                                      upper_bound=upper_bound,
-                                                      verbose=len(p0_mixunif),
-                                                      maxiter=25,
-                                                      constraint=consfunc))
+            popt = Selection.optimize_cons(p0_mixunif, nonsyn_data,
+                                           spectra.integrate,
+                                           mixunif_vec,
+                                           theta_nonsyn,
+                                           lower_bound=lower_bound,
+                                           upper_bound=upper_bound,
+                                           verbose=len(p0_mixunif),
+                                           maxiter=25,
+                                           constraint=consfunc)
             logger.info('Finished optimization, results are {0}.'.format(popt))
             mixunif_max_likelihoods.append(popt[0])
             mixunif_guesses[popt[0]] = popt
