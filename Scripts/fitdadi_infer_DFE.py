@@ -509,9 +509,9 @@ class DemographicAndDFEInference():
             """Constraint function."""
             return 1-sum(x)
 
-        initial_guess = [0.20, 0.20, 0.20, 0.20, 0.20]
-        lower_bound = [0, 0, 0, 0, 0]
-        upper_bound = [1, 1, 1, 1, 1]
+        initial_guess = [0.20, 0.20, 0.20, 0.20]
+        lower_bound = [0, 0, 0, 0]
+        upper_bound = [1, 1, 1, 1]
         mixunif_max_likelihoods = []
         mixunif_guesses = dict()
         for i in range(5):
