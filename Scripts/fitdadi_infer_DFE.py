@@ -537,7 +537,7 @@ class DemographicAndDFEInference():
                                                     upper_bound=upper_bound)
             logger.info('Beginning optimization with guess, {0}.'.format(
                 p0_pointmass))
-            popt = Selection.optimize_log(p0_pointmass, nonsyn_data,
+            popt = Selection.optimize_cons(p0_pointmass, nonsyn_data,
                                           spectra.integrate,
                                           pointmass_vec,
                                           theta_nonsyn,
